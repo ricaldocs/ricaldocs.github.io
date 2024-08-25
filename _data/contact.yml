@@ -1,0 +1,24 @@
+#  The contact options.
+
+- type: websiite
+  icon: "fa-solid fa-globe"
+  url: https://risnandapascal.github.io
+
+- type: key
+  icon: fa-solid fa-key
+  url: https://ricaldocs.github.io/about/#hubungi-saya
+  noblank: true
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true
+
+- type: telegram
+  icon: "fa-brands fa-telegram"
+  url: https://t.me/unknown_anbu
+  noblank: true
+
+- type: discord
+  icon: "fa-brands fa-discord"
+  url: https://discord.gg/nAVZkEwjYJ
+  noblank: true
