@@ -4,6 +4,10 @@ description: Kebutuhan untuk melindungi informasi pribadi sering kali dipandang 
 categories: [Cybersecurity, Privacy]
 tags: [cybersecurity, privacy, open source]
 author: rical
+pin: true
+image:
+  path: /assets/img/posts/snowden.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
 Menjaga privasi di internet ibarat merawat kebun yang penuh dengan tanaman berharga. Sementara itu, kita tahu bahwa kebun ini terpapar sinar matahari dan angin bebas, dan sulit untuk menutup seluruhnya. Begitu juga dengan privasi di dunia maya, hampir tidak mungkin untuk sepenuhnya menghilangkan jejak kita. Namun, kita bisa mengurangi risiko agar kebun kita tetap hijau dan aman dari pengunjung yang tidak diinginkan. 
@@ -25,7 +29,7 @@ Sebagai alternatif, pertimbangkan untuk beralih ke aplikasi *open source*, yang 
 
 | Name                          | Alternative     |
 | :--------------------- | :--------------- |
-| Desktop        | [QubesOS](https://www.qubes-os.org/) <br> [TailsOS](https://tails.net/) |
+| Desktop        | [QubesOS](https://www.qubes-os.org/) <br> [TailsOS](https://tails.net/) <br> [Whonix](https://www.whonix.org/) |
 | Android       | [LineageOS](https://lineageos.org/) <br> [GrapheneOS](https://grapheneos.org/) <br> [CalyxOS](https://calyxos.org/) <br> Custom Rom (Vanilla Build) |
 
 ### Daily Driver Recommendation
@@ -43,6 +47,12 @@ Sebagai alternatif, pertimbangkan untuk beralih ke aplikasi *open source*, yang 
 | Search Engine                | [Startpage](https://startpage.com) <br> [DuckDuckgo](https://duckduckgo.com) | Yes     | Yes    |
 | Storage                | [Nextcloud](https://nextcloud.com/) <br> [OnionCal](https://risnandapascal.github.io/onioncal.html) | Yes     | Yes    |
 | VPN                | [Riseup VPN](https://riseup.net/en/vpn) <br> [ProtonVPN](https://protonvpn.com/) | Yes     | Yes    |
+
+### Tools
+- [TOR Project](https://www.torproject.org/)
+- [I2P](https://geti2p.net/en/)
+- [Proxychains](https://github.com/haad/proxychains)
+- [Prabu Incognito](https://ricaldocs.github.io/posts/prabu-incognito/)
 
 ## Build Your Ecosystem
 Jika kamu memiliki keahlian teknis di bidang server dan jaringan, pertimbangkan untuk membangun ekosistem sendiri. kamu bisa merujuk pada dokumentasi [Home Server](https://ricaldocs.github.io/posts/home-server/) dan [Membangun VOIP Server](https://ricaldocs.github.io/posts/membangun-voip-server/), yang dapat menjadi dasar yang berguna untuk memulai.
