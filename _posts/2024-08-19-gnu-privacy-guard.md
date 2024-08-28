@@ -110,7 +110,7 @@ gpg --list-keys
 
 ## Send Message
 Kita bisa mengenkripsi pesan yang disimpan dalam file atau yang ditulis langsung di *command line*.
-- Jika memiliki pesan dalam file teks (misalnya `.txt`), gunakan perintah berikut
+- Jika memiliki pesan dalam file teks (misalnya `.txt`), gunakan perintah berikut:
 ```bash
 gpg --encrypt --recipient <key_id> pesan.txt
 ```

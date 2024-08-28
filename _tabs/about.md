@@ -22,7 +22,7 @@ Saya fokus pada bidang pertahanan dan telah terlibat dalam berbagai inisiatif ya
 - **Co-Founder / Lead Developer** di [OnionCal](https://risnandapascal.github.io/onioncal.html)
 
 ![OnionCal](/assets/img/personal/OnionCal.png){: w="150" h="150" }
-_Logo [Onioncal](https://risnandapascal.github.io/onioncal.html), Zurich, Switzerland_
+_Logo [OnionCal](https://risnandapascal.github.io/onioncal.html), Zurich, Switzerland_
 
 - **Co-Founder / Chief Technology** di [Cobra & Warriors Community](https://risnandapascal.github.io/cobra/index.html)
 
