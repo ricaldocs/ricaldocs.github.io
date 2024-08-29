@@ -21,6 +21,11 @@ Fungsi utama yang bisa dilakukan oleh GnuPG:
 
 ## Encryption & Decryption
 
+### Asymmetric & Symmetric
+- **Asymmetric:** Memanfaatkan dua kunci yang berbeda, yaitu **Public Key** dan **Private Key**. Ini sering digunakan untuk komunikasi.
+- **Symmetric:** Menggunakan kunci yang sama untuk proses enkripsi dan dekripsi, yaitu *passphrase* atau kata sandi. Ini sering digunakan untuk mengenkripsi sebuah file.
+
+## Asymmetric
 ### Generate Key
 Gunakan perintah ini untuk membuat sebuah kunci:
 
@@ -62,11 +67,11 @@ gpg -d file.txt.gpg > file.txt
 Jika menggunakan *passphrase* pada saat pembuatan kunci, gunakan *passphrase* tersebut untuk mendekripsi file dan nantinya format file akan berubah seperti semula menjadi `file.txt`
 
 
-## Save Key
+### Export Key
 > Jangan sekali-kali membocorkan kunci pribadi; kunci tersebut adalah aset eksklusif yang seharusnya hanya berada di tangan kamu.
 {: .prompt-danger }
 
-### Public Key
+#### Public Key
 - Melihat daftar kunci publik:
 ```bash
 gpg --list-keys
@@ -82,7 +87,7 @@ gpg --armor --export <key_id>
 gpg --armor --export <key_id> > my_public_key.asc
 ```
 
-### Private Key
+#### Private Key
 - Melihat daftar kunci publik:
 ```bash
 gpg --list-secret-keys
@@ -98,7 +103,7 @@ gpg --armor --export-secret-keys <key_id>
 gpg --armor --export-secret-keys <key_id> > my_private_key.asc
 ```
 
-## Import Key
+### Import Key
 ```bash
 gpg --import public-key.asc
 ```
@@ -108,7 +113,7 @@ Verifikasi kunci dengan menggunakan perintah berikut:
 gpg --list-keys
 ```
 
-## Send Message
+### Send Message
 Kita bisa mengenkripsi pesan yang disimpan dalam file atau yang ditulis langsung di *command line*.
 - Jika memiliki pesan dalam file teks (misalnya `.txt`), gunakan perintah berikut:
 ```bash
@@ -120,17 +125,40 @@ gpg --encrypt --recipient <key_id> pesan.txt
 echo "Halo, ini adalah pesan rahasia" | gpg --encrypt --armor --recipient <key_id> > pesan.asc
 ```
 
-## Delete Key
-### Private Key
+### Delete Key
+#### Private Key
 Kunci pribadi biasanya akan memiliki ID yang sama dengan kunci publik. Sebelum menghapus kunci publik, hapus terlebih dahulu kunci pribadi dengan menggunakan perintah berikut:
 ```bash
 gpg --delete-secret-key <key_id>
 ```
 
-### Public Key
+#### Public Key
 Kemudian, hapus kunci publik jika perlu:
 ```bash
 gpg --delete-key <key_id>
+```
+
+## Symmetric
+### Encrypt
+Di sini, kita memiliki sebuah folder bernama `data.tar` yang akan dienkripsi menggunakan kunci Symmetric. Gunakan perintah berikut untuk mengenkripsi:
+```bash 
+gpg --c data.tar
+```
+
+atau bisa juga menggunakan perintah:
+```bash
+gpg --symmetric data.tar
+```
+
+Setelah itu, akan diminta untuk memasukkan *passphrase*. Masukkan *passphrase* atau kata sandi yang kuat, yang akan digunakan untuk proses dekripsi nanti.
+
+> Ini juga dapat digunakan untuk format `.zip` atau arsip lainnya.
+{: .prompt-info }
+
+### Decrypt
+Gunakan perintah ini untuk mendekripsi:
+```bash
+gpg -d data.tar.gpg > data.tar
 ```
 
 ## Referensi
