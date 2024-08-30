@@ -6,42 +6,42 @@ order: 4
 
 ## Selamat Datang!
 
-Saya Risnanda Pascal, seorang `rakyat Indonesia biasa` yang berkeliaran di labirin dunia maya. Dengan pengalaman di bidang `Komputer dan Jaringan`, saya terus mencari peluang untuk belajar dan berkembang dalam industri ini.
+👋 Saya [Risnanda Pascal](https://risnandapascal.github.io), seorang `🇮🇩 rakyat Indonesia biasa` yang berkeliaran di labirin dunia maya. Dengan pengalaman di bidang `💻 Komputer dan 🌐 Jaringan`, saya terus mencari peluang untuk belajar dan berkembang dalam industri ini.
 
 ## Apa yang Saya Kerjakan
 
-1. **Analisis Keamanan Informasi**: Memastikan bahwa sistem informasi dan data yang dimiliki oleh [OnionCal](https://risnandapascal.github.io/onioncal.html) aman dari berbagai ancaman dan risiko.
-2. **Cobra & Warriors**: Berkolaborasi dengan komunitas [Cobra & Warriors](https://risnandapascal.github.io/cobra/index.html) untuk meningkatkan kesadaran keamanan digital di kalangan generasi muda.
-3. **Security Researcher**: Melakukan uji penetrasi dan memperkuat keamanan perangkat lunak *open source*.
+1. 🔒 **Analisis Keamanan Informasi**: Memastikan bahwa sistem informasi dan data yang dimiliki oleh [OnionCal](https://risnandapascal.github.io/onioncal.html) aman dari berbagai ancaman dan risiko.
+2. 🤝 **Cobra & Warriors**: Berkolaborasi dengan komunitas [Cobra & Warriors](https://risnandapascal.github.io/cobra/index.html) untuk meningkatkan kesadaran keamanan digital di kalangan generasi muda.
+3. 🔍 **Security Researcher**: Melakukan uji penetrasi dan memperkuat keamanan perangkat lunak *open source*.
 
-Saya fokus pada bidang pertahanan dan telah terlibat dalam berbagai inisiatif yang mencakup keamanan nasional. Setiap proyek memberi saya kesempatan untuk mengasah keterampilan dan mendapatkan wawasan baru.
+Saya fokus pada bidang pertahanan dan telah terlibat dalam berbagai inisiatif yang mencakup keamanan nasional. Setiap proyek memberi saya kesempatan untuk mengasah keterampilan dan mendapatkan wawasan baru. 🌟 🛡️
 
 ## Pendidikan dan Pengalaman
 
-- **Telecommunication Technology Student** di [Telkom University](https://dte.telkomuniversity.ac.id)
-- **Co-Founder / Lead Developer** di [OnionCal](https://risnandapascal.github.io/onioncal.html)
+- 🎓 **Telecommunication Technology Student** di [Telkom University](https://dte.telkomuniversity.ac.id)
+- 👨‍💻 **Co-Founder / Lead Developer** di [OnionCal](https://risnandapascal.github.io/onioncal.html)
 
 ![OnionCal](/assets/img/personal/OnionCal.png){: w="150" h="150" }
 _Logo [OnionCal](https://risnandapascal.github.io/onioncal.html), Zurich, Switzerland_
 
-- **Co-Founder / Chief Technology** di [Cobra & Warriors Community](https://risnandapascal.github.io/cobra/index.html)
+- 👨‍💻 **Co-Founder / Chief Technology** di [Cobra & Warriors Community](https://risnandapascal.github.io/cobra/index.html)
 
 ## Keterampilan Utama
 
-- **Alat dan Teknologi**: Kali Linux atau Debian-based Linux.
-- **Server Administrator**: Menjaga dan mengelola sistem komputer dan jaringan.
-- **Anonimitas**: Mengimplementasikan berbagai alat dan teknik keamanan, seperti enkripsi, VPN, dan jaringan TOR.
-- **Soft Skills**: Team Leadership.
+- 🛠️ **Alat dan Teknologi**: Kali Linux atau Debian-based Linux.
+- 🖥️ **Sistem Administrator**: Menjaga dan mengelola sistem komputer dan jaringan.
+- 🕵️‍♂️ **Anonimitas**: Mengimplementasikan berbagai alat dan teknik keamanan, seperti enkripsi, VPN, dan jaringan TOR.
+- 🤝 **Soft Skills**: Team Leadership.
 
 ## Hobi dan Minat
 
-Di luar pekerjaan, saya suka bermain dengan `Android`. Aktivitas ini membantu saya tetap kreatif dan bersemangat. Saya juga aktif dalam komunitas `Linux` dan `Custom Rom Android`. Saya selalu terbuka untuk kolaborasi dengan orang-orang yang memiliki minat serupa.
+🎮 Di luar pekerjaan, saya suka bermain dengan `📱 Android`. Aktivitas ini membantu saya tetap kreatif dan bersemangat. Saya juga aktif dalam komunitas `🐧 Linux` dan `🤖 Custom Rom Android`. Saya selalu terbuka untuk kolaborasi dengan orang-orang yang memiliki minat serupa. 🤗
 
 ## Hubungi Saya
 
-Jika tertarik untuk berbicara tentang `Defensive Security`, atau jika ada peluang kerja sama, jangan ragu untuk menghubungi saya di forum diskusi [Cobra & Warriors](https://discord.gg/nAVZkEwjYJ).
+Jika tertarik untuk berbicara tentang `🛡️ Defensive Security`, atau jika ada peluang kerja sama, jangan ragu untuk menghubungi saya di forum diskusi [Cobra & Warriors](https://discord.gg/nAVZkEwjYJ).
 
-Untuk alasan keamanan, harap gunakan <a href="/assets/personal/rical_net.asc" download>kunci ini</a> saat menghubungi saya secara pribadi. Untuk informasi lebih lanjut, silakan merujuk ke dokumentasi [GnuPG](https://ricaldocs.github.io/posts/gnu-privacy-guard/#import-key) pada bagian **Import Key** dan **Send Message**.
+🤐 Untuk alasan keamanan, harap gunakan <a href="/assets/personal/rical_net.asc" download>kunci ini</a> saat menghubungi saya secara pribadi. Untuk informasi lebih lanjut, silakan merujuk ke dokumentasi [GnuPG](https://ricaldocs.github.io/posts/gnu-privacy-guard/#import-key) pada bagian **Import Key** dan **Send Message**.
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -100,7 +100,7 @@ jhdyaYBTk5yHT7hqf9nReEZjFyyX+Q9+pWU4jC3xzqUWgU76jmBSARLDmKo4S1/d
 
 ## Terima Kasih Telah Mengunjungi!
 
-Jangan ragu untuk menjelajahi [rical_net](https://risnandapascal.github.io/). Saya berharap kita dapat berkolaborasi  di masa depan!
+Jangan ragu untuk menjelajahi [rical_net](https://risnandapascal.github.io/). Saya berharap kita dapat berkolaborasi  di masa depan! 💫 ✊
 
 ---
 
