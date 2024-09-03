@@ -41,7 +41,6 @@ social:
     - https://risnandapascal.github.io
     - https://github.com/ # change to your github homepage
     # Uncomment below to add more social links
-    - https://www.facebook.com/risnandapascal
     # - https://www.linkedin.com/in/username
 
 # Site Verification Settings
@@ -145,7 +144,7 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+paginate: 6
 
 # The base URL of your site
 baseurl: ""

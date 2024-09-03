@@ -18,7 +18,9 @@ Meskipun usaha ini memerlukan perhatian dan kehati-hatian, penting untuk bertany
 Kadang-kadang, kita terbuai oleh posisi nyaman dan enggan untuk bergerak, seperti saat duduk santai di kursi empuk yang membuat kita lupa waktu. Namun, sikap ini bisa menjadi jebakan, karena kita sering kali tidak mengetahui kebijakan dari berbagai platform digital dan seringkali menyetujuinya tanpa membaca isinya.
 
 > Kunjungi pengaturan setiap aplikasi dan pengaturan sistem, lalu nonaktifkan semua fitur personalisasi, program pengalaman pengguna, dan iklan yang dipersonalisasi. Pokoknya semua hal yang berbau [telemetri](https://id.wikipedia.org/wiki/Telemetri).
-<br><br> Selain itu, matikan akses yang tidak diperlukan seperti kamera, mikrofon, lokasi, Bluetooth, dan lainnya.
+{: .prompt-tip }
+
+> Matikan akses yang tidak diperlukan seperti kamera, mikrofon, lokasi, Bluetooth, dan lainnya. Gunakan di situasi penting saja.
 {: .prompt-tip }
 
 Sebagai alternatif, pertimbangkan untuk beralih ke aplikasi *open source*, yang ibaratnya adalah rumah kaca di mana kita bisa melihat setiap detail tanaman di dalamnya. Dengan *open source*, kita dapat memeriksa kode secara langsung dan jika ada potensi masalah, kita bisa segera mengidentifikasinya dan melaporkannya kepada pengembang. Di dunia *open source*, pengembang pun akan lebih berhati-hati karena transparansi yang tinggi mengurangi kemungkinan adanya kode berbahaya atau *spyware*.
@@ -29,14 +31,14 @@ Sebagai alternatif, pertimbangkan untuk beralih ke aplikasi *open source*, yang 
 
 | Name                          | Alternative     |
 | :--------------------- | :--------------- |
-| Desktop        | [QubesOS](https://www.qubes-os.org/) <br> [TailsOS](https://tails.net/) <br> [Whonix](https://www.whonix.org/) |
+| Desktop        | [QubesOS](https://www.qubes-os.org/) <br> [TailsOS](https://tails.net/) <br> [Whonix](https://www.whonix.org/) <br> [OpenBSD](https://www.openbsd.org/)|
 | Android       | [LineageOS](https://lineageos.org/) <br> [GrapheneOS](https://grapheneos.org/) <br> [CalyxOS](https://calyxos.org/) <br> Custom Rom (Vanilla Build) |
 
 ### Daily Driver Recommendation
 
 | Name                   | Alternative                                         | Desktop | Mobile |
 |------------------------|-----------------------------------------------------|---------|--------|
-| Google Play Services   | [MicroG](https://microg.org/)                      | No      | Yes    |
+| Google Play Services   | [MicroG](https://ricaldocs.github.io/posts/microg/)                      | No      | Yes    |
 | App Store / Play Store | [F-Droid](https://f-droid.org/) (Open Source APK Store) <br> [Aurora Store](https://auroraoss.com/) (GPlay Store Alternative)                    | No      | Yes    |
 | Authenticator          | [Aegis Authenticator](https://github.com/beemdevelopment/Aegis) | No      | Yes    |
 | Browser                | [TOR Browser](https://www.torproject.org/) <br> [Brave](https://brave.com/) <br> [Firefox](https://www.mozilla.org/en-US/firefox/) | Yes     | Yes    |
