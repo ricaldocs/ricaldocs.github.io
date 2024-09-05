@@ -142,7 +142,7 @@ gpg --delete-key <key_id>
 ### Encrypt
 Di sini, kita memiliki sebuah folder bernama `data.tar` yang akan dienkripsi menggunakan kunci Symmetric. Gunakan perintah berikut untuk mengenkripsi:
 ```bash 
-gpg --c data.tar
+gpg -c data.tar
 ```
 
 atau bisa juga menggunakan perintah:
