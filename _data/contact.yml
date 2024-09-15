@@ -15,7 +15,7 @@
 
 - type: telegram
   icon: "fa-brands fa-telegram"
-  url: https://t.me/unknown_anbu
+  url: https://t.me/chatwithrical
   noblank: true
 
 - type: discord

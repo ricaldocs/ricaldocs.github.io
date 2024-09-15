@@ -105,5 +105,5 @@ Jangan ragu untuk menjelajahi [rical_net](https://risnandapascal.github.io/). Sa
 ---
 
 *Risnanda Pascal*  
-*Telegram: @unknown_anbu*  
+*Telegram: @chatwithrical*  
 *Alamat Email: risnandapascal@duck.com*
