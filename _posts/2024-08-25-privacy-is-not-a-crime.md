@@ -55,6 +55,7 @@ Sebagai alternatif, pertimbangkan untuk beralih ke aplikasi *open source*, yang 
 - [I2P](https://geti2p.net/en/)
 - [Proxychains](https://github.com/haad/proxychains)
 - [Prabu Incognito](https://ricaldocs.github.io/posts/prabu-incognito/)
+- [DynamicArchive](https://ricaldocs.github.io/posts/DynamicArchive/)
 
 ## Build Your Ecosystem
 Jika kamu memiliki keahlian teknis di bidang server dan jaringan, pertimbangkan untuk membangun ekosistem sendiri. kamu bisa merujuk pada dokumentasi [Home Server](https://ricaldocs.github.io/posts/home-server/) dan [Membangun VOIP Server](https://ricaldocs.github.io/posts/membangun-voip-server/), yang dapat menjadi dasar yang berguna untuk memulai.
