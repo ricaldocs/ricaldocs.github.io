@@ -1,49 +1,71 @@
 <!-- The Footer -->
-
 <footer
   aria-label="Site Info"
-  class="
-    d-flex flex-column justify-content-center text-muted
-    flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3
-  "
+  class="d-flex flex-column justify-content-center text-muted flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3"
 >
   <p>
-    {{- '©' }}
-    <time>{{ 'now' | date: '%Y' }}</time>
-
     {% if site.social.links %}
-      <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
-    {% else %}
-      <em class="fst-normal">{{ site.social.name }}</em>.
-    {% endif %}
-
+    <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a> {% else %}
+    <em class="fst-normal">{{ site.social.name }}</em>. {% endif %} {{- '©' }}
     {% if site.data.locales[include.lang].copyright.brief %}
-      <span
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="{{ site.data.locales[include.lang].copyright.verbose }}"
-      >
-        {{- site.data.locales[include.lang].copyright.brief -}}
-      </span>
+    <span
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="{{ site.data.locales[include.lang].copyright.verbose }}"
+    >
+      {{- site.data.locales[include.lang].copyright.brief -}}
+    </span>
     {% endif %}
+  </p>
+
+  <!-- Last Update Information -->
+  <p>
+    {% if site.data.locales[include.lang].last_update %} {% assign
+    last_update_text = site.data.locales[include.lang].last_update %} {% else %}
+    {% assign last_update_text = "This site was last edited on" %} {% endif %}
+    {{ last_update_text }}
+    <time datetime="{{ site.time | date_to_xmlschema }}">
+      {% if site.data.locales[include.lang].date_format %} {{ site.time | date:
+      site.data.locales[include.lang].date_format }} {% else %} {{ site.time |
+      date: "%d %B %Y" }} {% endif %}
+    </time>
+  </p>
+
+  <!-- IP Address Information -->
+  <p>
+    <span
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Your public IP"
+      id="ip-address-info"
+    >
+      <i class="fa-regular fa-id-badge"></i>
+      <span id="ip-address">Loading...</span>
+    </span>
   </p>
 
   <p>
-    {%- capture _platform -%}
-      <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-    {%- endcapture -%}
-
-    {%- capture _theme -%}
-      <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v{{ theme.version }}"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
-    {%- endcapture -%}
-
-    {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
+    {%- capture _privacy_policy -%}
+    <a href="https://ricalnet.github.io/privacy" rel="noopener"
+      >Kebijakan Privasi</a
+    >
+    {%- endcapture -%} {{ site.data.locales[include.lang].meta | replace:
+    ':PLATFORM', _platform | replace: ':PRIVACY', _privacy_policy }}
   </p>
 </footer>
+
+<!-- IP address -->
+<script>
+  async function fetchIPAddress() {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      document.getElementById("ip-address").textContent = data.ip;
+    } catch (error) {
+      console.error("Error fetching IP address:", error);
+      document.getElementById("ip-address").textContent = "Unavailable";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", fetchIPAddress);
+</script>

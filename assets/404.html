@@ -4,19 +4,19 @@ title: "{{ site.data.locales[site.lang].not_found.title }}"
 permalink: /404.html
 
 redirect_from:
-- /norobots/
-- /assets/
-- /posts/
+  - /norobots/
+  - /assets/
+  - /posts/
 
 no_title: true
 ---
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="force-rendering" content="webkit">
-<link rel="shortcut icon" href="favicon.ico">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<link rel="shortcut icon" href="favicon.ico" />
 <style>
   body,
   h1,
@@ -114,7 +114,6 @@ no_title: true
     width: 174px;
     height: 48px;
     margin-top: 32px;
-
   }
 
   .ErrorPage-container {
@@ -246,50 +245,71 @@ no_title: true
 </style>
 
 <div id="#body-404">
-  <a href="https://404.life/564.html" target="_blank" style="border: none"><img src="/assets/img/404/404 Template.png" id="site" alt="404 Template"></a>
+  <a href="https://ricaldocs.github.io" style="border: none"
+    ><img src="/assets/img/404/404 Template.png" id="site" alt="404 Template"
+  /></a>
   <div class="ErrorPage">
     <div class="ErrorPage-container">
       <div class="ErrorPage-text">
         <h1 class="ErrorPage-title">404</h1>
-        <p class="ErrorPage-subtitle">{{ site.data.locales[site.lang].not_found.statment }}</p>
-        <a class="Button Button--primary Button--blue ErrorPage-primaryButton" href="{{ site.baseurl }}/">
+        <p class="ErrorPage-subtitle">
+          {{ site.data.locales[site.lang].not_found.statment }}
+        </p>
+        <a
+          class="Button Button--primary Button--blue ErrorPage-primaryButton"
+          href="{{ site.baseurl }}/"
+        >
           {{ site.data.locales[site.lang].not_found.head_back }}
         </a>
         <div class="ErrorPage-otherButtonContainer">
           {{ site.data.locales[site.lang].not_found.or }}
-          <button class="Button Button--plain Button--blue ErrorPage-otherButton ErrorPage-goBackButton"
-            onclick="Goback()">
+          <button
+            class="Button Button--plain Button--blue ErrorPage-otherButton ErrorPage-goBackButton"
+            onclick="Goback()"
+          >
             {{ site.data.locales[site.lang].not_found.previous_page }}
-            <svg class="Zi Zi--ArrowRight" fill="currentColor" viewBox="0 0 24 24" width="24px" height="24px">
+            <svg
+              class="Zi Zi--ArrowRight"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
               <path
                 d="M9.218 16.78a.737.737 0 0 0 1.052 0l4.512-4.249a.758.758 0 0 0 0-1.063L10.27 7.22a.737.737 0 0 0-1.052 0 .759.759 0 0 0-.001 1.063L13 12l-3.782 3.716a.758.758 0 0 0 0 1.063z"
-                fill-rule="evenodd"></path>
+                fill-rule="evenodd"
+              ></path>
             </svg>
           </button>
           <script>
             function Goback() {
-              if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)) {
+              if (
+                navigator.userAgent.indexOf("MSIE") >= 0 &&
+                navigator.userAgent.indexOf("Opera") < 0
+              ) {
                 if (history.length > 0) {
                   window.history.go(-1);
                 } else {
-                  window.location.href = 'index.html';
+                  window.location.href = "index.html";
                 }
               } else {
-                if (navigator.userAgent.indexOf('Firefox') >= 0 ||
-                  navigator.userAgent.indexOf('Opera') >= 0 ||
-                  navigator.userAgent.indexOf('Safari') >= 0 ||
-                  navigator.userAgent.indexOf('Chrome') >= 0 ||
-                  navigator.userAgent.indexOf('WebKit') >= 0) {
+                if (
+                  navigator.userAgent.indexOf("Firefox") >= 0 ||
+                  navigator.userAgent.indexOf("Opera") >= 0 ||
+                  navigator.userAgent.indexOf("Safari") >= 0 ||
+                  navigator.userAgent.indexOf("Chrome") >= 0 ||
+                  navigator.userAgent.indexOf("WebKit") >= 0
+                ) {
                   if (window.history.length > 2) {
                     window.history.go(-1);
                   } else {
-                    window.location.href = 'index.html';
+                    window.location.href = "index.html";
                   }
                 } else {
                   if (history.length > 1) {
                     window.history.go(-1);
                   } else {
-                    window.location.href = 'index.html';
+                    window.location.href = "index.html";
                   }
                 }
               }
@@ -298,10 +318,17 @@ no_title: true
         </div>
       </div>
       <div class="ErrorPage-errorImageContainer">
-        <img class="ErrorPage-errorImage" src="{{ site.baseurl }}/assets/img/404/liukanshan_wire.svg"
-          alt="page error">
+        <img
+          class="ErrorPage-errorImage"
+          src="{{ site.baseurl }}/assets/img/404/liukanshan_wire.svg"
+          alt="page error"
+        />
       </div>
     </div>
   </div>
-  <script async src="{{ site.baseurl }}/assets/js/lib/zap.js" onload="zap.trackPageShow()"></script>
+  <script
+    async
+    src="{{ site.baseurl }}/assets/js/lib/zap.js"
+    onload="zap.trackPageShow()"
+  ></script>
 </div>

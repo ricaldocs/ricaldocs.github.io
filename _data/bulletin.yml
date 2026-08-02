@@ -1,0 +1,5 @@
+enabled: true
+icon: "iconfont icon-info"
+title: "Info"
+content: |
+  - **Laporkan info keliru** via [halaman Reporting](https://ricaldocs.github.io/posts/reporting)

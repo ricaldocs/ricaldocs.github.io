@@ -1,15 +1,9 @@
-# The layout text of site
-
-# ----- Commons label -----
-
 layout:
-  post: Post
+  post: Article
   category: Category
   tag: Tag
 
-# The tabs of sidebar
 tabs:
-  # format: <filename_without_extension>: <value>
   home: Home
   subdomain: Subdomain
   categories: Categories
@@ -17,50 +11,47 @@ tabs:
   archives: Archives
   about: About
 
-# the text displayed in the search bar & search results
 search:
-  hint: search
+  hint: Search...
   cancel: Cancel
-  no_results: Oops! No results found.
+  no_results: No results found
 
 panel:
-  lastmod: Recently Updated
-  trending_tags: Trending Tags
+  lastmod: Latest Updates
+  trending_tags: Popular Tags
   external_links: External Links
-  toc: Contents
+  toc: On This Page
 
 copyright:
-  # Shown at the bottom of the post
   license:
-    template: This post is licensed under :LICENSE_NAME by the author.
+    template: Licensed under :LICENSE_NAME by the author.
     name: CC BY 4.0
     link: https://creativecommons.org/licenses/by/4.0/
-
-  # Displayed in the footer
-  brief: Some rights reserved.
+  brief: Some rights reserved
   verbose: >-
-    Except where otherwise noted, the blog posts on this site are licensed
-    under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
+    Unless stated otherwise, all content is licensed under
+    Creative Commons Attribution 4.0 International by the author.
 
-meta: Using the :THEME theme for :PLATFORM.
+last_update: <i class="fas fa-clock-rotate-left"></i> Last updated
+date_format: "%B %d, %Y"
+
+meta: :PRIVACY :PLATFORM
 
 not_found:
-  title: "404: Page not found"
-  statment: You seem to have come to a wasteland where there is no knowledge
-  head_back: Head back Home
+  title: "404: Page Not Found"
+  statment: URL is incorrect or content has been moved.
+  head_back: Back to Home
   or: or
-  previous_page: previous page
+  previous_page: Previous Page
 
 notification:
-  update_found: A new version of content is available.
-  update: Update
-
-# ----- Posts related labels -----
+  update_found: A newer version is available
+  update: Update Now
 
 post:
-  written_by: By
-  posted: Posted
-  updated: Updated
+  written_by: Author
+  posted: Published
+  updated: Revised
   words: words
   pageview_measure: views
   read_time:
@@ -72,17 +63,15 @@ post:
     next: Newer
     previous: Older
     copy_code:
-      succeed: Copied!
+      succeed: Copied
     run:
-      output: Code output
-      wait: Wait for running...
-      error_prompt: "Failed to run code, message:"
+      output: Output
+      wait: Executing...
+      error_prompt: "Failed:"
     share_link:
-      title: Copy link
-      succeed: Link copied successfully!
+      title: Copy Link
+      succeed: Copied
 
-# Date time format.
-# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
 df:
   post:
     strftime: "%b %e, %Y"
@@ -91,7 +80,6 @@ df:
     strftime: "%b"
     dayjs: "MMM"
 
-# categories page
 categories:
   category_measure:
     singular: category

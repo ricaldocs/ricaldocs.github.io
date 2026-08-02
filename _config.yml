@@ -1,190 +1,189 @@
-# 网站设置
+# Pengaturan Situs Web
 
-# 导入主题
+# Impor tema
 theme: jekyll-theme-chirpy
 
-# 站点的语言 › https://www.w3.org/International/questions/qa-choosing-language-tags
-# 如果在文件夹 `_data/locales` 下存在同名文件，则布局语言也会改变，
-# 否则，布局语言使用默认值 'en'。
-lang: zh-CN
+# Bahasa situs › https://www.w3.org/International/questions/qa-choosing-language-tags
+# Jika file dengan nama yang sama ada di folder `_data/locales`, maka bahasa tata letak akan berubah,
+# jika tidak, bahasa tata letak akan menggunakan nilai default 'en'.
+lang: id
 
-# 修改为你的时区 › https://kevinnovak.github.io/Time-Zone-Picker
-timezone: Asia/Shanghai
+# Ubah ke zona waktu Anda › https://kevinnovak.github.io/Time-Zone-Picker
+timezone: Asia/Jakarta
 
-# jekyll-seo-tag 设置 › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+# Pengaturan jekyll-seo-tag › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Nihil       # 主标题
+title: Ricaldocs # Judul utama
 
-tagline: Nichts Hsu # 副标题
+tagline: Unfiltered Tech # Subjudul
 
-description: >- # 由 seo meta 和 atom feed 使用
-  Nichts Hsu 的个人博客
+description: >- # Digunakan oleh seo meta dan atom feed
+  Ricaldocs menyajikan tutorial, dokumentasi IT, dan artikel opini seputar Privacy, Cybersecurity, Cloud Computing, serta IT Infrastructure. Ditulis oleh Risnanda Pascal, platform open source ini berfokus pada kemandirian digital, privasi pengguna, dan kontrol penuh atas data. Jelajahi panduan langkah demi langkah, analisis tren teknologi terkini, dan berkontribusi dalam membangun ekosistem pengetahuan yang terpercaya.
 
-# 填入你的网站的协议和域名.
-# 例如，'https://username.github.io'，注意不要以 '/' 结尾。
-url: "https://nihil.cc"
+# Isi dengan protokol dan domain situs web Anda.
+# Contoh, 'https://username.github.io', pastikan tidak diakhiri dengan '/'.
+url: "https://docs.ricalnet.my.id"
 
 github:
-  username: NichtsHsu # Github 用户名
+  username: ricaldocs # Nama pengguna Github
 
 twitter:
-  username: NichtsHsu # 推特用户名
+  username: # Nama pengguna Twitter
 
 social:
-  # 改为你的全名。
-  # 这将会显示为帖子的默认作者以及页脚的版权所有者
-  name: Nichts Hsu
-  email: NichtsVonChaos@gmail.com # 邮箱地址
+  # Ubah ke nama lengkap Anda.
+  # Ini akan ditampilkan sebagai penulis default untuk posting dan pemilik hak cipta di footer
+  name: Ricalnet
+  email: ricalnet@duck.com # Alamat email
   links:
-    # 第一个链接将会作为版权所有者的链接
-    - https://nihil.cc/
-    - https://twitter.com/NichtsHsu # 推特主页
-    - https://github.com/NichtsHsu # Github 主页
-    # 取消注释以添加更多链接
+    # Tautan pertama akan menjadi tautan untuk pemilik hak cipta
+    - https://ricalnet.github.io/
+    - https://github.com/ricaldocs # Beranda Github
+    - https://twitter.com/ # Beranda Twitter
+    # Hapus komentar untuk menambahkan lebih banyak tautan
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-# 网站认证设置
+# Pengaturan verifikasi situs web
 webmaster_verifications:
-  google: # 填入你的 Google 认证代码
-  bing: # 填入你的 Bing 认证代码
-  alexa: # 填入你的 Alexa 认证代码
-  yandex: # 填入你的 Yandex 认证代码
-  baidu: # 填入你的百度认证代码
-  facebook: # 填入你的 Facebook 认证代码
+  google: NiiRcCxWZldJCJ4K7AqkQ6Pb28Lp0hQ0SMkfUM2QlSY
+  bing: 6BCB568EB23B07CD7EAEC4F8A9A3FDD7
+  alexa: # Masukkan kode verifikasi Alexa Anda
+  yandex: # Masukkan kode verifikasi Yandex Anda
+  baidu: # Masukkan kode verifikasi Baidu Anda
+  facebook: # Masukkan kode verifikasi Facebook Anda
 
 # ↑ --------------------------
-# `jekyll-seo-tag` 设置结束
+# Akhir pengaturan `jekyll-seo-tag`
 
-# 网页分析设置
+# Pengaturan analitik web
 analytics:
   google:
-    id: # 填入你的 Google Analytics ID
+    id: # Masukkan ID Google Analytics Anda
   goatcounter:
-    id: # 填入你的 GoatCounter ID
+    id: # Masukkan ID GoatCounter Anda
   umami:
-    id: # 填入你的 Umami ID
-    domain: # 填入你的 Umami 域名
+    id: # Masukkan ID Umami Anda
+    domain: # Masukkan domain Umami Anda
   matomo:
-    id: # 填入你的 Matomo ID
-    domain: # 填入你的 Matomo 域名
+    id: # Masukkan ID Matomo Anda
+    domain: # Masukkan domain Matomo Anda
   cloudflare:
-    id: # 填入你的 Cloudflare Web Analytics 令牌
+    id: # Masukkan token Cloudflare Web Analytics Anda
   fathom:
-    id: # 填入你的 Fathom Site ID
+    id: # Masukkan Fathom Site ID Anda
 
-# 页面浏览量设置
+# Pengaturan jumlah tampilan halaman
 pageviews:
-  provider: # 目前仅支持 'goatcounter'
+  provider: # Saat ini hanya mendukung 'goatcounter'
 
-# 设置首选配色方案
+# Atur skema warna preferensi
 #
-# 提示: 保留空白会跟随系统的默认首选配色，并且在侧边栏的底部会出现
-# 一个可以转换亮色主题和暗色主题的按钮。
+# Petunjuk: Biarkan kosong akan mengikuti preferensi warna default sistem, dan di bagian bawah bilah samping akan muncul
+# tombol untuk beralih antara tema terang dan gelap.
 #
-# 可用选项:
+# Opsi yang tersedia:
 #
-#     light  - 使用亮色方案
-#     dark   - 使用暗色方案
+#     light  - Gunakan skema terang
+#     dark   - Gunakan skema gelap
 #
 theme_mode: # [light | dark]
 
-# 启用动画背景特效
-backgroud_animation: false
+# Aktifkan efek animasi latar belakang
+backgroud_animation: true
 
-# 启用鼠标点击特效
+# Aktifkan efek klik mouse
 mouse_click_effect: false
 
-# 媒体资源 CDN 端点。
-# 注意一旦被分配，CDN 网址会被加在
-# 所有以 '/' 开始的媒体资源（网站头像，帖子中的图像，音频和视频文件）路径上
-# 
-# 例如，'https://cdn.com'
+# Titik akhir CDN aset media.
+# Perhatikan bahwa setelah ditetapkan, URL CDN akan ditambahkan ke
+# semua jalur aset media (avatar situs, gambar dalam posting, file audio dan video) yang dimulai dengan '/'
+#
+# Contoh, 'https://cdn.com'
 cdn: ""
 
-# 侧边栏的头像，支持本地或 CROS 资源
+# Avatar di bilah samping, mendukung sumber lokal atau CROS
 avatar: /avatar.png
 
-# SEO `og:image` 元标记中使用的全站社交预览图像的 URL。
-# 可以在帖子的 Front Matter 中使用 `page.image` 覆盖。
-social_preview_image: # 字符串，本地或跨域资源
+# URL gambar pratinjau sosial situs-wide yang digunakan dalam tag meta SEO `og:image`.
+# Dapat diganti dengan `page.image` di Front Matter posting.
+social_preview_image: # String, sumber lokal atau lintas domain
 
-# 设置显示右侧边栏的内容
+# Atur konten yang ditampilkan di bilah sisi kanan
 panel:
-  # 设置显示在帖子中右侧边栏的内容
-  # 
-  # 提示:
-  #   全局开关为 false 时必定不显示对应块。
-  #   全局开关为 true 时，可以在帖子的 md 文件头部使用形如:
+  # Atur konten yang ditampilkan di bilah sisi kanan dalam posting
+  #
+  # Petunjuk:
+  #   Jika sakelar global false, blok terkait pasti tidak akan ditampilkan.
+  #   Jika sakelar global true, dapat dinonaktifkan untuk posting tertentu di header file md posting dengan format:
   #      lastmod: false
-  #   的方式为该帖子单独关闭右侧边栏的功能。
   post:
-    # 最近更新
-    lastmod: true
-    # 热门标签
+    # Pembaruan terakhir
+    lastmod: false
+    # Tag tren
     trending_tags: false
-    # 外部链接
+    # Tautan eksternal
     external_links: true
-    # 目录
+    # Daftar isi
     toc: true
 
 comments:
-  # 帖子评论区全局开关，例如，'disqus'。保持为空表示禁用。
+  # Sakelar global untuk bagian komentar posting, misalnya, 'disqus'. Biarkan kosong untuk menonaktifkan.
   provider: # [disqus | utterances | giscus]
-  # provider 选项可以是如下：
-  # disqus 评论系统 > https://disqus.com/
+  # Opsi provider dapat sebagai berikut:
+  # Sistem komentar disqus > https://disqus.com/
   disqus:
-    shortname: # 填入你的 disqus shorname › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-  # utterances 评论系统 › https://utteranc.es/
+    shortname: # Masukkan disqus shorname Anda › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  # Sistem komentar utterances › https://utteranc.es/
   utterances:
-    repo: # <Github 用户名>/<仓库名>
-    issue_term: # < 链接 | 路径 | 标题 | ...>
-  # Waline 评论系统 › https://waline.js.org/
+    repo: # <Nama pengguna Github>/<Nama repositori>
+    issue_term: # < url | pathname | title | ...>
+  # Sistem komentar Waline › https://waline.js.org/
   waline:
-    server: # Vercal 服务端地址
-    placeholder: 说点什么吧！ # 空白评论框时显示的文字
-    avatar: mp # 默认头像  › https://waline.js.org/guide/client/avatar.html
-  # Giscus 选项 › https://giscus.app
+    server: # Alamat server Vercal
+    placeholder: Say something! # Teks yang ditampilkan saat kotak komentar kosong
+    avatar: mp # Avatar default › https://waline.js.org/guide/client/avatar.html
+  # Opsi Giscus › https://giscus.app
   giscus:
-    repo: # <Github 用户名>/<仓库名>
+    repo: # <Nama pengguna Github>/<Nama repositori>
     repo_id:
     category:
     category_id:
-    mapping: # 可选项，默认为 'pathname'
-    strict: # 可选项，默认为 '0'
-    input_position: # 可选项，默认为 'bottom'
-    lang: # 可选项，默认为 `site.lang` 的值
-    reactions_enabled: # 可选项，默认为 1
+    mapping: # Opsional, default adalah 'pathname'
+    strict: # Opsional, default adalah '0'
+    input_position: # Opsional, default adalah 'bottom'
+    lang: # Opsional, default adalah nilai `site.lang`
+    reactions_enabled: # Opsional, default adalah 1
 
-# 自托管静态资产，可选 › https://github.com/cotes2020/chirpy-static-assets
+# Aset statik yang di-host sendiri, opsional › https://github.com/cotes2020/chirpy-static-assets
 assets:
   self_host:
-    enabled: # 布尔值, 置空表示否
-    # 指定 Jekyll 环境，置空意味着都启用
-    # 仅在 `assets.self_host.enabled` 为 'true' 时生效
+    enabled: # Boolean, kosongkan berarti false
+    # Tentukan lingkungan Jekyll, kosongkan berarti diaktifkan untuk semua
+    # Hanya berlaku jika `assets.self_host.enabled` adalah 'true'
     env: # [development|production]
 
 pwa:
-  enabled: true # PWA 特性选项（可安装）
+  enabled: true # Opsi fitur PWA (dapat diinstal)
   cache:
-    enabled: true # PWA 离线缓存选项
-    # 在此处定义不被 PWA 缓存的路径。
-    # 通常其值是使用和当前网站相同域名的其他网站的 `baseurl`。
+    enabled: true # Opsi cache offline PWA
+    # Tentukan path yang tidak akan di-cache oleh PWA di sini.
+    # Biasanya nilainya adalah `baseurl` dari situs web lain yang menggunakan domain yang sama dengan situs saat ini.
     deny_paths:
-      # - "/example"  # 符合 `<SITE_URL>/example/*` 的 URL 不会被 PWA 缓存
+      # - "/example"  # URL yang cocok dengan `<SITE_URL>/example/*` tidak akan di-cache oleh PWA
 
-# 每一页的帖子数量
+# Jumlah posting per halaman
 paginate: 10
 
-# 网站的基础 URL
+# URL dasar situs
 baseurl: ""
 
-# ------------ 下面的设置不建议修改 ------------------
+# ------------ Pengaturan di bawah ini tidak disarankan untuk diubah ------------------
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
-  syntax_highlighter_opts: # Rouge 设置 › https://github.com/jneen/rouge#full-options
+  syntax_highlighter_opts: # Pengaturan Rouge › https://github.com/jneen/rouge#full-options
     css_class: highlight
     # default_lang: console
     span:
@@ -200,19 +199,19 @@ collections:
 
 defaults:
   - scope:
-      path: "" # 空字符串意味着项目里的所有文件
+      path: "" # String kosong berarti semua file dalam proyek
       type: posts
     values:
       layout: post
-      comments: true # 在帖子中启用评论
-      # 右侧边栏的默认显示
-      lastmod: true
+      comments: true # Aktifkan komentar di posting
+      # Tampilan default bilah sisi kanan
+      lastmod: false
       trending_tags: true
       external_links: true
       toc: true
       license: true
-      # 不要改变它除非你是 Jekyll 以及 Web 开发的专家，
-      # 或者你认为自己足够聪明可以在此模板中修改为其他的相对路径。
+      # Jangan ubah ini kecuali Anda adalah ahli dalam Jekyll dan pengembangan Web,
+      # atau Anda merasa cukup pintar untuk memodifikasi ke path relatif lain dalam template ini.
       permalink: /posts/:title/
   - scope:
       path: _drafts
@@ -220,7 +219,7 @@ defaults:
       comments: false
   - scope:
       path: ""
-      type: tabs # 参考 `site.collections`
+      type: tabs # Lihat `site.collections`
     values:
       layout: page
       permalink: /:title/
