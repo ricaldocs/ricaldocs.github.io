@@ -1,7 +1,7 @@
 ---
 title: Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4 dengan Docker
 description: Pelajari cara menyebarkan Tor Bridge Obfs4 menggunakan Docker guna melawan sensor internet, melindungi privasi komunitas rentan, dan membuka akses informasi yang bebas. Tutorial teknis langkah demi langkah dengan konfigurasi siap-perang.
-categories: [Onion, Obfs4, Privacy]
+categories: [The Onion Router, Obfs4, Privacy]
 tags: [privacy, linux, cryptography, telecommunications, cloud computing, vpn, onion, tor, obfs4]
 author: rical
 last_modified_at: 2026-06-04

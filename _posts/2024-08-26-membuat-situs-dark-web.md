@@ -1,7 +1,7 @@
 ---
 title: Membuat Situs Dark Web 
 description: Pelajari langkah-langkah aman membangun situs .onion untuk komunikasi terlindungi. Tutorial legal untuk edukasi keamanan siber, perlindungan sumber jurnalistik, dan penelitian privasi digital.
-categories: [Onion, Dark Web, Privacy]
+categories: [The Onion Router, Dark Web, Privacy]
 tags: [privacy, linux, onion, tor]
 author: rical
 last_modified_at: 2026-06-04

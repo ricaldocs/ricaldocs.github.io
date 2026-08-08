@@ -1,5 +1,5 @@
 ---
-title:  Panduan Integrasi Autentikasi OIDC Homarr dengan Authentik
+title: Panduan Integrasi Autentikasi OIDC Homarr dengan Authentik
 description: Panduan teknis implementasi Single Sign-On (SSO) menggunakan OpenID Connect untuk mengintegrasikan Homarr dashboard dengan Authentik sebagai Identity Provider (IdP). Solusi ini memungkinkan sentralisasi manajemen pengguna dan autentikasi terpusat.
 categories: [Digital Independence, SSO, Dashboard]
 tags: [authentik, sso, self-hosted, homarr]

@@ -1,7 +1,7 @@
 ---
 title: Mosquitto on Debian-based Linux
 description: Panduan instalasi, konfigurasi, dan implementasi broker MQTT Mosquitto pada sistem operasi berbasis Debian, dilengkapi dengan contoh integrasi platform simulasi Wokwi untuk pengembangan solusi Internet of Things (IoT).
-categories: [Digital Independence, Telecommunications]
+categories: [Internet of Things]
 tags: [internet of things, mqtt]
 author: rical
 last_modified_at: 2026-06-01

@@ -1,7 +1,7 @@
 ---
 title: Panduan Implementasi Hidden Service Tor
 description: Pelajari implementasi teknis hidden service menggunakan Tor untuk melindungi privasi aplikasi web. Panduan langkah-demi-langkah ini mencakup konfigurasi server, manajemen direktori layanan, troubleshooting, dan praktik keamanan untuk deployment layanan tersembunyi di jaringan onion. Cocok untuk administrator sistem, developer keamanan, dan peneliti privasi digital.
-categories: [Onion, Dark Web]
+categories: [The Onion Router, Dark Web]
 tags: [onion, tor, privacy]
 author: rical
 last_modified_at: 2026-06-04

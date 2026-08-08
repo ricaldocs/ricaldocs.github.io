@@ -1,7 +1,7 @@
 ---
 title: Membangun Tor Bridge Relay dengan Obfs4
 description: Panduan membangun Tor Bridge Relay menggunakan Obfs4 untuk menembus sensor Deep Packet Inspection. Bantu lawan sensor internet dengan menjadi relay untuk jaringan Tor.
-categories: [Onion, Obfs4, Privacy]
+categories: [The Onion Router, Obfs4, Privacy]
 tags: [privacy, linux, cryptography, telecommunications, cloud computing, onion, vpn, onion, tor, obfs4]
 author: rical
 last_modified_at: 2026-06-04

@@ -1,7 +1,7 @@
 ---
 title: Panduan Konfigurasi PlatformIO untuk ESP32 dengan Sensor Ultrasonik HC-SR04
 description: Tutorial implementasi sistem pengukur tinggi badan anak menggunakan ESP32 dan sensor ultrasonik dengan PlatformIO. Pelajari konfigurasi lingkungan, filter data, kalibrasi, dan deployment firmware secara profesional.
-categories: [no categories]
+categories: [Internet of Things]
 tags: [internet of things, platformio, microcontroller]
 author: rical
 last_modified_at: 2026-06-01

@@ -1,5 +1,5 @@
 ---
-title:  Panduan Integrasi Open WebUI dengan authentik
+title: Panduan Integrasi Open WebUI dengan authentik
 description: Tutorial teknis lengkap konfigurasi Single Sign-On (SSO) Open WebUI menggunakan authentik sebagai identity provider. Panduan step-by-step dengan environment variables dan konfigurasi role-based access.
 categories: [Digital Independence, SSO, AI]
 tags: [authentik, sso, self-hosted, artificial intelligence, ollama]

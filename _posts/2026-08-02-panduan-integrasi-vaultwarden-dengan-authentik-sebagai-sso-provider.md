@@ -1,5 +1,5 @@
 ---
-title:  Panduan Integrasi Vaultwarden dengan Authentik sebagai SSO Provider
+title: Panduan Integrasi Vaultwarden dengan Authentik sebagai SSO Provider
 description: Panduan teknis untuk mengintegrasikan Vaultwarden (self-hosted password manager) dengan Authentik sebagai penyedia Single Sign-On (SSO). Dilengkapi dengan penjelasan mendalam tentang setiap langkah konfigurasi, termasuk custom scope mapping, pembuatan aplikasi dan provider, hingga pengaturan environment variable di Vaultwarden.
 categories: [Digital Independence, SSO, Password Manager]
 tags: [authentik, sso, self-hosted, vaultwarden]

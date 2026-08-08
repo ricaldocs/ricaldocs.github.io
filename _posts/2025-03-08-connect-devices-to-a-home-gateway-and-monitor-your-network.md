@@ -1,7 +1,7 @@
 ---
 title: Connect Devices to a Home Gateway and Monitor Your Network
 description: Penghubungan perangkat IoT ke Home Gateway melibatkan konfigurasi jaringan menggunakan Cisco Packet Tracer.
-categories: [Cisco Packet Tracer, Internet of Things]
+categories: [Internet of Things]
 tags: [cisco packet tracer, internet of things]
 author: rical
 last_modified_at: 2026-06-01

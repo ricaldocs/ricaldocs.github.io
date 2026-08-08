@@ -1,7 +1,7 @@
 ---
 title: Blinking an LED Using Blockly
 description: Menggunakan pemrograman Blockly untuk mengendalikan objek IoT seperti LED.
-categories: [Cisco Packet Tracer, Internet of Things]
+categories: [Internet of Things]
 tags: [cisco packet tracer, internet of things]
 author: rical
 last_modified_at: 2026-06-01
