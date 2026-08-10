@@ -4,7 +4,7 @@ description: Pelajari implementasi teknis hidden service menggunakan Tor untuk m
 categories: [The Onion Router, Dark Web]
 tags: [onion, tor, privacy]
 author: rical
-last_modified_at: 2026-06-04
+last_modified_at: 2026-08-10
 pin: true
 image:
   path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.jpg
@@ -16,10 +16,6 @@ image:
 
 > **Penggunaan untuk aktivitas ilegal, penyebaran konten berbahaya, atau pelanggaran hukum lainnya sepenuhnya di luar tanggung jawab penulis.** Pahami dan patuhi hukum yang berlaku sebelum mengimplementasikan teknologi ini.
 {: .prompt-danger}
-
-> Untuk melihat layanan Ricalnet mana saja yang mendukung alamat `.onion`, silakan merujuk ke situs utama [Risnanda Pascal](https://ricalnet.my.id).
-{: .prompt-info}
-
 
 ## Pendahuluan
 
@@ -94,7 +90,7 @@ Buka file konfigurasi utama Tor:
 sudo nano /etc/tor/torrc
 ```
 
-File `/etc/tor/torrc` dimiliki oleh root dan memerlukan hak akses administratif untuk dimodifikasi.
+File `/etc/tor/torrc`{: .filepath} dimiliki oleh root dan memerlukan hak akses administratif untuk dimodifikasi.
 
 ### Parameter Konfigurasi yang Perlu Dipahami
 
@@ -117,8 +113,9 @@ HiddenServiceDir /var/lib/tor/nextcloud/
 HiddenServicePort 80 127.0.0.1:5000
 ```
 
-- `HiddenServicePort 80` adalah port standar HTTP. Client Tor akan terhubung ke alamat `.onion` menggunakan port 80, lalu Tor akan meneruskan ke `127.0.0.1:8009` di server.
-- Anda bisa menggunakan port lain (misal `HiddenServicePort 443` untuk HTTPS), tetapi client harus menentukan port secara eksplisit (contoh: `http://xxxx.onion:443/`).
+`HiddenServicePort 80` adalah port standar HTTP. Client Tor akan terhubung ke alamat `.onion` menggunakan port 80, lalu Tor akan meneruskan ke `127.0.0.1:8009` di server.
+
+Anda bisa menggunakan port lain (misal `HiddenServicePort 443` untuk HTTPS), tetapi client harus menentukan port secara eksplisit (contoh: `http://xxxx.onion:443/`).
 
 Setiap direktori `HiddenServiceDir` akan menghasilkan hostname `.onion` yang unik dan independen. Ini ideal untuk menjalankan beberapa aplikasi terisolasi.
 

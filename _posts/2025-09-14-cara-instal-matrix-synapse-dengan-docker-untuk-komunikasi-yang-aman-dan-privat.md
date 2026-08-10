@@ -139,9 +139,7 @@ docker compose logs -f
 
 Untuk memverifikasi bahwa Synapse berjalan dengan benar:
 
-1. Akses `http://127.0.0.1:8008`
-   - Seharusnya menampilkan pesan default Synapse
-
+1. Akses `http://127.0.0.1:8008`. Seharusnya menampilkan pesan default Synapse
    ![Synapse is running](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.png)
    _Synapse is running_
 
@@ -149,13 +147,16 @@ Untuk memverifikasi bahwa Synapse berjalan dengan benar:
    ```bash
    docker logs synapse
    ```
-   - Log harus menunjukkan proses startup yang berhasil tanpa error kritis
+
+   Log harus menunjukkan proses startup yang berhasil tanpa error kritis
 
 3. Periksa status container:
    ```bash
    docker ps -f name=synapse
    ```
-   - Container harus dalam status "Up"
+
+   Container harus dalam status "Up"
+   
     ```
     CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS                   PORTS                                                                              NAMES
     4900d7d1f7f0   matrixdotorg/synapse:latest   "/start.py"              2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:8008->8008/tcp, 0.0.0.0:8448->8448/tcp, [::]:8448->8448/tcp, 19090/tcp   synapse

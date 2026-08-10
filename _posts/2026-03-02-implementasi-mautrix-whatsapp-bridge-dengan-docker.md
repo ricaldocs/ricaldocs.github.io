@@ -11,7 +11,7 @@ last_modified_at: 2026-07-02
 
 ## Pendahuluan
 
-**mautrix-whatsapp bridge** adalah jembatan yang menghubungkan homeserver Matrix (Synapse) dengan jaringan WhatsApp. Jembatan ini memungkinkan pengguna Matrix berkomunikasi langsung dengan kontak dan grup WhatsApp tanpa harus meninggalkan klien Matrix mereka.
+mautrix-whatsapp bridge adalah jembatan yang menghubungkan homeserver Matrix (Synapse) dengan jaringan WhatsApp. Jembatan ini memungkinkan pengguna Matrix berkomunikasi langsung dengan kontak dan grup WhatsApp tanpa harus meninggalkan klien Matrix mereka.
 
 ### Fitur Utama
 
@@ -48,10 +48,10 @@ last_modified_at: 2026-07-02
 ```
 
 Komponen utama:
-- **Synapse**: Homeserver Matrix
-- **mautrix-whatsapp**: Bridge WhatsApp
-- **PostgreSQL**: Database untuk menyimpan data bridge
-- **Jaringan Docker**: `synapse-network` untuk komunikasi antar kontainer
+- Synapse: Homeserver Matrix
+- mautrix-whatsapp: Bridge WhatsApp
+- PostgreSQL: Database untuk menyimpan data bridge
+- Jaringan Docker: `synapse-network` untuk komunikasi antar kontainer
 
 ## Instalasi dan Konfigurasi
 
@@ -91,7 +91,7 @@ nano mautrix-whatsapp-data/config.yaml
 
 #### Bagian yang Perlu Disesuaikan:
 
-Berikut adalah bagian-bagian penting yang **WAJIB** disesuaikan dengan lingkungan Anda:
+Berikut adalah bagian-bagian penting yang WAJIB disesuaikan dengan lingkungan Anda:
 
 ```yaml
 # Config for the bridge's database.
@@ -255,47 +255,9 @@ Setelah bridge berjalan, buat room chat dengan bot `@whatsappbot:domain.anda.id`
 - Kirim perintah `!wa sync` untuk memaksa sinkronisasi
 - Periksa log: `docker compose logs -f | grep sync`
 
-## Maintenance
-
-### Backup Database
-
-Backup PostgreSQL:
-```bash
-docker compose exec postgres pg_dump -U mautrix_whatsapp mautrix_whatsapp > backup-$(date +%Y%m%d).sql
-```
-
-Backup konfigurasi:
-```bash
-tar -czf mautrix-whatsapp-backup-$(date +%Y%m%d).tar.gz \
-  mautrix-whatsapp-data/ \
-  postgres-data/
-```
-
-### Restore Database
-
-Hentikan bridge:
-```bash
-docker compose down
-```
-
-Restore data:
-```bash
-tar -xzf mautrix-whatsapp-backup-YYYYMMDD.tar.gz
-```
-
-Restore PostgreSQL:
-```bash
-cat backup.sql | docker compose exec -T postgres psql -U mautrix_whatsapp
-```
-
-Jalankan kembali:
-```bash
-docker compose up -d
-```
-
 ## Kesimpulan
 
-**mautrix-whatsapp bridge** menyediakan integrasi yang seamless antara Matrix dan WhatsApp dengan fitur lengkap:
+mautrix-whatsapp bridge menyediakan integrasi yang seamless antara Matrix dan WhatsApp dengan fitur lengkap:
 
 - ✅ Pesan real-time dua arah
 - ✅ Dukungan grup dan media

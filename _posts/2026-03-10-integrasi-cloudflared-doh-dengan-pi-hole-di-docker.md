@@ -196,7 +196,7 @@ Untuk memastikan tidak terjadi kebocoran DNS dan semua permintaan Anda benar-ben
 
 2. Klik tombol "Standard test" atau mulai tes pada situs tersebut. Tunggu hingga proses selesai.
 
-3. Perhatikan server DNS yang terdeteksi. Anda akan melihat daftar server DNS yang digunakan. **Hasil yang diharapkan adalah server yang muncul hanya berasal dari resolver yang Anda konfigurasi di upstream Cloudflared**, yaitu:
+3. Perhatikan server DNS yang terdeteksi. Anda akan melihat daftar server DNS yang digunakan. Hasil yang diharapkan adalah server yang muncul hanya berasal dari resolver yang Anda konfigurasi di upstream Cloudflared, yaitu:
    - Server dari LibreDNS
    - Server dari Quad9
 
@@ -207,14 +207,14 @@ Untuk memastikan tidak terjadi kebocoran DNS dan semua permintaan Anda benar-ben
 
 4. Anda juga dapat melihat statistik di dashboard Pi-hole (http://[IP-PI-HOLE]:8080) untuk memastikan bahwa semua query diteruskan ke cloudflared, bukan ke resolver lain.
 
-> Hasil tes harus menunjukkan **hanya satu set resolver yang Anda konfigurasi** (LibreDNS dan Quad9). Jika muncul nama ISP Anda atau resolver lain yang tidak dikenal, berarti terjadi kebocoran DNS dan konfigurasi perlu diperiksa kembali.
-{: .prompt-warning}
+    > Hasil tes harus menunjukkan hanya satu set resolver yang Anda konfigurasi (LibreDNS dan Quad9). Jika muncul nama ISP Anda atau resolver lain yang tidak dikenal, berarti terjadi kebocoran DNS dan konfigurasi perlu diperiksa kembali.
+    {: .prompt-warning}
 
 Jika semua berjalan lancar, Anda sekarang memiliki sistem DNS yang:
 
-- **Memblokir iklan dan tracker** (oleh Pi-hole).
-- **Mengirim semua pertanyaan DNS melalui HTTPS terenkripsi** (oleh Cloudflared) ke resolver yang menghormati privasi (LibreDNS, Quad9).
-- **Tidak bergantung pada ISP** yang mungkin melakukan sensor atau penjualan data.
+- Memblokir iklan dan tracker (oleh Pi-hole).
+- Mengirim semua pertanyaan DNS melalui HTTPS terenkripsi (oleh Cloudflared) ke resolver yang menghormati privasi (LibreDNS, Quad9).
+- Tidak bergantung pada ISP yang mungkin melakukan sensor atau penjualan data.
 
 ## 7. Catatan Keamanan dan Pemeliharaan
 

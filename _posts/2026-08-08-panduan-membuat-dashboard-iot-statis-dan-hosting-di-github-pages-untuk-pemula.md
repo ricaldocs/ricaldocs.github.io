@@ -20,7 +20,7 @@ Mengapa memilih pendekatan ini?
 3. Dashboard dapat diakses langsung melalui URL `username.github.io`, sangat ideal untuk portofolio atau berbagi proyek.
 4. Memungkinkan Anda untuk fokus pada pengembangan antarmuka pengguna dan logika visualisasi data tanpa terbebani oleh administrasi server.
 
-Panduan ini dirancang khusus untuk pemula. Anda akan belajar tidak hanya bagaimana melakukan setiap langkah, tetapi juga mengapa langkah tersebut penting. Kita akan membangun fondasi yang kuat untuk proyek IoT Anda.
+Di sini Anda akan belajar tidak hanya bagaimana melakukan setiap langkah, tetapi juga mengapa langkah tersebut penting. Kita akan membangun fondasi yang kuat untuk proyek IoT Anda.
 
 ## Persiapan
 
@@ -28,9 +28,19 @@ Sebelum memulai, pastikan Anda telah menyiapkan beberapa alat penting. Persiapan
 
 ### Prasyarat
 
+| Prasyarat                       | Fungsi                                 | Mengapa Diperlukan                                                      |
+| ------------------------------- | -------------------------------------- | ----------------------------------------------------------------------- |
+| Akun GitHub                     | Platform hosting dan version control   | GitHub Pages adalah layanan dari GitHub; tanpa akun, tidak bisa hosting |
+| Repository `username.github.io` | Wadah penyimpanan kode                 | Format khusus untuk user site di GitHub Pages                           |
+| Git Bash                        | Antarmuka baris perintah untuk Git     | Untuk menjalankan perintah Git; wajib untuk upload kode                 |
+| Editor Kode                     | Menulis dan mengedit file              | Untuk membuat file HTML, CSS, dan JavaScript                            |
+| Tiga file inti                  | `index.html`, `style.css`, `script.js` | Struktur dasar setiap situs web statis                                  |
+
+Detail Prasyarat:
+
 1. Pastikan Anda sudah memiliki akun di [github.com](https://github.com). Ini adalah syarat mutlak karena kita akan menggunakan layanan hosting mereka.
-2. Buat repository (repo) dengan format `username.github.io`. Pengganti `username` dengan nama akun GitHub Anda. Ini adalah aturan baku untuk membuat situs pengguna (user site) di GitHub Pages.
-3. Git Bash: Ini adalah antarmuka baris perintah (CLI) untuk berinteraksi dengan Git. Jika Anda menggunakan Windows, unduh dan instal dari [git-scm.com](https://git-scm.com/downloads). Pengguna Mac/Linux biasanya sudah memiliki terminal yang kompatibel.
+2. Buat repository (repo) dengan format `username.github.io`. Ganti `username` dengan nama akun GitHub Anda. Ini adalah aturan baku untuk membuat situs pengguna (user site) di GitHub Pages.
+3. Git Bash. Ini adalah antarmuka baris perintah (CLI) untuk berinteraksi dengan Git. Jika Anda menggunakan Windows, unduh dan instal dari [git-scm.com](https://git-scm.com/downloads). Pengguna Mac/Linux biasanya sudah memiliki terminal yang kompatibel.
 4. Anda memerlukan editor kode untuk menulis file HTML, CSS, dan JS. Pilihan populer antara lain Visual Studio Code (VSCode), Sublime Text, atau Notepad++.
 5. Anda akan membutuhkan tiga file utama: `index.html` (kerangka), `style.css` (tampilan), dan `script.js` (interaktivitas).
 
@@ -56,6 +66,8 @@ Atau untuk referensi, Anda bisa melihat contoh file yang sudah tersedia di [sini
 > File-file ini adalah satu-satunya yang Anda perlukan. Tidak ada bahasa pemrograman server-side (seperti PHP atau Python) yang terlibat. Semua logika berjalan di sisi klien (browser pengguna). Ini yang membuatnya "statis" dan sempurna untuk GitHub Pages.
 {: .prompt-info}
 
+---
+
 ## Panduan Deployment ke GitHub
 
 Setelah file dashboard Anda siap, langkah selanjutnya adalah menghostingnya. Bagian ini akan memandu Anda melalui proses yang benar dan efisien.
@@ -68,9 +80,10 @@ Setelah file dashboard Anda siap, langkah selanjutnya adalah menghostingnya. Bag
 4. Pastikan repository diatur ke Public. Ini penting agar situs Anda dapat diakses publik.
 5. Jangan centang opsi "Add a README file" atau lainnya. Kita akan menginisialisasi repository dari lokal.
 6. Klik "Create repository".
-   ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image.png)
 
-> GitHub memiliki dua jenis situs Pages: User Site dan Project Site. Dengan menamai repositori `username.github.io`, Anda membuat User Site yang akan menjadi halaman utama Anda di `https://username.github.io`. Anda dapat memiliki banyak Project Site (dengan nama repo lain), tetapi hanya satu User Site per akun.
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image.png)
+
+> GitHub memiliki dua jenis situs Pages: **User Site** dan **Project Site**. Dengan menamai repositori `username.github.io`, Anda membuat User Site yang akan menjadi halaman utama Anda di `https://username.github.io`. Anda dapat memiliki banyak Project Site (dengan nama repo lain), tetapi hanya satu User Site per akun.
 {: .prompt-info}
 
 ### 2. Hubungkan Repositori Lokal dengan GitHub
@@ -79,34 +92,40 @@ Setelah repository dibuat, GitHub akan menampilkan serangkaian perintah. Kita ak
 
 ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-1.png)
 
-1. Buka terminal di VSCode (Terminal > New Terminal) atau buka Git Bash di folder proyek Anda.
-   ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-2.png)
+Buka terminal di VSCode (Terminal > New Terminal) atau buka Git Bash di folder proyek Anda.
 
-2. Pastikan terminal Anda sudah diatur untuk menggunakan Git Bash (pilih dari dropdown di sebelah kanan jika menggunakan VSCode).
-   ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-3.png)
-  
-   > Pastikan di bagian kanan sudah set git bash. Pada contoh ini menggunakan zsh karena terminal Linux.
-   {: .prompt-info}
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-2.png)
 
-3. Salin dan jalankan perintah yang diberikan oleh GitHub satu per satu. Umumnya perintahnya adalah sebagai berikut:
-   ```bash
-   git init
-   git add .
-   git commit -m "first commit"
-   git branch -M main
-   git remote add origin https://github.com/username/username.github.io.git
-   git push -u origin main
-   ```
+Pastikan terminal Anda sudah diatur untuk menggunakan Git Bash (pilih dari dropdown di sebelah kanan jika menggunakan VSCode).
 
-   Ganti `username` dengan nama akun GitHub Anda.
-   ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-4.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-3.png)
 
-   - `git init`: Menginisialisasi folder saat ini sebagai repositori Git lokal. Ini akan membuat folder `.git` tersembunyi yang menyimpan seluruh riwayat versi proyek Anda.
-   - `git add .`: Menambahkan semua file (`index.html`, `style.css`, `script.js`) ke area "staging", menandai bahwa file-file ini siap untuk di-commit. Tanda titik (.) berarti "semua file di folder ini dan subfoldernya".
-   - `git commit -m "first commit"`: Membuat snapshot permanen dari file-file di area staging dengan pesan "first commit". Setiap commit berfungsi seperti "checkpoint" yang memungkinkan Anda kembali ke versi sebelumnya jika diperlukan.
-   - `git branch -M main`: Mengganti nama cabang (branch) default dari `master` menjadi `main`, sesuai dengan standar GitHub saat ini. Branch adalah jalur pengembangan yang terisolasi.
-   - `git remote add origin ...`: Menambahkan URL repository di GitHub sebagai remote bernama `origin`. `origin` adalah nama konvensional untuk repository utama tempat Anda akan mengirimkan kode. Ini adalah alamat tujuan untuk mengirimkan file.
-   - `git push -u origin main`: Mengirimkan (push) commit di cabang `main` ke remote `origin`. `-u` (atau `--set-upstream`) menyetel cabang lokal `main` untuk melacak cabang remote `main`, sehingga Anda bisa menggunakan `git push` saja di masa depan.
+> Pastikan di bagian kanan sudah set git bash. Pada contoh ini menggunakan zsh karena terminal Linux.
+{: .prompt-info}
+
+Salin dan jalankan perintah yang diberikan oleh GitHub satu per satu. Berikut penjelasan setiap perintah:
+
+| Perintah                       | Fungsi                                    | Mengapa                                                                                       |
+| ------------------------------ | ----------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `git init`                     | Menginisialisasi repositori Git lokal     | Membuat folder `.git` tersembunyi yang menyimpan seluruh riwayat versi proyek                 |
+| `git add .`                    | Menambahkan semua file ke area "staging"  | Menandai file yang siap di-commit; tanda titik (.) berarti "semua file di folder ini"         |
+| `git commit -m "first commit"` | Membuat snapshot permanen                 | Setiap commit adalah "checkpoint" untuk kembali ke versi sebelumnya                           |
+| `git branch -M main`           | Mengganti nama cabang ke `main`           | Standar GitHub saat ini (sebelumnya `master`)                                                 |
+| `git remote add origin [URL]`  | Menambahkan URL repository sebagai remote | `origin` adalah alamat tujuan untuk mengirimkan kode                                          |
+| `git push -u origin main`      | Mengirimkan kode ke GitHub                | `-u` menyetel cabang lokal untuk melacak remote, sehingga `git push` saja cukup di masa depan |
+
+```bash
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/username/username.github.io.git
+git push -u origin main
+```
+
+Ganti `username` dengan nama akun GitHub Anda.
+
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-4.png)
 
 ### 3. Verifikasi Web
 
@@ -114,27 +133,34 @@ Setelah proses push selesai, tunggu sekitar 1-2 menit hingga GitHub Pages mempro
 
 ![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-5.png)
 
-GitHub Pages memiliki proses build dan deployment otomatis. Saat Anda melakukan push, GitHub akan:
-1. Membaca file-file di repository Anda
+GitHub Pages memiliki proses build dan deployment otomatis di balik layar:
+
+1. GitHub membaca file-file di repository Anda
 2. Membangun situs statis (khusus untuk situs dengan generator seperti Jekyll)
 3. Mendeploy hasil build ke server publik mereka
 4. Proses ini biasanya memakan waktu 1-2 menit, tergantung ukuran repository
 
-Secara default, GitHub Pages akan otomatis aktif untuk repository bernama `username.github.io`. Untuk repository lain, Anda perlu mengaktifkan GitHub Pages secara manual melalui Settings > Pages, pilih "Deploy from a branch", dan atur branch ke `main` dengan folder `/ (root)`.
+> Secara default, GitHub Pages akan otomatis aktif untuk repository bernama `username.github.io`. Untuk repository lain, Anda perlu mengaktifkan GitHub Pages secara manual melalui Settings > Pages, pilih "Deploy from a branch", dan atur branch ke `main` dengan folder `/ (root)`.
+{: .prompt-info}
 
 ## Kesimpulan
 
-Selamat! Anda telah berhasil membuat prototype dashboard IoT dan menghostingnya secara gratis di GitHub Pages. Anda telah belajar bahwa:
+Selamat! Anda telah berhasil membuat prototype dashboard IoT dan menghostingnya secara gratis di GitHub Pages.
 
-- Dashboard statis dengan HTML, CSS, dan JS adalah cara yang efektif dan sederhana untuk memvisualisasikan data IoT.
-- GitHub Pages menyediakan hosting gratis, otomatis, dan mudah digunakan untuk situs statis.
-- Proses deployment melibatkan inisialisasi Git, commit, dan push ke repository `username.github.io`.
+Apa yang telah Anda pelajari:
 
-Ini adalah langkah pertama yang kuat dalam perjalanan Anda di dunia IoT dan pengembangan web. Dengan fondasi ini, Anda dapat mulai mengeksplorasi fitur yang lebih canggih, seperti:
-- Menghubungkan dashboard ke database real-time (Firebase, Supabase)
-- Menggunakan WebSocket untuk data streaming
-- Mengotomatiskan build dan deployment menggunakan GitHub Actions
-- Menambahkan autentikasi pengguna
-- Membuat dashboard responsif untuk mobile
+- Dashboard statis dengan HTML, CSS, dan JS adalah cara yang efektif dan sederhana untuk memvisualisasikan data IoT
+- GitHub Pages menyediakan hosting gratis, otomatis, dan mudah digunakan untuk situs statis
+- Proses deployment melibatkan inisialisasi Git, commit, dan push ke repository `username.github.io`
 
-Selamat mencoba dan teruslah belajar!
+Langkah selanjutnya yang bisa dieksplorasi:
+
+| Fitur Lanjutan       | Fungsi                                         |
+| -------------------- | ---------------------------------------------- |
+| Firebase / Supabase  | Database real-time untuk menyimpan data sensor |
+| WebSocket            | Data streaming langsung dari perangkat IoT     |
+| GitHub Actions       | Mengotomatiskan build dan deployment           |
+| Autentikasi Pengguna | Membatasi akses dashboard                      |
+| Responsive Design    | Dashboard yang nyaman di mobile                |
+
+Ini adalah langkah pertama yang kuat dalam perjalanan Anda di dunia IoT dan pengembangan web. Selamat mencoba dan teruslah belajar!

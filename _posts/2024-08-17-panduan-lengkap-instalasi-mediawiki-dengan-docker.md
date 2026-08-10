@@ -34,12 +34,12 @@ cd digital-independence
 
 ### Instalasi Docker Engine
 
-**Untuk Debian:**
+Untuk Debian:
 ```bash
 ./install-docker-engine-on-debian.sh
 ```
 
-**Untuk Ubuntu:**
+Untuk Ubuntu:
 ```bash
 ./install-docker-engine-on-ubuntu.sh
 ```
@@ -146,19 +146,19 @@ http://192.168.x.x:8002/
 
 MediaWiki akan menampilkan installer wizard dengan langkah-langkah:
 
-1. **Pilih Bahasa**: Pilih bahasa yang diinginkan (Indonesia/English)
-2. **Verifikasi Environment**: Installer akan memeriksa semua requirement
-3. **Koneksi Database**: Isi informasi database sesuai .env:
+1. Pilih bahasa yang diinginkan (Indonesia/English)
+2. Installer akan memeriksa semua requirement
+3. Koneksi Database: Isi informasi database sesuai .env:
    - Database type: MySQL
    - Database host: `database` (nama service di docker-compose)
    - Database name: sesuai `MYSQL_DATABASE`
    - Username: sesuai `MYSQL_USER`
    - Password: sesuai `MYSQL_PASSWORD`
-4. **Konfigurasi Situs**: 
+4. Konfigurasi Situs: 
    - Nama situs
    - Logo (opsional)
    - Hak akses (publik/private)
-5. **Buat Akun Admin**: Username, password, dan email
+5. Buat Akun Admin: Username, password, dan email
 
 ### 4.3 Simpan `LocalSettings.php`
 

@@ -202,8 +202,9 @@ total_commands_processed:6666
 ✅ Redis connected: 1   
 ```
 
-- `total_commands_processed` Menunjukkan Redis telah menerima dan memproses perintah. Angka yang meningkat menunjukkan Redis aktif digunakan.
-- Respond `1` adalah custom response yang menunjukkan autentikasi berhasil dan koneksi Redis berfungsi dengan baik.
+`total_commands_processed` Menunjukkan Redis telah menerima dan memproses perintah. Angka yang meningkat menunjukkan Redis aktif digunakan.
+
+Respond `1` adalah custom response yang menunjukkan autentikasi berhasil dan koneksi Redis berfungsi dengan baik.
 
 ## Kesimpulan
 

@@ -76,9 +76,9 @@ http://localhost:8009
 
 ## Penyesuaian Lebih Lanjut
 
-- **Membatasi sumber daya** : Buka komentar bagian `deploy` pada `docker-compose.yml` untuk membatasi penggunaan memori.
-- **Keamanan** : Aktifkan `read_only: true` dan `tmpfs` untuk sistem berkas yang tidak dapat ditulis (kecuali `/tmp`). Pastikan image Element Web mendukung mode ini.
-- **Pembaruan** : Untuk memperbarui Element Web ke versi terbaru, jalankan:
+- Membatasi sumber daya : Buka komentar bagian `deploy` pada `docker-compose.yml` untuk membatasi penggunaan memori.
+- Keamanan : Aktifkan `read_only: true` dan `tmpfs` untuk sistem berkas yang tidak dapat ditulis (kecuali `/tmp`). Pastikan image Element Web mendukung mode ini.
+- Pembaruan : Untuk memperbarui Element Web ke versi terbaru, jalankan:
   ```bash
   docker compose pull
   docker compose up -d

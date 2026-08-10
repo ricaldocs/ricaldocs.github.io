@@ -134,16 +134,16 @@ Agar semua perangkat di jaringan otomatis menggunakan Pi-Hole, atur DHCP server 
 1. Login ke antarmuka router (biasanya `192.168.0.1` atau `192.168.1.1`).
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/login-router.png)
 
-2. Cari menu **DHCP Server**.
+2. Cari menu DHCP Server.
 3. Aktifkan DHCP jika belum.
 4. Atur parameter seperti contoh di bawah (sesuaikan dengan jaringan Anda):
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dhcp-server.png)
 
-   - **IP Address Pool**: `192.168.0.100` – `192.168.0.199` (rentang IP yang diberikan ke client)
-   - **Address Lease Time**: `120` menit (bisa disesuaikan)
-   - **Default Gateway**: `192.168.0.1` (IP router)
-   - **Primary DNS**: `192.168.0.50` (IP server Pi-Hole)
-   - **Secondary DNS**: `192.168.0.50` (juga Pi-Hole, agar jika satu gagal tetap menggunakan yang sama)
+   - IP Address Pool: `192.168.0.100` – `192.168.0.199` (rentang IP yang diberikan ke client)
+   - Address Lease Time: `120` menit (bisa disesuaikan)
+   - Default Gateway: `192.168.0.1` (IP router)
+   - Primary DNS: `192.168.0.50` (IP server Pi-Hole)
+   - Secondary DNS: `192.168.0.50` (juga Pi-Hole, agar jika satu gagal tetap menggunakan yang sama)
 
 5. Simpan pengaturan dan reboot router.
 
@@ -156,7 +156,7 @@ Setelah itu, semua perangkat yang terhubung ke jaringan akan mendapatkan IP dan 
 Pi-Hole menggunakan blocklist (daftar domain yang diblokir) yang diperbarui secara berkala. Anda dapat menambahkan sumber blocklist tambahan untuk meningkatkan efektivitas.
 
 1. Masuk ke admin panel Pi-Hole.
-2. Buka menu **Lists** → **Add a new subscribed list**.
+2. Buka menu Lists → Add a new subscribed list.
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/subscribed-list-group-management.png)
 
 3. Masukkan URL blocklist. Contoh sumber populer:
@@ -166,8 +166,8 @@ Pi-Hole menggunakan blocklist (daftar domain yang diblokir) yang diperbarui seca
    > Beberapa daftar dapat ditambahkan dengan memisahkan setiap URL unik menggunakan spasi atau koma.
    {: .prompt-tip}
    URL tersebut berisi gabungan beberapa blocklist terkenal.
-4. Klik **Add blocklist** untuk menyimpan.
-5. Setelah menambahkan, jalankan **Update Gravity** (tombol `online` di bagian atas) untuk mengunduh dan memproses blocklist baru. Proses ini bisa memakan waktu beberapa menit.
+4. Klik Add blocklist untuk menyimpan.
+5. Setelah menambahkan, jalankan Update Gravity (tombol `online` di bagian atas) untuk mengunduh dan memproses blocklist baru. Proses ini bisa memakan waktu beberapa menit.
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/update-gravity.png)
 
 Anda juga dapat menambahkan allowlist (domain yang diizinkan) melalui menu yang sama jika ada situs yang tidak sengaja terblokir.
@@ -176,8 +176,8 @@ Anda juga dapat menambahkan allowlist (domain yang diizinkan) melalui menu yang 
 
 Admin panel Pi-Hole menyediakan dasbor informatif:
 
-- **Query Log** : menampilkan riwayat permintaan DNS dari setiap client, termasuk yang diblokir (ditandai merah) dan yang diizinkan (hijau).
-- **Analytics** : grafik dan statistik tentang total query, persentase blokir, domain teratas, client teratas, dll.
+- Query Log : menampilkan riwayat permintaan DNS dari setiap client, termasuk yang diblokir (ditandai merah) dan yang diizinkan (hijau).
+- Analytics : grafik dan statistik tentang total query, persentase blokir, domain teratas, client teratas, dll.
 
 Anda bisa melihat situs apa saja yang dikunjungi oleh perangkat tertentu, sehingga berguna untuk pemantauan dan evaluasi.
 

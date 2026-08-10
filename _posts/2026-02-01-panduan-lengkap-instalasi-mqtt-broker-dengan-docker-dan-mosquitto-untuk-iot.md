@@ -148,22 +148,6 @@ docker compose logs -f
 
 Gunakan `Ctrl+C` untuk keluar dari mode follow. Flag `-f` memungkinkan Anda melihat log secara real-time, berguna untuk debugging saat terjadi masalah koneksi atau konfigurasi.
 
-### Langkah 4: Verifikasi Instalasi Mosquitto
-
-Cek versi Mosquitto di dalam kontainer:
-
-```bash
-docker exec mosquitto-local mosquitto -v
-```
-
-Periksa kesehatan kontainer secara detail:
-
-```bash
-docker compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
-```
-
-Format output tabel memudahkan pembacaan informasi port yang terbuka dan status kontainer.
-
 ## Konfigurasi Autentikasi Pengguna
 
 Keamanan merupakan aspek kritis dalam deployment MQTT Broker. Mosquitto mendukung autentikasi berbasis file password.
@@ -229,11 +213,7 @@ docker compose logs --tail=20
 Untuk keperluan troubleshooting atau integrasi dengan layanan lain, Anda mungkin perlu mengetahui IP address kontainer:
 
 ```bash
-# Dapatkan IP address kontainer
 docker inspect mosquitto-local | grep IPAddress
-
-# Atau gunakan format output yang lebih bersih
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mosquitto-local
 ```
 
 **Contoh output:** `172.17.0.2`

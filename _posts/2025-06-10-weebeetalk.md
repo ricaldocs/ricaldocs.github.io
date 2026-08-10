@@ -9,35 +9,49 @@ last_modified_at: 2026-02-19
 
 ## 1. Pendahuluan
 
-[WeeBeeTalk](https://ricaldocs.github.io/posts/weebeetalk/) merupakan arsitektur telekomunikasi hybrid berorientasi privasi yang dirancang khusus untuk memenuhi kebutuhan konferensi enterprise melalui integrasi tumpukan teknologi sumber terbuka. Solusi ini dikembangkan oleh [Risnanda Pascal](https://ricaldocs.github.io/posts/risnanda-pascal/) & [Gineng B. Pamungkas](https://astarajingga.github.io) sebagai respons terhadap tantangan kontemporer dalam komunikasi bisnis modern, terutama menyangkut kerahasiaan data, interoperabilitas sistem, dan kontrol infrastruktur mandiri.
+WeeBeeTalk merupakan arsitektur telekomunikasi hybrid berorientasi privasi yang dirancang khusus untuk memenuhi kebutuhan konferensi enterprise melalui integrasi tumpukan teknologi sumber terbuka. Solusi ini dikembangkan sebagai respons terhadap tantangan kontemporer dalam komunikasi bisnis modern, terutama menyangkut kerahasiaan data, interoperabilitas sistem, dan kontrol infrastruktur mandiri.
 
-Dalam konteks lingkungan korporat yang semakin terdigitalisasi, kebutuhan akan platform konferensi yang mampu menjamin keamanan end-to-end tanpa mengorbankan fungsionalitas menjadi krusial. Arsitektur hybrid [WeeBeeTalk](https://ricaldocs.github.io/posts/weebeetalk/) memadukan teknologi berbasis IP ([Rocket.Chat](https://www.rocket.chat/)), komunikasi real-time berbasis WebRTC ([Jitsi](https://jitsi.org/)), dan teleponi tradisional ([Asterisk](https://www.asterisk.org/)) dalam satu ekosistem terintegrasi. Pendekatan ini memungkinkan organisasi untuk:
-1. Mempertahankan kedaulatan data melalui implementasi on-premise
-2. Mengurangi ketergantungan pada penyedia layanan cloud pihak ketiga
-3. Menerapkan kebijakan enkripsi dan otentikasi yang konsisten
-4. Menjaga interoperabilitas dengan infrastruktur telekomunikasi yang sudah ada
+Mengapa arsitektur hybrid diperlukan?
 
-Inti arsitektur ini terletak pada integrasi strategis tiga komponen utama:
-- [Rocket.Chat](https://www.rocket.chat/) sebagai platform kolaborasi berbasis pesan instan
-- [Jitsi Meet](https://jitsi.org/) sebagai engine konferensi video WebRTC
-- [Asterisk](https://www.asterisk.org/) sebagai gateway teleponi berbasis IP-PBX
+| Tantangan            | Solusi WeeBeeTalk                          |
+| -------------------- | ------------------------------------------ |
+| Keamanan end-to-end  | Enkripsi pada semua lapisan komunikasi     |
+| Ketergantungan cloud | Implementasi on-premise penuh              |
+| Interoperabilitas    | Integrasi chat, video, dan teleponi        |
+| Kebijakan konsisten  | RBAC dan autentikasi multi-faktor terpusat |
+
+Komponen utama:
+
+| Komponen                                | Fungsi                           | Lisensi    |
+| --------------------------------------- | -------------------------------- | ---------- |
+| [Rocket.Chat](https://www.rocket.chat/) | Platform kolaborasi pesan instan | MIT        |
+| [Jitsi Meet](https://jitsi.org/)        | Engine konferensi video WebRTC   | Apache 2.0 |
+| [Asterisk](https://www.asterisk.org/)   | Gateway teleponi berbasis IP-PBX | GPL        |
 
 ![Arsitektur WeeBeeTalk](/assets/img/posts/2025-06-10-weebeetalk/weebeetalk.png)
-_Arsitektur WeeBeeTalk_
+*Arsitektur WeeBeeTalk*
 
-Implementasi [WeeBeeTalk](https://ricaldocs.github.io/posts/weebeetalk/) mengadopsi paradigma "privacy by design" dengan menerapkan enkripsi end-to-end pada semua lapisan komunikasi (data-at-rest dan data-in-transit), Role-Based Access Control (RBAC), serta mekanisme autentikasi multi-faktor.
+Implementasi mengadopsi paradigma "privacy by design" dengan:
+- Enkripsi end-to-end (data-at-rest dan data-in-transit)
+- Role-Based Access Control (RBAC)
+- Autentikasi multi-faktor
 
 ## 2. Lingkungan Sistem dan Prasyarat
-[WeeBeeTalk](https://ricaldocs.github.io/posts/weebeetalk/) diimplementasikan pada lingkungan sistem operasi [Debian GNU/Linux](https://www.debian.org/) (versi stabil terkini) sebagai platform dasar, dipilih karena stabilitas jangka panjang (LTS), ekosistem paket yang komprehensif, dan kompatibilitas optimal dengan tumpukan teknologi open-source yang digunakan. Implementasi ini mengasumsikan lingkungan server Debian minimal dengan konfigurasi berikut:
 
-### 2.1. Spesifikasi Sistem Minimum
-- **Sistem Operasi**: Debian 12 (Bookworm) x86_64
-- **CPU**: 4 core (arsitektur x64)
-- **RAM**: 8 GB
-- **Storage**: 50 GB (SSD direkomendasikan)
-- **Jaringan**: Alamat IP publik statis/DNS yang terkonfigurasi
+WeeBeeTalk diimplementasikan pada **Debian GNU/Linux** (versi stabil terkini), dipilih karena stabilitas LTS, ekosistem paket komprehensif, dan kompatibilitas optimal.
 
-### 2.2. Prasyarat Khusus Debian
+### Spesifikasi Minimum
+
+| Komponen | Spesifikasi                 | Mengapa                                      |
+| -------- | --------------------------- | -------------------------------------------- |
+| OS       | Debian 12 (Bookworm) x86_64 | Stabilitas dan dukungan jangka panjang       |
+| CPU      | 4 core x64                  | Menangani beban konferensi dan chat simultan |
+| RAM      | 8 GB                        | Cukup untuk menjalankan 3 komponen utama     |
+| Storage  | 50 GB SSD                   | Image Docker dan log memakan ruang           |
+| Jaringan | IP publik statis / DNS      | Akses eksternal dan SSL/TLS                  |
+
+### Prasyarat Debian
+
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
@@ -46,235 +60,192 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 sudo apt install -y apt-transport-https ca-certificates gnupg2 curl software-properties-common
 ```
 
+**Mengapa paket-paket ini?**
+- `apt-transport-https`, `ca-certificates`, `gnupg2`, `curl` → Untuk mengunduh dan memverifikasi paket dari repositori eksternal (Docker, NodeSource, dll)
+- `software-properties-common` → Menambahkan PPA/repositori dengan `add-apt-repository`
+
 ## 3. Konfigurasi Rocket.Chat via Docker
-### 3.1 Mengambil Konfigurasi Docker Compose Rocket.Chat
 
-Konfigurasi yang diperlukan untuk penerapan Rocket.Chat melalui Docker tersedia dalam repositori resmi `rocketchat-compose`{: .filepath}.
+### 3.1 Mengambil Konfigurasi
 
-1.  Kloning repositori resmi `rocketchat-compose`{: .filepath} menggunakan Git dengan perintah berikut:
-    ```bash
-    git clone --depth 1 https://github.com/RocketChat/rocketchat-compose.git
-    ```
-    Opsi `--depth 1` digunakan untuk hanya mengunduh riwayat commit terakhir, sehingga proses lebih cepat.
+```bash
+git clone --depth 1 https://github.com/RocketChat/rocketchat-compose.git
+cd rocketchat-compose
+cp .env.example .env
+```
 
-2.  Masuk ke direktori yang telah dikloning:
-    ```bash
-    cd rocketchat-compose
-    ```
-    Direktori ini berisi berkas `compose.yml`{: .filepath}, `.env.example`{: .filepath}, serta berkas konfigurasi lain yang diperlukan untuk menyiapkan instansi Rocket.Chat.
+| Perintah               | Fungsi                        | Mengapa                                                |
+| ---------------------- | ----------------------------- | ------------------------------------------------------ |
+| `--depth 1`            | Kloning hanya commit terakhir | Menghemat bandwidth dan waktu                          |
+| `cp .env.example .env` | Membuat file konfigurasi      | `.env` menyimpan rahasia; tidak boleh di-commit ke Git |
 
-3.  Salin berkas `.env.example`{: .filepath} untuk membuat berkas `.env`{: .filepath}:
-    ```bash
-    cp .env.example .env
-    ```
-    Berkas `.env`{: .filepath} ini digunakan untuk mendefinisikan konfigurasi penerapan, seperti versi Rocket.Chat, URL workspace, dan konfigurasi HTTPS opsional, tanpa perlu menyunting langsung berkas `compose.yml`{: .filepath}.
+### 3.2 Konfigurasi .env
 
-### 3.2 Mengonfigurasi Rocket.Chat
+```bash
+nano .env
+```
 
-Sebelum meluncurkan workspace Rocket.Chat, beberapa variabel kunci harus dikonfigurasi dalam berkas `.env`{: .filepath}.
+Variabel kunci:
+```plaintext
+RELEASE=7.10.0
+```
 
-1.  Buka berkas `.env`{: .filepath} dengan editor teks pilihan Anda, misalnya:
-    ```bash
-    nano .env
-    ```
-
-2.  Atur variabel `RELEASE` ke versi Rocket.Chat yang diinginkan. Untuk lingkungan produksi, sangat disarankan untuk tidak menggunakan `latest` dan menentukan versi tertentu (contoh: `7.10.0`) untuk memastikan stabilitas.
-    ```plaintext
-    RELEASE=7.10.0
-    ```
-    > Versi tersedia dapat dilihat di [Rilis Rocket.Chat](https://github.com/RocketChat/Rocket.Chat/releases).
-    {: .prompt-info}
+> Versi spesifik memastikan stabilitas dan kompatibilitas. `latest` bisa berubah tanpa pemberitahuan dan merusak integrasi.
+{: .prompt-warning}
 
 ### 3.3 Menjalankan Rocket.Chat
 
-Setelah berkas `.env`{: .filepath} dikonfigurasi dan disimpan, siap untuk memulai workspace Rocket.Chat.
+```bash
+docker compose -f compose.database.yml -f compose.monitoring.yml -f compose.traefik.yml -f compose.yml up -d
+```
 
-1.  Jalankan perintah berikut untuk mengunduh image Docker yang diperlukan dan memulai kontainer Rocket.Chat beserta layanan pendukungnya:
-    ```bash
-    docker compose -f compose.database.yml -f compose.monitoring.yml -f compose.traefik.yml -f compose.yml up -d
-    ```
+Mengapa banyak compose file? Arsitektur modular:
+- `compose.database.yml` → MongoDB (database)
+- `compose.monitoring.yml` → Prometheus + Grafana (opsional)
+- `compose.traefik.yml` → Reverse proxy (opsional)
+- `compose.yml` → Rocket.Chat utama
 
-2.  Periksa status semua kontainer yang berjalan dengan perintah:
-    ```bash
-    docker ps
-    ```
-
-#### 3.4 Penyesuaian Penerapan
-
-Penerapan dapat disesuaikan dengan hanya menyertakan layanan yang diperlukan. Sebagai contoh, jika pemantauan atau reverse proxy Traefik tidak digunakan, berkas `.yml`{: .filepath} terkait dapat dihilangkan dari perintah.
-
-Contoh perintah tanpa pemantauan dan Traefik:
+Tanpa monitoring dan Traefik:
 ```bash
 docker compose -f compose.database.yml -f compose.yml up -d
 ```
 
-### 3.4 Mengakses Workspace Rocket.Chat
-
-Setelah instance Rocket.Chat diterapkan, dapat diakses melalui browser.
-
-*   Untuk pengujian lokal: Buka `http://localhost:3000`.
-*   Untuk lingkungan produksi: Akses `ROOT_URL` yang telah dikonfigurasi di berkas `.env`{: .filepath} (contoh: `https://nama-domain.com`). 
+Akses:
+- Lokal: `http://localhost:3000`
+- Production: `ROOT_URL` yang dikonfigurasi di `.env`
 
 ## 4. Integrasi dengan WebRTC (Jitsi)
 
-### 4.1 Langkah-langkah Instalasi
+### 4.1 Instalasi
 
-#### 4.1.1 Unduh dan Ekstrak Rilis Terbaru
-
-> Jangan clone repository git. Untuk versi stabil, gunakan rilis resmi.
+> Jangan clone repository git. Untuk versi stabil, gunakan rilis resmi. Branch `master` bersifat unstable dan hanya untuk development.
 {: .prompt-warning}
 
+Unduh rilis terbaru:
 ```bash
 wget $(wget -q -O - https://api.github.com/repos/jitsi/docker-jitsi-meet/releases/latest | grep zip | cut -d\" -f4)
-```
-
-Ekstrak paket yang telah diunduh:
-
-```bash
 unzip <nama-file>
 ```
 
-#### 4.1.2 Konfigurasi Environment
-
-Salin file environment contoh dan sesuaikan sesuai kebutuhan:
-
+Konfigurasi:
 ```bash
 cp env.example .env
-```
-
-Generate password yang kuat untuk bagian keamanan:
-
-```bash
 ./gen-passwords.sh
 ```
 
-#### 4.1.3 Buat Direktori Konfigurasi
-
+Generate password:
 ```bash
 mkdir -p ~/.jitsi-meet-cfg/{web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
 ```
 
-#### 4.1.4 Menjalankan Jitsi Meet
-
+Jalankan:
 ```bash
 docker compose up -d
 ```
 
-#### 4.1.5 Akses Antarmuka Web
+Akses: `https://localhost:8443`
 
-Akses aplikasi melalui: `https://localhost:8443`
+Port:
 
-**Catatan Penting:**
-- Port HTTPS default: 8443 (dapat diubah di file `.env`)
-- HTTP tersedia pada port 8000 (default), namun hanya untuk setup reverse proxy
-- Akses langsung via HTTP (bukan HTTPS) akan menyebabkan error WebRTC
+| Port         | Fungsi                | Mengapa HTTPS?                                           |
+| ------------ | --------------------- | -------------------------------------------------------- |
+| 8443 (HTTPS) | Akses utama WebRTC    | WebRTC membutuhkan HTTPS untuk mengakses kamera/mikrofon |
+| 8000 (HTTP)  | Reverse proxy backend | Tidak untuk akses langsung                               |
 
 ### 4.2 Konfigurasi Tambahan
 
-#### 4.2.1 PUBLIC_URL
+| Komponen    | Perintah             | Fungsi                                       |
+| ----------- | -------------------- | -------------------------------------------- |
+| PUBLIC_URL  | Set di `.env`        | Domain publik tempat Jitsi berjalan          |
+| Jigasi      | `-f jigasi.yml`      | Gateway SIP untuk panggilan ke telepon biasa |
+| Etherpad    | `-f etherpad.yml`    | Berbagi dokumen real-time                    |
+| Jibri       | `-f jibri.yml`       | Rekaman dan streaming                        |
+| Transcriber | `-f transcriber.yml` | Transkripsi otomatis                         |
+| Grafana     | `-f grafana.yml`     | Monitoring dan log analysis                  |
 
-> Untuk deployment production, atur variabel environment `PUBLIC_URL` dengan domain aktual tempat setup dijalankan.
-{: .prompt-info}
-
-#### 4.2.2 Integrasi Jigasi (SIP Gateway)
-
-1. Konfigurasi kredensial SIP di file `.env`
-2. Jalankan dengan perintah:
-
-```bash
-docker compose -f docker-compose.yml -f jigasi.yml up
-```
-
-#### 4.2.3 Integrasi Etherpad (Document Sharing)
-
-1. Konfigurasi Etherpad di file `.env`
-2. Jalankan dengan perintah:
-
-```bash
-docker compose -f docker-compose.yml -f etherpad.yml up
-```
-
-#### 4.2.4 Integrasi Jibri (Recording & Streaming)
-
-1. Konfigurasi host sesuai panduan Jitsi Broadcasting Infrastructure
-2. Jalankan dengan perintah:
-
-```bash
-docker compose -f docker-compose.yml -f jibri.yml up -d
-```
-
-#### 4.2.5 Dengan Jigasi dan Jibri:
-
-```bash
-docker compose -f docker-compose.yml -f jigasi.yml -f jibri.yml up -d
-```
-
-#### 4.2.6 Integrasi Transcriber
-
-```bash
-docker compose -f docker-compose.yml -f transcriber.yml up -d
-```
-
-#### 4.2.7 Semua Komponen Bersamaan:
-
+Semua komponen:
 ```bash
 docker compose -f docker-compose.yml -f transcriber.yml -f jigasi.yml -f jibri.yml up -d
 ```
 
-#### 4.2.8 Log Analysis dengan Grafana
-
-```bash
-docker-compose -f docker-compose.yml -f log-analyser.yml -f grafana.yml up -d
-```
-
 ### 4.3 Proses Update
 
-Untuk memperbarui instalasi, unduh rilis terbaru:
-
+Unduh rilis terbaru:
 ```bash
 wget $(wget -q -O - https://api.github.com/repos/jitsi/docker-jitsi-meet/releases/latest | grep zip | cut -d\" -f4)
+unzip <nama-file>  # Timpa file yang ada
 ```
 
-Ekstrak dan timpa file yang ada:
-```bash
-unzip <nama-file>
-```
+Mengapa update penting? Perbaikan keamanan dan bug fix. Jitsi Meet aktif dikembangkan.
 
 ### 4.4 Testing Development Builds
 
-Untuk menguji versi development/unstable, clone repository:
-
+Hanya untuk pengujian:
 ```bash
 git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet
-```
-
-**CATATAN:** 
-- Kode di branch `master` dirancang untuk bekerja dengan image unstable
-- Jangan gunakan dengan image rilis stabil
-- Image unstable baru diupload setiap hari
-
-Jalankan seperti biasa:
-```bash
 docker compose up
 ```
+
+> Branch `master` bekerja dengan image unstable yang diupload setiap hari. Jangan gunakan di production.
+{: .prompt-danger}
+
 ### 4.5 Troubleshooting
 
-#### 4.5.1 Error Media Devices
-Jika mengalami error:
-- `Failed to access your microphone/camera`
-- `Cannot read property 'getUserMedia' of undefined`
-- `navigator.mediaDevices is undefined`
+Error: `Failed to access your microphone/camera`
 
-Pastikan mengakses via HTTPS, bukan HTTP.
+| Penyebab                              | Solusi                            |
+| ------------------------------------- | --------------------------------- |
+| Akses via HTTP, bukan HTTPS           | Gunakan `https://`                |
+| `navigator.mediaDevices is undefined` | HTTPS diperlukan untuk WebRTC API |
 
-#### 4.5.2 Security Group Rules
+Mengapa HTTPS wajib? Browser modern memblokir akses media devices di konteks non-HTTPS karena alasan keamanan.
+
+Security Group Rules:
 
 ![Inbound Rules](../assets/img/posts/2025-06-10-weebeetalk/inbound-rules.png)
 
 ## 5. Integrasi dengan Asterisk
-Lihat dokumentasi tentang [Membangun VoIP Server](https://ricaldocs.github.io/posts/membangun-voip-server/) menggunakan Asterisk.
+
+Lihat dokumentasi terpisah: [Membangun VoIP Server](https://ricaldocs.github.io/posts/membangun-voip-server/) menggunakan Asterisk.
+
+Asterisk berfungsi sebagai:
+- Gateway antara jaringan SIP dan PSTN (telepon biasa)
+- PBX (Private Branch Exchange) internal
+- Bridge antara Jitsi (WebRTC) dan telepon konvensional
+
+Mengapa Asterisk penting? Banyak enterprise masih memiliki infrastruktur telepon tradisional. Asterisk menjembatani dunia baru (WebRTC) dan dunia lama (PSTN) tanpa mengganti seluruh sistem.
+
+## Ringkasan Arsitektur
+
+```
+┌─────────────────────────────────────────────────────┐
+│                     Pengguna                        │
+└──────────────┬───────────────────┬──────────────────┘
+               │                   │
+               ▼                   ▼
+┌─────────────────────┐ ┌──────────────────────┐
+│   Rocket.Chat       │ │   Jitsi Meet         │
+│   Pesan Instan      │ │   Konferensi Video   │
+│   Kolaborasi        │ │   WebRTC             │
+└──────────┬──────────┘ └──────────┬───────────┘
+           │                       │
+           └───────────┬───────────┘
+                       ▼
+              ┌────────────────┐
+              │   Asterisk     │
+              │   IP-PBX       │
+              │   Gateway SIP  │
+              └────────────────┘
+```
+
+Alur Komunikasi:
+1. Chat → Rocket.Chat
+2. Video Call → Jitsi (WebRTC)
+3. Panggilan Telepon → Asterisk (SIP/PSTN)
+4. Semua terintegrasi → Pengalaman pengguna tunggal
 
 ## Pranala Luar
+
 - [Deploy Rocket.Chat](https://docs.rocket.chat/docs/deploy-with-docker-docker-compose)
-- [Asterisk Manager Interface AMI](https://docs.asterisk.org/Configuration/Interfaces/Asterisk-Manager-Interface-AMI/)
+- [Asterisk Manager Interface (AMI)](https://docs.asterisk.org/Configuration/Interfaces/Asterisk-Manager-Interface-AMI/)
 - [Jitsi Meet Handbook](https://jitsi.github.io/handbook/docs/intro)

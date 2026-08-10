@@ -24,12 +24,12 @@ cd digital-independence
 
 ### Instalasi Docker Engine
 
-**Untuk Debian:**
+Untuk Debian:
 ```bash
 ./install-docker-engine-on-debian.sh
 ```
 
-**Untuk Ubuntu:**
+Untuk Ubuntu:
 ```bash
 ./install-docker-engine-on-ubuntu.sh
 ```
@@ -96,7 +96,7 @@ Anda akan disambut dengan halaman setup awal Homarr.
 
 ### Isu Jaringan dengan Docker Compose
 
-Secara default, Docker Compose membuat jaringan internal untuk stack-nya. Beberapa integrasi (khususnya seperti **Dash.**) mungkin tidak berfungsi jika menggunakan hostname internal karena klien di luar jaringan tidak mengenali nama tersebut. Disarankan untuk menggunakan alamat IP langsung atau hostname yang dikenal di jaringan lokal. Alternatifnya, buatlah catatan DNS dengan nama host yang sama dengan nama layanan di compose agar dapat diakses dari luar.
+Secara default, Docker Compose membuat jaringan internal untuk stack-nya. Beberapa integrasi (khususnya seperti Dash.) mungkin tidak berfungsi jika menggunakan hostname internal karena klien di luar jaringan tidak mengenali nama tersebut. Disarankan untuk menggunakan alamat IP langsung atau hostname yang dikenal di jaringan lokal. Alternatifnya, buatlah catatan DNS dengan nama host yang sama dengan nama layanan di compose agar dapat diakses dari luar.
 
 ### Memperbarui Homarr
 

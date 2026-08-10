@@ -11,7 +11,7 @@ last_modified_at: 2026-07-02
 
 ## Pendahuluan
 
-**mautrix-telegram bridge** adalah alat yang menghubungkan homeserver Matrix (misalnya Synapse) dengan jaringan Telegram. Jembatan ini memungkinkan pengguna Matrix berkomunikasi langsung dengan kontak, grup, dan saluran Telegram tanpa harus meninggalkan klien Matrix mereka.
+mautrix-telegram bridge adalah alat yang menghubungkan homeserver Matrix (misalnya Synapse) dengan jaringan Telegram. Jembatan ini memungkinkan pengguna Matrix berkomunikasi langsung dengan kontak, grup, dan saluran Telegram tanpa harus meninggalkan klien Matrix mereka.
 
 Dengan mengikuti panduan ini, Anda akan:
 
@@ -41,18 +41,18 @@ Diagram berikut menggambarkan interaksi antar komponen:
                                    └────────────────┘
 ```
 
-- **Synapse** adalah homeserver Matrix yang menangani semua lalu lintas Matrix.
-- **mautrix-telegram** berjalan sebagai kontainer terpisah yang menjembatani kedua jaringan.
+- Synapse adalah homeserver Matrix yang menangani semua lalu lintas Matrix.
+- mautrix-telegram berjalan sebagai kontainer terpisah yang menjembatani kedua jaringan.
 - Kedua kontainer berkomunikasi melalui jaringan Docker khusus (`synapse-network`), sementara jembatan juga terhubung ke internet publik untuk menjangkau server Telegram.
 
 ## Prasyarat
 
 Sebelum memulai, pastikan Anda memiliki:
 
-- **Synapse** yang berjalan di Docker (lihat [artikel sebelumnya](https://ricaldocs.github.io/posts/matrix-protocol-with-synapse-and-element/) jika perlu).
+- Synapse yang berjalan di Docker (lihat [artikel sebelumnya](https://ricaldocs.github.io/posts/matrix-protocol-with-synapse-and-element/) jika perlu).
 - Docker dan Docker Compose terinstal di host.
 - Nama domain untuk server Matrix Anda (misalnya `matrix.domain.my.id`).
-- **Kredensial API Telegram**:
+- Kredensial API Telegram:
   - `api_id` dan `api_hash` – dapatkan dari [my.telegram.org/apps](https://my.telegram.org/apps).
   - (Opsional) Token Bot Telegram dari [@BotFather](https://t.me/BotFather) jika ingin menggunakan fitur bot.
 
@@ -298,25 +298,25 @@ bridge:
 
 Pemantauan rutin membantu memastikan bridge berjalan lancar.
 
-- **Lihat error:**
+- Lihat error:
 
   ```bash
   docker compose logs -f | grep -E "ERROR|CRITICAL|WARNING"
   ```
 
-- **Periksa koneksi ke homeserver:**
+- Periksa koneksi ke homeserver:
 
   ```bash
   docker compose logs -f | grep "Connection to homeserver"
   ```
 
-- **Aktivitas pengguna:**
+- Aktivitas pengguna:
 
   ```bash
   docker compose logs -f | grep "Handling transaction"
   ```
 
-- **Pemeriksaan kesehatan:**
+- Pemeriksaan kesehatan:
 
   Status kontainer:
   ```bash
@@ -335,12 +335,12 @@ Pemantauan rutin membantu memastikan bridge berjalan lancar.
 
 ## Praktik Terbaik Keamanan
 
-- **Isolasi kontainer** dengan jaringan Docker khusus (`synapse-network`). Jangan buka port yang tidak perlu.
-- **Lindungi file registrasi** – berisi `as_token` dan `hs_token`. Jangan pernah commit ke kontrol versi.
-- **Jaga kerahasiaan kredensial API Telegram (`api_id`, `api_hash`)**. Mereka setara dengan kata sandi.
-- **Cadangkan secara rutin** database SQLite dan file konfigurasi bridge.
-- **Pantau log** untuk aktivitas mencurigakan, seperti upaya login gagal berulang.
-- **Gunakan firewall** untuk membatasi lalu lintas keluar jika memungkinkan; bridge hanya perlu akses ke server Telegram dan Synapse Anda.
+- Isolasi kontainer dengan jaringan Docker khusus (`synapse-network`). Jangan buka port yang tidak perlu.
+- Lindungi file registrasi – berisi `as_token` dan `hs_token`. Jangan pernah commit ke kontrol versi.
+- Jaga kerahasiaan kredensial API Telegram (`api_id`, `api_hash`). Mereka setara dengan kata sandi.
+- Cadangkan secara rutin database SQLite dan file konfigurasi bridge.
+- Pantau log untuk aktivitas mencurigakan, seperti upaya login gagal berulang.
+- Gunakan firewall untuk membatasi lalu lintas keluar jika memungkinkan; bridge hanya perlu akses ke server Telegram dan Synapse Anda.
 
 ## Cadangan dan Pemulihan
 
@@ -378,7 +378,7 @@ docker compose up -d
 
 ## Kesimpulan
 
-Menerapkan **mautrix-telegram bridge** dengan Docker dan Synapse memberikan cara yang andal untuk mengintegrasikan Matrix dan Telegram. Panduan ini telah memandu Anda melalui seluruh proses—dari penyiapan jaringan dan konfigurasi hingga manajemen dan pemecahan masalah. Dengan jembatan ini, pengguna Matrix Anda dapat berkomunikasi dengan lancar dengan kontak, grup, dan saluran Telegram.
+Menerapkan mautrix-telegram bridge dengan Docker dan Synapse memberikan cara yang andal untuk mengintegrasikan Matrix dan Telegram. Panduan ini telah memandu Anda melalui seluruh proses—dari penyiapan jaringan dan konfigurasi hingga manajemen dan pemecahan masalah. Dengan jembatan ini, pengguna Matrix Anda dapat berkomunikasi dengan lancar dengan kontak, grup, dan saluran Telegram.
 
 Arsitektur yang digunakan memastikan pemisahan perhatian, kemudahan perawatan, dan skalabilitas. Dengan mengikuti rekomendasi keamanan dan pencadangan, Anda dapat mempertahankan jembatan yang stabil dan aman dalam jangka panjang.
 
