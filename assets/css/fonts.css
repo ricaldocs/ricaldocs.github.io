@@ -1,0 +1,65 @@
+/* ========================================
+   Lato Font
+   ======================================== */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'),
+       url('/assets/fonts/lato-v24-latin-300.woff2') format('woff2'),
+       url('/assets/fonts/lato-v24-latin-300.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('/assets/fonts/lato-v24-latin-regular.woff2') format('woff2'),
+       url('/assets/fonts/lato-v24-latin-regular.woff') format('woff');
+  font-display: swap;
+}
+
+/* ========================================
+   Source Sans Pro Font
+   ======================================== */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+       url('/assets/fonts/source-sans-pro-v22-latin-regular.woff2') format('woff2'),
+       url('/assets/fonts/source-sans-pro-v22-latin-regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
+       url('/assets/fonts/source-sans-pro-v22-latin-600.woff2') format('woff2'),
+       url('/assets/fonts/source-sans-pro-v22-latin-600.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+       url('/assets/fonts/source-sans-pro-v22-latin-700.woff2') format('woff2'),
+       url('/assets/fonts/source-sans-pro-v22-latin-700.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'),
+       url('/assets/fonts/source-sans-pro-v22-latin-900.woff2') format('woff2'),
+       url('/assets/fonts/source-sans-pro-v22-latin-900.woff') format('woff');
+  font-display: swap;
+}

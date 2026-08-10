@@ -158,10 +158,10 @@ comments:
 # Aset statik yang di-host sendiri, opsional › https://github.com/cotes2020/chirpy-static-assets
 assets:
   self_host:
-    enabled: # Boolean, kosongkan berarti false
+    enabled: true # AKTIFKAN self-host untuk semua aset statis
     # Tentukan lingkungan Jekyll, kosongkan berarti diaktifkan untuk semua
     # Hanya berlaku jika `assets.self_host.enabled` adalah 'true'
-    env: # [development|production]
+    env: # [development|production] - Biarkan kosong untuk semua environment
 
 pwa:
   enabled: true # Opsi fitur PWA (dapat diinstal)
