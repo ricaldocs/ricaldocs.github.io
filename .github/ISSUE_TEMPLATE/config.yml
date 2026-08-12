@@ -1,5 +1,23 @@
-blank_issues_enabled: false
+# .github/ISSUE_TEMPLATE/config.yml
+# ==========================================
+# ISSUE TEMPLATE CONFIG
+# ==========================================
+
+blank_issues_enabled: true
+
 contact_links:
-  - name: Ask the community for help
-    url: https://github.com/cotes2020/jekyll-theme-chirpy/discussions
-    about: Please ask and answer questions here.
+  - name: 📚 Documentation
+    url: https://docs.ricalnet.my.id
+    about: Check the documentation first!
+
+  - name: 💬 Discussion
+    url: https://github.com/ricaldocs/ricaldocs.github.io/discussions
+    about: Ask questions and discuss topics here
+
+  - name: 🐛 Report Bug
+    url: https://github.com/ricaldocs/ricaldocs.github.io/issues/new?template=bug_report.yml
+    about: Report a bug or issue
+
+  - name: 💡 Feature Request
+    url: https://github.com/ricaldocs/ricaldocs.github.io/issues/new?template=feature_request.yml
+    about: Suggest a new feature

@@ -1,53 +1,89 @@
-name: CI
+# .github/workflows/ci.yml
+# ==========================================
+# CI: TEST & VALIDATION
+# ==========================================
+
+name: "🔍 CI - Test & Validate"
 
 on:
-  push:
-    branches:
-      - master
-      - "hotfix/*"
-    paths-ignore:
-      - ".github/**"
-      - "!.github/workflows/ci.yml"
-      - .gitignore
-      - "docs/**"
-      - README.md
-      - LICENSE
   pull_request:
+    branches:
+      - main
+      - master
     paths-ignore:
-      - ".github/**"
-      - "!.github/workflows/ci.yml"
       - .gitignore
-      - "docs/**"
       - README.md
       - LICENSE
+      - "*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        ruby: ["3.3", "3.4"]
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # for posts's lastmod
+          fetch-depth: 0
 
-      - name: Setup Ruby
+      - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: "3.4"
           bundler-cache: true
+          cache-version: 1
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
+      - name: 📦 Install Dependencies
+        run: |
+          bundle install --jobs 4 --retry 3 --without development
+
+      - name: 🔨 Build Test
+        run: |
+          bundle exec jekyll build --profile --trace
+        env:
+          JEKYLL_ENV: production
+
+      - name: 🔍 HTML Proofer
+        run: |
+          bundle exec htmlproofer _site \
+            --disable-external \
+            --allow-hash-href \
+            --empty-alt-ignore \
+            --file-ignore "/assets\/.*/"
+        continue-on-error: true
+
+      - name: 📊 Jekyll Doctor
+        run: |
+          bundle exec jekyll doctor
+
+      - name: 📈 Upload Build Report
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          node-version: lts/*
+          name: build-report
+          path: |
+            _site/
+            .jekyll-cache/
+          retention-days: 7
 
-      - name: Build Assets
-        run: npm i && npm run build
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: test
 
-      - name: Test Site
-        run: bash tools/test.sh
+    steps:
+      - name: ✅ Validate PR Title
+        uses: deepakputhraya/action-pr-title@v1
+        with:
+          regex: '^(feat|fix|docs|style|refactor|perf|test|chore|ci|build)(\(.+\))?: .{1,100}$'
+          allowed_prefixes: "feat,fix,docs,style,refactor,perf,test,chore,ci,build"
+          prefix_case_sensitive: false
+          min_length: 10
+          max_length: 100

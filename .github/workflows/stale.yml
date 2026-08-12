@@ -1,32 +1,55 @@
-name: "Close stale issues and PRs"
+# .github/workflows/stale.yml
+# ==========================================
+# CLOSE STALE ISSUES & PULL REQUESTS
+# ==========================================
+
+name: "🧹 Close Stale Issues & PRs"
 
 on:
   schedule:
-    - cron: "0 0 * * *" # every day at 00:00 UTC
+    - cron: "0 0 * * *" # Every day at 00:00 UTC
+  workflow_dispatch:
 
 permissions:
   issues: write
   pull-requests: write
 
-env:
-  STALE_LABEL: inactive
-  EXEMPT_LABELS: "pending,planning,in progress"
-  MESSAGE: >
-    This conversation has been automatically marked as stale because it has not had recent activity.
-    It will be closed if no further activity occurs.
-    Thank you for your contributions.
-
 jobs:
   stale:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
-      - uses: actions/stale@v10
+      - name: 🧹 Clean Stale Items
+        uses: actions/stale@v9
         with:
-          # 60 days before marking issues/PRs stale
-          days-before-close: -1 # does not close automatically
-          stale-issue-label: ${{ env.STALE_LABEL }}
-          exempt-issue-labels: ${{ env.EXEMPT_LABELS }}
-          stale-issue-message: ${{ env.MESSAGE }}
-          stale-pr-label: ${{ env.STALE_LABEL }}
-          exempt-pr-labels: ${{ env.EXEMPT_LABELS }}
-          stale-pr-message: ${{ env.MESSAGE }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          stale-issue-message: |
+            👋 This issue has been automatically marked as stale due to inactivity.
+
+            **If this is still relevant**, please comment to keep it open.
+            Otherwise, it will be closed in 7 days.
+
+            Thank you! 🙏
+
+          stale-issue-label: "stale"
+          close-issue-label: "closed/stale"
+          days-before-issue-stale: 60
+          days-before-issue-close: 7
+          exempt-issue-labels: "bug,enhancement,security,never-stale,pinned"
+
+          stale-pr-message: |
+            👋 This PR has been automatically marked as stale due to inactivity.
+
+            **If this is still in progress**, please comment to keep it open.
+            Otherwise, it will be closed in 7 days.
+
+          stale-pr-label: "stale"
+          close-pr-label: "closed/stale"
+          days-before-pr-stale: 30
+          days-before-pr-close: 7
+          exempt-pr-labels: "dependencies,never-stale,pinned"
+
+          operations-per-run: 30
+          ascending: true
