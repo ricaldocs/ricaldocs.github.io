@@ -7,6 +7,8 @@ ENV PATH=/usr/local/bundle/bin:$PATH
 
 RUN gem install jekyll bundler
 
+RUN git config --global --add safe.directory /srv/jekyll
+
 WORKDIR /srv/jekyll
 
 EXPOSE 4000
