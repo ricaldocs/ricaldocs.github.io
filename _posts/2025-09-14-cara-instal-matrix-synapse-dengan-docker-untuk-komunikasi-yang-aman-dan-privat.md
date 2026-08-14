@@ -4,7 +4,7 @@ description: Panduan lengkap instalasi Matrix Synapse dengan Docker dan PostgreS
 categories: [Digital Independence, Communications]
 tags: [self-hosted, cryptography, docker, matrix protocol, element]
 author: rical
-last_modified_at: 2026-07-05
+last_modified_at: 2026-08-14
 ---
 
 ## Pendahuluan
@@ -27,12 +27,12 @@ cd digital-independence
 
 ### Instalasi Docker Engine
 
-**Untuk Debian:**
+Untuk Debian:
 ```bash
 ./install-docker-engine-on-debian.sh
 ```
 
-**Untuk Ubuntu:**
+Untuk Ubuntu:
 ```bash
 ./install-docker-engine-on-ubuntu.sh
 ```
@@ -77,10 +77,12 @@ SYNAPSE_POSTGRES_PASSWORD=a1b2c3d4e5f67890abcdef1234567890
 
 Generate file konfigurasi awal menggunakan image Docker Synapse:
 
+### 3.1 Perintah Generate Konfigurasi
+
 ```bash
 docker run -it --rm \
   -v "$(pwd)/synapse-data:/data" \
-  -e SYNAPSE_SERVER_NAME=your-domain.com \
+  -e SYNAPSE_SERVER_NAME=127.0.0.1 \
   -e SYNAPSE_REPORT_STATS=no \
   matrixdotorg/synapse:latest generate
 ```
@@ -91,14 +93,36 @@ Perintah ini akan:
 3. Mount volume `synapse-data` untuk menyimpan data persisten
 4. Menghasilkan file `homeserver.yaml` dan key signing
 
+### 3.2 Setup Direktori Data
+
+Setelah proses generate selesai, lakukan langkah-langkah berikut untuk mempersiapkan direktori data:
+
+```bash
+# Jalankan container untuk pertama kali
+docker compose up -d
+
+# Salin file konfigurasi ke volume Docker
+sudo cp synapse-data/* /var/lib/docker/volumes/synapse_synapse_data/_data/
+
+# Atur kepemilikan dan izin file untuk user Synapse (UID 991)
+sudo chown -R 991:991 /var/lib/docker/volumes/synapse_synapse_data/_data/
+sudo chmod 750 /var/lib/docker/volumes/synapse_synapse_data/_data/
+sudo chmod 640 /var/lib/docker/volumes/synapse_synapse_data/_data/homeserver.yaml
+sudo chmod 640 /var/lib/docker/volumes/synapse_synapse_data/_data/*.signing.key
+sudo chmod 644 /var/lib/docker/volumes/synapse_synapse_data/_data/*.log.config
+
+# Hentikan container sementara untuk konfigurasi lebih lanjut
+docker compose down
+```
+
 ## 4. Konfigurasi Database PostgreSQL
 
-Synapse menggunakan SQLite secara default, namun untuk produksi, **PostgreSQL** sangat direkomendasikan karena performa dan skalabilitasnya yang lebih baik.
+Synapse menggunakan SQLite secara default, namun untuk produksi, PostgreSQL sangat direkomendasikan karena performa dan skalabilitasnya yang lebih baik.
 
 ### Edit File Konfigurasi
 
 ```bash
-sudo nano synapse-data/homeserver.yaml
+sudo nano /var/lib/docker/volumes/synapse_synapse_data/_data//homeserver.yaml
 ```
 
 Cari bagian `database` dan ubah dari SQLite ke PostgreSQL:
@@ -119,7 +143,7 @@ database:
     cp_max: 10
 ```
 
-**Penjelasan Parameter:**
+Penjelasan Parameter:
 - `name: psycopg2`: Driver Python untuk PostgreSQL
 - `cp_min` / `cp_max`: Jumlah koneksi database minimum dan maksimum untuk koneksi pooling
 - `host: postgres`: Mengacu pada service postgres di docker-compose
