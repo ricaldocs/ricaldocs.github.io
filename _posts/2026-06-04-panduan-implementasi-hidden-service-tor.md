@@ -4,7 +4,7 @@ description: Pelajari implementasi teknis hidden service menggunakan Tor untuk m
 categories: [The Onion Router, Dark Web]
 tags: [onion, tor, privacy]
 author: rical
-last_modified_at: 2026-08-10
+last_modified_at: 2026-08-16
 pin: true
 image:
   path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.jpg
@@ -60,15 +60,22 @@ sudo apt install -y tor
 Enable dan start Tor daemon agar berjalan otomatis saat sistem boot:
 
 ```bash
-sudo systemctl enable tor
-sudo systemctl start tor
+enable tor@default.service
+sudo systemctl start tor@default.service
 ```
 
 Verifikasi status:
 
 ```bash
-sudo systemctl status tor
+sudo systemctl status tor@default.service
 # Output yang diharapkan: "active (running)"
+```
+
+Uji dengan `curl`:
+
+```bash
+curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org/api/ip
+# Output yang diharapkan: {"IsTor":true,"IP":"<ip-address>"}%  
 ```
 
 ## Langkah 2: Backup Konfigurasi
@@ -126,13 +133,13 @@ Simpan file (nano: `Ctrl+O`, `Enter`, `Ctrl+X`).
 Restart daemon untuk menerapkan konfigurasi baru:
 
 ```bash
-sudo systemctl restart tor
+sudo systemctl restart tor@default.service
 ```
 
 Periksa status dan cari error:
 
 ```bash
-sudo systemctl status tor
+sudo systemctl status tor@default.service
 ```
 
 Jika gagal gunakan perintah berikut untuk melihat log detail:
@@ -176,7 +183,7 @@ sudo chown -R debian-tor:debian-tor /var/lib/tor/aplikasi_utama/
 sudo chmod 700 /var/lib/tor/aplikasi_utama/
 
 # Restart Tor
-sudo systemctl restart tor
+sudo systemctl restart tor@default.service
 
 # Cek file hostname lagi
 sudo cat /var/lib/tor/aplikasi_utama/hostname
