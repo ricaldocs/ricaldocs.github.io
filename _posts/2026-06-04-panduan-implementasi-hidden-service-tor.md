@@ -60,7 +60,7 @@ sudo apt install -y tor
 Enable dan start Tor daemon agar berjalan otomatis saat sistem boot:
 
 ```bash
-enable tor@default.service
+sudo systemctl enable tor@default.service
 sudo systemctl start tor@default.service
 ```
 
