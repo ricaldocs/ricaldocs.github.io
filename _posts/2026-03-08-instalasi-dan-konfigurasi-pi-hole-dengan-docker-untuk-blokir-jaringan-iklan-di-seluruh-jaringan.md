@@ -4,69 +4,59 @@ description: Panduan lengkap instalasi Pi-Hole menggunakan Docker di Debian. Pel
 categories: [Digital Independence, Communications]
 tags: [self-hosted, docker, pi-hole, dns, privacy]
 author: rical
-last_modified_at: 2026-07-05
+last_modified_at: 2026-08-17
 ---
 
-Pi-Hole adalah DNS server yang berfungsi sebagai penyaring konten (ad blocker) di tingkat jaringan. Dengan memasang Pi-Hole, Anda dapat memblokir iklan, pelacak, dan domain berbahaya untuk semua perangkat yang terhubung ke jaringan rumah atau kantor, tanpa perlu menginstal aplikasi tambahan di setiap perangkat.
+## Apa itu Pi-Hole dan Mengapa Perlu?
 
-Artikel ini akan memandu Anda menginstal Pi-Hole menggunakan Docker di server Debian. Pendekatan ini memudahkan pengelolaan, pembaruan, dan isolasi layanan. Kita juga akan mengonfigurasi router agar semua perangkat menggunakan Pi-Hole sebagai DNS utama.
+Pi-Hole adalah DNS server yang bertindak sebagai penyaring konten di tingkat jaringan. Saat perangkat meminta alamat situs web, Pi-Hole memeriksa apakah domain tersebut ada dalam daftar blokir. Jika ada, permintaan dialihkan ke alamat kosong (0.0.0.0) sehingga iklan atau pelacak tidak pernah termuat.
 
-> Dokumen ini adalah panduan konfigurasi dasar. Untuk konfigurasi keamanan dan privasi tingkat lanjut, lihat [panduan terpisah](https://ricaldocs.github.io/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/).
-{: .prompt-info}
+Keuntungan utama:
+- Perlindungan untuk semua perangkat di jaringan (laptop, smartphone, smart TV, dll.) tanpa instalasi aplikasi tambahan
+- Menghemat bandwidth karena konten iklan tidak diunduh
+- Meningkatkan privasi dengan memblokir pelacak
+- Satu titik konfigurasi untuk seluruh jaringan
 
-> **Referensi Penting:** [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+Dengan pendekatan Docker, instalasi menjadi lebih mudah dikelola, diperbarui, dan diisolasi dari sistem utama.
 
 ## Prasyarat
 
-- Server atau komputer dengan Debian (trixie atau lebih baru) yang terhubung ke jaringan lokal.
-- Hak akses `sudo` atau root.
-- Router yang dapat diatur DNS-nya (hampir semua router rumahan mendukung).
-- Alamat IP statis untuk server yang akan menjalankan Pi-Hole (disarankan). Dalam panduan ini kita menggunakan `192.168.0.50`.
-  > Jika ingin mengatur IP statis untuk server, lihat dokumentasi [berikut](https://ricaldocs.github.io/posts/cara-mengatur-ip-statis-di-raspberry-pi-os-dengan-networkmanager/) untuk panduan konfigurasi network di Debian.
-  {: .prompt-tip}
+| Komponen  | Keterangan                                                |
+| --------- | --------------------------------------------------------- |
+| Sistem    | Debian (trixie atau lebih baru) / Ubuntu                  |
+| Akses     | Hak `sudo` atau root                                      |
+| Router    | Mendukung pengaturan DNS (hampir semua router rumahan)    |
+| IP Server | Statis disarankan. Panduan ini menggunakan `192.168.0.50` |
+| Port      | 8080 untuk antarmuka web, 53 untuk DNS                    |
 
-## 1. Instalasi Docker
+> Gunakan IP statis agar konfigurasi router tidak berubah saat server di-restart. Lihat [panduan NetworkManager](https://ricaldocs.github.io/posts/cara-mengatur-ip-statis-di-raspberry-pi-os-dengan-networkmanager/) jika belum tahu caranya.
+{: .prompt-tip}
 
-Docker adalah prerequisite mutlak sebelum menjalankan Pi-Hole. Ricalnet menyediakan script instalasi otomatis yang telah teruji di berbagai distribusi Linux.
-
-### Clone Repository dan Instalasi Otomatis
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/ricalnet/digital-independence.git
 cd digital-independence
 ```
 
-### Instalasi Docker Engine
+## 2. Instal Docker Engine
 
-**Untuk Debian:**
+Untuk Debian:
 ```bash
 ./install-docker-engine-on-debian.sh
 ```
 
-**Untuk Ubuntu:**
+Untuk Ubuntu:
 ```bash
 ./install-docker-engine-on-ubuntu.sh
 ```
 
-#### Apa yang Dilakukan Script Instalasi?
-Script ini mengotomatiskan proses yang biasanya memakan waktu dan rawan kesalahan:
-1. Update package repository sistem
-2. Install dependencies (ca-certificates, curl, gnupg, lsb-release)
-3. Tambahkan GPG key resmi Docker untuk verifikasi keamanan
-4. Konfigurasi repository Docker agar menggunakan paket resmi
-5. Install Docker Engine, CLI, dan Containerd
-6. Tambahkan user saat ini ke group docker (menghindari penggunaan `sudo` setiap kali)
+Mengapa Docker? Docker mengemas Pi-Hole dalam container yang terisolasi. Ini berarti:
+- Tidak mengganggu layanan lain di server
+- Mudah dihapus jika tidak digunakan lagi
+- Update hanya dengan menarik image baru
 
-> Docker menyediakan isolasi lingkungan yang sempurna untuk SearXNG. Dengan kontainer, Anda mendapatkan:
-- Berjalan identik di semua sistem
-- Tidak ada konflik dengan aplikasi lain di server
-- Cukup pull image baru dan restart kontainer untuk update
-- Kembali ke versi sebelumnya dengan satu perintah
-{: .prompt-info}
-
-## 2. Masuk ke Direktori dan Environment
-
-Masuk ke direktori `pi-hole` dan sesuaikan variabel `.env`.
+## 3. Konfigurasi Pi-Hole
 
 ```bash
 cd pi-hole
@@ -74,112 +64,118 @@ cp .env.example .env
 nano .env
 ```
 
-### Membuat Password
+Sesuaikan file `.env` dengan kebutuhan Anda.
 
-Sebelum menjalankan container, buat password untuk admin panel:
-
-```bash
-openssl rand --hex 32
-```
-
-Salin output-nya, lalu tempelkan sebagai nilai `FTLCONF_webserver_api_password` di file `.env`. Contoh:
-
-```yaml
-FTLCONF_webserver_api_password=a1b2c3d4e5f67890abcdef1234567890
-```
-
-## 3. Menjalankan Pi-Hole
-
-Download image dan jalankan container dengan perintah:
+## 4. Jalankan Pi-Hole
 
 ```bash
 docker compose up -d
 ```
 
-Flag `-d` (detach mode) menjalankan kontainer di background, memungkinkan terminal tetap digunakan.
+Perintah ini:
+- `up`: Membuat dan menjalankan container
+- `-d`: Berjalan di latar belakang (detached mode)
 
-Tunggu beberapa saat hingga container siap. Untuk melihat log:
-
+Lihat log untuk memastikan tidak ada error:
 ```bash
 docker compose logs -f
 ```
 
-Tekan `Ctrl+C` untuk keluar dari log.
+Tekan `Ctrl+C` untuk keluar dari tampilan log.
 
-## 4. Mengakses Admin Panel Pi-Hole
+### Akses Admin Panel
 
-Buka browser dan akses alamat IP server Pi-Home dengan port 8443 (HTTPS) atau 8080 (HTTP):
-
+Buka browser dan akses:
 ```
-https://192.168.0.50:8443/admin
-```
-
-atau
-
-```
-http://192.168.0.50:8080/admin
+http://<alamat-ip-server>:8080/admin
 ```
 
-Anda akan melihat halaman login Pi-Hole. Gunakan password yang telah dibuat sebelumnya.
+Contoh: `http://192.168.0.50:8080/admin`
+
+Masukkan password yang sudah Anda atur di file `.env`.
 
 ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/pi-hole-login.png)
 
-> Jika menggunakan HTTPS, browser mungkin memperingatkan koneksi tidak aman karena menggunakan sertifikat self-signed. Anda bisa melanjutkan dengan mengklik "Advanced" dan "Proceed".
+> Konfigurasi ini sudah otomatis menggunakan dnscrypt-proxy untuk mengenkripsi query DNS yang keluar.
 {: .prompt-info}
 
-## 5. Mengatur Router agar Menggunakan Pi-Hole sebagai DNS
+## 5. Atur Router agar Menggunakan Pi-Hole sebagai DNS
 
-Agar semua perangkat di jaringan otomatis menggunakan Pi-Hole, atur DHCP server di router untuk memberikan alamat Pi-Hole sebagai DNS utama. Langkah-langkahnya bergantung pada merek router, namun pada umumnya seperti berikut:
+Tujuan: Semua perangkat yang terhubung ke WiFi/router akan otomatis menggunakan Pi-Hole tanpa pengaturan manual di setiap perangkat.
 
-1. Login ke antarmuka router (biasanya `192.168.0.1` atau `192.168.1.1`).
+Cara kerja: DHCP server di router bertugas memberikan alamat IP ke perangkat client. Salah satu informasi yang diberikan adalah alamat DNS. Dengan mengubah DNS di DHCP menjadi IP Pi-Hole, semua client akan menggunakannya.
+
+Langkah-langkah umum (sesuaikan dengan merek router Anda):
+
+1. Login ke router (biasanya `http://192.168.0.1` atau `http://192.168.1.1`)
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/login-router.png)
 
-2. Cari menu DHCP Server.
-3. Aktifkan DHCP jika belum.
-4. Atur parameter seperti contoh di bawah (sesuaikan dengan jaringan Anda):
+2. Cari menu DHCP Server (biasanya di bagian Network atau LAN)
+3. Atur parameter seperti contoh:
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dhcp-server.png)
 
-   - IP Address Pool: `192.168.0.100` – `192.168.0.199` (rentang IP yang diberikan ke client)
-   - Address Lease Time: `120` menit (bisa disesuaikan)
-   - Default Gateway: `192.168.0.1` (IP router)
-   - Primary DNS: `192.168.0.50` (IP server Pi-Hole)
-   - Secondary DNS: `192.168.0.50` (juga Pi-Hole, agar jika satu gagal tetap menggunakan yang sama)
+   | Parameter          | Nilai                             | Penjelasan                                     |
+   | ------------------ | --------------------------------- | ---------------------------------------------- |
+   | IP Address Pool    | `192.168.0.100` – `192.168.0.199` | Rentang IP yang diberikan ke perangkat client  |
+   | Address Lease Time | `120` menit                       | Berapa lama IP bisa dipakai sebelum diperbarui |
+   | Default Gateway    | `192.168.0.1`                     | IP router sebagai jalur keluar internet        |
+   | Primary DNS        | `192.168.0.50`                    | IP Pi-Hole → ini yang penting                  |
+   | Secondary DNS      | `192.168.0.50`                    | Isi sama agar tetap pakai Pi-Hole              |
 
-5. Simpan pengaturan dan reboot router.
+4. Simpan pengaturan dan reboot router (jika diperlukan)
 
-Setelah itu, semua perangkat yang terhubung ke jaringan akan mendapatkan IP dan DNS baru. Untuk memastikan, periksa pengaturan jaringan di salah satu perangkat (misalnya smartphone) dan lihat apakah DNS yang digunakan adalah `192.168.0.50`.
+### Verifikasi
+
+Setelah router reboot, periksa pengaturan jaringan di perangkat (contoh: smartphone Android):
 
 ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/android-network.jpg)
 
-## 6. Menambahkan Blocklist dan Allowlist
+Pastikan kolom DNS menampilkan alamat IP Pi-Hole (`192.168.0.50`).
 
-Pi-Hole menggunakan blocklist (daftar domain yang diblokir) yang diperbarui secara berkala. Anda dapat menambahkan sumber blocklist tambahan untuk meningkatkan efektivitas.
+## 6. Menambahkan Blocklist
 
-1. Masuk ke admin panel Pi-Hole.
-2. Buka menu Lists → Add a new subscribed list.
+Pi-Hole secara default sudah memiliki daftar domain yang diblokir. Namun untuk perlindungan lebih maksimal, Anda bisa menambahkan blocklist tambahan.
+
+Blocklist adalah kumpulan domain yang diketahui menampilkan iklan, melacak pengguna, atau berbahaya. Pi-Hole akan memblokir permintaan ke domain-domain tersebut.
+
+1. Login ke admin panel Pi-Hole (`http://<ip-server>:8080/admin`)
+2. Buka menu Lists → Add a new subscribed list
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/subscribed-list-group-management.png)
 
-3. Masukkan URL blocklist. Contoh sumber populer:
+3. Masukkan URL blocklist (satu baris, pisahkan dengan spasi atau koma):
    ```
-   https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt
+   https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts https://big.oisd.nl/ https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/all_domains.txt https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt
    ```
-   > Beberapa daftar dapat ditambahkan dengan memisahkan setiap URL unik menggunakan spasi atau koma.
-   {: .prompt-tip}
-   URL tersebut berisi gabungan beberapa blocklist terkenal.
-4. Klik Add blocklist untuk menyimpan.
-5. Setelah menambahkan, jalankan Update Gravity (tombol `online` di bagian atas) untuk mengunduh dan memproses blocklist baru. Proses ini bisa memakan waktu beberapa menit.
+
+   Sumber blocklist yang digunakan:
+
+   | URL               | Keterangan                           |
+   | ----------------- | ------------------------------------ |
+   | StevenBlack/hosts | Blocklist populer & komprehensif     |
+   | big.oisd.nl       | OISD (oisd.nl) - fokus pada privasi  |
+   | Pi-hole-Optimized | Koleksi blocklist teroptimasi        |
+   | HaGeZi - Pro      | Blocklist tingkat lanjut dari HaGeZi |
+
+4. Klik Add blocklist
+5. Jalankan Update Gravity (tombol di bagian atas halaman) untuk mengunduh dan memproses daftar baru
    ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/update-gravity.png)
 
-Anda juga dapat menambahkan allowlist (domain yang diizinkan) melalui menu yang sama jika ada situs yang tidak sengaja terblokir.
+   Proses ini bisa memakan waktu beberapa menit tergantung kecepatan internet.
+
+> Jika ada situs yang tidak sengaja terblokir, Anda bisa menambahkannya ke Allowlist melalui menu yang sama.
+{: .prompt-tip}
 
 ## 7. Melihat Statistik dan Query Log
 
-Admin panel Pi-Hole menyediakan dasbor informatif:
+Admin panel Pi-Hole menyediakan dasbor yang informatif:
 
-- Query Log : menampilkan riwayat permintaan DNS dari setiap client, termasuk yang diblokir (ditandai merah) dan yang diizinkan (hijau).
-- Analytics : grafik dan statistik tentang total query, persentase blokir, domain teratas, client teratas, dll.
+- Query Log: Riwayat permintaan DNS dari setiap perangkat. Permintaan yang diblokir ditandai merah, yang diizinkan hijau.
+- Analytics: Grafik total query, persentase blokir, domain teratas, dan client teratas.
 
-Anda bisa melihat situs apa saja yang dikunjungi oleh perangkat tertentu, sehingga berguna untuk pemantauan dan evaluasi.
+Fitur ini berguna untuk:
+- Memantau efektivitas blokir iklan
+- Mengetahui perangkat mana yang paling banyak melakukan query
+- Mengidentifikasi domain mencurigakan
 
 ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/network-overview.png)
 
@@ -187,66 +183,76 @@ Anda bisa melihat situs apa saja yang dikunjungi oleh perangkat tertentu, sehing
 
 ### Menghapus Log Secara Otomatis dengan Cron
 
-Pi-Hole menyimpan log query dalam database dan file log. Agar tidak memenuhi disk, Anda bisa menjadwalkan pembersihan log setiap hari pukul 02.00 dini hari.
+Pi-Hole menyimpan log query dalam database. Log ini bisa membesar seiring waktu dan memenuhi ruang disk.
 
-Tambahkan cron job di host (bukan di dalam container):
+Cron adalah penjadwal tugas di Linux. Kita akan membuat tugas otomatis setiap hari pukul 02.00 dini hari untuk membersihkan log.
 
 ```bash
 sudo crontab -e
 ```
 
-Tambahkan baris berikut:
-
+Tambahkan baris ini:
 ```
 0 2 * * * docker exec pihole pihole -f
 ```
 
-Simpan dan keluar. Perintah ini akan menjalankan `pihole -f` (flush logs) di dalam container setiap jam 2 pagi.
+Penjelasan perintah:
+
+| Bagian               | Arti                                                  |
+| -------------------- | ----------------------------------------------------- |
+| `0 2 * * *`          | Jalankan setiap hari jam 02:00                        |
+| `docker exec pihole` | Jalankan perintah di dalam container bernama "pihole" |
+| `pihole -f`          | Perintah flush log Pi-Hole                            |
 
 ### Menghapus Log Secara Manual
 
-Jika ingin membersihkan log saat itu juga, masuk ke shell container:
-
+Jika ingin membersihkan log saat itu juga:
 ```bash
 docker exec -it pihole bash
-```
-
-Kemudian jalankan:
-
-```bash
 pihole flush
 ```
 
-Output yang muncul kurang lebih seperti ini:
-
+Output yang diharapkan:
 ```
   [✓] Flushed /var/log/pihole/pihole.log ...
   [✓] Flushed /var/log/pihole/FTL.log ...
   [✓] Flushed /var/log/pihole/webserver.log ...
   [i] Flushing database, DNS resolution temporarily unavailable ...
-  [✓] Deleted  queries from long-term query database
+  [✓] Deleted queries from long-term query database
 ```
 
-Perhatikan pesan `service: command not found` dapat diabaikan karena Pi-Hole berjalan di container tanpa systemd.
+> Pesan `service: command not found` dapat diabaikan. Ini terjadi karena Pi-Hole berjalan di container tanpa systemd.
+{: .prompt-info}
 
 ### Memperbarui Image Pi-Hole
 
-Secara berkala, periksa apakah ada versi baru Pi-Hole:
-
+Secara berkala, periksa apakah ada versi baru:
 ```bash
 docker compose pull
 docker compose up -d
 ```
 
-Container akan di-restart dengan image terbaru jika ada perubahan.
+Proses ini akan:
+1. Mengunduh image terbaru
+2. Menghentikan container lama
+3. Menjalankan container baru dengan image terbaru
 
 ## Kesimpulan
 
-Dengan mengikuti panduan ini, Anda berhasil memasang Pi-Hole menggunakan Docker dan mengonfigurasinya sebagai DNS server lokal. Seluruh perangkat di jaringan kini terlindungi dari iklan dan pelacak tanpa perlu konfigurasi tambahan.
+Anda kini memiliki Pi-Hole yang berjalan di Docker sebagai DNS server lokal. Seluruh perangkat di jaringan terlindungi dari iklan dan pelacak tanpa konfigurasi tambahan di masing-masing perangkat.
 
-Pi-Hole juga memberikan wawasan berharga tentang lalu lintas DNS di jaringan Anda. Anda dapat terus mengeksplorasi fitur-fitur seperti pengaturan grup, penjadwalan, dan integrasi dengan layanan pihak ketiga.
+Ringkasan alur yang sudah Anda lakukan:
+1. Instal Docker di Debian/Ubuntu
+2. Konfigurasi Pi-Hole melalui file `.env`
+3. Jalankan container dengan Docker Compose
+4. Atur router agar mengarahkan DNS ke Pi-Hole
+5. Tambahkan blocklist untuk proteksi lebih baik
+6. Pantau lalu lintas melalui admin panel
+7. Jadwalkan pembersihan log otomatis
 
-## Referensi Tambahan
+Dengan infrastruktur ini, Anda tidak hanya memblokir iklan, tetapi juga meningkatkan privasi dan keamanan jaringan rumah.
+
+## Referensi dan Sumber Daya Tambahan
 - [Digital Independence](https://github.com/ricalnet/digital-independence)
 - [Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://ricaldocs.github.io/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)
 - [DNS List for Security & Privacy](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/)

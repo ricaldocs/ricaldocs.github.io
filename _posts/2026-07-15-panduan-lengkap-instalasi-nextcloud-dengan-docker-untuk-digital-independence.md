@@ -4,7 +4,7 @@ description: Tutorial teknis komprehensif instalasi Nextcloud self-hosted menggu
 categories: [Digital Independence, Cloud]
 tags: [self-hosted, nextcloud]
 author: rical
-last_modified_at: 2026-07-15
+last_modified_at: 2026-08-17
 ---
 
 ## Pendahuluan
@@ -59,10 +59,10 @@ Script ini mengotomatiskan proses yang biasanya memakan waktu 10-15 menit dan ra
 
 ## 2. Masuk ke Direktori dan Environment
 
-Masuk ke direktori `nextcrow-docker` dan sesuaikan variabel `.env` untuk konfigurasi yang fleksibel.
+Masuk ke direktori `nextcloud` dan sesuaikan variabel `.env` untuk konfigurasi yang fleksibel.
 
 ```bash
-cd nextcrow-docker
+cd nextcloud
 cp .env.example .env
 nano .env
 ```
@@ -170,24 +170,24 @@ Script `sovereign.sh` melakukan restart kontroller dengan graceful shutdown, mem
 
 Cek konfigurasi Redis:
 ```bash
-docker exec -it nextcrow_app php /var/www/html/occ config:system:get redis
+docker exec -it nextcloud_app php /var/www/html/occ config:system:get redis
 ```
 
 ### Cek Setting Memcache
 
 Cek memcache settings:
 ```bash
-docker exec -it nextcrow_app php /var/www/html/occ config:system:get memcache.distributed
-docker exec -it nextcrow_app php /var/www/html/occ config:system:get memcache.local
-docker exec -it nextcrow_app php /var/www/html/occ config:system:get memcache.locking
+docker exec -it nextcloud_app php /var/www/html/occ config:system:get memcache.distributed
+docker exec -it nextcloud_app php /var/www/html/occ config:system:get memcache.local
+docker exec -it nextcloud_app php /var/www/html/occ config:system:get memcache.locking
 ```
 
 ### Testing Redis Connectivity
 
 ```bash
-docker exec -it nextcrow_redis redis-cli -a CHANGE_ME_REDIS_PASSWORD INFO stats | grep total_commands_processed
+docker exec -it nextcloud_redis redis-cli -a CHANGE_ME_REDIS_PASSWORD INFO stats | grep total_commands_processed
 
-docker exec -it nextcrow_app php -r "
+docker exec -it nextcloud_app php -r "
 \$redis = new Redis(); 
 \$redis->connect('redis', 6379); 
 \$redis->auth('CHANGE_ME_REDIS_PASSWORD'); 

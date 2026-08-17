@@ -62,7 +62,7 @@ Metode ini ideal untuk penggunaan awal atau lingkungan pengembangan di localhost
 #### Langkah 1: Navigasi ke Direktori SearXNG
 
 ```bash
-cd searxng-docker
+cd searxng
 ```
 
 #### Langkah 2: Konfigurasi Environment

@@ -161,19 +161,19 @@ last_modified_at: 2026-06-01
 
 ## Catatan Penggunaan Penting
 
-**info persyaratan**:
+info persyaratan:
 - ADB memerlukan pengaktifan USB Debugging di Opsi Developer
-- Fastboot memerlukan akses [bootloader unlocking](https://en.wikipedia.org/wiki/Bootloader_unlocking)
+- Fastboot memerlukan akses bootloader unlocking
 - Driver USB spesifik perangkat harus terinstal
 
-**Konvensi Penulisan:**
+Konvensi Penulisan:
 - `<parameter>`: Nilai wajib diisi
 - `[parameter]`: Nilai opsional
 - `-opsi`: Opsi baris perintah
 
-**Keselamatan Operasi:**
+Keselamatan Operasi:
 - Selalu pastikan baterai cukup (>50%) sebelum operasi flash
-- Operasi flash yang salah dapat menyebabkan [brick](https://en.wikipedia.org/wiki/Brick_(electronics)) permanen
+- Operasi flash yang salah dapat menyebabkan brick permanen
 - Backup data penting sebelum modifikasi sistem
 
 ## Restore Kunci ADB dari Kali Linux ke Android via TWRP Terminal
@@ -211,7 +211,7 @@ Restart device menuju TWRP recovery
 adb reboot recovery
 ```
 
-**Tunggu 30-60 detik** hingga device sepenuhnya masuk TWRP interface.
+Tunggu 30-60 detik hingga device sepenuhnya masuk TWRP interface.
 
 #### Langkah 3: Verifikasi Koneksi ADB
 Periksa status device dalam TWRP
@@ -320,15 +320,15 @@ Expected Result: Device terdeteksi tanpa authorization prompt
 
 ### Common Issues & Solutions:
 
-1. **Device Tidak Terdeteksi di TWRP**
+1. Device Tidak Terdeteksi di TWRP
    - Pastikan driver ADB terinstall proper
    - Coba ganti kabel USB
    - Restart ADB server: `adb kill-server && adb start-server`
 
-2. **Permission Denied di TWRP Shell**
+2. Permission Denied di TWRP Shell
    - Pastikan TWRP versi terbaru
    - Gunakan `adb root` sebelum masuk shell
 
-3. **Kunci Tidak Berfungsi Setelah Reboot**
+3. Kunci Tidak Berfungsi Setelah Reboot
    - Verifikasi permission dan ownership
    - Pastikan tidak ada SELinux policy restrictions

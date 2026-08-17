@@ -94,5 +94,5 @@ Mari berhenti memaklumi pengawasan digital massal yang dibungkus retorika keaman
 
 ## Pranala Luar
 
-- [Ricalnet: Sumber Daya Privasi dan Keamanan](https://ricalnet.github.io/website/resources.html)
+- [Ricalnet: Sumber Daya Privasi dan Keamanan](https://ricalnet.my.id/resources)
 - [Electronic Frontier Foundation: Panduan Privasi Digital](https://www.eff.org/issues/privacy)

@@ -4,25 +4,23 @@ description: Pelajari langkah-langkah aman membangun situs .onion untuk komunika
 categories: [The Onion Router, Dark Web, Privacy]
 tags: [privacy, linux, onion, tor]
 author: rical
-last_modified_at: 2026-06-04
+last_modified_at: 2026-08-17
 ---
 
 ## Laporan Investigasi Teknis
 
-> **Peringatan Keamanan**: Materi ini disusun semata untuk tujuan edukasi dan penelitian keamanan siber. Pembaca bertanggung jawab penuh atas implementasi etis dari pengetahuan ini.
+> Materi ini disusun semata untuk tujuan edukasi dan penelitian keamanan siber. Pembaca bertanggung jawab penuh atas implementasi etis dari pengetahuan ini.
 {: .prompt-danger}
 
 > Panduan ini ditujukan secara eksklusif untuk:
-- **Aktivis HAM** yang bekerja di lingkungan represif dan membutuhkan komunikasi aman
-- **Jurnalis** yang melindungi sumber dan komunikasi sensitif dari pengawasan
-- **Peneliti Keamanan Siber** yang mempelajari teknologi privasi dan anonimitas
-- **Individu yang peduli dengan privasi digital** dalam konteks hukum yang berlaku
+- Aktivis HAM yang bekerja di lingkungan represif dan membutuhkan komunikasi aman
+- Jurnalis yang melindungi sumber dan komunikasi sensitif dari pengawasan
+- Peneliti Keamanan Siber yang mempelajari teknologi privasi dan anonimitas
+- Individu yang peduli dengan privasi digital dalam konteks hukum yang berlaku
 {: .prompt-info}
 
 ### Latar Belakang Operasional
-Jaringan Tor ([The Onion Router](https://www.torproject.org/about/history/)) menyediakan infrastruktur untuk layanan tersembunyi (`.onion`) yang menawarkan tingkat anonimitas tinggi melalui sistem routing berlapis. Panduan ini menyajikan metodologi untuk membangun platform `.onion` menggunakan distribusi Kali Linux.
-
----
+Jaringan Tor (The Onion Router) menyediakan infrastruktur untuk layanan tersembunyi (`.onion`) yang menawarkan tingkat anonimitas tinggi melalui sistem routing berlapis. Panduan ini menyajikan metodologi untuk membangun platform `.onion` menggunakan distribusi Kali Linux.
 
 ## FASE 1: PENYIAPAN INFRASTRUKTUR DASAR
 
@@ -30,15 +28,15 @@ Jaringan Tor ([The Onion Router](https://www.torproject.org/about/history/)) men
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-**Konteks Teknis**: Perintah ini memperbarui database paket dan meningkatkan semua aplikasi terinstal ke versi terbaru, memastikan kompatibilitas dan penutupan kerentanan keamanan.
+
+Perintah ini memperbarui database paket dan meningkatkan semua aplikasi terinstal ke versi terbaru, memastikan kompatibilitas dan penutupan kerentanan keamanan.
 
 ### 1.2. Instalasi Paket Tor
 ```bash
 sudo apt install tor -y
 ```
-**Analisis Sistem**: Tor package menyediakan daemon yang diperlukan untuk routing onion dan layanan tersembunyi. Flag `-y` mengotomatisasi konfirmasi instalasi.
 
----
+Tor package menyediakan daemon yang diperlukan untuk routing onion dan layanan tersembunyi. Flag `-y` mengotomatisasi konfirmasi instalasi.
 
 ## FASE 2: KONFIGURASI LAYANAN TOR
 
@@ -46,13 +44,15 @@ sudo apt install tor -y
 ```bash
 sudo cp /etc/tor/torrc /etc/tor/torrc.backup
 ```
-**Strategi Keamanan**: Membuat cadangan konfigurasi original memungkinkan pemulihan cepat jika terjadi kesalahan konfigurasi.
+
+Membuat cadangan konfigurasi original memungkinkan pemulihan cepat jika terjadi kesalahan konfigurasi.
 
 ### 2.2. Modifikasi File Konfigurasi
 ```bash
 sudo nano /etc/tor/torrc
 ```
-**Panduan Editor**: Gunakan tombol panah untuk navigasi, tambahkan konfigurasi pada section yang ditentukan, lalu simpan dengan `Ctrl+X → Y → Enter`.
+
+Gunakan tombol panah untuk navigasi, tambahkan konfigurasi pada section yang ditentukan, lalu simpan dengan `Ctrl+X → Y → Enter`.
 
 ### 2.3. Implementasi Hidden Service
 Tambahkan konfigurasi berikut pada section yang sesuai:
@@ -64,9 +64,7 @@ HiddenServicePort 80 127.0.0.1:8080
 ![torrc Configuration](../assets/img/posts/2024-08-26-membuat-situs-dark-web/torrc-configuration.png)
 _torrc Configuration_
 
-**Arsitektur Jaringan**: Konfigurasi ini mengarahkan traffic port 80 onion address ke port 8080 localhost, memungkinkan hosting web tanpa konfigurasi DNS.
-
----
+Konfigurasi ini mengarahkan traffic port 80 onion address ke port 8080 localhost, memungkinkan hosting web tanpa konfigurasi DNS.
 
 ## FASE 3: IMPLEMENTASI SISTEM KEAMANAN
 
@@ -80,21 +78,21 @@ sudo chown -R debian-tor:debian-tor /var/lib/tor/hidden_service/
 ```bash
 sudo chmod -R 700 /var/lib/tor/hidden_service/
 ```
-**Privilege Management**: Pengaturan ownership dan permission ini membatasi akses hanya untuk user `debian-tor`, meningkatkan keamanan kriptografi onion service.
+
+Pengaturan ownership dan permission ini membatasi akses hanya untuk user `debian-tor`, meningkatkan keamanan kriptografi onion service.
 
 ### 3.2. Restart dan Aktivasi Layanan
 ```bash
-sudo systemctl restart tor
+sudo systemctl restart tor@default.service
 ```
 ```bash
-sudo systemctl enable tor
+sudo systemctl enable tor@default.service
 ```
 ```bash
-sudo systemctl status tor
+sudo systemctl status tor@default.service
 ```
-**Manajemen Layanan**: Sequence ini me-restart daemon Tor, mengaktifkannya pada boot, dan memverifikasi status operasional.
 
----
+Sequence ini me-restart daemon Tor, mengaktifkannya pada boot, dan memverifikasi status operasional.
 
 ## FASE 4: DEVELOPMENT PLATFORM WEB
 
@@ -108,7 +106,8 @@ cd ~/onion-site
 ```bash
 nano index.html
 ```
-**Struktur Projek**: Direktori khusus mengisolasi konten website dan memudahkan management versi.
+
+Direktori khusus mengisolasi konten website dan memudahkan management versi.
 
 ### 4.2. Konten HTML Dasar
 Implementasi kode HTML dengan consideration security headers dan minimal metadata:
@@ -246,8 +245,8 @@ Implementasi kode HTML dengan consideration security headers dan minimal metadat
         <div class="main-content">
             <div class="card">
                 <h2 class="card-title">🔍 Tentang Kami</h2>
-                <p class="card-content">Ricalnet adalah platform yang berfokus pada pengembangan teknologi privasi dan anonimitas digital. Kami menyediakan platform pendidikan dan tools untuk melindungi kebebasan berekspresi di era digital.</p>
-                <a href="https://ricalnet.github.io" class="btn">Selengkapnya</a>
+                <p class="card-content">Ricalnet adalah platform yang berfokus pada pengembangan teknologi privasi dan kemandirian digital. Kami menyediakan platform pendidikan dan tools untuk melindungi kebebasan berekspresi di era digital.</p>
+                <a href="https://ricalnet.my.id" class="btn">Selengkapnya</a>
             </div>
         </div>
         
@@ -260,8 +259,6 @@ Implementasi kode HTML dengan consideration security headers dan minimal metadat
 </html>
 ```
 
----
-
 ## FASE 5: DEPLOYMENT DAN TESTING
 
 ### 5.1. Aktivasi Web Server
@@ -271,7 +268,8 @@ cd ~/onion-site
 ```bash
 python3 -m http.server 8080
 ```
-**Infrastruktur Serving**: Python HTTP server memberikan lightweight solution untuk testing tanpa overhead software kompleks.
+
+Python HTTP server memberikan lightweight solution untuk testing tanpa overhead software kompleks.
 
 ### 5.2. Ekstraksi Onion Address
 Buka terminal baru dan jalankan perintah berikut:
@@ -282,19 +280,18 @@ sudo cat /var/lib/tor/hidden_service/hostname
 ![Onion Address](../assets/img/posts/2024-08-26-membuat-situs-dark-web/onion-address.png)
 _Onion Address_
 
-**Kriptografi Operasional**: Perintah ini menampilkan onion address yang di-generate secara otomatis oleh sistem kriptografi Tor.
+Perintah ini menampilkan onion address yang di-generate secara otomatis oleh sistem kriptografi Tor.
 
 ### 5.3. Verifikasi Akses
 Akses melalui Tor Browser dengan pattern:
 ```
 http://[onion_address].onion
 ```
-**Validation Protocol**: Success indicator berupa loading konten HTML yang telah disiapkan.
+
+Success indicator berupa loading konten HTML yang telah disiapkan.
 
 ![Tor Browser](../assets/img/posts/2024-08-26-membuat-situs-dark-web/tor-browser.png)
 _Tor Browser_
-
----
 
 ## FASE 6: PROTOKOL KEAMANAN LANJUTAN
 
@@ -316,14 +313,13 @@ with socketserver.TCPServer(("", PORT), SecuredHTTPHandler) as httpd:
 
 ### 6.2. Network Security Configuration
 ```bash
-sudo apt install ufw
+sudo apt install ufw -y
 sudo ufw enable
 sudo ufw allow 22/tcp
 sudo ufw deny 8080/tcp
 ```
-**Firewall Strategy**: Membatasi akses eksternal sambil mempertahankan SSH access untuk management.
 
----
+Membatasi akses eksternal sambil mempertahankan SSH access untuk management.
 
 ## ANALISIS RISIKO DAN MITIGASI
 
@@ -337,8 +333,6 @@ sudo ufw deny 8080/tcp
 - Monitoring continuous terhadap log sistem
 - Consideration menggunakan bridge relays untuk additional obscurity
 
----
-
 ## PENUTUP
 
 Implementasi onion service memerlukan pemahaman mendalam tentang principles keamanan jaringan dan kriptografi. Platform yang dibangun dengan metodologi ini memberikan foundation untuk penelitian anonimitas digital yang bertanggung jawab.
@@ -346,9 +340,5 @@ Implementasi onion service memerlukan pemahaman mendalam tentang principles keam
 > Teknologi ini tidak memberikan anonimitas mutlak. Lembaga penegak hukum yang berkualitas dapat melacak aktivitas ilegal bahkan di jaringan Tor.
 {: .prompt-warning}
 
-> **Disclaimer Legal**: Seluruh aktivitas harus mematuhi kerangka hukum yang berlaku dan standard etika penelitian keamanan siber.
+> Seluruh aktivitas harus mematuhi kerangka hukum yang berlaku dan standard etika penelitian keamanan siber.
 {: .prompt-info}
-
----
-
-*Panduan teknis ini disusun untuk tujuan edukasi dalam bidang keamanan siber dan penelitian jaringan anonim.*
