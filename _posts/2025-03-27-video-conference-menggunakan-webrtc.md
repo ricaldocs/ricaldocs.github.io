@@ -27,7 +27,7 @@ Lakukan koneksi SSH ke server Ubuntu menggunakan protokol Secure Shell:
 ssh username@hostname
 ```
 
-> **Referensi**: [Dokumentasi OpenSSH](https://ricaldocs.github.io/posts/openssh/)
+> **Referensi**: [Dokumentasi OpenSSH](https://ricaldocs.github.io/posts/panduan-lengkap-openssh-server-linux-untuk-remote-akses-aman/)
 
 > Ganti placeholder `username` dan `hostname` dengan kredensial dan alamat server yang sesuai.
 {: .prompt-tip}

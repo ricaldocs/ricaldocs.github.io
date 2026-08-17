@@ -1,6 +1,6 @@
 ---
-title: MicroG
-description:  Ingin lepas dari Google Play Services? Pelajari langkah demi langkah instalasi MicroG di Android untuk pemula dan pengguna advanced dengan panduan komprehensif ini.
+title: Panduan Instalasi MicroG di Android untuk Pemula dan Pengguna Advanced 
+description:  Tutorial lengkap cara instal MicroG sebagai pengganti Google Play Services. Metode APK mudah untuk pemula dan Custom ROM untuk hasil maksimal. Tingkatkan privasi Android tanpa kehilangan fungsi aplikasi populer.
 categories: [Digital Independence, Android]
 tags: [android, privacy, microg]
 author: rical

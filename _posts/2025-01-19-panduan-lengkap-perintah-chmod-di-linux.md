@@ -1,6 +1,6 @@
 ---
-title: Chmod
-description: Mengubah izin akses file dan direktori di Linux.
+title: Panduan Lengkap Perintah Chmod di Linux
+description: Pelajari cara mengubah izin akses file dan direktori di Linux menggunakan perintah chmod, baik dengan notasi simbolik maupun numerik, dilengkapi contoh penggunaan dan opsi tambahan.
 categories: [Cybersecurity]
 tags: [linux]
 author: rical
@@ -16,7 +16,7 @@ chmod [options] mode file
 ```
 
 ### Mode
-Mode dapat ditentukan dengan dua cara: **notasi simbolik** dan **notasi numerik**.
+Mode dapat ditentukan dengan dua cara: notasi simbolik dan notasi numerik.
 
 ### 1. Notasi Simbolik
 Notasi simbolik menggunakan huruf untuk menunjukkan izin:

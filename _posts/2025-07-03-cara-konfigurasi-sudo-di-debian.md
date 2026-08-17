@@ -1,6 +1,6 @@
 ---
-title: sudo
-description: Panduan mengkonfigurasi hak akses sudo di sistem Debian. Pelajari setup dasar hingga konfigurasi lanjutan, troubleshooting, dan best practices keamanan untuk optimalisasi administrasi sistem.
+title: Cara Konfigurasi Sudo di Debian
+description: Pelajari cara mengkonfigurasi sudo di Debian untuk manajemen hak akses yang aman. Panduan lengkap ini mencakup setup dasar, konfigurasi lanjutan, troubleshooting error, dan best practices keamanan untuk sistem Linux Anda.
 categories: [Cybersecurity]
 tags: [linux]
 author: rical

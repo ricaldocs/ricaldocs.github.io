@@ -119,27 +119,22 @@ Kedua perintah di atas menguji koneksi ke internet (IP dan DNS). Jika keduanya b
 
 ## Tips Penting
 
-1. **Hindari Konflik IP**  
-   Pastikan IP statis yang Anda pilih **berada di luar range DHCP** router. Biasanya range DHCP dimulai dari `192.168.0.2` hingga `192.168.0.100` atau `192.168.0.200`. Gunakan IP di atas range tersebut, misal `192.168.0.50` (untuk `192.168.0.2`).
+1. Pastikan IP statis yang Anda pilih berada di luar range DHCP router. Biasanya range DHCP dimulai dari `192.168.0.2` hingga `192.168.0.100` atau `192.168.0.200`. Gunakan IP di atas range tersebut, misal `192.168.0.50` (untuk `192.168.0.2`).
 
-2. **Pahami Notasi CIDR**  
-   `/24` berarti subnet mask `255.255.255.0`. Jika jaringan Anda menggunakan subnet berbeda, sesuaikan angkanya (misal `/16` untuk `255.255.0.0`).
+2. `/24` berarti subnet mask `255.255.255.0`. Jika jaringan Anda menggunakan subnet berbeda, sesuaikan angkanya (misal `/16` untuk `255.255.0.0`).
 
-3. **Sesuaikan dengan Jaringan Anda**  
-   Gantilah nilai berikut sesuai dengan konfigurasi jaringan lokal:
+3. Gantilah nilai berikut sesuai dengan konfigurasi jaringan lokal:
    - `192.168.0.50` → IP yang diinginkan
    - `192.168.0.1` → Alamat gateway/router Anda
    - `192.168.0.1 9.9.9.9` → DNS server (bisa menggunakan DNS router atau publik)
 
-4. **Mengembalikan ke DHCP**  
-   Jika suatu saat ingin kembali ke DHCP, jalankan:
+4. Jika suatu saat ingin kembali ke DHCP, jalankan:
    ```bash
    sudo nmcli con mod "Wired connection 1" ipv4.method auto
    sudo systemctl restart NetworkManager
    ```
 
-5. **Konfigurasi Multiple Interface**  
-   Jika Raspberry Pi Anda terhubung ke ethernet dan WiFi sekaligus, pastikan hanya satu antarmuka yang memiliki gateway default, atau atur metric routing untuk menghindari konflik.
+5. Jika Raspberry Pi Anda terhubung ke ethernet dan WiFi sekaligus, pastikan hanya satu antarmuka yang memiliki gateway default, atau atur metric routing untuk menghindari konflik.
 
 ## Kesimpulan
 

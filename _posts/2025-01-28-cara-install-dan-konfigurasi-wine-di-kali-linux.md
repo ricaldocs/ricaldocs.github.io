@@ -1,6 +1,6 @@
 ---
-title: Wine
-description: Panduan instalasi dan konfigurasi Wine serta Winetricks untuk menjalankan aplikasi dan game Windows di lingkungan Kali Linux.
+title: Cara Install & Konfigurasi Wine di Kali Linux
+description: Panduan lengkap instalasi Wine dan Winetricks di Kali Linux untuk menjalankan aplikasi serta game Windows. Dilengkapi cara mount ISO, konfigurasi winecfg, dan tips optimasi performa.
 categories: [no categories]
 tags: [linux, wine]
 author: rical

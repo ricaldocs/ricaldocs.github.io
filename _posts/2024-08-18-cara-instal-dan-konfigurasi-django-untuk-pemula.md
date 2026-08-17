@@ -1,6 +1,6 @@
 ---
-title: Django
-description: Instal dan konfigurasi proyek Django.
+title: Cara Instal dan Konfigurasi Django untuk Pemula
+description: Pelajari cara instal Django dan buat aplikasi web pertama Anda dengan mudah. Panduan langkah demi langkah untuk pemula mulai dari setup proyek hingga menjalankan server development.
 categories: [no categories]
 tags: [python, python django]
 author: rical

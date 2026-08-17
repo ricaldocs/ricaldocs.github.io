@@ -1,6 +1,6 @@
 ---
-title: OpenSSH
-description: OpenSSH merupakan solusi untuk administrasi server secara remote dengan keamanan tinggi. OpenSSH menggantikan protokol legacy yang rentan seperti Telnet dan FTP, memberikan perlindungan data dan kredensial selama transmisi.
+title: Panduan Lengkap OpenSSH Server Linux untuk Remote Akses Aman
+description: Pelajari instalasi OpenSSH Server, konfigurasi SSH key authentication, transfer file dengan SCP, SSH tunneling, dan perintah dasar SSH untuk administrasi server jarak jauh yang aman dengan enkripsi kriptografi.
 categories: [Cybersecurity, Cryptography] 
 tags: [cryptography, ssh]
 author: rical

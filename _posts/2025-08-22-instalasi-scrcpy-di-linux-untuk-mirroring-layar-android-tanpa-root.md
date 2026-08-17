@@ -1,6 +1,6 @@
 ---
-title: Scrcpy
-description: Aplikasi sumber terbuka yang memungkinkan pengguna untuk menampilkan dan mengendalikan perangkat Android dari komputer secara real-time melalui koneksi USB atau TCP/IP.
+title: Instalasi Scrcpy di Linux untuk Mirroring Layar Android Tanpa Root
+description: Panduan lengkap instalasi Scrcpy di Linux untuk menampilkan dan mengendalikan perangkat Android dari PC melalui USB atau TCP/IP. Dilengkapi langkah-langkah instalasi ADB, dependensi, serta opsi tambahan seperti pengaturan bitrate dan resolusi layar.
 categories: [Digital Independence, Android]
 tags: [android, scrcpy]
 author: rical
@@ -80,4 +80,4 @@ Scrcpy mendukung berbagai argumen command-line untuk menyesuaikan pengalaman pen
 ## Lihat Juga
 
 - [Praktik Terbaik Menjaga Privasi di Android](https://ricaldocs.github.io/posts/praktik-terbaik-menjaga-privasi-android/)
-- [MicroG](https://ricaldocs.github.io/posts/microg/)
+- [Panduan Instalasi MicroG di Android untuk Pemula dan Pengguna Advanced](https://ricaldocs.github.io/posts/panduan-instalasi-microg-di-android-untuk-pemula-dan-pengguna-advanced/)
