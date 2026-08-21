@@ -4,7 +4,7 @@ description: Panduan teknis melakukan threat hunting pada dashboard Wazuh, mengu
 categories: [Cybersecurity]
 tags: [wazuh, soc, linux, forensics, incident response]
 author: rical
-last_modified_at: 2026-06-01
+last_modified_at: 2026-08-21
 ---
 
 ## Pendahuluan
@@ -20,7 +20,7 @@ Dokumen teknis ini akan memandu Anda dalam:
 
 Sebelum memulai, pastikan:
 - Instalasi Wazuh (manager + indexer + dashboard) berjalan dengan baik (direferensikan pada [artikel sebelumnya](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/)).
-- [Agent Wazuh telah terpasang](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/#7-deployment-wazuh-agent) pada endpoint Linux yang menjalankan layanan SSH.
+- [Agent Wazuh telah terpasang](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/#deployment-wazuh-agent) pada endpoint Linux yang menjalankan layanan SSH.
 - Anda memiliki akses ke Wazuh dashboard dengan peran administratif (misalnya, `administrator` atau `wazuh-admin`).
 
 ## Langkah 1: Mengakses Modul Threat Hunting

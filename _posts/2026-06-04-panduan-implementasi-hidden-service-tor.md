@@ -1,10 +1,10 @@
 ---
 title: Panduan Implementasi Hidden Service Tor
-description: Pelajari implementasi teknis hidden service menggunakan Tor untuk melindungi privasi aplikasi web. Panduan langkah-demi-langkah ini mencakup konfigurasi server, manajemen direktori layanan, troubleshooting, dan praktik keamanan untuk deployment layanan tersembunyi di jaringan onion. Cocok untuk administrator sistem, developer keamanan, dan peneliti privasi digital.
+description: Pelajari implementasi hidden service Tor untuk melindungi privasi aplikasi web. Panduan langkah-demi-langkah konfigurasi server, manajemen direktori, troubleshooting, dan keamanan deployment layanan onion.
 categories: [The Onion Router, Dark Web]
 tags: [onion, tor, privacy]
 author: rical
-last_modified_at: 2026-08-16
+last_modified_at: 2026-08-21
 pin: true
 image:
   path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.jpg
@@ -239,7 +239,8 @@ Dengan ini, Anda telah berhasil mengkonfigurasi hidden service Tor yang berjalan
 > Ingatlah selalu bahwa kekuatan teknologi ini terletak pada penggunaannya yang bertanggung jawab. Gunakan untuk melindungi privasi, bukan untuk menyembunyikan aktivitas ilegal.
 {: .prompt-warning}
 
-## Referensi Lanjutan
+## Referensi dan Sumber Daya Tambahan
 
+- [Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4 dengan Docker](https://docs.ricalnet.my.id/posts/panduan-aktivis-untuk-menyebarkan-tor-bridge-obfs4-dengan-docker/)
 - [Tor Project Official Documentation](https://community.torproject.org/onion-services/)
 - [Tor Manual Page](https://manpages.debian.org/tor/torrc)

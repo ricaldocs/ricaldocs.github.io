@@ -4,7 +4,7 @@ description: Tutorial langkah demi langkah ini mencakup setup server dan agent, 
 categories: [Cybersecurity]
 tags: [wazuh, soc, linux, forensics, incident response]
 author: rical
-last_modified_at: 2026-06-01
+last_modified_at: 2026-08-21
 ---
 
 ## Pendahuluan
@@ -15,173 +15,182 @@ Wazuh hadir sebagai solusi SIEM open-source terkemuka yang menggabungkan kemampu
 > Penting untuk dicatat bahwa meskipun panduan ini menggunakan pendekatan instalasi terotomatisasi untuk mempercepat proses setup, pemahaman mendalam tentang setiap komponen (Wazuh Server, Indexer, dan Dashboard) akan membantu dalam operasional dan pemeliharaan jangka panjang. Selamat membangun lapisan pertahanan siber yang lebih tangguh!
 {: .prompt-info}
 
-## Instalasi Wazuh
-
-### Langkah 1: Unduh dan Jalankan Instalasi
-Eksekusi perintah berikut untuk mengunduh skrip instalasi dan menjalankannya dengan mode otomatis:
-
-```bash
-curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
-```
-
-### Langkah 2: Verifikasi Instalasi
-Setelah proses instalasi selesai, sistem akan menampilkan informasi akses sebagai berikut:
-
-```
-INFO: --- Summary ---
-INFO: You can access the web interface https://<WAZUH_DASHBOARD_IP_ADDRESS>
-    User: admin
-    Password: <ADMIN_PASSWORD>
-INFO: Installation finished.
-```
-
-### Langkah 3: Akses Dashboard Wazuh
-1. Buka browser dan akses alamat IP yang ditampilkan pada output instalasi
-   ![alt text](<../assets/img/posts/2026-01-08-panduan-lengkap-instalasi-dan-konfigurasi wazuh/Screenshot_2026-01-08_13-59-13.png>)
-
-2. Saat pertama kali mengakses, browser akan menampilkan peringatan keamanan sertifikat
-3. **Catatan Penting**: Peringatan ini normal karena menggunakan [sertifikat self-signed](https://ricaldocs.github.io/posts/mastering-self-signed-certificates/). Anda dapat:
-   - Menerima sertifikat sebagai pengecualian, atau
-   - Mengkonfigurasi sertifikat dari Certificate Authority (CA) yang terpercaya
-
-## Manajemen Kredensial
-
-### Menampilkan Password Pengguna
-Password untuk semua pengguna Wazuh Indexer dan Wazuh API tersimpan dalam file terenkripsi. Untuk menampilkannya:
-
-```bash
-sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
-```
-
-### Uninstalasi Komponen
-Untuk menghapus komponen pusat Wazuh, gunakan opsi uninstall:
-
-```bash
-sudo bash ./wazuh-install.sh -u
-# atau
-sudo bash ./wazuh-install.sh --uninstall
-```
-
-## Konfigurasi Sistem
-
-### Nonaktifkan Pembaruan Otomatis
-> Nonaktifkan repositori Wazuh untuk mencegah pembaruan tidak sengaja yang dapat mengganggu stabilitas sistem.
-{: .prompt-tip}
-
-```bash
-sed -i "s/^deb /#deb /" /etc/apt/sources.list.d/wazuh.list
-apt update
-```
-
-### Konfigurasi Alamat IP
-Jika diperlukan perubahan alamat IP, modifikasi file konfigurasi berikut:
-
-1. **Wazuh Dashboard** (`/etc/wazuh-dashboard/opensearch_dashboards.yml`{: .filepath}):
-   ```yaml
-   opensearch.hosts: ["https://<ALAMAT_IP_BARU>:9200"]
-   ```
-
-2. **Wazuh Indexer** (`/etc/wazuh-indexer/opensearch.yml`{: .filepath}):
-   ```yaml
-   network.host: <ALAMAT_IP_BARU>
-   ```
-
-3. Restart layanan setelah perubahan:
-   ```bash
-   sudo systemctl restart wazuh-dashboard
-   sudo systemctl restart wazuh-indexer
-   ```
-
-## Troubleshooting
-
-### Masalah Sertifikat
-- Jika mengalami masalah koneksi SSL, pastikan waktu sistem telah disinkronisasi
-- Untuk lingkungan produksi, pertimbangkan menggunakan sertifikat dari CA terpercaya
-
-### Masalah Koneksi
-- Verifikasi firewall tidak memblokir port 443 (HTTPS) dan 9200 (API)
-- Pastikan semua layanan Wazuh berjalan dengan status `active`
-
 ## Deployment Wazuh Stack Single-Node Menggunakan Docker
 
-### 1. Pengantar
-Instalasi ini mencakup kloning repositori, generasi sertifikat, deployment container, dan akses ke antarmuka dashboard Wazuh.
+### 1. Persiapan Repository
 
-### 2. Kloning Repositori
-Langkah pertama adalah mengunduh kode sumber konfigurasi Docker Wazuh ke sistem lokal.
+```bash
+git clone https://github.com/ricalnet/digital-independence.git
+```
 
-1.  Jalankan perintah berikut untuk mengkloning repositori dan sekaligus memilih branch:
-    ```bash
-    git clone https://github.com/wazuh/wazuh-docker.git -b v4.14.1
-    ```
+Repository ini berisi konfigurasi terstruktur untuk deployment Wazuh dalam environment containerized. Struktur direktori telah dioptimalkan dengan pemisahan konfigurasi untuk setiap komponen (indexer, dashboard, server) yang memudahkan manajemen dan skalabilitas.
 
-2.  Masuk ke direktori `single-node`{: .filepath} untuk menjalankan seluruh perintah yang dijelaskan dalam dokumen ini.
-    ```bash
-    cd wazuh-docker/single-node/
-    ```
+### 2. Instalasi Docker Engine
 
-### 3. Generasi Sertifikat
-Komunikasi antar node dalam stack Wazuh harus diamankan menggunakan sertifikat. Terdapat dua opsi yang tersedia:
-*   **Sertifikat Self-Signed Wazuh** (direkomendasikan untuk lingkungan uji/pengembangan)
-*   **Sertifikat Milik Sendiri** (untuk lingkungan produksi)
+#### Untuk Debian:
+```bash
+./install-docker-engine-on-debian.sh
+```
 
-Untuk menghasilkan sertifikat [self-signed](https://ricaldocs.github.io/posts/mastering-self-signed-certificates/) untuk setiap node, gunakan Docker image `wazuh-certs-generator`.
+#### Untuk Ubuntu:
+```bash
+./install-docker-engine-on-ubuntu.sh
+```
 
-1.  **Opsional - Konfigurasi Proxy**: Jika sistem menggunakan proxy, tambahkan konfigurasi berikut ke dalam file `generate-indexer-certs.yml`. **Ganti `<YOUR_PROXY_ADDRESS_OR_DNS>` dengan informasi proxy Anda**. Jika tidak menggunakan proxy, lewati langkah ini.
-    ```yaml
-    # Wazuh App Copyright (C) 2017, Wazuh Inc. (License GPLv2)
-    services:
-      generator:
-        image: wazuh/wazuh-certs-generator:0.0.3
-        hostname: wazuh-certs-generator
-        volumes:
-          - ./config/wazuh_indexer_ssl_certs/:/certificates/
-          - ./config/certs.yml:/config/certs.yml
-        environment:
-          - HTTP_PROXY=<YOUR_PROXY_ADDRESS_OR_DNS>
-    ```
+Script instalasi mengkonfigurasi repository resmi Docker, menginstal paket dependensi (containerd, runc), dan mengatur service docker untuk auto-start. Perbedaan script Debian/Ubuntu terletak pada manajemen paket (apt vs apt-get) dan konfigurasi repository yang spesifik versi.
 
-2.  Jalankan perintah berikut untuk menghasilkan sertifikat:
-    ```bash
-    docker compose -f generate-indexer-certs.yml run --rm generator
-    ```
-    Sertifikat yang dihasilkan akan disimpan di direktori `wazuh-docker/single-node/config/wazuh_indexer_ssl_certs`{: .filepath}.
+### 3. Generasi Sertifikat Self-Signed
 
-### 4. Deployment Stack
-Setelah sertifikat siap, mulai deployment container Wazuh menggunakan perintah Docker Compose.
+```bash
+cd wazuh
+docker compose -f generate-indexer-certs.yml run --rm generator
+```
 
-1.  Jalankan perintah berikut untuk membangun dan menjalankan container dalam mode detached:
-    ```bash
-    docker compose up -d
-    ```
+Image `wazuh/wazuh-indexer` digunakan untuk menjalankan script `generate_certs` yang membuat:
+- Root CA Certificate (`root-ca.pem`) sebagai trust anchor
+- Certificate dan Private Key untuk setiap node indexer
+- Admin Certificate untuk akses administrative ke cluster
 
-   > Docker tidak secara otomatis memuat ulang konfigurasi. Setelah melakukan perubahan pada konfigurasi komponen apa pun, stack **harus di-restart** untuk menerapkan perubahan.
-   {: .prompt-info}
+Sertifikat disimpan di `./wazuh-indexer/certs/`{: .filepath} dan akan di-mount sebagai volume ke container indexer. Proses ini kritis karena Wazuh menggunakan TLS mutual authentication untuk komunikasi antar komponen.
 
-### 5. Mengakses Wazuh Dashboard
-Setelah stack single-node berhasil di-deploy, dashboard Wazuh dapat diakses melalui alamat IP host Docker atau `localhost`.
+### 4. Konfigurasi Environment Variables
 
-1.  Buka browser dan akses alamat berikut:
-    ```
-    https://<DOCKER_HOST_IP>
-    ```
-    > Jika menggunakan [sertifikat self-signed](https://ricaldocs.github.io/posts/mastering-self-signed-certificates/), browser akan menampilkan peringatan terkait keaslian sertifikat. Peringatan ini dapat diabaikan untuk lingkungan non-produksi.
-    {: .prompt-info}
+```bash
+cp .env.example .env
+nano .env
+```
 
-2.  Gunakan kredensial default berikut untuk masuk:
-    *   **Username:** `admin`
-    *   **Password:** `SecretPassword`
+Parameter Kritis yang Perlu Disesuaikan:
 
-    > Segera ubah kata sandi default setelah login pertama.
-    {: .prompt-tip}
+```
+# -------------------- WAZUH INDEXER --------------------
+INDEXER_USERNAME=admin
+INDEXER_PASSWORD=your-secret-password
+INDEXER_HEAP_SIZE=512m
+INDEXER_MAX_HEAP=768m
 
-### 6. Pemecahan Masalah (Troubleshooting)
-Selama proses startup, container Wazuh Dashboard akan berulang kali memeriksa status Wazuh Indexer. Anda mungkin melihat beberapa pesan log seperti `"Failed to connect to Wazuh indexer port 9200"` atau `"Wazuh dashboard server is not ready yet"`. **Ini adalah perilaku yang normal.** Pesan ini akan berhenti setelah Wazuh Indexer berjalan sepenuhnya, yang biasanya memakan waktu sekitar satu menit. Kredensial default untuk Wazuh Indexer dapat ditemukan dalam file `docker-compose.yml`.
+# -------------------- WAZUH API --------------------
+API_USERNAME=wazuh-wui
+API_PASSWORD=your-secret-password
 
+# -------------------- WAZUH DASHBOARD --------------------
+DASHBOARD_USERNAME=kibanaserver
+DASHBOARD_PASSWORD=your-secret-password
 
-Berikut adalah pembaruan untuk bagian **7. wazuh-agent** agar lebih sesuai dengan standar dokumentasi teknis profesional yang konsisten dengan bagian sebelumnya:
+# -------------------- PORT BINDING --------------------
+MANAGER_PORT_1514=127.0.0.1:1514:1514
+MANAGER_PORT_1515=127.0.0.1:1515:1515
+MANAGER_PORT_55000=127.0.0.1:55000:55000
+# MANAGER_PORT_514=127.0.0.1:514:514/udp
 
----
+INDEXER_PORT_9200=127.0.0.1:9200:9200
+DASHBOARD_PORT_443=443:5601
+```
+
+Docker Compose menggunakan variable substitution untuk menyisipkan nilai-nilai ini ke dalam service definitions. Ini memungkinkan:
+- Separation of concerns antara kode dan konfigurasi
+- Kemudahan rotasi password tanpa mengubah docker-compose.yml
+- Support untuk multi-environment deployment
+
+### 5. Konfigurasi Dashboard Wazuh
+
+```bash
+cp config/wazuh_dashboard/wazuh.example.yml config/wazuh_dashboard/wazuh.yml
+nano config/wazuh_dashboard/wazuh.yml
+```
+
+Struktur Konfigurasi yang Diperlukan:
+```yaml
+hosts:
+  - 1513629884013:
+      url: "https://wazuh.manager"
+      port: 55000
+      username: wazuh-wui
+      password: "MyS3cr37P450r.*-" # Menggunakan variable dari .env
+      run_as: true
+```
+
+File `wazuh.yml` berisi konfigurasi API endpoint yang harus sesuai dengan environment. Penggunaan environment memastikan sinkronisasi password antara dashboard dan indexer.
+
+### 6. Manajemen Password Internal Users
+
+```bash
+cp config/wazuh_indexer/internal_users.example.yml config/wazuh_indexer/internal_users.yml
+docker run --rm -it wazuh/wazuh-indexer:4.14.7 bash
+```
+
+Di dalam container:
+```bash
+cd /usr/share/wazuh-indexer/plugins/opensearch-security/tools/
+./hash.sh -p "PasswordAnda"
+```
+
+Script `hash.sh` menggunakan algoritma BCrypt dengan salt generation untuk menghasilkan hash yang aman. Contoh output:
+```
+$2y$12$S9XQ5XQ5XQ5XQ5XQ5XQ5XQ5XQ5XQ5XQ5XQ5XQ
+```
+ 
+OpenSearch Security plugin tidak menerima password plaintext. Hash ini disimpan di `internal_users.yml` dan digunakan untuk autentikasi saat service startup. Setiap user (admin, kibanaserver, kibanaro, logstash) memerlukan hash yang berbeda.
+
+Update file `config/wazuh_indexer/internal_users.yml`{: .filepath}:
+```yaml
+admin:
+  hash: "$2y$12$..."
+  reserved: true
+  backend_roles:
+    - "admin"
+  description: "Demo admin user"
+
+kibanaserver:
+  hash: "$2y$12$..."
+  reserved: true
+  description: "Demo kibanaserver user"
+
+kibanaro:
+  hash: "$2y$12$..."
+  reserved: false
+  backend_roles:
+    - "kibanauser"
+    - "readall"
+  attributes:
+    attribute1: "value1"
+    attribute2: "value2"
+    attribute3: "value3"
+  description: "Demo kibanaro user"
+```
+
+### 7. Deployment dan Startup
+
+```bash
+docker compose up -d
+docker compose logs -f
+```
+
+Proses yang Terjadi:
+1. Membuat persistent volumes untuk data indexer dan logs
+2. Membuat network bridge untuk komunikasi antar container
+3. Service Initialization:
+   - `wazuh-indexer`: Bootstraps OpenSearch cluster dengan security plugin
+   - `wazuh-server`: Inisialisasi Wazuh manager dan API
+   - `wazuh-dashboard`: Configures OpenSearch Dashboards dengan Wazuh plugin
+
+### 8. Verifikasi dan Akses
+
+```bash
+https://<ip-address>
+```
+
+Credential Default:
+- Username: `admin`
+- Password: `your-secret-password` (sesuai .env)
+
+Verifikasi Service Status:
+```bash
+docker compose ps
+docker logs wazuh.dashboard -f
+docker logs wazuh.manager -f
+docker logs wazuh.indexer -f
+```
 
 ## Deployment Wazuh Agent
 

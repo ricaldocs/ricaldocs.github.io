@@ -32,12 +32,12 @@ cd digital-independence
 
 ### Instalasi Docker Engine
 
-**Untuk Debian:**
+Untuk Debian:
 ```bash
 ./install-docker-engine-on-debian.sh
 ```
 
-**Untuk Ubuntu:**
+Untuk Ubuntu:
 ```bash
 ./install-docker-engine-on-ubuntu.sh
 ```

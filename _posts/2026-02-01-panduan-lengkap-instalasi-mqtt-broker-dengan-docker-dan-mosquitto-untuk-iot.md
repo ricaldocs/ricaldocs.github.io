@@ -4,7 +4,7 @@ description: Pelajari cara install dan konfigurasi MQTT Broker untuk proyek Inte
 categories: [Digital Independence, Telecommunications]
 tags: [internet of things, mqtt]
 author: rical
-last_modified_at: 2026-06-01
+last_modified_at: 2026-08-21
 ---
 
 ## Pendahuluan
@@ -13,7 +13,7 @@ MQTT (Message Queuing Telemetry Transport) adalah protokol messaging ringan berb
 
 Dokumentasi ini mencakup panduan langkah-demi-langkah untuk menginstal dan mengonfigurasi Eclipse Mosquitto sebagai MQTT Broker menggunakan Docker dan Docker Compose pada sistem Debian/Ubuntu.
 
-**Komponen yang akan diinstal:**
+Komponen yang akan diinstal:
 - Docker Engine (container runtime)
 - Eclipse Mosquitto (MQTT Broker) versi terbaru
 - Mosquitto Client Utilities (alat pengujian)
@@ -43,7 +43,7 @@ sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 ```
 
-**Penjelasan package:**
+Penjelasan package:
 - `apt-transport-https`: Memungkinkan apt menggunakan repositori melalui HTTPS
 - `ca-certificates`: Sertifikat CA standar untuk verifikasi koneksi SSL
 - `curl`: Tool untuk transfer data dari/ke server
@@ -53,15 +53,18 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 
 Repositori `digital-independence` menyediakan skrip otomatis untuk instalasi Docker Engine pada Debian. Unduh skrip tersebut:
 
+Untuk Debian:
 ```bash
-wget https://github.com/ricalnet/digital-independence/blob/main/install-docker-engine-on-debian.sh
+curl -O https://raw.githubusercontent.com/ricalnet/digital-independence/main/install-docker-engine-on-debian.sh
 chmod +x install-docker-engine-on-debian.sh
+./install-docker-engine-on-debian.sh
 ```
 
-Jalankan skrip instalasi:
-
+Untuk Ubuntu:
 ```bash
-./install-docker-engine-on-debian.sh
+curl -O https://raw.githubusercontent.com/ricalnet/digital-independence/main/install-docker-engine-on-ubuntu.sh
+chmod +x install-docker-engine-on-ubuntu.sh
+./install-docker-engine-on-ubuntu.sh
 ```
 
 > Skrip ini akan mengonfigurasi repositori resmi Docker, menginstal Docker Engine, Docker CLI, dan Containerd. Proses ini memerlukan koneksi internet yang stabil.
@@ -85,7 +88,7 @@ Verifikasi bahwa instalasi Docker berhasil:
 docker --version
 ```
 
-**Output yang diharapkan:**
+Output yang diharapkan:
 ```
 Docker version 29.x.x, build xxxxxxx
 ```
@@ -110,7 +113,7 @@ mkdir -p config data log
 touch config/pwfile
 ```
 
-**Penjelasan direktori:**
+Penjelasan direktori:
 
 | Direktori | Fungsi                                                                               |
 | --------- | ------------------------------------------------------------------------------------ |
@@ -134,7 +137,7 @@ Flag `-d` menjalankan kontainer dalam mode detached (background).
 docker compose ps
 ```
 
-**Output yang diharapkan:**
+Output yang diharapkan:
 ```
 NAME              IMAGE                      COMMAND                  SERVICE       CREATED             STATUS             PORTS
 mosquitto-local   eclipse-mosquitto:latest   "/docker-entrypoint.…"   mqtt-broker   About an hour ago   Up About an hour   0.0.0.0:1883->1883/tcp, [::]:1883->1883/tcp, 0.0.0.0:9001->9001/tcp, [::]:9001->9001/tcp
@@ -216,7 +219,7 @@ Untuk keperluan troubleshooting atau integrasi dengan layanan lain, Anda mungkin
 docker inspect mosquitto-local | grep IPAddress
 ```
 
-**Contoh output:** `172.17.0.2`
+Contoh output: `172.17.0.2`
 
 ## Instalasi MQTT Client Tools
 
@@ -233,7 +236,7 @@ mosquitto_sub --version
 mosquitto_pub --version
 ```
 
-**Output yang diharapkan:**
+Output yang diharapkan:
 ```
 mosquitto_sub version 2.x.x running on libmosquitto 2.x.x.
 mosquitto_pub version 2.x.x running on libmosquitto 2.x.x.
@@ -243,24 +246,24 @@ mosquitto_pub version 2.x.x running on libmosquitto 2.x.x.
 
 ### Test Koneksi Dasar dengan Localhost
 
-**Terminal 1 - Subscriber:**
+Terminal 1 - Subscriber:
 ```bash
 mosquitto_sub -h localhost -t "test/connection" -u user1 -P "user1" -v
 ```
 
-**Penjelasan parameter:**
+Penjelasan parameter:
 - `-h localhost`: Hostname broker MQTT
 - `-t "test/connection"`: Topic yang akan di-subscribe
 - `-u user1`: Username untuk autentikasi
 - `-P "user1"`: Password untuk autentikasi
 - `-v`: Mode verbose, menampilkan topic bersama pesan
 
-**Terminal 2 - Publisher:**
+Terminal 2 - Publisher:
 ```bash
 mosquitto_pub -h localhost -t "test/connection" -m "MQTT Broker berjalan dengan baik" -u user1 -P "user1"
 ```
 
-**Hasil yang diharapkan:** Terminal 1 akan menampilkan pesan yang dipublikasikan dari Terminal 2, mengonfirmasi bahwa broker berfungsi dengan benar.
+Hasil yang diharapkan: Terminal 1 akan menampilkan pesan yang dipublikasikan dari Terminal 2, mengonfirmasi bahwa broker berfungsi dengan benar.
 
 ## Pengujian Koneksi WebSocket
 
@@ -311,7 +314,7 @@ Buka file `systemd/mosquitto-sub.service` untuk disesuaikan:
 nano systemd/mosquitto-sub.service
 ```
 
-**Konten service file yang umum:**
+Konten service file yang umum:
 ```ini
 [Unit]
 Description=Mosquitto MQTT Subscriber untuk test/connection
