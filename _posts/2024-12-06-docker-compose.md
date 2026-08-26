@@ -11,8 +11,8 @@ last_modified_at: 2026-06-01
 Docker Compose merupakan alat orkestrasi kontainer yang memungkinkan pengguna untuk mendefinisikan dan menjalankan aplikasi multi-container menggunakan file konfigurasi YAML. Dalam konteks cloud computing, ini menyederhanakan deployment aplikasi dengan mengelola dependensi antar kontainer secara terpusat.
 
 ## Prasyarat Konfigurasi
-- Spesifikasi instance EC2 dan konfigurasi jaringan dapat dilihat pada [dokumentasi setup instance](https://ricaldocs.github.io/posts/cara-deploy-nginx-di-aws-ec2-menggunakan-docker/#konfigurasi-ec2-instance-yang-optimal)
-- Konfigurasi dasar Docker environment dijelaskan dalam [panduan konfigurasi Docker](https://ricaldocs.github.io/posts/cara-deploy-nginx-di-aws-ec2-menggunakan-docker/#instalasi-docker-engine-dengan-konfigurasi-optimal)
+- Spesifikasi instance EC2 dan konfigurasi jaringan dapat dilihat pada [dokumentasi setup instance](https://docs.ricalnet.my.id/posts/cara-deploy-nginx-di-aws-ec2-menggunakan-docker/#konfigurasi-ec2-instance-yang-optimal)
+- Konfigurasi dasar Docker environment dijelaskan dalam [panduan konfigurasi Docker](https://docs.ricalnet.my.id/posts/cara-deploy-nginx-di-aws-ec2-menggunakan-docker/#instalasi-docker-engine-dengan-konfigurasi-optimal)
 
 ## Implementasi Docker Compose
 

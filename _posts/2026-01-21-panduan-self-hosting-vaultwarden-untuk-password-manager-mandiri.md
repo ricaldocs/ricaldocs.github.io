@@ -155,7 +155,7 @@ Selamat menikmati kemerdekaan digital Anda! 🔐
 ## Referensi dan Sumber Daya
 
 - [Digital Independence Repository](https://github.com/ricalnet/digital-independence)
-- [Panduan Implementasi Hidden Service Tor](https://ricaldocs.github.io/posts/panduan-implementasi-hidden-service-tor/)
+- [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 - [Dokumentasi Resmi Vaultwarden](https://github.com/dani-garcia/vaultwarden/wiki)
 - [Bitwarden Client Apps](https://bitwarden.com/download/)
 - [Docker Documentation](https://docs.docker.com/)

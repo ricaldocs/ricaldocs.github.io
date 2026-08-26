@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-08-21
 ---
 
-> **Misi Sebelumnya**: [Membangun Tor Bridge Relay dengan Obfs4](https://ricaldocs.github.io/posts/membangun-tor-bridge-relay-dengan-obfs4/)
+> **Misi Sebelumnya**: [Membangun Tor Bridge Relay dengan Obfs4](https://docs.ricalnet.my.id/posts/membangun-tor-bridge-relay-dengan-obfs4/)
 
 ## Pendahuluan
 

@@ -8,8 +8,8 @@ last_modified_at: 2026-06-01
 ---
 
 ## Tujuan
-- [Bagian 1: Memeriksa Program Blockly yang Sudah Dibangun](https://ricaldocs.github.io/posts/blinking-an-led-using-blockly/#bagian-1-memeriksa-program-blockly-yang-sudah-dibangun)
-- [Bagian 2: Mengendalikan LED RGB Menggunakan Blockly](https://ricaldocs.github.io/posts/blinking-an-led-using-blockly/#bagian-2-mengendalikan-led-rgb-menggunakan-blockly)
+- [Bagian 1: Memeriksa Program Blockly yang Sudah Dibangun](https://docs.ricalnet.my.id/posts/blinking-an-led-using-blockly/#bagian-1-memeriksa-program-blockly-yang-sudah-dibangun)
+- [Bagian 2: Mengendalikan LED RGB Menggunakan Blockly](https://docs.ricalnet.my.id/posts/blinking-an-led-using-blockly/#bagian-2-mengendalikan-led-rgb-menggunakan-blockly)
 
 ## Latar Belakang
 Blockly adalah bahasa pemrograman visual yang memungkinkan pengguna untuk membuat program dengan menghubungkan blok-blok yang mewakili berbagai struktur logika bahasa, alih-alih menulis kode secara langsung. Blockly berjalan di dalam peramban web dan dapat menerjemahkan program yang dibuat secara visual menjadi JavaScript, PHP, atau Python. Dalam aktivitas Packet Tracer ini, Anda akan menggunakan Blockly untuk mempelajari pemrograman Blockly dan mengendalikan LED.

@@ -48,7 +48,7 @@ Android sebagai sistem operasi mobile berbasis AOSP (Android Open Source Project
 
 ### 4. Hardening Jaringan
 - **DNS Terenkripsi**:  
-  [Implementasi DoH/DoT](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/) melalui Pengaturan → Jaringan & Internet → DNS Pribadi
+  [Implementasi DoH/DoT](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/) melalui Pengaturan → Jaringan & Internet → DNS Pribadi
 
 - **Firewall Aplikasi**:  
   Gunakan solusi berbasis VPN untuk kontrol koneksi per-aplikasi

@@ -41,7 +41,7 @@ Platform ini didedikasikan untuk tiga pilar kemandirian digital:
 
 Terbuka. Kolaboratif. Sumber terbuka bukan hanya untuk kode, tapi juga untuk pengetahuan.
 
-> Temukan kesalahan? Laporkan atau ajukan perubahan langsung lewat [halaman Reporting](https://ricaldocs.github.io/posts/reporting).
+> Temukan kesalahan? Laporkan atau ajukan perubahan langsung lewat [halaman Reporting](https://docs.ricalnet.my.id/posts/reporting).
 
 Mengapa filosofi ini penting? Karena pengetahuan yang terkunci di balik tembok berbayar atau jargon eksklusif hanya memperlebar kesenjangan digital. Ricaldocs percaya bahwa teknologi harus dapat diakses oleh semua orang yang ingin belajar.
 

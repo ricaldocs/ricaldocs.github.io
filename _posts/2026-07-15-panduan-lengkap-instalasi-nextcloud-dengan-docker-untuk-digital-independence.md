@@ -4,7 +4,7 @@ description: Tutorial teknis komprehensif instalasi Nextcloud self-hosted menggu
 categories: [Digital Independence, Cloud]
 tags: [self-hosted, nextcloud]
 author: rical
-last_modified_at: 2026-08-17
+last_modified_at: 2026-08-22
 ---
 
 ## Pendahuluan
@@ -219,6 +219,7 @@ Dengan menyelesaikan panduan ini, Anda telah membangun fondasi digital independe
 
 ## Referensi dan Sumber Daya Tambahan
 
+- [Panduan Konfigurasi External Storage di Nextcloud dengan Docker](https://docs.ricalnet.my.id/posts/panduan-konfigurasi-external-storage-di-nextcloud-dengan-docker/)
 - [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
-- [Panduan Implementasi Hidden Service Tor](https://ricaldocs.github.io/posts/panduan-implementasi-hidden-service-tor/)
-- [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel untuk Ekspos Layanan Lokal](https://ricaldocs.github.io/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)
+- [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
+- [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel untuk Ekspos Layanan Lokal](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)

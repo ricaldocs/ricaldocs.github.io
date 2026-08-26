@@ -36,7 +36,7 @@ Pada langkah ini, berikan **Name and Tags** yang deskriptif untuk isntance guna 
 
 Akses aman ke instance EC2 yang terpapar internet publik bergantung pada **key pair** kriptografi. Buat key pair baru atau pilih yang sudah ada. Key pair terdiri dari kunci publik (yang disimpan AWS) dan kunci privat (yang diunduh pengguna). Kunci privat (`.pem` atau `.ppk`) ini **harus disimpan dengan aman** karena diperlukan untuk setiap koneksi SSH ke instance.
 
-- `.pem`: Format yang digunakan dengan [klien SSH](https://ricaldocs.github.io/posts/panduan-lengkap-openssh-server-linux-untuk-remote-akses-aman/) pada sistem operasi Linux dan macOS.
+- `.pem`: Format yang digunakan dengan [klien SSH](https://docs.ricalnet.my.id/posts/panduan-lengkap-openssh-server-linux-untuk-remote-akses-aman/) pada sistem operasi Linux dan macOS.
 - `.ppk`: Format yang diperlukan oleh klien SSH seperti PuTTY pada sistem operasi Windows.
 
 ![Membuat Key Pair Baru](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/create-new-key-pair.png)

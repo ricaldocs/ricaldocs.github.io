@@ -151,7 +151,7 @@ Dengan mengikuti prinsip-prinsip dalam panduan ini, Anda tidak hanya menginstal 
 ## Referensi dan Sumber Daya
 
 - [Digital Independence Repository](https://github.com/ricalnet/digital-independence)
-- [Panduan Implementasi Hidden Service Tor](https://ricaldocs.github.io/posts/panduan-implementasi-hidden-service-tor/)
+- [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 - [SearXNG Documentation](https://docs.searxng.org/)
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 - [Caddy Server Documentation](https://caddyserver.com/docs/)

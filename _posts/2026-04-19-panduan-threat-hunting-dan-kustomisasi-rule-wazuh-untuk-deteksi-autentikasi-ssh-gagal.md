@@ -19,8 +19,8 @@ Dokumen teknis ini akan memandu Anda dalam:
 ## Prasyarat
 
 Sebelum memulai, pastikan:
-- Instalasi Wazuh (manager + indexer + dashboard) berjalan dengan baik (direferensikan pada [artikel sebelumnya](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/)).
-- [Agent Wazuh telah terpasang](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/#deployment-wazuh-agent) pada endpoint Linux yang menjalankan layanan SSH.
+- Instalasi Wazuh (manager + indexer + dashboard) berjalan dengan baik (direferensikan pada [artikel sebelumnya](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/)).
+- [Agent Wazuh telah terpasang](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/#deployment-wazuh-agent) pada endpoint Linux yang menjalankan layanan SSH.
 - Anda memiliki akses ke Wazuh dashboard dengan peran administratif (misalnya, `administrator` atau `wazuh-admin`).
 
 ## Langkah 1: Mengakses Modul Threat Hunting

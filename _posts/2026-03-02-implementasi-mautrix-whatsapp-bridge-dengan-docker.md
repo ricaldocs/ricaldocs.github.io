@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-07-02
 ---
 
-> **Artikel sebelumnya:** [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://ricaldocs.github.io/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
+> **Artikel sebelumnya:** [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://docs.ricalnet.my.id/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
 
 ## Pendahuluan
 
@@ -24,7 +24,7 @@ mautrix-whatsapp bridge adalah jembatan yang menghubungkan homeserver Matrix (Sy
 
 ### Prasyarat
 
-- Synapse berjalan di Docker ([lihat panduan instalasi](https://ricaldocs.github.io/posts/matrix-protocol-with-synapse-and-element/))
+- Synapse berjalan di Docker ([lihat panduan instalasi](https://docs.ricalnet.my.id/posts/matrix-protocol-with-synapse-and-element/))
 - Docker dan Docker Compose terinstal
 - Nama domain untuk server Matrix (contoh: `matrix.domain.my.id`)
 - Akun WhatsApp aktif

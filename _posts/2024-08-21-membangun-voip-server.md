@@ -298,7 +298,7 @@ Selanjutnya, atur konfigurasi SIP dengan mengedit file berikut:
 - `/etc/asterisk/extensions.conf`{: .filepath}
 - `/etc/asterisk/voicemail.conf`{: .filepath}
 
-Untuk melanjutkan konfigurasi, silakan merujuk pada [panduan ini](https://ricaldocs.github.io/posts/membangun-voip-server/#konfigurasi). 
+Untuk melanjutkan konfigurasi, silakan merujuk pada [panduan ini](https://docs.ricalnet.my.id/posts/membangun-voip-server/#konfigurasi). 
 
 ### Pengujian Instalasi Asterisk
 Setelah konfigurasi Asterisk selesai, langkah selanjutnya adalah memulai Asterisk dan memverifikasi operasinya. Proses ini penting untuk memastikan bahwa sistem berfungsi dengan baik dan siap digunakan.

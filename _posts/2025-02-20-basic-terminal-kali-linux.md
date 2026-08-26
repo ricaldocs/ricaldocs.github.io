@@ -178,7 +178,7 @@ chmod [options] mode file...
 chmod 755 script.sh
 ```
 
-> Untuk penjelasan lebih detail tentang `chmod`, kunjungi [dokumentasi lengkapnya](https://ricaldocs.github.io/posts/panduan-lengkap-perintah-chmod-di-linux/).
+> Untuk penjelasan lebih detail tentang `chmod`, kunjungi [dokumentasi lengkapnya](https://docs.ricalnet.my.id/posts/panduan-lengkap-perintah-chmod-di-linux/).
 
 ---
 

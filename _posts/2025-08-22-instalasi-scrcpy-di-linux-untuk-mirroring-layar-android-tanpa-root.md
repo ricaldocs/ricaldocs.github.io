@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-06-01
 ---
 
-Scrcpy bekerja dengan memanfaatkan [Android Debug Bridge](https://ricaldocs.github.io/posts/daftar-perintah-lengkap-adb-dan-fastboot/) (ADB) untuk mentransmisikan video dan audio dari perangkat Android ke komputer. Aplikasi ini mendukung berbagai fitur interaksi, termasuk pengendalian perangkat melalui keyboard dan mouse komputer, transfer file, serta pengaturan resolusi layar. Keunggulan utama Scrcpy terletak pada efisiensi sumber daya dan kompatibilitasnya dengan berbagai sistem operasi, termasuk Linux, Windows, dan macOS.
+Scrcpy bekerja dengan memanfaatkan [Android Debug Bridge](https://docs.ricalnet.my.id/posts/daftar-perintah-lengkap-adb-dan-fastboot/) (ADB) untuk mentransmisikan video dan audio dari perangkat Android ke komputer. Aplikasi ini mendukung berbagai fitur interaksi, termasuk pengendalian perangkat melalui keyboard dan mouse komputer, transfer file, serta pengaturan resolusi layar. Keunggulan utama Scrcpy terletak pada efisiensi sumber daya dan kompatibilitasnya dengan berbagai sistem operasi, termasuk Linux, Windows, dan macOS.
 
 ## Prasyarat
 
@@ -79,5 +79,5 @@ Scrcpy mendukung berbagai argumen command-line untuk menyesuaikan pengalaman pen
 
 ## Lihat Juga
 
-- [Praktik Terbaik Menjaga Privasi di Android](https://ricaldocs.github.io/posts/praktik-terbaik-menjaga-privasi-android/)
-- [Panduan Instalasi MicroG di Android untuk Pemula dan Pengguna Advanced](https://ricaldocs.github.io/posts/panduan-instalasi-microg-di-android-untuk-pemula-dan-pengguna-advanced/)
+- [Praktik Terbaik Menjaga Privasi di Android](https://docs.ricalnet.my.id/posts/praktik-terbaik-menjaga-privasi-android/)
+- [Panduan Instalasi MicroG di Android untuk Pemula dan Pengguna Advanced](https://docs.ricalnet.my.id/posts/panduan-instalasi-microg-di-android-untuk-pemula-dan-pengguna-advanced/)

@@ -114,7 +114,7 @@ Pelacakan digital adalah pisau bermata dua. Keamanan dan personalisasi menuntut 
 
 ## Referensi
 
-1. [UU PDP Indonesia](https://ricaldocs.github.io/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/)
+1. [UU PDP Indonesia](https://docs.ricalnet.my.id/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/)
 2. [The Guardian - NSA Files](https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded)
 3. [GDPR](https://gdpr-info.eu/)
 4. Laporan transparansi: [Google](https://transparencyreport.google.com/) & [Facebook](https://transparency.facebook.com/)

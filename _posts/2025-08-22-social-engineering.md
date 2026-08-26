@@ -68,7 +68,7 @@ Serangan rekayasa sosial yang terstruktur umumnya mengikuti fase:
 
 ## Simulasi Serangan Phishing dengan Fluxion
 
-> Lihat halaman [Audit Keamanan Jaringan Nirkabel Menggunakan Fluxion](https://ricaldocs.github.io/posts/audit-keamanan-jaringan-nirkabel-menggunakan-fluxion/)
+> Lihat halaman [Audit Keamanan Jaringan Nirkabel Menggunakan Fluxion](https://docs.ricalnet.my.id/posts/audit-keamanan-jaringan-nirkabel-menggunakan-fluxion/)
 
 ## Simulasi Serangan Phishing dengan Zphisher
 

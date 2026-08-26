@@ -103,7 +103,7 @@ Gunakan alat `payload-dumper-go` untuk mengekstrak partisi firmware dari berkas 
 
 Tahap ini dilakukan dengan perangkat dalam mode Fastboot untuk memasang image `recovery` dan `vendor_boot` khusus dari /e/OS.
 
-1.  Boot perangkat ke mode `Fastboot` seperti yang dijelaskan pada [langkah 4.2](https://ricaldocs.github.io/posts/eos/#42-memasang-firmware).
+1.  Boot perangkat ke mode `Fastboot` seperti yang dijelaskan pada [langkah 4.2](https://docs.ricalnet.my.id/posts/eos/#42-memasang-firmware).
 2.  Buka terminal di komputer dan navigasikan ke direktori yang berisi berkas-berkas image /e/OS yang telah diunduh.
 3.  Lakukan pemuatan partisi `boot` dengan image `recovery`:
     ```bash

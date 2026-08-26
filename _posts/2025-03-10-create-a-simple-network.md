@@ -10,8 +10,8 @@ last_modified_at: 2026-06-01
 ## Tujuan
 Dalam aktivitas ini, Anda akan membangun jaringan sederhana di Packet Tracer dalam Logical Workspace.
 
-- [Bagian 1: Membangun Jaringan Sederhana](https://ricaldocs.github.io/posts/create-a-simple-network/#bagian-1-membangun-jaringan-sederhana)
-- [Bagian 2: Mengonfigurasi End Devices dan Memverifikasi Konektivitas](https://ricaldocs.github.io/posts/create-a-simple-network/#bagian-2-mengonfigurasi-end-devices-dan-memverifikasi-konektivitas)
+- [Bagian 1: Membangun Jaringan Sederhana](https://docs.ricalnet.my.id/posts/create-a-simple-network/#bagian-1-membangun-jaringan-sederhana)
+- [Bagian 2: Mengonfigurasi End Devices dan Memverifikasi Konektivitas](https://docs.ricalnet.my.id/posts/create-a-simple-network/#bagian-2-mengonfigurasi-end-devices-dan-memverifikasi-konektivitas)
 
 ## Instruksi 
 Unduh berkas berikut dan buka di Cisco Packet Tracer: [Create_a_Simple_Network_pka.pka](/assets/posts/Create_a_Simple_Network_pka.pka)

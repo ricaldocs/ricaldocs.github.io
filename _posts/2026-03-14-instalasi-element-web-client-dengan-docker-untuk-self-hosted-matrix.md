@@ -18,7 +18,7 @@ Artikel ini akan memandu Anda menginstal Element Web menggunakan Docker, dengan 
 - Server dengan Docker dan Docker Compose terinstal.
 - Nama domain yang sudah mengarah ke server (misal `matrix.yourdomain.com`).
 - Server Matrix homeserver yang sudah berjalan (misal Synapse, Dendrite, dll.) dan dapat diakses melalui `https://matrix.yourdomain.com`.
-  > **Referensi**: [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://ricaldocs.github.io/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
+  > **Referensi**: [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://docs.ricalnet.my.id/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
 - Pemahaman dasar tentang baris perintah dan Docker.
 
 ## Struktur Direktori

@@ -13,7 +13,7 @@ Security Group dalam Amazon Elastic Compute Cloud (EC2) merupakan mekanisme keam
 
 ### Konfigurasi Dasar Security Group
 
-Sebelum melakukan modifikasi aturan keamanan, pengguna harus terlebih dahulu membuat instance EC2. Panduan pembuatan instance EC2 dengan user data untuk otomatisasi penyiapan server dapat diakses pada [tautan berikut](https://ricaldocs.github.io/posts/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/).
+Sebelum melakukan modifikasi aturan keamanan, pengguna harus terlebih dahulu membuat instance EC2. Panduan pembuatan instance EC2 dengan user data untuk otomatisasi penyiapan server dapat diakses pada [tautan berikut](https://docs.ricalnet.my.id/posts/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/).
 
 Setelah instance berjalan, verifikasi akses ke web server menggunakan protokol HTTP. Konfigurasi security group awal biasanya hanya mengizinkan akses HTTP (port 80) dan SSH (port 22), sementara akses melalui HTTPS (port 443) dan protokol lainnya akan diblokir hingga ditambahkan aturan secara manual.
 

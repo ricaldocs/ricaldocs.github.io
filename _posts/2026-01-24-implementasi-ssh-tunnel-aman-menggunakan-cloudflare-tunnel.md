@@ -33,7 +33,7 @@ cloudflared tunnel route dns <tunnel-id> ssh.domain.id
 ## 2. Konfigurasi SSH Client
 
 ### 2.1 Instalasi Cloudflared
-Pastikan Cloudflared terinstal di komputer client Anda. Untuk sistem berbasis [Debian/Ubuntu](https://ricaldocs.github.io/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/#instalasi-cloudflared).
+Pastikan Cloudflared terinstal di komputer client Anda. Untuk sistem berbasis [Debian/Ubuntu](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/#instalasi-cloudflared).
 
 ### 2.2 Konfigurasi SSH Client
 Edit file konfigurasi SSH di client Anda:

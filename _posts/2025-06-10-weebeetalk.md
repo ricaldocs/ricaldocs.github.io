@@ -206,7 +206,7 @@ Security Group Rules:
 
 ## 5. Integrasi dengan Asterisk
 
-Lihat dokumentasi terpisah: [Membangun VoIP Server](https://ricaldocs.github.io/posts/membangun-voip-server/) menggunakan Asterisk.
+Lihat dokumentasi terpisah: [Membangun VoIP Server](https://docs.ricalnet.my.id/posts/membangun-voip-server/) menggunakan Asterisk.
 
 Asterisk berfungsi sebagai:
 - Gateway antara jaringan SIP dan PSTN (telepon biasa)

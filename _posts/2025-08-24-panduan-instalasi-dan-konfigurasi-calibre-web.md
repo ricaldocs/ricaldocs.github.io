@@ -242,4 +242,4 @@ Setelah database terhubung, lakukan konfigurasi melalui halaman admin:
 
 - [Situs Web Resmi Calibre](https://calibre-ebook.com/)
 - [Repositori Resmi Calibre-Web](https://github.com/janeczku/calibre-web)
-- [Docker Command Reference](https://ricaldocs.github.io/posts/docker-command-reference/)
+- [Docker Command Reference](https://docs.ricalnet.my.id/posts/docker-command-reference/)

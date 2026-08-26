@@ -20,7 +20,7 @@ AMI mendukung berbagai sistem operasi, termasuk distribusi Linux (seperti Amazon
 ## Proses Pembuatan AMI
 
 ### 1. Persiapan Instance Sumber
-Sebelum membuat AMI, pengguna harus mempersiapkan sebuah instance EC2 sebagai sumber. instance ini dikonfigurasi sesuai dengan kebutuhan, seperti menginstal perangkat lunak, mengatur konfigurasi, dan memastikan layanan yang diperlukan (seperti web server) telah berjalan dengan benar (Lihat: [Security Group dalam Cloud Computing](https://ricaldocs.github.io/posts/security-group-dalam-cloud-computing/)).
+Sebelum membuat AMI, pengguna harus mempersiapkan sebuah instance EC2 sebagai sumber. instance ini dikonfigurasi sesuai dengan kebutuhan, seperti menginstal perangkat lunak, mengatur konfigurasi, dan memastikan layanan yang diperlukan (seperti web server) telah berjalan dengan benar (Lihat: [Security Group dalam Cloud Computing](https://docs.ricalnet.my.id/posts/security-group-dalam-cloud-computing/)).
 
 ![Persiapan Instance EC2](../assets/img/posts/cloud/amazon-machine-image/web-server.png)
 _Persiapan Instance EC2_

@@ -39,7 +39,7 @@ sudo ./fluxion.sh
 ## Konfigurasi
 Setelah instalasi dependensi, aplikasi akan secara otomatis diinisialisasi dan meminta pemilihan bahasa. Pengguna kemudian harus memilih antarmuka nirkabel untuk assessment.
 
-> Antarmuka nirkabel yang dipilih harus mendukung packet injection dan monitor mode. Jika chipset nirkabel bawaan sistem tidak memiliki kemampuan ini, pertimbangkan untuk menggunakan adapter eksternal yang kompatibel seperti [TP-Link Archer T2U Plus](https://ricaldocs.github.io/posts/memperbaiki-masalah-driver-adaptor-wifi-usb-archer-t2u-v3-pada-kali-linux/).
+> Antarmuka nirkabel yang dipilih harus mendukung packet injection dan monitor mode. Jika chipset nirkabel bawaan sistem tidak memiliki kemampuan ini, pertimbangkan untuk menggunakan adapter eksternal yang kompatibel seperti [TP-Link Archer T2U Plus](https://docs.ricalnet.my.id/posts/memperbaiki-masalah-driver-adaptor-wifi-usb-archer-t2u-v3-pada-kali-linux/).
 {: .prompt-info}
 
 ![Pemilihan Antarmuka Nirkabel](assets/img/posts/2025-03-11-fluxion/select-wireless-interface.png)

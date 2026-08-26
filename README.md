@@ -1,6 +1,6 @@
 # Ricaldocs: Blog & IT Documentation
 
-[![Ricaldocs](https://img.shields.io/badge/link-RicalDocs-red.svg)](https://ricaldocs.github.io)
+[![Ricaldocs](https://img.shields.io/badge/link-RicalDocs-red.svg)](https://docs.ricalnet.my.id)
 
 An open source blog and documentation platform focused on **digital independence**, **digital privacy**, and **full control** over your data and devices.
 
@@ -8,7 +8,7 @@ Built with [Jekyll](https://jekyllrb.com/) and the [Chirpy](https://github.com/c
 
 ## Access & Usage
 
-- **Site**: [https://ricaldocs.github.io/](https://ricaldocs.github.io/)
+- **Site**: [https://docs.ricalnet.my.id/](https://docs.ricalnet.my.id/)
 - **Basic guide**: [Chirpy Tutorial](https://chirpy.cotes.page/posts/getting-started/)
 
 ### Run with Docker

@@ -189,4 +189,4 @@ Cloudflare Tunnel menawarkan solusi aman untuk mengekspos layanan lokal tanpa ko
 
 ## Pranala Menarik
 
-- [Implementasi SSH Tunnel Aman Menggunakan Cloudflare Tunnel](https://ricaldocs.github.io/posts/implementasi-ssh-tunnel-aman-menggunakan-cloudflare-tunnel/)
+- [Implementasi SSH Tunnel Aman Menggunakan Cloudflare Tunnel](https://docs.ricalnet.my.id/posts/implementasi-ssh-tunnel-aman-menggunakan-cloudflare-tunnel/)

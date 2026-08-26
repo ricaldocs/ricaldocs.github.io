@@ -29,7 +29,7 @@ Dengan pendekatan Docker, instalasi menjadi lebih mudah dikelola, diperbarui, da
 | IP Server | Statis disarankan. Panduan ini menggunakan `192.168.0.50` |
 | Port      | 8080 untuk antarmuka web, 53 untuk DNS                    |
 
-> Gunakan IP statis agar konfigurasi router tidak berubah saat server di-restart. Lihat [panduan NetworkManager](https://ricaldocs.github.io/posts/cara-mengatur-ip-statis-di-raspberry-pi-os-dengan-networkmanager/) jika belum tahu caranya.
+> Gunakan IP statis agar konfigurasi router tidak berubah saat server di-restart. Lihat [panduan NetworkManager](https://docs.ricalnet.my.id/posts/cara-mengatur-ip-statis-di-raspberry-pi-os-dengan-networkmanager/) jika belum tahu caranya.
 {: .prompt-tip}
 
 ## 1. Clone Repository
@@ -254,7 +254,7 @@ Dengan infrastruktur ini, Anda tidak hanya memblokir iklan, tetapi juga meningka
 
 ## Referensi dan Sumber Daya Tambahan
 - [Digital Independence](https://github.com/ricalnet/digital-independence)
-- [Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://ricaldocs.github.io/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)
-- [DNS List for Security & Privacy](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/)
+- [Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://docs.ricalnet.my.id/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)
+- [DNS List for Security & Privacy](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/)
 - [Dokumentasi Resmi Pi-Hole](https://docs.pi-hole.net/)
 - [Dokumentasi Docker Compose](https://docs.docker.com/compose/)

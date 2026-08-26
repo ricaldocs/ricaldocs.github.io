@@ -176,4 +176,4 @@ gpg -d data.tar.gpg > data.tar
 - [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
 ## Tautan Terkait
-- [Kriptografi dan Steganografi](https://ricaldocs.github.io/posts/kriptografi-dan-steganografi/)
+- [Kriptografi dan Steganografi](https://docs.ricalnet.my.id/posts/kriptografi-dan-steganografi/)

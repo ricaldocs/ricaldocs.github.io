@@ -8,10 +8,10 @@ last_modified_at: 2026-06-01
 ---
 
 ## Tujuan
-- [Bagian 1: Menghubungkan Home Gateway ke Jaringan](https://ricaldocs.github.io/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-1-menghubungkan-home-gateway-ke-jaringan)
-- [Bagian 2: Menambahkan End User Devices ke Jaringan](https://ricaldocs.github.io/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-2-menambahkan-end-user-devices-ke-jaringan)
-- [Bagian 3: Menambahkan Perangkat IoT ke Jaringan](https://ricaldocs.github.io/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-3-menambahkan-perangkat-iot-ke-jaringan)
-- [Bagian 4: Menambahkan Perangkat Bluetooth](https://ricaldocs.github.io/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-4-menambahkan-perangkat-bluetooth)
+- [Bagian 1: Menghubungkan Home Gateway ke Jaringan](https://docs.ricalnet.my.id/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-1-menghubungkan-home-gateway-ke-jaringan)
+- [Bagian 2: Menambahkan End User Devices ke Jaringan](https://docs.ricalnet.my.id/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-2-menambahkan-end-user-devices-ke-jaringan)
+- [Bagian 3: Menambahkan Perangkat IoT ke Jaringan](https://docs.ricalnet.my.id/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-3-menambahkan-perangkat-iot-ke-jaringan)
+- [Bagian 4: Menambahkan Perangkat Bluetooth](https://docs.ricalnet.my.id/posts/connect-devices-to-a-home-gateway-and-monitor-your-network/#bagian-4-menambahkan-perangkat-bluetooth)
 
 ## Latar Belakang / Skenario
 Dalam kegiatan ini, Anda akan menambahkan sebuah Home Gateway dan beberapa perangkat Internet of Things (IoT) ke jaringan rumah yang sudah ada, serta memantau perangkat-perangkat tersebut melalui Home Gateway.

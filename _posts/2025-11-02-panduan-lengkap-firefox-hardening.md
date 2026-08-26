@@ -235,11 +235,11 @@ Path: Settings → Privacy & Security
 
 **Konfigurasi Rekomendasi:**
 - **Enable DNS over HTTPS**: Aktifkan
-- **Provider**: [LibreDNS](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/#1-libredns-rekomendasi) atau [Quad9](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/#2-quad9)
+- **Provider**: [LibreDNS](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#1-libredns-rekomendasi) atau [Quad9](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#2-quad9)
 
 **Penyedia DNS yang Direkomendasikan:**
-- [LibreDNS](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/#1-libredns-rekomendasi): Tidak melakukan logging, memblokir domain malicious
-- [Quad9](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/#2-quad9): Memiliki reputasi kuat dalam keamanan, memblokir malware/phishing
+- [LibreDNS](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#1-libredns-rekomendasi): Tidak melakukan logging, memblokir domain malicious
+- [Quad9](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#2-quad9): Memiliki reputasi kuat dalam keamanan, memblokir malware/phishing
 
 ![DoH Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-26-08.png)
 

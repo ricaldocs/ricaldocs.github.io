@@ -4,7 +4,7 @@ description: Panduan integrasi Nextcloud dengan Authentik sebagai Identity Provi
 categories: [Digital Independence, SSO, Cloud]
 tags: [authentik, sso, self-hosted, nextcloud]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-08-26
 ---
 
 ## Pendahuluan
@@ -105,10 +105,11 @@ Redirect URIs berfungsi sebagai Endpoint callback di Nextcloud untuk menerima re
 
 ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/4.png)
 
-| URI                                                | Keterangan              |
-| -------------------------------------------------- | ----------------------- |
-| `https://nextcloud.domain.com/apps/user_oidc/code` | Menerima kode otorisasi |
-| `https://nextcloud.domain.com`                     | Redirect setelah logout |
+| URI                                                           | Keterangan              |
+| ------------------------------------------------------------- | ----------------------- |
+| `https://nextcloud.domain.com/apps/oidc_login/oidc`           | Menerima kode otorisasi |
+| `https://nextcloud.domain.com/index.php/apps/oidc_login/oidc` | Menerima kode otorisasi |
+| `https://nextcloud.domain.com/apps/user_oidc/code`            | Menerima kode otorisasi |
 
 > Strict Mode memastikan URI diterima persis sama, mencegah:
   - Open redirect

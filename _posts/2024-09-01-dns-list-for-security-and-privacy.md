@@ -123,8 +123,8 @@ Pi-hole adalah DNS sinkhole yang berjalan di server lokal (Raspberry Pi, VPS, at
 
 Untuk memudahkan deployment dan manajemen, Pi-hole dapat dijalankan dalam kontainer Docker. Berikut adalah dua panduan praktis dari penulis:
 
-- **[Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://ricaldocs.github.io/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)**  
-- **[Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://ricaldocs.github.io/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)**
+- **[Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)**  
+- **[Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://docs.ricalnet.my.id/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)**
 
 Setelah Pi-hole aktif, cukup atur setiap perangkat atau router Anda untuk menggunakan IP Pi-hole sebagai DNS server. Semua kueri akan melewati filter Anda, dan dunia luar hanya melihat lalu lintas DoH terenkripsi ke Cloudflare (jika dikonfigurasi).
 
@@ -148,5 +148,5 @@ Setelah Pi-hole aktif, cukup atur setiap perangkat atau router Anda untuk menggu
 
 ## Referensi Lanjutan
 
-- [Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://ricaldocs.github.io/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)  
-- [Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://ricaldocs.github.io/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)
+- [Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)  
+- [Integrasi Cloudflared DoH dengan Pi-hole di Docker](https://docs.ricalnet.my.id/posts/integrasi-cloudflared-doh-dengan-pi-hole-di-docker/)

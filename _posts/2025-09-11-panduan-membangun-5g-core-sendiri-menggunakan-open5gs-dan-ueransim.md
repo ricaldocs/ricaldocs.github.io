@@ -458,7 +458,7 @@ Troubleshooting cepat:
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [Uji Ketahanan 5G Core terhadap Serangan DDoS dengan Open5GS dan UERANSIM](https://ricaldocs.github.io/posts/uji-ketahanan-5g-core-terhadap-serangan-ddos-dengan-open5gs-dan-ueransim)
+- [Uji Ketahanan 5G Core terhadap Serangan DDoS dengan Open5GS dan UERANSIM](https://docs.ricalnet.my.id/posts/uji-ketahanan-5g-core-terhadap-serangan-ddos-dengan-open5gs-dan-ueransim)
 - [5G System Overview - 3GPP](https://www.3gpp.org/technologies/5g-system-overview)
 - [Open5GS Quickstart Guide](https://open5gs.org/open5gs/docs/guide/01-quickstart/)
 - [UERANSIM GitHub Repository](https://github.com/aligungr/UERANSIM)

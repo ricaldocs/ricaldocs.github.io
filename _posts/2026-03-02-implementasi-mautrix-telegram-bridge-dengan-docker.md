@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-07-02
 ---
 
-> **Artikel sebelumnya:** [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://ricaldocs.github.io/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
+> **Artikel sebelumnya:** [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://docs.ricalnet.my.id/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
 
 ## Pendahuluan
 
@@ -49,7 +49,7 @@ Diagram berikut menggambarkan interaksi antar komponen:
 
 Sebelum memulai, pastikan Anda memiliki:
 
-- Synapse yang berjalan di Docker (lihat [artikel sebelumnya](https://ricaldocs.github.io/posts/matrix-protocol-with-synapse-and-element/) jika perlu).
+- Synapse yang berjalan di Docker (lihat [artikel sebelumnya](https://docs.ricalnet.my.id/posts/matrix-protocol-with-synapse-and-element/) jika perlu).
 - Docker dan Docker Compose terinstal di host.
 - Nama domain untuk server Matrix Anda (misalnya `matrix.domain.my.id`).
 - Kredensial API Telegram:

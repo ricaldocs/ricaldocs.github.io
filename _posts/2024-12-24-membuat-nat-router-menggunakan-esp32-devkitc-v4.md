@@ -11,7 +11,7 @@ last_modified_at: 2026-06-01
 Dokumentasi ini menjelaskan langkah-langkah untuk mengonfigurasi dan menggunakan [ESP32-DevKitC-V4](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html) sebagai NAT *router*. Proses ini mencakup instalasi perangkat lunak yang diperlukan, *flashing firmware*, dan konfigurasi jaringan untuk menyediakan koneksi internet yang aman dan efisien.
 
 ## Instalasi esptool
-Sebelum memulai, disarankan untuk menggunakan lingkungan [virtual Python (venv)](https://ricaldocs.github.io/posts/python-virtual-environment/) untuk mengelola dependensi. Langkah-langkah instalasi **esptool** adalah sebagai berikut:
+Sebelum memulai, disarankan untuk menggunakan lingkungan [virtual Python (venv)](https://docs.ricalnet.my.id/posts/python-virtual-environment/) untuk mengelola dependensi. Langkah-langkah instalasi **esptool** adalah sebagai berikut:
 
 1. Instal pyserial dengan perintah:
    ```bash

@@ -11,7 +11,7 @@ last_modified_at: 2026-08-13
 
 Sebelum melanjutkan panduan ini, Anda HARUS sudah menyelesaikan instalasi dan konfigurasi jaringan 5G SA dasar dari artikel sebelumnya:
 
-👉 [Panduan Membangun 5G Core Sendiri Menggunakan Open5GS dan UERANSIM](https://ricaldocs.github.io/posts/panduan-membangun-5g-core-sendiri-menggunakan-open5gs-dan-ueransim/)
+👉 [Panduan Membangun 5G Core Sendiri Menggunakan Open5GS dan UERANSIM](https://docs.ricalnet.my.id/posts/panduan-membangun-5g-core-sendiri-menggunakan-open5gs-dan-ueransim/)
 
 Tanpa menyelesaikan artikel sebelumnya, panduan ini TIDAK akan berfungsi karena:
 1. Open5GS belum terinstal

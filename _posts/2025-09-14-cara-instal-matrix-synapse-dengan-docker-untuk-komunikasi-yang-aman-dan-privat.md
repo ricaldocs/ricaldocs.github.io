@@ -274,7 +274,7 @@ docker exec -it synapse register_new_matrix_user \
 
 ### Verifikasi Pendaftaran
 
-Setelah mengaktifkan pendaftaran, uji melalui [klien Matrix](https://ricaldocs.github.io/posts/matrix-protocol-with-synapse-and-element/#opsi-1-menggunakan-element-web-rekomendasi).
+Setelah mengaktifkan pendaftaran, uji melalui [klien Matrix](https://docs.ricalnet.my.id/posts/matrix-protocol-with-synapse-and-element/#opsi-1-menggunakan-element-web-rekomendasi).
 
 ## Troubleshooting
 
@@ -336,11 +336,11 @@ curl -f http://localhost:8008/health
 ```
 
 ## Bridges
-- [Implementasi Mautrix-Telegram Bridge dengan Docker](https://ricaldocs.github.io/posts/implementasi-mautrix-telegram-bridge-dengan-docker/)
-- [Implementasi Mautrix-WhatsApp Bridge dengan Docker](https://ricaldocs.github.io/posts/implementasi-mautrix-whatsapp-bridge-dengan-docker/)
+- [Implementasi Mautrix-Telegram Bridge dengan Docker](https://docs.ricalnet.my.id/posts/implementasi-mautrix-telegram-bridge-dengan-docker/)
+- [Implementasi Mautrix-WhatsApp Bridge dengan Docker](https://docs.ricalnet.my.id/posts/implementasi-mautrix-whatsapp-bridge-dengan-docker/)
 
 ## Pranala Terkait
-- [Instalasi Element Web Client dengan Docker untuk Self-Hosted Matrix](https://ricaldocs.github.io/posts/instalasi-element-web-client-dengan-docker-untuk-self-hosted-matrix/)
+- [Instalasi Element Web Client dengan Docker untuk Self-Hosted Matrix](https://docs.ricalnet.my.id/posts/instalasi-element-web-client-dengan-docker-untuk-self-hosted-matrix/)
 - [Digital Independence](https://github.com/ricalnet/digital-independence)
 - [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 

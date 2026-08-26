@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-06-01
 ---
 
-> Dokumentasi ini telah kedaluwarsa dan tidak lagi mencerminkan praktik terbaik yang direkomendasikan. Untuk implementasi terkini, kami merujuk Anda pada artikel "[Panduan Lengkap Instalasi Nextcloud dengan Docker untuk Digital Independence](https://ricaldocs.github.io/posts/panduan-lengkap-instalasi-nextcloud-dengan-docker-untuk-digital-independence/)" sebagai acuan utama dalam proses deployment. Panduan tersebut memuat prosedur terbaru yang mencakup penerapan keamanan berlapis (layered security) serta penguatan prinsip kemandirian digital (digital sovereignty) dalam pengelolaan infrastruktur Anda.
+> Dokumentasi ini telah kedaluwarsa dan tidak lagi mencerminkan praktik terbaik yang direkomendasikan. Untuk implementasi terkini, kami merujuk Anda pada artikel "[Panduan Lengkap Instalasi Nextcloud dengan Docker untuk Digital Independence](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-nextcloud-dengan-docker-untuk-digital-independence/)" sebagai acuan utama dalam proses deployment. Panduan tersebut memuat prosedur terbaru yang mencakup penerapan keamanan berlapis (layered security) serta penguatan prinsip kemandirian digital (digital sovereignty) dalam pengelolaan infrastruktur Anda.
 {: .prompt-warning}
 
 ## Persiapan

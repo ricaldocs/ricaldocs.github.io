@@ -20,7 +20,7 @@ Pernahkah Anda berbelanja di situs web berbasis di Eropa, mendaftar layanan clou
 
 Bagi warga Indonesia, GDPR menjadi penting karena dua alasan utama:
 1. **Sebagai konsumen** yang menggunakan layanan perusahaan Eropa, GDPR memberikan hak-hak kuat yang dapat Anda klaim.
-2. **Sebagai pembanding**, GDPR menjadi tolok ukur global yang mempengaruhi bagaimana negara-negara lain—termasuk Indonesia dengan [UU PDP No. 27 Tahun 2022](https://ricaldocs.github.io/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/)—merancang regulasi perlindungan data mereka.
+2. **Sebagai pembanding**, GDPR menjadi tolok ukur global yang mempengaruhi bagaimana negara-negara lain—termasuk Indonesia dengan [UU PDP No. 27 Tahun 2022](https://docs.ricalnet.my.id/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/)—merancang regulasi perlindungan data mereka.
 
 ## Bagian 1: Apa dan Siapa yang Terkena?
 
@@ -82,7 +82,7 @@ GDPR memiliki keunggulan dalam hal **mekanisme teknis** yang belum sepenuhnya di
 
 ## Bagian 3: Perbandingan GDPR dengan UU PDP Indonesia
 
-Setelah Indonesia mengesahkan [UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP)](https://ricaldocs.github.io/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/) pada 17 Oktober 2022, banyak pihak menyebut bahwa UU PDP "dimodelkan" berdasarkan GDPR. Namun, ada perbedaan signifikan yang perlu dipahami.
+Setelah Indonesia mengesahkan [UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP)](https://docs.ricalnet.my.id/posts/panduan-lengkap-undang-undang-perlindungan-data-pribadi/) pada 17 Oktober 2022, banyak pihak menyebut bahwa UU PDP "dimodelkan" berdasarkan GDPR. Namun, ada perbedaan signifikan yang perlu dipahami.
 
 ### Persamaan Utama
 

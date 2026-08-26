@@ -18,7 +18,7 @@ DNS-over-HTTPS (DoH) adalah solusinya. DoH membungkus permintaan DNS dalam lalu 
 Sebelum memulai, pastikan medan tempur digital Anda telah siap:
 
 - Ubuntu (atau distro Linux lainnya) dengan Docker Engine telah terinstal. Jika belum, rujuk ke panduan resmi: [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
-- Pi-hole sudah berjalan dan berfungsi (mengacu pada [panduan instalasi sebelumnya](https://ricaldocs.github.io/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)). Pastikan tidak ada konflik port, terutama port 53.
+- Pi-hole sudah berjalan dan berfungsi (mengacu pada [panduan instalasi sebelumnya](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)). Pastikan tidak ada konflik port, terutama port 53.
 - Familiar dengan baris perintah Linux dan Docker Compose.
 - Untuk menjalankan perintah Docker dan mengelola sistem.
 
@@ -231,6 +231,6 @@ Di dunia di mana data adalah komoditas dan pengawasan adalah norma, membangun in
 
 ## Referensi Tambahan
 
-- [Mengatur Router agar Menggunakan Pi-Hole sebagai DNS](https://ricaldocs.github.io/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/#5-mengatur-router-agar-menggunakan-pi-hole-sebagai-dns)
-- [Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://ricaldocs.github.io/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)
-- [DNS List for Security & Privacy](https://ricaldocs.github.io/posts/dns-list-for-security-and-privacy/)
+- [Mengatur Router agar Menggunakan Pi-Hole sebagai DNS](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/#5-mengatur-router-agar-menggunakan-pi-hole-sebagai-dns)
+- [Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)
+- [DNS List for Security & Privacy](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/)
