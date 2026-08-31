@@ -4,12 +4,22 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - .:/srv/jekyll
-      - bundle_gems:/usr/local/bundle
+      - .:/srv/jekyll:Z
+      - bundle_gems:/usr/local/bundle:Z
     restart: unless-stopped
     environment:
       - JEKYLL_ENV=development
+      - BUNDLE_PATH=/usr/local/bundle
     command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
 
 volumes:
   bundle_gems:

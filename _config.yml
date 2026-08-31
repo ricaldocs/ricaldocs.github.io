@@ -15,7 +15,7 @@ timezone: Asia/Jakarta
 # --------------------------
 title: Ricaldocs # Judul utama
 
-tagline: Unfiltered Tech # Subjudul
+tagline: Unfiltered Tech Library # Subjudul
 
 description: >- # Digunakan oleh seo meta dan atom feed
   Ricaldocs menyajikan tutorial, dokumentasi IT, dan artikel opini seputar Privacy, Cybersecurity, Cloud Computing, serta IT Infrastructure. Ditulis oleh Risnanda Pascal, platform open source ini berfokus pada kemandirian digital, privasi pengguna, dan kontrol penuh atas data. Jelajahi panduan langkah demi langkah, analisis tren teknologi terkini, dan berkontribusi dalam membangun ekosistem pengetahuan yang terpercaya.
@@ -103,7 +103,7 @@ mouse_click_effect: false
 cdn: ""
 
 # Avatar di bilah samping, mendukung sumber lokal atau CROS
-avatar: /avatar.png
+avatar: /avatar.jpg
 
 # URL gambar pratinjau sosial situs-wide yang digunakan dalam tag meta SEO `og:image`.
 # Dapat diganti dengan `page.image` di Front Matter posting.

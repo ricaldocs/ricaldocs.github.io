@@ -7,6 +7,9 @@ author: rical
 last_modified_at: 2026-07-01
 ---
 
+> Panduan ini merupakan dokumentasi lama dan tidak lagi mencerminkan praktik keamanan terkini. Silakan merujuk pada panduan terbaru: [Panduan Deployment Matrix Synapse Self-Hosted dengan Mautrix Bridge WhatsApp & Telegram](https://docs.ricalnet.my.id/posts/panduan-deployment-matrix-synapse-self-hosted-dengan-mautrix-bridge-whatsapp-dan-telegram/).
+{: .prompt-warning}
+
 ## Pendahuluan
 
 Element Web adalah klien web untuk protokol Matrix yang memungkinkan komunikasi real‑time terenkripsi secara end‑to‑end. Dengan menjalankan Element Web sendiri di server, Anda mempertahankan kendali penuh atas antarmuka komunikasi tim atau komunitas, sekaligus memperkuat privasi dan kedaulatan data.

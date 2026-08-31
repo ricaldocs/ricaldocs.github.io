@@ -7,6 +7,9 @@ author: rical
 last_modified_at: 2026-08-14
 ---
 
+> Panduan ini merupakan dokumentasi lama dan tidak lagi mencerminkan praktik keamanan terkini. Silakan merujuk pada panduan terbaru: [Panduan Deployment Matrix Synapse Self-Hosted dengan Mautrix Bridge WhatsApp & Telegram](https://docs.ricalnet.my.id/posts/panduan-deployment-matrix-synapse-self-hosted-dengan-mautrix-bridge-whatsapp-dan-telegram/).
+{: .prompt-warning}
+
 ## Pendahuluan
 
 Matrix adalah protokol komunikasi open-source yang dirancang untuk interoperabilitas dan privasi. Dengan self-hosting Synapse (homeserver Matrix), Anda mendapatkan kendali penuh atas data komunikasi Anda, bebas dari ketergantungan pada penyedia pihak ketiga. Artikel ini akan memandu Anda menginstal dan mengonfigurasi Matrix Synapse dengan PostgreSQL serta mengintegrasikannya dengan Element Web Client menggunakan Docker dan Docker Compose.
