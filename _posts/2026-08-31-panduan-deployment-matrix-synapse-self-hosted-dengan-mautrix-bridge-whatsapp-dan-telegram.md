@@ -4,7 +4,7 @@ description: Panduan lengkap deploy Matrix Synapse self-hosted dengan Mautrix br
 categories: [Digital Independence, Communications]
 tags: [self-hosted, matrix protocol, podman]
 author: rical
-last_modified_at: 2026-08-31
+last_modified_at: 2026-09-02
 ---
 
 ## Membangun Infrastruktur Komunikasi Terdesentralisasi dan Mengapa Ini Penting
@@ -58,9 +58,13 @@ Sebelum memulai, pastikan Anda memiliki:
 
 ### Konsep Kunci yang Perlu Dipahami
 
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/arsitektur-enkripsi.png)
+
 **Matrix Protocol** - Protokol komunikasi open-source yang menggunakan arsitektur federated (seperti email). Setiap server (homeserver) dapat berkomunikasi dengan server lain secara terdesentralisasi.
 
 **Application Services (Bridges)** - Aplikasi yang bertindak sebagai "penerjemah" antara protocol Matrix dan platform lain (WhatsApp, Telegram). Mereka mengubah pesan dari satu format ke format lainnya secara real-time.
+
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/isolasi-jaringan.png)
 
 **Containerization (Podman/Docker)** - Teknologi yang membungkus setiap layanan dalam lingkungan yang terisolasi (container). Ini memastikan:
 - Setiap layanan berjalan konsisten terlepas dari sistem host
@@ -82,7 +86,6 @@ Sebelum memulai, pastikan Anda memiliki:
 │   ├── mautrix-telegram-data/                 # Konfigurasi Telegram bridge
 │   └── mautrix-whatsapp-data/                 # Konfigurasi WhatsApp bridge
 ├── synapse-data/                              # Data persisten Synapse
-│   ├── homeserver.db
 │   ├── homeserver.yaml                        # Konfigurasi utama
 │   ├── matrix.ricalnet.my.id.log.config
 │   ├── matrix.ricalnet.my.id.signing.key
@@ -359,7 +362,6 @@ Synapse akan membaca semua registration file di direktori yang ditentukan dan me
 
 ```bash
 podman-compose up -d
-podman-compose logs -f
 ```
 
 Verifikasi:
@@ -468,5 +470,9 @@ podman network ls
   │   (External API)    │  │  (MTProto API)      │
   └─────────────────────┘  └─────────────────────┘
 ```
+
+## Mind Map
+
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/mind-map.png)
 
 Konfigurasi ini menggunakan `127.0.0.1` untuk jaringan lokal. Untuk deployment produksi, ganti dengan domain yang valid, aktifkan TLS/HTTPS (gunakan reverse proxy seperti Caddy atau Nginx), dan ubah password default dengan password yang kuat.
