@@ -12,14 +12,9 @@ services:
       - BUNDLE_PATH=/usr/local/bundle
     command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
 
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
-        reservations:
-          cpus: "0.25"
-          memory: 256M
+    cpus: 0.5
+    mem_limit: 512M
+    mem_reservation: 256M
 
 volumes:
   bundle_gems:

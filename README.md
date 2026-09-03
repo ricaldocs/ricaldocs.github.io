@@ -11,10 +11,10 @@ Built with [Jekyll](https://jekyllrb.com/) and the [Chirpy](https://github.com/c
 - **Site**: [https://docs.ricalnet.my.id/](https://docs.ricalnet.my.id/)
 - **Basic guide**: [Chirpy Tutorial](https://chirpy.cotes.page/posts/getting-started/)
 
-### Run with Docker
+### Run with Podman
 
 ```bash
-docker compose up -d
+podman-compose up -d
 ```
 
 ## Customizations Made
