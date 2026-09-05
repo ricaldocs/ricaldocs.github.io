@@ -48,13 +48,13 @@ Untuk Profesional (SysAdmin/DevOps):
 
 Sebelum memulai, pastikan Anda memiliki:
 
-| Komponen    | Minimum                 | Rekomendasi                       |
-| ----------- | ----------------------- | --------------------------------- |
-| CPU     | 2 core                  | 4+ core                           |
-| RAM     | 4 GB                    | 8+ GB                             |
-| Storage | 20 GB                   | 50+ GB SSD                        |
-| OS      | Debian 11/12            | Debian 12 atau Ubuntu 22.04 LTS   |
-| Network | Koneksi internet stabil | Koneksi dengan bandwidth simetris |
+| Komponen | Minimum                 | Rekomendasi                       |
+| -------- | ----------------------- | --------------------------------- |
+| CPU      | 2 core                  | 4+ core                           |
+| RAM      | 4 GB                    | 8+ GB                             |
+| Storage  | 20 GB                   | 50+ GB SSD                        |
+| OS       | Debian 11/12            | Debian 12 atau Ubuntu 22.04 LTS   |
+| Network  | Koneksi internet stabil | Koneksi dengan bandwidth simetris |
 
 ### Konsep Kunci yang Perlu Dipahami
 
@@ -199,7 +199,7 @@ Penjelasan:
 ### 2.3 Startup Awal dan Konfigurasi Database
 
 ```bash
-podman-compose up -d
+dipen up synapse
 sleep 30
 ```
 
@@ -237,9 +237,9 @@ Penjelasan Parameter Database:
 ### 2.4 Restart Synapse dengan PostgreSQL
 
 ```bash
-podman-compose down
-podman-compose up -d
-podman-compose logs -f
+dipen fresh synapse
+sleep 10
+dipen logs synapse
 ```
 
 Setelah mengganti konfigurasi database dari SQLite ke PostgreSQL, Synapse akan secara otomatis membuat skema database yang diperlukan di PostgreSQL. Password `CHANGE_ME_POSTGRES_PASSWORD` harus sesuai dengan password yang terdefinisi di `.env` file.
@@ -273,9 +273,7 @@ Buka `http://127.0.0.1:8008` untuk verifikasi homeserver berjalan.
 ### 3.1 Persiapan Environment
 
 ```bash
-cd ~/digital-independence/synapse/mautrix
-cp .env.example .env
-nano .env
+dipen env synapse-mautrix
 ```
 
 `.env` file berisi variabel environment yang digunakan oleh semua service Mautrix. Pastikan `POSTGRES_PASSWORD` konsisten dengan yang digunakan di Synapse.
@@ -283,9 +281,9 @@ nano .env
 ### 3.2 Initial Bridge Configuration
 
 ```bash
-podman-compose up -d
+dipen up synapse-mautrix
 sleep 10 
-podman-compose down
+dipen down synapse-mautrix
 ```
 
 Mengapa up-down cycle? Proses ini membuat container generate konfigurasi default dan file `registration.yaml` yang diperlukan untuk registrasi bridge sebagai Application Service di Synapse.
@@ -311,9 +309,9 @@ Parameter yang perlu disesuaikan tersedia di repositori GitHub Digital Independe
 Generate file registrasi dengan menjalankan bridge:
 
 ```bash
-podman-compose up -d
+dipen up synapse-mautrix
 sleep 10
-podman-compose down
+dipen down synapse-mautrix
 ```
 
 Bridge akan mengenerate `registration.yaml` yang berisi informasi Application Service seperti:
@@ -361,7 +359,7 @@ Synapse akan membaca semua registration file di direktori yang ditentukan dan me
 ### 3.7 Restart Mautrix Services
 
 ```bash
-podman-compose up -d
+dipen up synapse-mautrix
 ```
 
 Verifikasi:
@@ -386,8 +384,9 @@ Memisahkan database per bridge memberikan isolasi data yang lebih baik, memudahk
 
 Restart Services:
 ```bash
-podman-compose down
-podman-compose up -d
+dipen fresh synapse-mautrix
+sleep 10
+dipen fresh synapse
 ```
 
 ## 4. Deployment Element Web
@@ -406,8 +405,9 @@ Konfigurasi yang perlu disesuaikan:
 - `features`: Enable/disable fitur tertentu (contoh: `feature_pinning`)
 
 ```bash
-podman-compose up -d 
-podman-compose logs -f
+dipen up element-web
+sleep 10
+dipen logs element-web
 ```
 
 Buka `http://127.0.0.1:8009` di browser.
@@ -418,8 +418,7 @@ Buka `http://127.0.0.1:8009` di browser.
 
 ### 5.1 Cek Status Container
 ```bash
-podman ps -a
-podman network ls
+dipen ps element-web synapse-mautrix synapse
 ```
 
 ### 5.3 Masalah Umum

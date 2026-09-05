@@ -10,8 +10,6 @@ last_modified_at: 2026-07-02
 > Panduan ini merupakan dokumentasi lama dan tidak lagi mencerminkan praktik keamanan terkini. Silakan merujuk pada panduan terbaru: [Panduan Deployment Matrix Synapse Self-Hosted dengan Mautrix Bridge WhatsApp & Telegram](https://docs.ricalnet.my.id/posts/panduan-deployment-matrix-synapse-self-hosted-dengan-mautrix-bridge-whatsapp-dan-telegram/).
 {: .prompt-warning}
 
-> **Artikel sebelumnya:** [Cara Instal Matrix Synapse dengan Docker untuk Komunikasi yang Aman dan Privat](https://docs.ricalnet.my.id/posts/cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/)
-
 ## Pendahuluan
 
 mautrix-telegram bridge adalah alat yang menghubungkan homeserver Matrix (misalnya Synapse) dengan jaringan Telegram. Jembatan ini memungkinkan pengguna Matrix berkomunikasi langsung dengan kontak, grup, dan saluran Telegram tanpa harus meninggalkan klien Matrix mereka.

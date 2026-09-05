@@ -7,6 +7,9 @@ author: rical
 last_modified_at: 2026-03-11
 ---
 
+> Panduan ini merupakan dokumentasi lama dan tidak lagi mencerminkan praktik keamanan terkini. Silakan merujuk pada panduan terbaru: [Instalasi dan Konfigurasi Pi-Hole untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan/).
+{: .prompt-warning}
+
 ## 1. Pendahuluan
 
 DNS (Domain Name System) adalah salah satu celah terbesar privasi Anda. Setiap kali Anda mengunjungi situs web, permintaan DNS Anda dikirim dalam teks jelas (plaintext) ke server ISP atau penyedia DNS publik. Ini ibarat mengirim peta perjalanan digital Anda tanpa amplop—siapa pun yang mengintai di jaringan (ISP, pemerintah, atau aktor jahat) bisa melihat ke mana Anda akan pergi.
@@ -18,7 +21,7 @@ DNS-over-HTTPS (DoH) adalah solusinya. DoH membungkus permintaan DNS dalam lalu 
 Sebelum memulai, pastikan medan tempur digital Anda telah siap:
 
 - Ubuntu (atau distro Linux lainnya) dengan Docker Engine telah terinstal. Jika belum, rujuk ke panduan resmi: [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
-- Pi-hole sudah berjalan dan berfungsi (mengacu pada [panduan instalasi sebelumnya](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)). Pastikan tidak ada konflik port, terutama port 53.
+- Pi-hole sudah berjalan dan berfungsi (mengacu pada [panduan instalasi sebelumnya](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan/)). Pastikan tidak ada konflik port, terutama port 53.
 - Familiar dengan baris perintah Linux dan Docker Compose.
 - Untuk menjalankan perintah Docker dan mengelola sistem.
 
@@ -231,6 +234,6 @@ Di dunia di mana data adalah komoditas dan pengawasan adalah norma, membangun in
 
 ## Referensi Tambahan
 
-- [Mengatur Router agar Menggunakan Pi-Hole sebagai DNS](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/#5-mengatur-router-agar-menggunakan-pi-hole-sebagai-dns)
-- [Instalasi dan Konfigurasi Pi-Hole dengan Docker untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/)
+- [Mengatur Router agar Menggunakan Pi-Hole sebagai DNS](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan)
+- [Instalasi dan Konfigurasi Pi-Hole untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan/)
 - [DNS List for Security & Privacy](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/)

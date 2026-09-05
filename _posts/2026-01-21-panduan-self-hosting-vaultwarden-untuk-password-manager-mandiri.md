@@ -1,162 +1,198 @@
 ---
 title: Panduan Self-Hosting Vaultwarden untuk Password Manager Mandiri
-description: Pelajari cara menginstal Vaultwarden secara mandiri dengan Docker. Tutorial ini memandu Anda langkah demi langkah menyiapkan password manager open-source yang aman dengan kontrol data penuh.
+description: Pelajari cara menginstal Vaultwarden secara mandiri dengan Podman. Tutorial ini memandu Anda langkah demi langkah menyiapkan password manager open-source yang aman dengan kontrol data penuh.
 categories: [Digital Independence, Password Manager]
-tags: [self-hosted, linux, vaultwarden]
+tags: [self-hosted, linux, vaultwarden, podman]
 author: rical
-last_modified_at: 2026-07-01
+last_modified_at: 2026-08-05
 ---
 
-## Pendahuluan
+## Apa itu Vaultwarden dan Mengapa Perlu?
 
-Kata sandi menjadi fondasi perlindungan data pribadi dan profesional. Namun, mempercayakan seluruh kredensial Anda kepada pihak ketiga menimbulkan pertanyaan mendasar: siapa yang benar-benar memiliki kendali atas data Anda?
+### Konsep Dasar
 
-Vaultwarden menawarkan solusi elegan untuk dilema ini. Sebagai implementasi alternatif dari Bitwarden yang ditulis dalam Rust, Vaultwarden menghadirkan server password manager yang ringan, cepat, dan kompatibel penuh dengan klien Bitwarden resmi. Keunggulan utamanya adalah kemampuan self-hosting, memberikan Anda kontrol absolut atas infrastruktur penyimpanan kata sandi.
+Vaultwarden adalah implementasi open-source dari server Bitwarden yang ditulis dalam Rust. Ini adalah alternatif yang lebih ringan dan efisien dari server Bitwarden resmi, dengan kompatibilitas penuh terhadap semua client Bitwarden (browser extension, mobile app, desktop app).
 
-### Mengapa Self-Hosting Vaultwarden?
+```
+┌──────────────────────────────────────────────────────────┐
+│                    VAULTWARDEN SERVER                    │
+├──────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌────────────────────────────────────────────────────┐  │
+│  │  🔐 Password Manager                               │  │
+│  │  ├── Login Credentials (1,234 items)               │  │
+│  │  ├── Secure Notes (56 items)                       │  │
+│  │  ├── Credit Cards (12 items)                       │  │
+│  │  ├── Identities (5 items)                          │  │
+│  │  └── Attachments (89 items)                        │  │
+│  ├────────────────────────────────────────────────────┤  │
+│  │  🔑 Security Features                              │  │
+│  │  ├── End-to-End Encryption                         │  │
+│  │  ├── Two-Factor Authentication (2FA)               │  │
+│  │  ├── Emergency Access                              │  │
+│  │  └── Password Generator                            │  │
+│  └────────────────────────────────────────────────────┘  │
+│                                                          │
+│  Users: 5 │ Organizations: 2 │ Collections: 8            │
+└──────────────────────────────────────────────────────────┘
+```
 
-| Aspek            | Layanan Cloud                       | Self-Hosting Vaultwarden           |
-| ---------------- | ----------------------------------- | ---------------------------------- |
-| Kepemilikan Data | Data di server pihak ketiga         | Data sepenuhnya di server Anda     |
-| Biaya            | Langganan bulanan/tahunan           | Gratis (hanya biaya infrastruktur) |
-| Privasi          | Bergantung pada kebijakan penyedia  | Privasi total, tanpa pihak ketiga  |
-| Kontrol          | Terbatas pada fitur yang disediakan | Penuh, termasuk backup dan migrasi |
-| Ketersediaan     | Bergantung pada layanan penyedia    | Bergantung pada infrastruktur Anda |
+### Keunggulan Vaultwarden
 
-Dengan Vaultwarden, Anda tidak hanya menghemat biaya langganan, tetapi juga membangun fondasi keamanan digital yang benar-benar mandiri—sesuai dengan prinsip Digital Independence.
+| Keunggulan           | Penjelasan                                             |
+| -------------------- | ------------------------------------------------------ |
+| Kompatibel Bitwarden | Mendukung semua client Bitwarden resmi                 |
+| Ringan & Efisien     | Ditulis dalam Rust, memory footprint kecil (~10-20 MB) |
+| Fitur Lengkap        | Organisasi, koleksi, attachment, 2FA, emergency access |
+| Gratis Selamanya     | Tidak ada batasan pengguna atau fitur                  |
+| Self-Hosted          | Data tetap di infrastruktur Anda                       |
+| Audit Log            | Log aktivitas pengguna untuk keamanan                  |
 
-## Langkah 1: Clone Repository dan Instalasi Otomatis
+### Arsitektur dengan Podman
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     Host System                         │
+├─────────────────────────────────────────────────────────┤
+│  ┌──────────────────────────────────────────────────┐   │
+│  │              Vaultwarden Container               │   │
+│  │  ┌─────────────────────────────────────────────┐ │   │
+│  │  │  Vaultwarden Server (Rust)                  │ │   │
+│  │  │  Port: 8000 (HTTP API)                      │ │   │
+│  │  └─────────────────────────────────────────────┘ │   │
+│  │                        │                         │   │
+│  │  ┌─────────────────────────────────────────────┐ │   │
+│  │  │  Redis (Session & Cache)                    │ │   │
+│  │  │  Port: 6379 (internal)                      │ │   │
+│  │  └─────────────────────────────────────────────┘ │   │
+│  │                                                  │   │
+│  │  Volumes:                                        │   │
+│  │  - vaultwarden_data:/data/                       │   │
+│  │  - redis_data:/data (Redis)                      │   │
+│  └──────────────────────────────────────────────────┘   │
+│                            │                            │
+│                    ┌───────▼───────┐                    │
+│                    │  Port 8000    │                    │
+│                    │  (API Web)    │                    │
+│                    └───────────────┘                    │
+└─────────────────────────────────────────────────────────┘
+```
+
+## Prasyarat
+
+### Spesifikasi Sistem
+
+| Komponen | Minimum                    | Rekomendasi            |
+| -------- | -------------------------- | ---------------------- |
+| Sistem   | Debian 11+ / Ubuntu 22.04+ | Debian 13+             |
+| CPU      | 1 core                     | 2 core                 |
+| RAM      | 256 MB                     | 512+ MB                |
+| Storage  | 500 MB                     | 2+ GB                  |
+| Podman   | 5.4+                       | Latest                 |
+| Port     | 8000 (HTTP API)            | -                      |
+| Domain   | -                          | Untuk HTTPS (opsional) |
+
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/ricalnet/digital-independence.git
 cd digital-independence
 ```
 
-## Langkah 2: Instalasi Docker Engine
+Repository ini berisi semua konfigurasi `podman-compose` yang sudah teruji untuk setiap layanan, termasuk Vaultwarden dengan Redis untuk session management.
 
-Untuk Debian:
-```bash
-./install-docker-engine-on-debian.sh
-```
+## 2. Instal Podman
 
-Untuk Ubuntu:
-```bash
-./install-docker-engine-on-ubuntu.sh
-```
-
-### Apa yang Dilakukan Script Instalasi?
-Script ini mengotomatiskan proses yang biasanya memakan waktu dan rawan kesalahan:
-1. Update package repository sistem
-2. Install dependencies (ca-certificates, curl, gnupg, lsb-release)
-3. Tambahkan GPG key resmi Docker untuk verifikasi keamanan
-4. Konfigurasi repository Docker agar menggunakan paket resmi
-5. Install Docker Engine, CLI, dan Containerd
-6. Tambahkan user saat ini ke group docker (menghindari penggunaan `sudo` setiap kali)
-
-> Docker menyediakan isolasi lingkungan yang sempurna untuk SearXNG. Dengan kontainer, Anda mendapatkan:
-- Berjalan identik di semua sistem
-- Tidak ada konflik dengan aplikasi lain di server
-- Cukup pull image baru dan restart kontainer untuk update
-- Kembali ke versi sebelumnya dengan satu perintah
-{: .prompt-info}
-
-## Langkah 3: Persiapan Konfigurasi Vaultwarden
-
-Berpindah ke direktori Vaultwarden untuk memulai konfigurasi aplikasi:
+### Instalasi Otomatis
 
 ```bash
-cd vaultwarden
+./install-podman-on-debian.sh
 ```
 
-### Membuat File Konfigurasi dari Template
+Apa yang dilakukan script ini?
+- Menginstal Podman dan podman-compose
+- Mengkonfigurasi rootless podman
+- Menyiapkan alias `dipen`
+- Menambahkan registry `docker.io`
+
+### Verifikasi Instalasi
 
 ```bash
-cp .env.example .env
+podman --version
+podman-compose --version
+dipen version
 ```
 
-File `.env` adalah jantung konfigurasi Vaultwarden. Dengan menyalin dari template, Anda memastikan semua variabel yang diperlukan tersedia. Tidak ada variabel yang terlewatkan yang dapat menyebabkan kegagalan fungsi aplikasi.
+## 3. Konfigurasi Vaultwarden
 
-### Konfigurasi Variabel Lingkungan
-
-Buka file `.env` dengan editor teks (nano, vim, atau editor lain) dan sesuaikan variabel berikut:
-
-```
-DOMAIN=https://your-domain.com
-SIGNUPS_ALLOWED=false
-ADMIN_TOKEN=your-strong-secret-token-here
-```
-
-## Langkah 4: Deploy Vaultwarden dengan Docker Compose
-
-Docker Compose adalah alat orkestrasi yang memungkinkan Anda mendefinisikan dan menjalankan multi-container Docker applications. Dalam kasus Vaultwarden, compose file mengatur container utama dan dependensinya.
-
-### Menjalankan Container
+### Buat File `.env`
 
 ```bash
-docker compose up -d
+dipen env vaultwarden
 ```
 
-Parameter `-d` (detach) menjalankan container di latar belakang, memungkinkan Anda tetap menggunakan terminal untuk tugas lain.
+File `.env` akan terbuka di editor. Sesuaikan.
 
-## Langkah 5: Mengakses Vaultwarden
+## 4. Jalankan Vaultwarden
 
-Dengan container berjalan, Vaultwarden dapat diakses melalui:
+### Start Container
 
-### Akses Lokal (Untuk Testing)
-```
-http://127.0.0.1:8000
-```
-
-### Akses Publik (Setelah Reverse Proxy)
-```
-https://your-domain.com
+```bash
+dipen up vaultwarden
 ```
 
-Untuk akses publik, Anda perlu mengkonfigurasi reverse proxy (Nginx, Apache, atau Caddy) yang akan:
-1. Menerima request HTTPS dari port 443
-2. Meneruskannya ke container Vaultwarden di port 8000
-3. Menambahkan header yang diperlukan (Host, X-Forwarded-For, X-Forwarded-Proto)
+Apa yang terjadi di balik layar:
 
-## Langkah 6: Konfigurasi Admin Panel
+1. Podman menarik image `vaultwarden/server:alpine`
+2. Podman menarik image `redis:alpine`
+3. Membuat volume: `vaultwarden_data` dan `redis_data`
+4. Membuat network: `vaultwarden_network`
+5. Menjalankan Redis terlebih dahulu (dependency)
+6. Menjalankan Vaultwarden dengan:
+   - Port mapping: `127.0.0.1:8000:80`
+   - Redis untuk session storage
+   - Read-only filesystem untuk keamanan
 
-Setelah akses berhasil, lakukan setup admin:
+### Monitor Startup
 
-1. Buka `https://your-domain.com/admin`
-2. Masukkan `ADMIN_TOKEN` yang telah Anda konfigurasi
+```bash
+dipen logs vaultwarden
+dipen ps vaultwarden
+```
 
-### Tugas Admin Awal yang Direkomendasikan:
+Output yang diharapkan:
 
-1. Disable signup (jika belum):
-   - Buka "Settings" → "General settings"
-   - Pastikan "Allow new signups" = true atau ceklis
+```
+CONTAINER ID  IMAGE                                COMMAND               CREATED      STATUS                PORTS                   NAMES
+e10fe884bed5  docker.io/library/redis:alpine       redis-server --sa...  8 hours ago  Up 8 hours (healthy)  6379/tcp                vaultwarden_redis
+8ec9e8716630  docker.io/vaultwarden/server:alpine  /start.sh             8 hours ago  Up 8 hours (healthy)  127.0.0.1:8000->80/tcp  vaultwarden
+```
 
-2. Buat akun:
-   - Kembali ke halaman awal
-   - Klik "Create User"
-   - Isi email dan password
+## 5. Monitoring dan Maintenance
+
+### Update Vaultwarden
+
+```bash
+dipen update vaultwarden
+```
 
 ## Kesimpulan
 
-Anda telah berhasil menginstal Vaultwarden—password manager self-hosted yang memberikan Anda kendali penuh atas keamanan digital. Dengan mengikuti panduan ini, Anda telah:
+### Ringkasan Implementasi
 
-1. Memahami filosofi di balik self-hosting dan Docker
-2. Mengimplementasikan infrastruktur container yang scalable
-3. Mengonfigurasi aplikasi sesuai kebutuhan spesifik
-4. Mengamankan instalasi dengan praktik terbaik keamanan
+### Manfaat yang Didapatkan
 
-Ke depannya, pertimbangkan untuk:
-- Mengeksplorasi integrasi dengan klien Bitwarden di mobile dan desktop
-- Mengkonfigurasi monitoring dengan Prometheus dan Grafana
-- Membangun pipeline backup otomatis ke lokasi remote
-- Mengimplementasikan disaster recovery plan
+| Manfaat          | Penjelasan                   |
+| ---------------- | ---------------------------- |
+| Kendali Penuh    | Data password di server Anda |
+| Gratis Selamanya | Tidak ada biaya langganan    |
+| Keamanan Tinggi  | End-to-end encryption, 2FA   |
+| Multi-Device     | Akses dari semua perangkat   |
+| Berbagi Aman     | Organisasi dan koleksi       |
 
-Selamat menikmati kemerdekaan digital Anda! 🔐
+## Referensi dan Sumber Daya Tambahan
 
-## Referensi dan Sumber Daya
-
-- [Digital Independence Repository](https://github.com/ricalnet/digital-independence)
-- [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
-- [Dokumentasi Resmi Vaultwarden](https://github.com/dani-garcia/vaultwarden/wiki)
+- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Vaultwarden Official Documentation](https://github.com/dani-garcia/vaultwarden/wiki)
 - [Bitwarden Client Apps](https://bitwarden.com/download/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Let's Encrypt untuk HTTPS](https://letsencrypt.org/)
+- [Podman Documentation](https://podman.io/docs/)

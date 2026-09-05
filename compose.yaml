@@ -10,6 +10,7 @@ services:
     environment:
       - JEKYLL_ENV=development
       - BUNDLE_PATH=/usr/local/bundle
+      - NODE_OPTIONS="--max-old-space-size=512"
     command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
 
     cpus: 0.5
