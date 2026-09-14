@@ -4,7 +4,7 @@ description: Tutorial teknis lengkap konfigurasi Single Sign-On (SSO) Open WebUI
 categories: [Digital Independence, SSO, AI]
 tags: [authentik, sso, self-hosted, artificial intelligence, ollama]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -140,8 +140,7 @@ ENABLE_OAUTH_ROLE_MANAGEMENT="true"
 Setelah menambahkan variabel, restart Open WebUI untuk menerapkan perubahan:
 
 ```bash
-docker compose restart openwebui
-# atau sesuai metode deployment yang digunakan
+dipen fresh open-webui
 ```
 
 ### 2.3 Fix Redirect Issue di Admin Panel

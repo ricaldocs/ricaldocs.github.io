@@ -4,7 +4,7 @@ description: Panduan teknis implementasi Single Sign-On (SSO) menggunakan OpenID
 categories: [Digital Independence, SSO, Dashboard]
 tags: [authentik, sso, self-hosted, homarr]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -91,9 +91,7 @@ AUTH_OIDC_GROUPS_LOCAL_MANAGEMENT=true
 
 ### 2.3 Restart Service
 ```bash
-docker compose restart homarr
-# atau
-systemctl restart homarr
+dipen fresh homarr
 ```
 
 ## 3. Verifikasi Konfigurasi

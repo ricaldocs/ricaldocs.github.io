@@ -4,7 +4,7 @@ description: Panduan teknis untuk mengintegrasikan Vaultwarden (self-hosted pass
 categories: [Digital Independence, SSO, Password Manager]
 tags: [authentik, sso, self-hosted, vaultwarden]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -214,11 +214,7 @@ SSO_SIGNUPS_ALLOWED=true
 
 1. Simpan Konfigurasi:
    ```bash
-   # Jika menggunakan docker-compose
-   docker compose restart vaultwarden
-   
-   # Jika menggunakan systemd
-   systemctl restart vaultwarden
+   dipen fresh vaultwarden
    ```
 
 2. Verifikasi SSO Identifier:

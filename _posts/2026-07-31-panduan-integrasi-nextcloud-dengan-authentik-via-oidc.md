@@ -4,7 +4,7 @@ description: Panduan integrasi Nextcloud dengan Authentik sebagai Identity Provi
 categories: [Digital Independence, SSO, Cloud]
 tags: [authentik, sso, self-hosted, nextcloud]
 author: rical
-last_modified_at: 2026-08-26
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -21,15 +21,15 @@ Integrasi Nextcloud dengan Authentik melalui OIDC memberikan sentralisasi manaje
 ### Arsitektur Sistem
 
 ```
-┌─────────────┐      OIDC Auth Request      ┌─────────────┐
+┌─────────────┐      OIDC Auth Request       ┌─────────────┐
 │             │ ───────────────────────────► │             │
 │  Nextcloud  │                              │  Authentik  │
 │  (SP)       │                              │  (IdP)      │
 │             │ ◄─────────────────────────── │             │
-└─────────────┘      Auth Response          └─────────────┘
-      │                                                   │
-      │      User Info & Claims                          │
-      └───────────────────────────────────────────────────┘
+└─────────────┘      Auth Response           └─────────────┘
+      │                                                    │
+      │      User Info & Claims                            │
+      └────────────────────────────────────────────────────┘
 ```
 
 Alur Autentikasi:
@@ -164,7 +164,7 @@ Data yang wajib disimpan:
 
 ```bash
 # Masuk ke container Nextcloud
-docker exec -it nextcloud bash
+podman exec -it nextcloud_app bash
 
 # Install plugin
 php occ app:install user_oidc
@@ -230,7 +230,7 @@ Pada pengaturan default, Nextcloud memakai nilai `sub` (UUID dari Authentik) seb
 Buka `/var/www/html/config/config.php`{: .filepath}:
 
 ```bash
-docker exec -it nextcloud nano /var/www/html/config/config.php
+sudo nano ~/.local/share/containers/storage/volumes/nextcloud_nextcloud_data/_data/config/config.php
 ```
 
 Tambahkan di array `$CONFIG`:
@@ -279,7 +279,7 @@ Tambahkan di array `$CONFIG`:
 
 1. Clear cache:
    ```bash
-   docker exec -it nextcloud php occ cache:clear
+   podman exec -it nextcloud_app php occ cache:clear
    ```
 
 2. Logout dari Nextcloud

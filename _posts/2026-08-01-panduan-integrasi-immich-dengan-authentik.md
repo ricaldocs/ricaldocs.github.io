@@ -4,7 +4,7 @@ description: Panduan teknis profesional untuk mengintegrasikan Immich (self-host
 categories: [Digital Independence, SSO, Multimedia]
 tags: [authentik, sso, self-hosted, immich]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -85,9 +85,9 @@ https://immich.domainanda.com/user-settings
 
 | URL                                           | Tujuan                        | Mengapa                                                                |
 | --------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------- |
-| `app.immich:///oauth-callback`                | Aplikasi mobile (iOS/Android) | Custom scheme untuk membuka kembali aplikasi Immich setelah otentikasi |
 | `https://immich.domainanda.com/auth/login`    | Login web                     | Endpoint utama untuk aliran login SSO                                  |
 | `https://immich.domainanda.com/user-settings` | Pengaturan akun               | Digunakan saat menghubungkan akun OAuth dari halaman pengaturan Immich |
+| `app.immich:///oauth-callback`                | Aplikasi mobile (iOS/Android) | Custom scheme untuk membuka kembali aplikasi Immich setelah otentikasi |
 
 > Gunakan tipe `Strict` `Authorization` di Authentik versi 2026.5+ untuk kontrol lebih ketat. Jika versi lebih lama, tambahkan URL tanpa prefix.
 {: .prompt-tip}
@@ -113,12 +113,12 @@ https://immich.domainanda.com/user-settings
 
 Aktifkan OAuth dengan toggle Enabled ke posisi ON, lalu isi:
 
-| Parameter           | Nilai                                                         | Sumber & Penjelasan                                                   |
-| ------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------- |
-| ****issuer_url** ** | `https://authentik.company/application/o/<application_slug>/` | URL discovery Authentik. Menyediakan metadata OpenID Connect otomatis |
-| client_id           | [Client ID]                                                   | Dari provider Authentik; identitas publik untuk Immich                |
-| client_secret       | [Client Secret]                                               | Dari provider Authentik; kunci rahasia autentikasi. Jaga kerahasiaan! |
-| Scope               | `openid email profile`                                        | Data yang diminta; default ini sudah cukup untuk kebutuhan dasar      |
+| Parameter     | Nilai                                                         | Sumber & Penjelasan                                                   |
+| ------------- | ------------------------------------------------------------- | --------------------------------------------------------------------- |
+| issuer_url    | `https://authentik.company/application/o/<application_slug>/` | URL discovery Authentik. Menyediakan metadata OpenID Connect otomatis |
+| client_id     | [Client ID]                                                   | Dari provider Authentik; identitas publik untuk Immich                |
+| client_secret | [Client Secret]                                               | Dari provider Authentik; kunci rahasia autentikasi. Jaga kerahasiaan! |
+| Scope         | `openid email profile`                                        | Data yang diminta; default ini sudah cukup untuk kebutuhan dasar      |
 
 > Authentik menyediakan endpoint discovery (`/.well-known/openid-configuration`) di URL ini. Immich otomatis mengambil semua endpoint yang diperlukan (authorization, token, userinfo) dari sini.
 {: .prompt-info}

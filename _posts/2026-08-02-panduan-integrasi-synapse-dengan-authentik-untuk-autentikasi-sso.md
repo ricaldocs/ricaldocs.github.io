@@ -4,7 +4,7 @@ description: Panduan teknis lengkap integrasi server Matrix Synapse dengan Authe
 categories: [Digital Independence, SSO, Communications]
 tags: [authentik, sso, self-hosted, matrix protocol, element]
 author: rical
-last_modified_at: 2026-08-02
+last_modified_at: 2026-09-14
 ---
 
 ## Pendahuluan
@@ -123,11 +123,6 @@ oidc_providers:
           config:
               localpart_template: "{{ user.preferred_username }}"
               display_name_template: "{{ user.preferred_username|capitalize }}"
-
-jwt_config:
-    enabled: true
-    secret: "<Client Secret from authentik>"
-    algorithm: "RS256"
 ```
 
 Parameter Penting:
