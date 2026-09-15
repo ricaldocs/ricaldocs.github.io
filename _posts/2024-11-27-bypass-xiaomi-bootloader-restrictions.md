@@ -27,7 +27,7 @@ Sebelum memulai, silakan periksa [persyaratan pembukaan kunci](https://github.co
 5. Pastikan telah masuk dengan akun Xiaomi yang valid.
 
 ## Instalasi PHP
-1. Unduh file PHP dari [tautan ini](/assets/posts/php.zip).
+1. Unduh file PHP dari [tautan ini](https://cloud.ricalnet.my.id/s/2pYTxwzNLwBscbm).
 2. Ekstrak file tersebut ke direktori `C:\php`{: .filepath}.
 
 ## Instalasi Aplikasi Pengaturan

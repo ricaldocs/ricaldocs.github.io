@@ -126,7 +126,7 @@ Sebelum memulai, pastikan sistem Anda memenuhi persyaratan berikut:
 Repositori Digital Independence menyediakan script instalasi otomatis:
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence/wiki
 ./install-podman-on-debian.sh
 ```
@@ -400,7 +400,7 @@ Pengetahuan adalah kekuatan — dan dengan MediaWiki self-hosted, kekuatan itu a
 
 | Sumber Daya                     | Tautan                                                                                                                                                 |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Repositori Digital Independence | [github.com/ricalnet/digital-independence](https://github.com/ricalnet/digital-independence)                                                           |
+| Repositori Digital Independence | [git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence.git)                                             |
 | Wiki Resmi                      | [Digital Independence Wiki](https://git.ricalnet.my.id/rical/digital-independence/wiki)                                                                |
 | Dokumentasi IPC                 | [Iptables Port Controller](https://git.ricalnet.my.id/rical/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)                     |
 | Chantik Backup Tool             | [Encrypted Backup Protection](https://git.ricalnet.my.id/rical/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-) |

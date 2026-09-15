@@ -61,7 +61,7 @@ Komponen utama:
 Clone repositori dan buat struktur direktori untuk data jembatan:
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 cd synapse/mautrix-whatsapp
 ```

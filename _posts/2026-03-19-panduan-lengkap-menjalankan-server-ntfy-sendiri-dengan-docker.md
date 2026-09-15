@@ -26,7 +26,7 @@ Docker adalah prerequisite mutlak sebelum menjalankan Ntfy. Ricalnet menyediakan
 ### Clone Repository dan Instalasi Otomatis
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 

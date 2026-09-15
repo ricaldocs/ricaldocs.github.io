@@ -140,13 +140,13 @@ Digital Independence bukan sekadar membangun server. Ini tentang memerdekakan di
 
 ## Mulai dari Mana?
 
-| Langkah | Aksi                                                                                         |
-| ------- | -------------------------------------------------------------------------------------------- |
-| 1       | Kunjungi [Repositori Digital Independence](https://github.com/ricalnet/digital-independence) |
-| 2       | Baca dokumentasi di [docs.ricalnet.my.id](https://docs.ricalnet.my.id/categories/)           |
-| 3       | Siapkan perangkat (mulai dari yang sederhana)                                                |
-| 4       | Ikuti panduan instalasi                                                                      |
-| 5       | Pilih satu layanan untuk mulai (rekomendasi: Nextcloud atau Pi-hole)                         |
+| Langkah | Aksi                                                                                                  |
+| ------- | ----------------------------------------------------------------------------------------------------- |
+| 1       | Kunjungi [Repositori Digital Independence](https://git.ricalnet.my.id/rical/digital-independence.git) |
+| 2       | Baca dokumentasi di [docs.ricalnet.my.id](https://docs.ricalnet.my.id/categories/)                    |
+| 3       | Siapkan perangkat (mulai dari yang sederhana)                                                         |
+| 4       | Ikuti panduan instalasi                                                                               |
+| 5       | Pilih satu layanan untuk mulai (rekomendasi: Nextcloud atau Pi-hole)                                  |
 
 Jangan takut mencoba. Setiap langkah kecil adalah kemenangan untuk privasi dan kebebasan digital Anda.
 
@@ -183,7 +183,7 @@ Ini bukan tentang anti-teknologi. Justru sebaliknya, menguasai teknologi – buk
 
 ## Sumber Daya
 
-- GitHub: [https://github.com/ricalnet/digital-independence](https://github.com/ricalnet/digital-independence)  
+- GitHub: [https://git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence)  
 - Dokumentasi: [https://docs.ricalnet.my.id/categories/](https://docs.ricalnet.my.id/categories/)  
 - Lisensi: MIT – Gunakan, modifikasi, dan sebarkan dengan bebas.
 

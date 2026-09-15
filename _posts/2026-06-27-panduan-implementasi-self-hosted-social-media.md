@@ -34,7 +34,7 @@ Berbeda dengan platform sentralisasi, Mastodon menggunakan arsitektur terdesentr
 ### 1.1 Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd mastodon
 ```
 

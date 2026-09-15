@@ -29,7 +29,7 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt aut
 ```
 
 ## Mengubah Identitas Saat Berselancar
-Selama berselancar di internet dengan mesin Kali Linux, pengguna dapat menggunakan alat [NipeX](https://github.com/ricalnet/nipex/) untuk menjelajah dengan aman dan anonim.
+Selama berselancar di internet dengan mesin Kali Linux, pengguna dapat menggunakan alat [NipeX](https://git.ricalnet.my.id/rical/nipex) untuk menjelajah dengan aman dan anonim.
 
 ## Monitoring Log
 Menganalisis program logcheck dapat menjadi penyelamat nyata, karena dapat mengirim pesan yang dicatat langsung ke email admin. File log disimpan secara lokal di dalam `/var/log`{: .filepath} secara default.

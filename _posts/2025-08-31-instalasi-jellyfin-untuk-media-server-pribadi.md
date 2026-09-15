@@ -87,7 +87,7 @@ Jellyfin adalah media server open-source yang memungkinkan Anda mengorganisir, m
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -205,6 +205,6 @@ dipen update jellyfin
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Dokumentasi Resmi Jellyfin](https://jellyfin.org/docs/)
 - [Dokumentasi Podman](https://podman.io/docs/)

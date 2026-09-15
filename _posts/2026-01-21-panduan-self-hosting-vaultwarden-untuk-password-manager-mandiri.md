@@ -95,7 +95,7 @@ Vaultwarden adalah implementasi open-source dari server Bitwarden yang ditulis d
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -192,7 +192,7 @@ dipen update vaultwarden
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Vaultwarden Official Documentation](https://github.com/dani-garcia/vaultwarden/wiki)
 - [Bitwarden Client Apps](https://bitwarden.com/download/)
 - [Podman Documentation](https://podman.io/docs/)

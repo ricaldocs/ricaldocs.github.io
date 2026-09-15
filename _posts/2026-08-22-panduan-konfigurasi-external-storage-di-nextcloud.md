@@ -51,7 +51,7 @@ External storage di Nextcloud memungkinkan integrasi dengan sistem penyimpanan e
 Pastikan Nextcloud telah terinstal dari repository Digital Independence:
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence/nextcloud
 ```
 
@@ -385,6 +385,6 @@ Dengan implementasi external storage, Anda mendapatkan:
 ## Referensi dan Sumber Daya Tambahan
 
 - [Panduan Lengkap Instalasi Nextcloud untuk Digital Independence](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-nextcloud-untuk-digital-independence/)
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Nextcloud External Storage Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/external_storage_configuration_gui.html)
 - [Server-side Encryption Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/encryption_configuration.html)

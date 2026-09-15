@@ -24,7 +24,7 @@ Docker adalah prerequisite mutlak sebelum menjalankan Synapse. Script instalasi 
 ### Clone Repository dan Instalasi Otomatis
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -151,7 +151,7 @@ Penjelasan Parameter:
 - `cp_min` / `cp_max`: Jumlah koneksi database minimum dan maksimum untuk koneksi pooling
 - `host: postgres`: Mengacu pada service postgres di docker-compose
 
-> Lihat contoh konfigurasi lengkap di [homeserver.example.yaml](https://github.com/ricalnet/digital-independence/blob/main/synapse/homeserver.example.yaml).
+> Lihat contoh konfigurasi lengkap di [homeserver.example.yaml](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/synapse/templates/homeserver.example.yaml).
 {: .prompt-tip }
 
 ### Buat Network dan Jalankan Container
@@ -202,7 +202,7 @@ Untuk memverifikasi bahwa Synapse berjalan dengan benar:
 ![Log in to NoCOMINT](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.png)
 _Log in to NoCOMINT_
 
-> Pesan kesalahan `"Registration has been disabled on this homeserver"` muncul ketika pengguna mencoba mendaftar melalui klien Matrix (seperti Element) yang terhubung ke instans Synapse dengan pendaftaran dinonaktifkan. Konfigurasi ini diatur dalam file `homeserver.yaml`{: .filepath} melalui parameter `enable_registration` (Lihat [Modifikasi Konfigurasi Synapse](https://github.com/ricalnet/digital-independence/blob/main/synapse/homeserver.example.yaml)).
+> Pesan kesalahan `"Registration has been disabled on this homeserver"` muncul ketika pengguna mencoba mendaftar melalui klien Matrix (seperti Element) yang terhubung ke instans Synapse dengan pendaftaran dinonaktifkan. Konfigurasi ini diatur dalam file `homeserver.yaml`{: .filepath} melalui parameter `enable_registration` (Lihat [Modifikasi Konfigurasi Synapse](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/synapse/templates/homeserver.example.yaml)).
 {: .prompt-info}
 
 ### Opsi 2: Menggunakan Element Desktop
@@ -344,7 +344,7 @@ curl -f http://localhost:8008/health
 
 ## Pranala Terkait
 - [Instalasi Element Web Client dengan Docker untuk Self-Hosted Matrix](https://docs.ricalnet.my.id/posts/instalasi-element-web-client-dengan-docker-untuk-self-hosted-matrix/)
-- [Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Digital Independence](https://git.ricalnet.my.id/rical/digital-independence.git)
 - [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 
 ## Pranala Luar

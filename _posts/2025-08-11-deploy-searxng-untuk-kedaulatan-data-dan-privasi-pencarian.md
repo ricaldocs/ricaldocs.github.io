@@ -98,7 +98,7 @@ SearXNG adalah metasearch engine open-source yang mengagregasi hasil pencarian d
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -213,7 +213,7 @@ dipen update searxng
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [SearXNG Official Documentation](https://docs.searxng.org/)
 - [SearXNG GitHub](https://github.com/searxng/searxng)
 - [Valkey/Redis Documentation](https://valkey.io/)

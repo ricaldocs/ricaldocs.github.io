@@ -90,7 +90,7 @@ Homarr adalah dashboard server modern yang menyediakan antarmuka terpusat untuk 
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -210,7 +210,7 @@ dipen update homarr
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Dokumentasi Resmi Homarr](https://homarr.dev/docs/)
 - [Podman Documentation](https://podman.io/docs/)
 - [Redis Documentation](https://redis.io/docs/)

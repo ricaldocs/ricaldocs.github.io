@@ -39,11 +39,11 @@ mkdir config modules
 
 ## Membuat Berkas Docker Compose
 
-Buat berkas [docker-compose.yml](https://github.com/ricalnet/digital-independence/blob/main/element-web/docker-compose.yml).
+Buat berkas [compose.yaml](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/element-web/compose.yaml).
 
 ## Membuat Konfigurasi Element Web
 
-Buat berkas [config/element-web-config.json](https://github.com/ricalnet/digital-independence/blob/main/element-web/config/element-web-config-example.json).
+Buat berkas [config/element-web-config.json](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/element-web/config/element-web-config-example.json).
 
 ## Menjalankan Kontainer
 

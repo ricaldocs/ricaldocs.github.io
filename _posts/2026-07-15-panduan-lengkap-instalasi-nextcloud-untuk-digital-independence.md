@@ -63,7 +63,7 @@ Nextcloud adalah platform kolaborasi file dan komunikasi open-source yang member
 ### Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -332,6 +332,6 @@ Dengan menyelesaikan panduan ini, Anda telah membangun fondasi Digital Independe
 
 ### Dokumentasi Resmi
 - [Panduan Konfigurasi External Storage di Nextcloud](https://docs.ricalnet.my.id/posts/panduan-konfigurasi-external-storage-di-nextcloud/)
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 - [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel untuk Ekspos Layanan Lokal](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)

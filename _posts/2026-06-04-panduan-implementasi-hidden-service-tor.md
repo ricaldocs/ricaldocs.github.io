@@ -39,10 +39,10 @@ Kasus penggunaan legitimasi:
 
 Sebelum memulai, pastikan:
 
-| Komponen                                                                                        | Spesifikasi                |
-| ----------------------------------------------------------------------------------------------- | -------------------------- |
-| OS                                                                                              | Debian 13+ / Ubuntu 26.04+ |
-| Aplikasi Web (seperti [Digital Independence](https://github.com/ricalnet/digital-independence)) | Berjalan di localhost      |
+| Komponen                                                                                             | Spesifikasi                |
+| ---------------------------------------------------------------------------------------------------- | -------------------------- |
+| OS                                                                                                   | Debian 13+ / Ubuntu 26.04+ |
+| Aplikasi Web (seperti [Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)) | Berjalan di localhost      |
 
 > Penting untuk dipahami bahwa Hidden service Tor bukan pengganti keamanan aplikasi web. Autentikasi, validasi input, dan praktik keamanan standar tetap harus diterapkan pada aplikasi yang berjalan di belakang Tor.
 {: .prompt-info}
@@ -241,6 +241,6 @@ Dengan ini, Anda telah berhasil mengkonfigurasi hidden service Tor yang berjalan
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4 dengan Docker](https://docs.ricalnet.my.id/posts/panduan-aktivis-untuk-menyebarkan-tor-bridge-obfs4-dengan-docker/)
+- [Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4](https://docs.ricalnet.my.id/posts/panduan-aktivis-untuk-menyebarkan-tor-bridge-obfs4/)
 - [Tor Project Official Documentation](https://community.torproject.org/onion-services/)
 - [Tor Manual Page](https://manpages.debian.org/tor/torrc)

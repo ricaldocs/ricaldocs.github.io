@@ -11,6 +11,49 @@ Built with [Jekyll](https://jekyllrb.com/) and the [Chirpy](https://github.com/c
 - **Site**: [https://docs.ricalnet.my.id/](https://docs.ricalnet.my.id/)
 - **Basic guide**: [Chirpy Tutorial](https://chirpy.cotes.page/posts/getting-started/)
 
+## Getting Started
+
+### Installation (Local Development)
+
+#### 1. Install Dependencies
+
+```bash
+sudo apt-get install -y ruby-full build-essential
+```
+
+#### 2. Configure Ruby Gems Environment
+
+Add the following configuration to `~/.zshrc` (or `~/.bashrc` if you use bash):
+
+```bash
+echo '# Install Ruby Gems to ~/gems' >> ~/.zshrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.zshrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### 3. Install Jekyll & Bundler
+
+```bash
+gem install jekyll bundler
+```
+
+#### 4. Clone the Repository
+
+```bash
+git clone https://git.ricalnet.my.id/rical/ricaldocs.git
+cd ricaldocs
+```
+
+#### 5. Install Dependencies & Run the Server
+
+```bash
+bundle install
+bundle exec jekyll s
+```
+
+Open your browser and go to `http://localhost:4000`.
+
 ### Run with Podman
 
 ```bash

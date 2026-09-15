@@ -83,7 +83,7 @@ Pi-Hole adalah DNS server yang bertindak sebagai penyaring konten di tingkat jar
 ## 1. Clone Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 cd digital-independence
 ```
 
@@ -458,6 +458,6 @@ podman exec -it pihole pihole -v
 
 ## Referensi dan Sumber Daya Tambahan
 
-- [GitHub Repository: Digital Independence](https://github.com/ricalnet/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)
 - [Dokumentasi Resmi Pi-Hole](https://docs.pi-hole.net/)
 - [Dokumentasi Resmi Podman](https://podman.io/docs/)

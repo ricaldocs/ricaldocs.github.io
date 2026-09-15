@@ -219,7 +219,7 @@ echo "Database connected successfully";
 ![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 14-30-25.png>)
 
 ### 6.2 Deployment Aplikasi Principal
-Buat file [aplikasi utama CRUD](https://github.com/ricalnet/cloud_computing/blob/main/ujikom-2/index.php):
+Buat file [aplikasi utama CRUD](https://git.ricalnet.my.id/rical/cloud_computing/src/branch/main/ujikom-2/index.php):
 ```bash
 sudo nano /var/www/html/index.php
 ```

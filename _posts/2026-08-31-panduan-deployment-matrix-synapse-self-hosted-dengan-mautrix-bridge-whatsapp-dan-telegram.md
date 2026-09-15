@@ -145,7 +145,7 @@ Sekarang, mari kita mulai membangun! 🚀
 Clone repository dari GitHub yang berisi konfigurasi lengkap untuk deployment.
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
 cd ~/digital-independence
 ./install-podman-on-debian.sh
 ```
@@ -295,14 +295,14 @@ WhatsApp Bridge Configuration:
 nano mautrix-whatsapp-data/config.yaml
 ```
 
-Parameter yang perlu disesuaikan tersedia di repositori GitHub Digital Independence: [config.mautrix-whatsapp.yaml](https://github.com/ricalnet/digital-independence/blob/main/synapse/templates/config.mautrix-whatsapp.yaml)
+Parameter yang perlu disesuaikan tersedia di repositori GitHub Digital Independence: [config.mautrix-whatsapp.yaml](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/synapse/templates/config.mautrix-whatsapp.yaml)
 
 Telegram Bridge Configuration:
 ```bash
 nano mautrix-telegram-data/config.yaml
 ```
 
-Parameter yang perlu disesuaikan tersedia di repositori GitHub Digital Independence: [config.mautrix-telegram.yaml](https://github.com/ricalnet/digital-independence/blob/main/synapse/templates/config.mautrix-telegram.yaml)
+Parameter yang perlu disesuaikan tersedia di repositori GitHub Digital Independence: [config.mautrix-telegram.yaml](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/synapse/templates/config.mautrix-telegram.yaml)
 
 ### 3.4 Generate Registration Files
 

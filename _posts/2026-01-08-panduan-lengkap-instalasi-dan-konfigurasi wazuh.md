@@ -20,7 +20,7 @@ Wazuh hadir sebagai solusi SIEM open-source terkemuka yang menggabungkan kemampu
 ### 1. Persiapan Repository
 
 ```bash
-git clone https://github.com/ricalnet/digital-independence.git
+git clone https://git.ricalnet.my.id/rical/digital-independence.git
 ```
 
 Repository ini berisi konfigurasi terstruktur untuk deployment Wazuh dalam environment containerized. Struktur direktori telah dioptimalkan dengan pemisahan konfigurasi untuk setiap komponen (indexer, dashboard, server) yang memudahkan manajemen dan skalabilitas.
