@@ -33,7 +33,7 @@ twitter:
 social:
   # Ubah ke nama lengkap Anda.
   # Ini akan ditampilkan sebagai penulis default untuk posting dan pemilik hak cipta di footer
-  name: Ricalnet
+  name: RICALNET
   email: ricalnet@duck.com # Alamat email
   links:
     # Tautan pertama akan menjadi tautan untuk pemilik hak cipta
@@ -103,7 +103,7 @@ mouse_click_effect: false
 cdn: ""
 
 # Avatar di bilah samping, mendukung sumber lokal atau CROS
-avatar: /avatar.jpg
+avatar: /avatar.png
 
 # URL gambar pratinjau sosial situs-wide yang digunakan dalam tag meta SEO `og:image`.
 # Dapat diganti dengan `page.image` di Front Matter posting.

@@ -2,10 +2,10 @@
 title: Tentang
 icon: icon-info
 order: 4
-last_modified_at: 2026-06-01
+last_modified_at: 2026-09-16
 ---
 
-**Penulis: Risnanda Pascal** | **Update terakhir: Agustus 2026**
+**Penulis: Risnanda Pascal** | **Update terakhir: September 2026**
 
 Ricaldocs lahir dari momen-momen error di tengah malam. Ini adalah catatan perjalanan dari kegagalan menuju pemahaman, dari bingung menjadi jelas. Setiap artikel adalah jejak ekspedisi kolektif memahami teknologi.
 
@@ -47,11 +47,11 @@ Mengapa filosofi ini penting? Karena pengetahuan yang terkunci di balik tembok b
 
 ## Hubungi
 
-| Kontak                                                                                    | Tujuan                                     |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Email: ricalnet@duck.com                                                                  | Pertanyaan umum, saran, kritik             |
-| GitHub: [ricaldocs/ricaldocs.github.io](https://github.com/ricaldocs/ricaldocs.github.io) | Kontribusi kode, laporan bug, pull request |
+| Kontak                                                                 | Tujuan                                     |
+| ---------------------------------------------------------------------- | ------------------------------------------ |
+| Email: ricalnet@duck.com                                               | Pertanyaan umum, saran, kritik             |
+| Forgejo: [rical/ricaldocs](https://git.ricalnet.my.id/rical/ricaldocs) | Kontribusi kode, laporan bug, pull request |
 
-Dibangun dengan [Chirpy](https://github.com/ricaldocs/ricaldocs.github.io/blob/main/README.md) | Terima kasih untuk seluruh kontributor dan komunitas sumber terbuka.
+Dibangun dengan [Chirpy](https://git.ricalnet.my.id/rical/ricaldocs/src/branch/main/README.md) | Terima kasih untuk seluruh kontributor dan komunitas sumber terbuka.
 
 > Tetap terinformasi. Tetap terinspirasi.

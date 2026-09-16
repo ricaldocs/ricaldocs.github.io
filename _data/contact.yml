@@ -12,7 +12,7 @@
 
 - type: website
   icon: "fas fa-code-fork"
-  url: "https://github.com/ricaldocs/ricaldocs.github.io"
+  url: "https://git.ricalnet.my.id/rical/ricaldocs"
 
 - type: rss
   icon: "iconfont icon-rss"

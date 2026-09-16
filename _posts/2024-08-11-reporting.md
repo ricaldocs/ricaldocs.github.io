@@ -20,7 +20,7 @@ last_modified_at: 2026-06-01
 
 ## Saluran Laporan
 
-- **GitHub**: [Buka issue](https://github.com/ricaldocs/ricaldocs.github.io/issues)
+- **GitHub**: [Buka issue](https://git.ricalnet.my.id/rical/ricaldocs/issues)
 - **Email**: `ricalnet@duck.com`
 
 ## Proses Verifikasi
