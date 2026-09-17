@@ -1,5 +1,5 @@
 ---
-title: Deploy MQTT Broker dengan Podman, Panduan Teknis Eclipse Mosquitto
+title: Deploy MQTT Broker dengan Podman — Panduan Teknis Eclipse Mosquitto
 description: Panduan teknis lengkap untuk deploy Eclipse Mosquitto MQTT Broker menggunakan Podman. Mencakup konfigurasi ACL, manajemen password, pengujian publish-subscribe, dan hardening keamanan untuk infrastruktur IoT.
 categories: [Digital Independence, Telecommunications]
 tags: [internet of things, mqtt, podman]

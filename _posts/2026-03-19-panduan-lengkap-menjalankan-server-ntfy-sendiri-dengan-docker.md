@@ -1,7 +1,7 @@
 ---
 title: Panduan Lengkap Menjalankan Server Ntfy Sendiri dengan Docker
 description: Tutorial langkah demi langkah instalasi dan konfigurasi server notifikasi ntfy menggunakan Docker. Cocok untuk membangun sistem notifikasi pribadi yang aman dan gratis.
-categories: [Digital Independence, Android, Communications]
+categories: [Digital Independence, Communications]
 tags: [self-hosted, docker, ntfy, android]
 author: rical
 last_modified_at: 2026-07-02

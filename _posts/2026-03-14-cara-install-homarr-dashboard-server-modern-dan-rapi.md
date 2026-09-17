@@ -1,5 +1,5 @@
 ---
-title: Cara Install Homarr, Dashboard Server Modern dan Rapi
+title: Cara Install Homarr — Dashboard Server Modern dan Rapi
 description: Panduan lengkap instalasi Homarr menggunakan Podman. Homarr adalah dashboard sederhana namun powerful untuk mengelola layanan server Anda dengan tampilan yang terorganisir.
 categories: [Digital Independence, Dashboard]
 tags: [self-hosted, podman, homarr]

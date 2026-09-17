@@ -1,191 +1,446 @@
 ---
 title: Membangun Infrastruktur Digital Mandiri dari Nol
-description: Privasi adalah hak, bukan kemewahan. Artikel ini mengajak Anda memahami urgensi kedaulatan digital dan memberikan panduan langkah demi langkah membangun infrastruktur mandiri—dari container hingga cloud storage pribadi—tanpa harus bergantung pada raksasa teknologi asing.
+description: Ingin lepas dari raksasa teknologi? Pelajari cara membangun infrastruktur digital mandiri dari nol dengan Podman—orkestrasi 25+ layanan self-hosted dalam 15 menit, pengamanan firewall dengan IPC (Iptables Port Controller), dan backup terenkripsi ChaCha20 menggunakan Chantik.
 categories: [Digital Independence]
-tags: [self-hosted, docker, podman, privacy]
+tags: [self-hosted, docker, podman, privacy, firewall, chantik, chacha20]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-09-17
 pin: true
 image:
   path: /assets/img/posts/2026-04-03-membangun-infrastruktur-digital-mandiri-dari-nol/thumbnail.png
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
-## Pernahkah Anda Bertanya-tanya, di Mana Sebenarnya Data Anda?
+## Mengapa Infrastruktur Digital Mandiri Itu Penting
 
-Bangun pagi. Cek Gmail. Balas pesan WhatsApp. Upload foto ke Google Drive. Biarkan Chrome menyimpan password. Nonton Netflix. Semua sebelum sarapan.
+Anda membaca ini dari ponsel atau komputer yang sistem operasinya milik perusahaan asing, terhubung ke jaringan yang dipantau, dan menyimpan data di server yang tak bisa Anda jangkau. Lalu Anda merasa punya privasi. Lucu.
 
-![meme](../assets/img/posts/2026-04-03-membangun-infrastruktur-digital-mandiri-dari-nol/meme.jpg)
-_Sumber: Proton_
+Di Indonesia, ini bukan teori. Data warga disimpan di yurisdiksi asing, akun bisa diblokir sepihak, harga naik tanpa negosiasi—dan kita hanya bisa mengeluh di media sosial yang juga bukan milik kita. Kedaulatan digital bukan slogan; ini soal siapa yang memegang kunci data Anda.
 
-Tanpa sadar, Anda sudah menitipkan seluruh kehidupan digital Anda ke segelintir perusahaan raksasa.
+Self-hosted membalik logika itu. Data di perangkat Anda, tidak ada yang memonetisasi, konfigurasi milik Anda. Privasi bukan fitur yang bisa dicabut, keamanan bukan celah yang menunggu, kemandirian bukan utopia. Modalnya? Komputer bekas atau Raspberry Pi sekecil dompet, listrik, dan internet. Itu saja.
 
-Mereka tahu:
-- Siapa teman-teman Anda  
-- Apa yang Anda tonton, baca, dan beli  
-- Di mana Anda berada saat ini  
-- Bahkan password-password paling rahasia sekalipun  
+Membangunnya dianggap rumit—wajar, selama Anda masih mengetik perintah seperti tahun 2015 sambil berharap firewall tidak salah konfigurasi. Dipen mematahkan itu dengan 25+ layanan, satu CLI, 15 menit. Panduan ini memandu dari nol hingga layanan pertama berjalan.
 
-Dan semua itu mereka jadikan komoditas.
+## Prasyarat
+- [git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence)
+- Sistem operasi Debian-based Linux
+- Akses `sudo` untuk konfigurasi firewall
 
-> *"Jika Anda tidak membayar untuk produknya, maka Andalah produknya."*
+## Alur Implementasi
 
-Ini bukan teori konspirasi. Ini adalah fakta bisnis dari setiap platform besar.
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│     Clone &     │───▶│     Konfigurasi  │───▶│     Jalankan    │
+│     Instalasi   │    │     .env         │    │     Layanan     │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                                        │
+                                                        ▼
+                                               ┌─────────────────┐
+                                               │    Verifikasi   │
+                                               │    & Monitor    │
+                                               └─────────────────┘
+```
 
-Tapi masih ada jalan keluar.
+## 1. Instalasi
 
-## Solusinya: Kemandirian Digital, Bukan Sekadar Privasi
+### 1.1 Clone Repositori
 
-Digital Independence by RICALNET adalah proyek sumber terbuka (open source) yang memungkinkan siapa pun – bahkan yang bukan ahli IT – membangun infrastruktur digital pribadi. Anggap saja sebagai cloud pribadi yang sepenuhnya di bawah kendali Anda.
+```bash
+git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+cd ~/digital-independence
+```
 
-Anda tidak perlu jadi administrator server atau programmer. Proyek ini menyediakan paket-paket aplikasi siap pakai (seperti "bumbu instan" untuk server Anda) yang bisa dijalankan di PC bekas, mini komputer, atau bahkan Raspberry Pi sekecil dompet.
+### 1.2 Instal Podman dan Dependensi
 
-### Prinsip Dasar
+```bash
+./install-podman-on-debian.sh
+```
 
-| Prinsip                | Makna                                                 |
-| ---------------------- | ----------------------------------------------------- |
-| Privasi adalah hak     | Data Anda milik Anda, bukan untuk dijual ke pengiklan |
-| Bebas biaya langganan  | Bayar sekali untuk perangkat, gratis selamanya        |
-| Kebebasan memilih      | Ganti layanan kapan saja, tidak terikat vendor        |
-| Belajar sambil berdaya | Setiap langkah membangun adalah investasi pengetahuan |
+Script instalasi menyediakan komponen berikut:
 
-## Apa Saja yang Bisa Anda Dapatkan?
+| Komponen       | Fungsi                              |
+| -------------- | ----------------------------------- |
+| Podman         | Mesin container rootless            |
+| podman-compose | Orkestrasi Compose                  |
+| dipen          | CLI orkestrasi layanan              |
+| ipc            | Iptables Port Controller (firewall) |
 
-Berikut cara mengganti layanan pihak ketiga dengan alternatif self-hosted yang berjalan di perangkat Anda sendiri.
+Verifikasi instalasi:
 
-### Keamanan & Otentikasi  
-*Pengganti Google Password Manager, 1Password, atau SSO cloud...*
+```bash
+podman --version
+podman-compose --version
+dipen version
+```
 
-- **Vaultwarden** – Pengelola password yang kompatibel dengan Bitwarden (Anda pegang kuncinya)  
-- **Authentik** – Sistem "Login dengan Google" versi Anda sendiri, tapi privat  
-- **Pi-hole** – Pemblokir iklan & pelacak di seluruh jaringan rumah  
-- **Wazuh** – Sistem deteksi intrusi untuk server rumahan Anda  
+## 2. Daftar Layanan
 
-> Kenapa? Password adalah kunci kehidupan digital. Mempercayakannya pada orang lain sama dengan memberikan kunci rumah Anda pada orang asing.
+```bash
+dipen list
+```
 
-### AI Pribadi – Tanpa Mengirim Data ke Luar Negeri  
-*Pengganti ChatGPT, Gemini, atau Claude...*
+Menampilkan seluruh layanan yang tersedia beserta direktori dan port default. Total tersedia 27 layanan, mencakup:
 
-- **Open WebUI + Ollama** – Jalankan LLM sepenuhnya di perangkat sendiri. Tidak ada data yang keluar dari jaringan Anda.
+```bash
+Available Services:
 
-> Saat Anda bertanya pada AI tentang kesehatan, keuangan, atau pekerjaan, data sensitif itu tidak boleh mengendap di server perusahaan asing untuk latihan model mereka.
+  authentik            → authentik
+  dashdot              → dashdot
+  element-web          → element-web
+  forgejo              → forgejo
+  homarr               → homarr
+  immich               → immich
+  jellyfin             → jellyfin
+  libretranslate       → libretranslate
+  linkstack            → linkstack
+  mastodon             → mastodon
+  mediawiki            → wiki
+  monitoring           → monitoring
+  mqtt                 → mqtt-broker
+  navidrome            → navidrome
+  nextcloud            → nextcloud
+  ntfy                 → ntfy
+  obfs4-bridge         → obfs4-bridge
+  open-webui           → open-webui
+  pi-hole              → pi-hole
+  portainer            → portainer
+  searxng              → searxng
+  synapse              → synapse
+  synapse-mautrix      → synapse/mautrix
+  uptime-kuma          → uptime-kuma
+  vaultwarden          → vaultwarden
+  wazuh                → wazuh
+  yourls               → yourls
 
-### Komunikasi Pribadi  
-*Pengganti WhatsApp, Telegram, atau Signal (yang masih bergantung pada server pihak ketiga)...*
+Total: 27 services
+```
 
-- **Matrix (Synapse + Element)** – Sistem pesan instan dan grup yang dihosting sendiri. Desentralisasi.  
-- **Mautrix Bridges** – Hubungkan Matrix ke WhatsApp/Telegram, jadi Anda bisa chat dari satu aplikasi dengan data tetap privat
+> Gunakan wildcard untuk mencocokkan beberapa layanan sekaligus, misalnya `dipen env n*` untuk semua layanan berawalan huruf **n**.
+{: .prompt-tip}
 
-> Meta tahu dengan siapa Anda bicara dan kapan. Matrix membuat percakapan Anda tetap urusan Anda sendiri.
+## 3. Konfigurasi Environment
 
-### Pencarian & Terjemahan – Tanpa Dilacak  
-*Pengganti Google Search atau Google Translate...*
+```bash
+dipen env <service1> <service2> <service3>
+```
 
-- **SearXNG** – Mesin pencari metasearch pribadi yang tidak mencatat riwayat Anda  
-- **LibreTranslate** – Penerjemah otomatis yang tidak mengirim teks ke server luar
+Contoh:
 
-> Setiap kali Anda mencari di Google, satu entri lagi masuk ke profil digital Anda. SearXNG memutus rantai itu.
+```bash
+dipen env nextcloud open-webui authentik
+```
 
-### Media & Konten  
-*Pengganti Google Drive, Dropbox, Netflix, atau Spotify...*
+Perintah ini akan:
 
-- **Nextcloud** – Sinkronisasi file, kalender, kontak, dan tugas self-hosted  
-- **Immich** – Alternatif Google Photos dengan backup otomatis, tanpa pemindaian data  
-- **Jellyfin** – Netflix pribadi untuk koleksi film/musik Anda  
-- **Navidrome** – Spotify pribadi, bebas iklan dan sepenuhnya milik Anda
+1. Membuat file `.env` dari `.env.example` (jika belum ada)
+2. Membuka editor default (`nano` atau `vim`)
+3. Memungkinkan perubahan kata sandi default, kunci API, dan konfigurasi lainnya
 
-> Foto keluarga, dokumen pribadi, dan koleksi media adalah aset berharga. Jangan simpan di tempat yang aksesnya bisa dicabut sewaktu-waktu.
+## 4. Menjalankan Layanan
 
-### Pengetahuan & Publikasi  
-*Pengganti Medium, WordPress.com, atau pemendek URL...*
+### 4.1 Mulai Layanan Tertentu
 
-- **MediaWiki** – Wikipedia versi Anda sendiri untuk pengetahuan pribadi atau tim  
-- **YOURLS** – Pemendek URL pribadi tanpa pelacakan
-- **LinkStack** – Alternatif LinkTree dengan kontrol penuh
+```bash
+dipen up nextcloud open-webui authentik
+```
 
-> Publikasi Anda seharusnya menjadi aset Anda. Di platform sendiri, perubahan algoritma tidak bisa merugikan Anda.
+Proses yang dijalankan:
 
-## Bagaimana Cara Memulainya?
+1. Membangun/mengunduh image container
+2. Membuat network dan volume yang diperlukan
+3. Menjalankan container dalam mode detached
+4. Menampilkan status startup
 
-Bayangkan seperti memasak, jika harus meracik semua bumbu dari nol, itu melelahkan. Tapi dengan bumbu instan siap pakai, Anda tinggal mengikuti resep.
+> Startup pertama memerlukan waktu beberapa menit tergantung ukuran image dan koneksi internet.
+{: .prompt-info}
 
-Digital Independence menyediakan paket-paket itu – setiap layanan sudah dalam file konfigurasi siap pakai.
+### 4.2 Mulai Semua Layanan
 
-1. Siapkan perangkat seperti PC bekas, mini-PC, atau Raspberry Pi  
-2. Pasang Podman sebagai "mesin masak" untuk menjalankan aplikasi (skrip satu klik tersedia)  
-3. Pilih layanan. Nextcloud? Jellyfin? Pilih sesuai kebutuhan  
-4. Jalankan dengan satu perintah sederhana, dan layanan Anda langsung hidup  
+```bash
+dipen all up
+```
 
-Hasilnya? Server pribadi Anda sendiri, bisa diakses dari mana saja.
+> Hanya jalankan apabila sumber daya mencukupi. 25 layanan membutuhkan setidaknya 16 GB RAM.
+{: .prompt-danger}
 
-## Tapi… Apakah Ini Sulit?
+## 5. Verifikasi & Monitoring
 
-Jujur, ada kurva belajar. Tapi proyek ini dirancang untuk meminimalkan kerumitan:
+### 5.1 Cek Status
 
-- Semua konfigurasi sudah ditulis  
-- Skrip instalasi otomatis  
-- Dokumentasi langkah demi langkah  
+```bash
+dipen ps <service1> <service2> <service3>
+```
 
-> *"Tujuan pendidikan adalah memerdekakan manusia seutuhnya."* – Ki Hajar Dewantara
+Status yang diharapkan: `Up` atau `Up (healthy)`.
 
-Digital Independence bukan sekadar membangun server. Ini tentang memerdekakan diri dari ketergantungan digital.
+### 5.2 Lihat Log
 
-## Mengapa Ini Penting untuk Indonesia?
+```bash
+dipen logs nextcloud open-webui authentik
+```
 
-| Isu                  | Dampak                                                                                                           |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Kedaulatan data      | Data warga disimpan di luar negeri – risiko keamanan nasional. Self-hosting mengurangi ketergantungan asing.     |
-| Ekonomi digital      | Cloud asing menguras devisa. Infrastruktur lokal menciptakan lapangan kerja dan membangun keahlian dalam negeri. |
-| Perlindungan privasi | UU PDP sudah ada, tapi butuh partisipasi aktif. Self-hosting adalah bentuk perlindungan diri paling efektif.     |
+Menampilkan 50 baris log terakhir per layanan. Berguna untuk:
 
-## Mulai dari Mana?
+- Memverifikasi layanan berjalan dengan benar
+- Mendiagnosis error saat startup
+- Memantau aktivitas layanan
 
-| Langkah | Aksi                                                                                                  |
-| ------- | ----------------------------------------------------------------------------------------------------- |
-| 1       | Kunjungi [Repositori Digital Independence](https://git.ricalnet.my.id/rical/digital-independence.git) |
-| 2       | Baca dokumentasi di [docs.ricalnet.my.id](https://docs.ricalnet.my.id/categories/)                    |
-| 3       | Siapkan perangkat (mulai dari yang sederhana)                                                         |
-| 4       | Ikuti panduan instalasi                                                                               |
-| 5       | Pilih satu layanan untuk mulai (rekomendasi: Nextcloud atau Pi-hole)                                  |
+### 5.3 Akses Layanan
 
-Jangan takut mencoba. Setiap langkah kecil adalah kemenangan untuk privasi dan kebebasan digital Anda.
+| Contoh Layanan | URL Akses                       |
+| -------------- | ------------------------------- |
+| Nextcloud      | `http://127.0.0.1:5000`         |
+| Open WebUI     | `http://127.0.0.1:3000`         |
+| Authentik      | `http://127.0.0.1:9000`         |
+| Vaultwarden    | `http://127.0.0.1:8000`         |
+| Pi-hole        | `http://192.168.0.1:8080/admin` |
 
-## Akses Publik yang Aman untuk Infrastruktur Mandiri Anda
+> Semua layanan terikat ke `127.0.0.1` (localhost) secara default. Untuk akses eksternal, gunakan IPC, Tor Hidden Service, atau Cloudflare Tunnel.
+{: .prompt-tip}
 
-Setelah Anda membangun layanan self-hosted, tentu Anda ingin mengaksesnya dari mana saja. Namun, membuka port di router publik adalah risiko keamanan yang besar. Berikut adalah dua pendekatan yang kami rekomendasikan, dengan panduan langkah demi langkah:
+### 5.4 Monitoring Stack (Prometheus + Grafana)
 
-| Metode             | Kapan Digunakan                         | Keunggulan Utama                                                                                           |
-| ------------------ | --------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Tor Hidden Service | Untuk privasi maksimum dan anonimitas   | - Menyembunyikan lokasi fisik server<br>- Enkripsi end-to-end bawaan<br>- Tidak memerlukan domain publik   |
-| Cloudflare Tunnel  | Untuk akses cepat dengan domain pribadi | - Konfigurasi relatif sederhana<br>- Manajemen DNS terpusat<br>- Lapisan keamanan tambahan dari Cloudflare |
+Setelah layanan berjalan, langkah berikutnya adalah observability. Untuk membangun monitoring stack lengkap — Prometheus, Grafana, Node Exporter, Podman Exporter, dan Alertmanager dengan notifikasi Ntfy — ikuti panduan terpisah:
 
-### Panduan Lengkapnya:
+📖 [Panduan Lengkap Deploy Monitoring Stack Self-Hosted dengan Podman, Prometheus, dan Grafana](https://docs.ricalnet.my.id/posts/panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/)
 
-1.  Ingin mengakses layanan Anda secara anonim dan tanpa meninggalkan jejak?  
-    Pelajari cara menyembunyikan server Anda di balik jaringan Tor dengan panduan berikut:  
-    [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
+Panduan tersebut mencakup verifikasi end-to-end, import 4 dashboard siap pakai (Node Exporter Full, Alertmanager, Prometheus, Podman Exporter), serta integrasi Ntfy untuk alert push. Monitoring stack ini melengkapi lapisan observability dari infrastruktur yang baru Anda bangun.
 
-2.  Lebih suka menggunakan domain sendiri yang terintegrasi dengan Cloudflare?  
-    Ikuti panduan ini untuk mengekspos layanan lokal tanpa membuka port firewall:  
-    [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)
+> Untuk deployment skala kecil (2–3 layanan), monitoring stack penuh bersifat over-provisioned. Gunakan Homarr + dashdot (`dipen up dashdot`) — visibilitas host memadai, footprint minimal, tanpa overhead Prometheus/Grafana.
+{: .prompt-tip}
 
-Pilih metode yang paling sesuai dengan kebutuhan privasi dan kemudahan akses Anda. Keduanya adalah langkah maju untuk mewujudkan kemandirian digital yang sesungguhnya.
 
-## Masa Depan Digital Ada di Tangan Anda
+## 6. Konfigurasi Firewall (Opsional)
 
-Kita hidup di era di mana data adalah kekayaan. Dan kekayaan itu saat ini dikelola oleh orang lain.
+Diperlukan apabila layanan harus diakses dari luar localhost.
 
-Digital Independence menawarkan jalan berbeda. Kelola kekayaan Anda sendiri.
+```bash
+# Setup persistence (sekali saja)
+sudo ipc setup-persistence
 
-Ini bukan tentang anti-teknologi. Justru sebaliknya, menguasai teknologi – bukan dikuasai olehnya.
+# Inisialisasi firewall (default-deny)
+sudo ipc init
 
-> *"Kedaulatan digital bukanlah anugerah. Itu adalah perjuangan. Dan perjuangan itu bisa dimulai dari keyboard Anda sendiri."*
+# Buka port yang diperlukan
+sudo ipc enable 22     # SSH
+sudo ipc enable 5000   # Nextcloud
+sudo ipc enable 3000   # Open WebUI
+sudo ipc enable 9000   # Authentik
 
-## Sumber Daya
+# Verifikasi status
+sudo ipc status
+```
 
-- GitHub: [https://git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence)  
-- Dokumentasi: [https://docs.ricalnet.my.id/categories/](https://docs.ricalnet.my.id/categories/)  
-- Lisensi: MIT – Gunakan, modifikasi, dan sebarkan dengan bebas.
+> Dokumentasi lengkap: [Iptables Port Controller — Firewall](https://git.ricalnet.my.id/rical/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)
+{: .prompt-tip}
 
-Sekarang, saat Google bertanya "Apakah Anda robot?", Anda bisa menjawab:  
-"Bukan – karena robot tidak punya rumah digital sendiri. Saya punya." 😉
+## 7. Akses Publik
+
+Setelah layanan berjalan di localhost, pilih salah satu dari dua pendekatan berikut untuk akses eksternal.
+
+### 7.1 Perbandingan Singkat
+
+| Aspek         | Tor Hidden Service                  | Cloudflare Tunnel                   |
+| ------------- | ----------------------------------- | ----------------------------------- |
+| Privasi       | Maksimal — IP tersembunyi           | Bergantung pada Cloudflare          |
+| Akses         | Hanya via Tor Browser               | Browser biasa                       |
+| Domain        | Tidak perlu                         | Wajib di Cloudflare                 |
+| Port firewall | Tidak dibuka                        | Tidak dibuka (outbound-only)        |
+| Cocok untuk   | Privasi tinggi, aktivis, jurnalisme | Akses publik umum, tim, development |
+
+> Keduanya dapat dikombinasikan: Cloudflare Tunnel untuk akses publik, Tor untuk akses privat berlapis.
+{: .prompt-tip}
+
+### 7.2 Hidden Service Tor — Privasi Maksimal
+
+Menyembunyikan IP server dan mengenkripsi lalu lintas end-to-end. Layanan hanya diakses via Tor menggunakan alamat `.onion`.
+
+📖 [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
+
+Pilih jika butuh privasi maksimal dan anonimitas — cocok untuk server internal, jurnalisme investigatif, atau organisasi dengan kebutuhan privasi tinggi.
+
+> Bukan pengganti keamanan aplikasi. Tetap terapkan autentikasi dan pastikan aplikasi hanya listening di `127.0.0.1`.
+{: .prompt-warning}
+
+### 7.3 Cloudflare Tunnel — Kemudahan Akses
+
+Mengekspos layanan ke internet tanpa membuka port firewall melalui koneksi outbound ke Cloudflare.
+
+📖 [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)
+
+Pilih jika butuh akses publik via browser biasa, punya domain sendiri, dan ingin menghindari konfigurasi firewall tradisional — ideal untuk remote access dan hosting aplikasi internal.
+
+## 8. Backup Terenkripsi dengan Chantik
+
+Chantik adalah tool backup terenkripsi ChaCha20 untuk direktori dan volume container (Podman/Docker). Mendukung incremental backup, rotasi retensi, deduplikasi, dan notifikasi ntfy.
+
+### 8.1 Instalasi
+
+```bash
+git clone https://git.ricalnet.my.id/rical/chantik ~/chantik
+cd ~/chantik
+```
+
+### 8.2 Tambahkan Alias (Direkomendasikan)
+
+Agar tidak perlu mengetik path lengkap setiap kali, tambahkan alias ke shell config:
+
+```bash
+echo "alias chantik='$(pwd)/chantik.sh'" >> ~/.bashrc
+source ~/.bashrc
+
+# atau untuk zsh
+
+echo "alias chantik='$(pwd)/chantik.sh'" >> ~/.zshrc
+source ~/.zshrc
+```
+
+Verifikasi:
+
+```bash
+chantik help
+```
+
+### 8.3 Konfigurasi
+
+```bash
+cp chantik.example.conf chantik.conf
+
+openssl rand -base64 32 > encryption.key
+chmod 600 encryption.key
+
+nano chantik.conf
+```
+
+Sesuaikan `BACKUP_BASE_DIR`, `SOURCE_DIR`, `ENCRYPTION_KEY_FILE`, `NTFY_TOPIC`, `NTFY_TOKEN`, dan daftar volume.
+
+> Simpan `encryption.key` terpisah dari backup. Tanpa kunci ini, backup tidak bisa dipulihkan.
+{: .prompt-danger}
+
+### 8.4 Menjalankan Backup
+
+```bash
+chantik
+```
+
+Proses:
+
+```
+┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+│   Deteksi    │──▶│   Snapshot   │──▶│    Backup    │──▶│  Kompresi    │
+│   Runtime    │   │    Volume    │   │ Full/Inc     │   │    gzip      │
+└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
+                                                                │
+                                                                ▼
+┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+│  Notifikasi  │◀──│   Rotasi     │◀──│  Verifikasi  │◀──│   Enkripsi   │
+│    ntfy      │   │  Retensi     │   │   SHA256     │   │   ChaCha20   │
+└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
+```
+
+### 8.5 Melihat Daftar Backup
+
+```bash
+chantik list
+```
+
+### 8.6 Restore
+
+```bash
+chantik restore <nama_backup>
+```
+
+Contoh:
+
+```bash
+chantik restore postgres
+chantik restore volume_postgres volume_redis
+chantik restore --dry-run volume_postgres
+```
+
+Chantik otomatis membuat pre-restore backup, meminta konfirmasi ganda, lalu mendekripsi dan menerapkan ke target.
+
+### 8.7 Perintah Lain
+
+```bash
+chantik verify <file>     # Verifikasi satu backup
+chantik verify-all        # Verifikasi semua backup
+chantik dedup             # Deduplikasi
+chantik test              # Uji enkripsi ChaCha20
+chantik help              # Bantuan
+```
+
+### 8.8 Backup Otomatis (Cron)
+
+```
+0 2 * * * cd ~/chantik && ./chantik.sh >> ~/chantik/cron.log 2>&1
+```
+
+### 8.9 Peran dalam Stack
+
+| Lapisan      | Tool               | Melindungi dari              |
+| ------------ | ------------------ | ---------------------------- |
+| Jaringan     | IPC (iptables)     | Akses tidak sah              |
+| Data at-rest | Chantik (ChaCha20) | Kebocoran backup, ransomware |
+
+> Dokumentasi lengkap: [Chantik — ChaCha20-Authenticated Backup Protection](https://git.ricalnet.my.id/rical/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-)
+{: .prompt-tip}
+
+## 9. Referensi Layanan Spesifik
+
+### AI
+- [Implementasi Model AI Berbasis Open Source Secara Offline pada Perangkat Android](https://docs.ricalnet.my.id/posts/implementasi-model-ai-berbasis-open-source-secara-offline-pada-perangkat-android/)
+
+### Android
+- [Cara Install /e/OS di Xiaomi Poco F4 (Munch)](https://docs.ricalnet.my.id/posts/cara-install-eos-di-xiaomi-poco-f4-munch/)
+- [Panduan Instalasi MicroG di Android untuk Pemula dan Pengguna Advanced](https://docs.ricalnet.my.id/posts/panduan-instalasi-microg-di-android-untuk-pemula-dan-pengguna-advanced/)
+
+### Cloud
+- [Panduan Lengkap Instalasi Nextcloud untuk Digital Independence](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-nextcloud-untuk-digital-independence/)
+- [Panduan Konfigurasi External Storage di Nextcloud](https://docs.ricalnet.my.id/posts/panduan-konfigurasi-external-storage-di-nextcloud/)
+
+### Communications
+- [Instalasi dan Konfigurasi Pi-hole untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan/)
+- [Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4](https://docs.ricalnet.my.id/posts/panduan-aktivis-untuk-menyebarkan-tor-bridge-obfs4/)
+- [Panduan Deployment Matrix Synapse Self-Hosted dengan Mautrix Bridge WhatsApp dan Telegram](https://docs.ricalnet.my.id/posts/panduan-deployment-matrix-synapse-self-hosted-dengan-mautrix-bridge-whatsapp-dan-telegram/)
+
+### Dashboard
+- [Cara Install Homarr — Dashboard Server Modern dan Rapi](https://docs.ricalnet.my.id/posts/cara-install-homarr-dashboard-server-modern-dan-rapi/)
+
+### Monitoring
+- [Panduan Lengkap Deploy Monitoring Stack Self-Hosted dengan Podman, Prometheus, dan Grafana](https://docs.ricalnet.my.id/posts/panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/)
+- [Panduan Lengkap Instalasi dan Konfigurasi Wazuh](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/)
+
+### Multimedia
+- [Instalasi Jellyfin untuk Media Server Pribadi](https://docs.ricalnet.my.id/posts/instalasi-jellyfin-untuk-media-server-pribadi/)
+
+### Password Manager
+- [Panduan Self-Hosting Vaultwarden untuk Password Manager Mandiri](https://docs.ricalnet.my.id/posts/panduan-self-hosting-vaultwarden-untuk-password-manager-mandiri/)
+
+### Single Sign-On (SSO)
+- [Panduan Self-Hosting Authentik untuk Digital Independence](https://docs.ricalnet.my.id/posts/panduan-self-hosting-authentik-untuk-digital-independence/)
+
+#### Integrasi dengan Authentik
+- [Panduan Integrasi Autentikasi OIDC Homarr dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/)
+- [Panduan Integrasi Forgejo dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-forgejo-dengan-authentik/)
+- [Panduan Integrasi Grafana dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-grafana-dengan-authentik/)
+- [Panduan Integrasi Immich dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-immich-dengan-authentik/)
+- [Panduan Integrasi Nextcloud dengan Authentik via OIDC](https://docs.ricalnet.my.id/posts/panduan-integrasi-nextcloud-dengan-authentik-via-oidc/)
+- [Panduan Integrasi Open WebUI dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-open-webui-dengan-authentik/)
+- [Panduan Integrasi Synapse dengan Authentik untuk Autentikasi SSO](https://docs.ricalnet.my.id/posts/panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/)
+- [Panduan Integrasi Vaultwarden dengan Authentik sebagai SSO Provider](https://docs.ricalnet.my.id/posts/panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/)
+
+### Search Engine
+- [Deploy SearXNG untuk Kedaulatan Data dan Privasi Pencarian](https://docs.ricalnet.my.id/posts/deploy-searxng-untuk-kedaulatan-data-dan-privasi-pencarian/)
+
+### Social Networks
+- [Panduan Implementasi Self-Hosted Social Media](https://docs.ricalnet.my.id/posts/panduan-implementasi-self-hosted-social-media/)
+
+### Telecommunications
+- [Deploy MQTT Broker dengan Podman — Panduan Teknis Eclipse Mosquitto](https://docs.ricalnet.my.id/posts/deploy-mqtt-broker-dengan-podman-panduan-teknis-eclipse-mosquitto/)
+- [Membangun VoIP Server](https://docs.ricalnet.my.id/posts/membangun-voip-server/)
+- [Panduan Membangun 5G Core Sendiri Menggunakan Open5GS dan UERANSIM](https://docs.ricalnet.my.id/posts/panduan-membangun-5g-core-sendiri-menggunakan-open5gs-dan-ueransim/)
+- [Uji Ketahanan 5G Core terhadap Serangan DDoS dengan Open5GS dan UERANSIM](https://docs.ricalnet.my.id/posts/uji-ketahanan-5g-core-terhadap-serangan-ddos-dengan-open5gs-dan-ueransim/)
+
+### Wiki
+- [Panduan Lengkap Instalasi MediaWiki untuk Digital Independence](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-mediawiki-untuk-digital-independence/)
