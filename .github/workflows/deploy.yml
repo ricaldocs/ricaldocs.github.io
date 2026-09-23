@@ -1,0 +1,83 @@
+# .github/workflows/deploy.yml
+# ==========================================
+# MAIN: BUILD & DEPLOY TO GITHUB PAGES
+# ==========================================
+
+name: "🚀 Deploy to GitHub Pages"
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
+      - "*.sh"
+      - docker-compose.yml
+      - Dockerfile
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📄 Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: 💎 Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+          cache-version: 1
+
+      - name: 📦 Install Dependencies
+        run: bundle install --jobs 4 --retry 3 --without test development
+
+      - name: 🏗️ Build Site
+        run: |
+          bundle exec jekyll build \
+            -d "_site${{ steps.pages.outputs.base_path }}" \
+            --profile \
+            --trace
+        env:
+          JEKYLL_ENV: production
+          BUNDLE_WITHOUT: "development:test"
+
+      - name: 📤 Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site${{ steps.pages.outputs.base_path }}"
+          retention-days: 7
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 10
+
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

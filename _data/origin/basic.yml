@@ -1,63 +1,78 @@
-# fonts
+# Resource Hints
+resource_hints:
+  - url: /assets
+    links:
+      - rel: preconnect
+      - rel: dns-prefetch
+  - url: /assets/fonts
+    links:
+      - rel: preconnect
+        opts: [crossorigin]
+      - rel: dns-prefetch
+  - url: /assets/webfonts
+    links:
+      - rel: preconnect
+        opts: [crossorigin]
+      - rel: dns-prefetch
 
-webfonts: /assets/lib/fonts/main.css
+# Web Fonts
+webfonts: /assets/css/fonts.css
 
 # Libraries
 
 toc:
-  css: /assets/lib/tocbot/tocbot.min.css
-  js: /assets/lib/tocbot/tocbot.min.js
+  css: /assets/css/tocbot.min.css
+  js: /assets/js/tocbot.min.js
 
 fontawesome:
-  css: /assets/lib/fontawesome-free/css/all.min.css
+  css: /assets/css/fontawesome-all.min.css
 
 search:
-  js: /assets/lib/simple-jekyll-search/simple-jekyll-search.min.js
+  js: /assets/js/simple-jekyll-search.min.js
 
 mermaid:
-  js: /assets/lib/mermaid/mermaid.min.js
+  js: /assets/js/mermaid.min.js
 
 dayjs:
   js:
-    common: /assets/lib/dayjs/dayjs.min.js
-    locale: /assets/lib/dayjs/locale/en.js
-    relativeTime: /assets/lib/dayjs/plugin/relativeTime.js
-    localizedFormat: /assets/lib/dayjs/plugin/localizedFormat.js
+    common: /assets/js/dayjs.min.js
+    locale: /assets/js/locale/:LOCALE.js
+    relativeTime: /assets/js/plugin/relativeTime.js
+    localizedFormat: /assets/js/plugin/localizedFormat.js
 
 glightbox:
-  css: /assets/lib/glightbox/glightbox.min.css
-  js: /assets/lib/glightbox/glightbox.min.js
+  css: /assets/css/glightbox.min.css
+  js: /assets/js/glightbox.min.js
 
 lazy-polyfill:
-  css: /assets/lib/loading-attribute-polyfill/loading-attribute-polyfill.min.css
-  js: /assets/lib/loading-attribute-polyfill/loading-attribute-polyfill.umd.min.js
+  css: /assets/css/loading-attribute-polyfill.min.css
+  js: /assets/js/loading-attribute-polyfill.umd.min.js
 
 clipboard:
-  js: /assets/lib/clipboard/clipboard.min.js
+  js: /assets/js/clipboard.min.js
 
 mathjax:
-  js: /assets/lib/mathjax/tex-chtml.js
+  js: /assets/js/tex-chtml.js
 
 firacode:
-  css: /assets/lib/firacode/distr/fira_code.css
+  css: /assets/css/fira_code.css
 
 socket-io-client:
-  js: /assets/lib/socket.io-client/dist/socket.io.min.js
+  js: /assets/js/socket.io.min.js
 
 waline:
-  js: /assets/lib/client/dist/waline.js
-  css: /assets/lib/client/dist/waline.css
-  emojis: /assets/lib/emojis
+  js: /assets/js/waline.js
+  css: /assets/css/waline.css
+  emojis: /assets/emojis
 
-# 自定义 Iconfont 的图标链接。 › https://www.iconfont.cn/
-# 需要添加自己的 Iconfont 图标，请在 Iconfont 中新建项目，
-# 加入图标到项目，选择 Font Class，查看在线链接，并将其拷贝到下面。
-#
-# 注意：请不要与项目原本使用的图标重名，请全局搜索以确保该名称没被使用。
-# 一个比较好的办法是修改 Iconfont 项目的 FontClass/Symbol 前缀为其他值。
+# Kustomisasi Tautan Ikon Iconfont. › https://www.iconfont.cn/
+# Jika perlu menambahkan ikon Iconfont sendiri, silakan buat proyek baru di Iconfont,
+# tambahkan ikon ke proyek, pilih Font Class, lihat tautan online, dan salin ke bawah.
+# Perhatian: Jangan sampai nama ikon bentrok dengan ikon yang sudah digunakan di proyek, silakan cari secara global untuk memastikan nama tersebut tidak digunakan.
+# Cara yang baik adalah mengubah prefiks FontClass/Symbol proyek Iconfont menjadi nilai lain.
 iconfont:
   css:
-    # 此 css 包含以 'icon-' 为前缀的图标，为模板的核心图标，请勿删除。
-    - /assets/lib/iconfont/font_2440352_5nfkefwgc3q/iconfont.css
-    # 添加你的 Iconfont 图标链接
-    # - 
+    # CSS ini berisi ikon dengan prefiks 'icon-', yang merupakan ikon inti dari template, jangan dihapus.
+    - /assets/css/iconfont-core.css
+    # Tambahkan tautan ikon Iconfont Anda
+    # -

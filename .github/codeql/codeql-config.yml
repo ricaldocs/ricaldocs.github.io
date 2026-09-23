@@ -1,2 +1,30 @@
+# .github/codeql/codeql-config.yml
+# ==========================================
+# CODEQL SECURITY ANALYSIS
+# ==========================================
+
+name: "CodeQL Configuration"
+
+languages:
+  - ruby
+  - javascript
+
+queries:
+  - uses: security-and-quality
+
 paths-ignore:
-  - "assets/js"
+  - "**/vendor/**"
+  - "**/_site/**"
+  - "**/node_modules/**"
+  - "**/*.min.js"
+  - "**/*.min.css"
+  - "**/assets/**"
+
+paths:
+  - "_includes/**/*"
+  - "_layouts/**/*"
+  - "_sass/**/*"
+  - "assets/js/**/*"
+  - "*.rb"
+  - "Gemfile"
+  - "*.gemspec"

@@ -11,10 +11,10 @@ const DIST = 'assets/js/dist';
 const banner = `/*!
  * ${pkg.name} v${pkg.version} | © ${pkg.since} ${pkg.author} | ${pkg.license} Licensed | ${pkg.homepage}
  */`;
-
-const frontmatter = `---\npermalink: /:basename\n---\n`;
-
+const frontmatter = '---\npermalink: /:basename\n---\n';
 const isProd = process.env.BUILD === 'production';
+
+let hasWatched = false;
 
 function cleanup() {
   fs.rmSync(DIST, { recursive: true, force: true });
@@ -39,6 +39,11 @@ function build(
   { src = SRC_DEFAULT, jekyll = false, outputName = null } = {}
 ) {
   const input = `${src}/${filename}.js`;
+  const shouldWatch = hasWatched ? false : true;
+
+  if (!hasWatched) {
+    hasWatched = true;
+  }
 
   return {
     input,
@@ -49,9 +54,7 @@ function build(
       banner,
       sourcemap: !isProd && !jekyll
     },
-    watch: {
-      include: input
-    },
+    ...(shouldWatch && { watch: { include: `${SRC_DEFAULT}/**/*.js` } }),
     plugins: [
       babel({
         babelHelpers: 'bundled',
@@ -77,7 +80,7 @@ export default [
   build('page'),
   build('post'),
   build('misc'),
-  build('theme', { src: `${SRC_DEFAULT}/modules`, outputName: 'Theme' }),
+  build('theme', { outputName: 'Theme' }),
   build('app', { src: SRC_PWA, jekyll: true }),
   build('sw', { src: SRC_PWA, jekyll: true })
 ];

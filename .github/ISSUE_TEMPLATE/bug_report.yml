@@ -1,0 +1,82 @@
+# .github/ISSUE_TEMPLATE/bug_report.yml
+name: "🐛 Bug Report"
+description: "Report a bug or issue"
+title: "[BUG]: "
+labels: ["bug", "triage"]
+assignees:
+  - ricaldocs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this bug! 🙏
+
+        Please provide as much detail as possible to help us fix the issue.
+
+  - type: input
+    id: url
+    attributes:
+      label: "🔗 URL"
+      description: "What is the URL where you encountered this issue?"
+      placeholder: "https://docs.ricalnet.my.id/posts/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 Description"
+      description: "What happened?"
+      placeholder: "Describe what went wrong..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "✅ Expected Behavior"
+      description: "What should have happened?"
+      placeholder: "Describe what you expected..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "🔄 Steps to Reproduce"
+      description: "How can we reproduce this issue?"
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. See error ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: "🌐 Browser"
+      description: "What browser are you using?"
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: "📱 Device"
+      description: "What device are you using?"
+      placeholder: "Desktop, iPhone 15, etc."
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "📄 Error Logs"
+      description: "Paste any error messages or logs here"
+      render: shell

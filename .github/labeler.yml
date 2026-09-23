@@ -1,0 +1,61 @@
+# .github/labeler.yml
+# ==========================================
+# LABEL RULES
+# ==========================================
+
+docs:
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
+      - any-glob-to-any-file: "docs/**/*"
+
+config:
+  - changed-files:
+      - any-glob-to-any-file: "_config.yml"
+      - any-glob-to-any-file: "_config.*.yml"
+      - any-glob-to-any-file: "*.gemspec"
+      - any-glob-to-any-file: "Gemfile*"
+
+styles:
+  - changed-files:
+      - any-glob-to-any-file: "_sass/**/*"
+      - any-glob-to-any-file: "assets/css/**/*"
+      - any-glob-to-any-file: "**/*.scss"
+
+templates:
+  - changed-files:
+      - any-glob-to-any-file: "_layouts/**/*"
+      - any-glob-to-any-file: "_includes/**/*"
+      - any-glob-to-any-file: "**/*.html"
+
+posts:
+  - changed-files:
+      - any-glob-to-any-file: "_posts/**/*"
+      - any-glob-to-any-file: "_drafts/**/*"
+
+assets:
+  - changed-files:
+      - any-glob-to-any-file: "assets/**/*"
+      - any-glob-to-any-file: "*.png"
+      - any-glob-to-any-file: "*.jpg"
+      - any-glob-to-any-file: "*.svg"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**/*"
+      - any-glob-to-any-file: "Dockerfile"
+      - any-glob-to-any-file: "*.sh"
+
+javascript:
+  - changed-files:
+      - any-glob-to-any-file: "**/*.js"
+      - any-glob-to-any-file: "assets/js/**/*"
+
+security:
+  - changed-files:
+      - any-glob-to-any-file: ".github/codeql/**/*"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file: "Gemfile"
+      - any-glob-to-any-file: "Gemfile.lock"
+      - any-glob-to-any-file: "*.gemspec"

@@ -1,0 +1,89 @@
+layout:
+  post: Artikel
+  category: Kategori
+  tag: Tag
+
+tabs:
+  home: Beranda
+  subdomain: Subdomain
+  categories: Kategori
+  tags: Tag
+  archives: Arsip
+  about: Tentang
+
+search:
+  hint: Cari...
+  cancel: Batal
+  no_results: Tidak ditemukan
+
+panel:
+  lastmod: Update Terbaru
+  trending_tags: Tag Populer
+  external_links: Tautan Luar
+  toc: Daftar Isi
+
+copyright:
+  license:
+    template: Konten ini dilisensikan :LICENSE_NAME oleh penulis.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+  brief: Hak dilindungi sebagian
+  verbose: >-
+    Kecuali dinyatakan lain, seluruh konten dilisensikan di bawah
+    Creative Commons Atribusi 4.0 Internasional oleh penulis.
+
+last_update: <i class="fas fa-clock-rotate-left"></i> Update terakhir
+date_format: "%d %B %Y"
+
+meta: :PRIVACY :PLATFORM
+
+not_found:
+  title: "404: Halaman Tidak Ditemukan"
+  statment: URL salah atau konten telah dipindahkan.
+  head_back: Kembali ke Beranda
+  or: atau
+  previous_page: Halaman Sebelumnya
+
+notification:
+  update_found: Ada versi terbaru dari konten ini
+  update: Update Sekarang
+
+post:
+  written_by: Penulis
+  posted: Terbit
+  updated: Revisi
+  words: kata
+  pageview_measure: tampilan
+  read_time:
+    unit: menit
+    prompt: baca
+  relate_posts: Bacaan Lainnya
+  share: Bagikan
+  button:
+    next: Lebih Baru
+    previous: Lebih Lama
+    copy_code:
+      succeed: Tersalin
+    run:
+      output: Keluaran
+      wait: Menjalankan...
+      error_prompt: "Gagal:"
+    share_link:
+      title: Salin Tautan
+      succeed: Tersalin
+
+df:
+  post:
+    strftime: "%d %b %Y"
+    dayjs: "ll"
+  archives:
+    strftime: "%b"
+    dayjs: "MMM"
+
+categories:
+  category_measure:
+    singular: kategori
+    plural: kategori
+  post_measure:
+    singular: artikel
+    plural: artikel
