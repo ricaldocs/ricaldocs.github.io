@@ -53,7 +53,7 @@ Pengguna (Element) → Authentik Login → Kode Otorisasi → Synapse
 
 Navigasi: Admin Interface → Applications → New Application
 
-![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/1.png)
+![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/1.webp)
 
 Isi Formulir:
 - Name: `Synapse` (deskriptif untuk identifikasi)
@@ -67,13 +67,13 @@ Isi Formulir:
 
 Navigasi: New Application → Configure Provider → OAuth2/OpenID Provider
 
-![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/2.png)
+![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/2.webp)
 
 ### 3. Konfigurasi Provider
 
-![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/3.png)
+![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/3.webp)
 
-![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/4.png)
+![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/4.webp)
 
 Parameter Konfigurasi:
 
@@ -158,7 +158,7 @@ Parameter dan Fungsinya:
 
 1. Buka Element atau klien Matrix lainnya
 2. Pilih "Login dengan SSO" (atau sesuai `idp_name`)
-   ![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/5.png)
+   ![alt text](../assets/img/posts/2026-08-01-panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/5.webp)
 
 3. Autentikasi di halaman login Authentik
 4. Verifikasi redirect kembali ke klien Matrix

@@ -39,29 +39,29 @@ Metode ini menggunakan **Shizuku** + **LSPatch** untuk menerapkan tambalan (patc
 
 Shizuku bertindak seperti "jembatan" administratif tanpa root. Pilih salah satu skenario:
 - Skenario A: Hanya Menggunakan Smartphone (Wireless Debugging)
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/start-via-wireless-debugging.png)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/start-via-wireless-debugging.webp)
 
 - Skenario B: Menggunakan PC (Kabel USB)
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/start-by-connecting-to-a-computer.png)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/start-by-connecting-to-a-computer.webp)
 
 ### 1.3 Patch Instagram dengan LSPatch
 
 1. Buka aplikasi **LSPatch** (manager.apk yang sudah diinstal).
 2. **Pastikan** di atas tertulis `Layanan Shizuku tersedia`.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111931.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111931.webp)
 
 3. Buka tab **Kelola** (Management).
 4. Tekan ikon **`+`** (tambah) → pilih **`Pilih aplikasi yang diinstal`**.
 5. Cari dan pilih **Instagram**.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111940.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111940.webp)
 
 6. Pada opsi `Tambalan Baru`, **centang** bagian **`Inject loader dex`**.
 7. Klik tombol **`Mulai Patch`**.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111949.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-111949.webp)
 
 8. Tunggu proses kompilasi selesai (biasanya 10–30 detik).
 9. Setelah muncul notifikasi sukses, tekan **`Install`**.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112017.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112017.webp)
     
     > Proses ini akan **mencopot** Instagram asli dan menggantinya dengan versi hasil patch (data login biasanya tetap aman).
     {: .prompt-info}
@@ -74,10 +74,10 @@ Shizuku bertindak seperti "jembatan" administratif tanpa root. Pilih salah satu 
 1. Buka **LSPatch** lagi.
 2. Di tab **Kelola**, klik pada **Instagram** yang sudah ter-patch.
 3. Pilih menu **`Lingkup modul`**.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112111.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112111.webp)
 
 4. **Centang** modul **`InstaEclipse`**.
-    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112114.jpg)
+    ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-112114.webp)
 
 5. Kembali ke layar utama.
 
@@ -86,7 +86,7 @@ Shizuku bertindak seperti "jembatan" administratif tanpa root. Pilih salah satu 
 1. Buka aplikasi **Instagram** seperti biasa.
 2. Di halaman utama, tekan ikon **Search** (kaca pembesar) di bawah.
    - **Maka akan muncul popup hitam "InstaEclipse"** — ini pertanda modul berhasil aktif.
-     ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-120315_Instagram~2.png)
+     ![alt text](../assets/img/posts/2026-04-05-cara-menjadi-hantu-di-instagram/Screenshot_20260405-120315_Instagram~2.webp)
 
 3. Anda sekarang bisa mengakses semua fitur ghost mode.
 

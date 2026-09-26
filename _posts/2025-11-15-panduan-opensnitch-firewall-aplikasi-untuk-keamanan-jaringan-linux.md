@@ -46,40 +46,40 @@ Sistem dikonfigurasi dengan arsitektur monitoring komprehensif yang meliputi:
 
 Pada pengujian pertama, LibreWolf browser diizinkan mengakses jaringan. Proses deteksi OpenSnitch berjalan optimal dengan munculnya popup notifikasi yang menampilkan detail koneksi. 
 
-![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-popup.png)
+![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-popup.webp)
 
 Ketika pengguna memilih opsi **"Allow"**, sistem menghasilkan aturan persisten yang mengizinkan koneksi outward LibreWolf.
 
 **Hasil**: 
 
-![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-test.png)
+![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-test.webp)
 
 - Status Koneksi: **BERHASIL**
 - Browser dapat mengakses internet normal
 - Aturan firewall tersimpan dalam database OpenSnitch
-  ![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-action.png)
+  ![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/librewolf-action.webp)
 
 ### 3.2 Skenario Testing: Chromium Browser
 
 Kontras dengan skenario sebelumnya, Chromium sengaja dibatasi akses jaringannya.
 
-![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-popup.png)
+![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-popup.webp)
 
 Popup OpenSnitch muncul identik, namun kali ini administrator memilih opsi **"Deny"**. Sistem secara otomatis memblokir koneksi dan menyimpan aturan pemblokiran.
 
 **Hasil**:
 
-![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-test.png)
+![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-test.webp)
 
 - Status Koneksi: **TERBLOKIR**
 - Browser gagal mengakses internet
 - Halaman error "No internet" ditampilkan
 - Aturan deny tersimpan dalam konfigurasi
-  ![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-action.png)
+  ![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/chromium-action.webp)
 
 ### 3.3 Konfigurasi Default Rules
 
-![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/opensnitch-preferences.png)
+![alt text](../assets/img/posts/2025-11-15-panduan-opensnitch-firewall-aplikasi-untuk-keamanan-jaringan-linux/opensnitch-preferences.webp)
 
 Melalui antarmuka preferences, administrator memiliki kemampuan untuk:
 

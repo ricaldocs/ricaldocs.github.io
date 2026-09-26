@@ -22,7 +22,7 @@ AMI mendukung berbagai sistem operasi, termasuk distribusi Linux (seperti Amazon
 ### 1. Persiapan Instance Sumber
 Sebelum membuat AMI, pengguna harus mempersiapkan sebuah instance EC2 sebagai sumber. instance ini dikonfigurasi sesuai dengan kebutuhan, seperti menginstal perangkat lunak, mengatur konfigurasi, dan memastikan layanan yang diperlukan (seperti web server) telah berjalan dengan benar (Lihat: [Security Group dalam Cloud Computing](https://docs.ricalnet.my.id/posts/security-group-dalam-cloud-computing/)).
 
-![Persiapan Instance EC2](../assets/img/posts/cloud/amazon-machine-image/web-server.png)
+![Persiapan Instance EC2](../assets/img/posts/cloud/amazon-machine-image/web-server.webp)
 _Persiapan Instance EC2_
 
 ### 2. Membuat Image
@@ -30,7 +30,7 @@ Setelah instance sumber siap, pengguna dapat membuat AMI baru melalui konsol man
 - Klik kanan pada instance yang aktif di dalam konsol EC2.
 - Pilih opsi **Image and templates** > **Create image**.
 
-![Membuat Image dari Instance](../assets/img/posts/cloud/amazon-machine-image/create-image.png)
+![Membuat Image dari Instance](../assets/img/posts/cloud/amazon-machine-image/create-image.webp)
 _Membuat Image dari Instance_
 
 ### 3. Konfigurasi AMI
@@ -38,28 +38,28 @@ Pada langkah ini, pengguna diminta untuk mengisi detail AMI, seperti:
 - **Nama Image**: Nama yang deskriptif dan unik untuk identifikasi.
 - **Deskripsi Image** (opsional): Penjelasan mengenai tujuan atau konfigurasi AMI.
 
-![Konfigurasi Nama AMI](../assets/img/posts/cloud/amazon-machine-image/image-name.png)
+![Konfigurasi Nama AMI](../assets/img/posts/cloud/amazon-machine-image/image-name.webp)
 _Konfigurasi Nama AMI_
 
 ### 4. Ketersediaan AMI
 Proses pembuatan AMI akan memerlukan waktu beberapa menit. Status AMI dapat dipantau di konsol AWS hingga berubah menjadi **`available`**.
 
-![Status AMI Tersedia](../assets/img/posts/cloud/amazon-machine-image/available-status.png)
+![Status AMI Tersedia](../assets/img/posts/cloud/amazon-machine-image/available-status.webp)
 _Status AMI Tersedia_
 
 ## Meluncurkan Instance dari AMI
 
 Setelah status AMI tersedia (available), pengguna dapat meluncurkan instance EC2 baru menggunakan AMI tersebut. Proses ini memungkinkan replikasi lingkungan komputasi yang konsisten dan identik dengan instance sumber dalam beberapa klik.
 
-![Meluncurkan Instance dari AMI](../assets/img/posts/cloud/amazon-machine-image/launch-ami.png)
+![Meluncurkan Instance dari AMI](../assets/img/posts/cloud/amazon-machine-image/launch-ami.webp)
 _Meluncurkan Instance dari AMI_
 
 Sebagai contoh, sebuah instance baru yang diluncurkan dari AMI yang telah berisi web server yang telah dikonfigurasi akan langsung dapat melayani traffic web tanpa perlu instalasi atau konfigurasi ulang. Gambar di bawah menunjukkan dua instance yang berjalan, di mana instance kedua merupakan replika dari AMI yang dibuat.
 
-![Dua Instance Berjalan](../assets/img/posts/cloud/amazon-machine-image/instances.png)
+![Dua Instance Berjalan](../assets/img/posts/cloud/amazon-machine-image/instances.webp)
 _Dua Instance Berjalan_
 
-![Web Server pada Instance Baru](../assets/img/posts/cloud/amazon-machine-image/ami-web-server.png)
+![Web Server pada Instance Baru](../assets/img/posts/cloud/amazon-machine-image/ami-web-server.webp)
 _Web Server pada Instance Baru_
 
 ## Manfaat dan Penggunaan

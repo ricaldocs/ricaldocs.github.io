@@ -56,7 +56,7 @@ Merepresentasikan Nextcloud sebagai klien terpercaya untuk mengatur kebijakan ak
 
 1. Login ke dashboard Authentik sebagai admin
 2. Navigasi: Applications → New Application
-   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/1.png)
+   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/1.webp)
 
 3. Isi konfigurasi aplikasi:
 
@@ -81,12 +81,12 @@ OIDC adalah lapisan autentikasi di atas OAuth 2.0 dengan keunggulan:
 ### Konfigurasi Provider
 
 1. Di halaman aplikasi, bagian Provider:
-   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/2.png)
+   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/2.webp)
 
    - Provider Type: `OAuth2/OIDC Provider`
 
 2. Isi form provider:
-   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/3.png)
+   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/3.webp)
 
    | Field              | Value                                             | Keterangan                  |
    | ------------------ | ------------------------------------------------- | --------------------------- |
@@ -103,7 +103,7 @@ OIDC adalah lapisan autentikasi di atas OAuth 2.0 dengan keunggulan:
 
 Redirect URIs berfungsi sebagai Endpoint callback di Nextcloud untuk menerima response autentikasi.
 
-![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/4.png)
+![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/4.webp)
 
 | URI                                                           | Keterangan              |
 | ------------------------------------------------------------- | ----------------------- |
@@ -121,7 +121,7 @@ Redirect URIs berfungsi sebagai Endpoint callback di Nextcloud untuk menerima re
 
 Subject Mode:
 
-![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/5.png)
+![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/5.webp)
 
 | Mode        | Kelebihan                      | Kekurangan                   |
 | ----------- | ------------------------------ | ---------------------------- |
@@ -182,7 +182,7 @@ exit
 
 1. Login admin ke Nextcloud
 2. Navigasi: Settings → Administration settings → OpenID Connect
-   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/6.png)
+   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/6.webp)
 
 3. Klik Add provider
 
@@ -212,7 +212,7 @@ Pada pengaturan default, Nextcloud memakai nilai `sub` (UUID dari Authentik) seb
 > Backup database sebelum mengubah User Unique ID. Perubahan bersifat global dan mempengaruhi semua pengguna. Lakukan di luar jam operasional.
 {: .prompt-warning}
 
-![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/7.png)
+![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/7.webp)
 
 ### Attribute Mapping (Opsional)
 
@@ -284,7 +284,7 @@ Tambahkan di array `$CONFIG`:
 
 2. Logout dari Nextcloud
 3. Di halaman login, klik Login with SSO
-   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/8.png)
+   ![alt text](../assets/img/posts/2026-07-31-panduan-integrasi-nextcloud-dengan-authentik-via-oidc/8.webp)
 
 4. Login di Authentik (selesaikan 2FA jika ada)
 5. Verifikasi data profil di Nextcloud
@@ -316,4 +316,4 @@ Tambahkan di array `$CONFIG`:
 | Admin        | Manajemen terpusat, provisioning otomatis                   |
 | Skalabilitas | Siap integrasi dengan aplikasi lain (GitLab, Grafana, Jira) |
 
-Dengan fondasi ini, Anda memiliki infrastruktur identitas yang siap menghadapi tantangan keamanan dan skala di masa depan. 
+Dengan fondasi ini, Anda memiliki infrastruktur identitas yang siap menghadapi tantangan keamanan dan skala di masa depan.

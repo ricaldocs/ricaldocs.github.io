@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-08-21
 pin: true
 image:
-  path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.jpg
+  path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.webp
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
@@ -210,7 +210,7 @@ sudo apt install -y torsocks
 torsocks curl http://xxxxxxxxxxxxxxxx.onion
 ```
 1. Dari perangkat lain di jaringan berbeda (bukan server yang sama), akses alamat `.onion` melalui Tor Browser.
-    ![NoCOMINT](../assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/nocomint.png)
+    ![NoCOMINT](../assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/nocomint.webp)
     _NoCOMINT by Ricalnet_
 
 2. Periksa log akses aplikasi web untuk memastikan request masuk melalui localhost (127.0.0.1), bukan IP eksternal.

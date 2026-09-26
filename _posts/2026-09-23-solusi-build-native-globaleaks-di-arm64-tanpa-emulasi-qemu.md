@@ -152,7 +152,7 @@ Dua jalur akses tersedia:
 > Akses `https://localhost:4443` menggunakan self-signed certificate. Browser akan menampilkan peringatan — terima untuk melanjutkan ke wizard.
 {: .prompt-warning}
 
-![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-44-33.png>)
+![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-44-33.webp>)
 
 ## Konfigurasi Awal (Setup Wizard)
 
@@ -166,19 +166,19 @@ Project name: GLOBALEAKS
 
 Buat kredensial admin. Gunakan password kuat (minimal 16 karakter, campuran huruf, angka, simbol). Akun ini memiliki kontrol penuh atas platform.
 
-![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-46-20.png>)
+![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-46-20.webp>)
 
 ### 3. Akun Recipient (Opsional)
 
 Recipient adalah penerima laporan whistleblowing. Dapat dikonfigurasi nanti melalui panel admin.
 
-![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-48-28.png>)
+![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-48-28.webp>)
 
 ### 4. Persetujuan
 
 Centang "I have read and agree" terhadap terms of service.
 
-![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-49-18.png>)
+![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 16-49-18.webp>)
 
 Klik Proceed.
 
@@ -203,7 +203,7 @@ http://abcdefghijkl1234.onion/login
 3. Pilih metode certificate:
    - Manual configuration: upload sertifikat X.509 dan private key Anda sendiri
    - Automatic configuration: GlobaLeaks akan request dan renew certificate
-     ![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 17-39-12.png>)
+     ![alt text](<../assets/img/posts/2026-09-23-solusi-build-native-globaleaks-di-arm64-tanpa-emulasi-qemu/Screenshot From 2026-09-23 17-39-12.webp>)
 
 Let's Encrypt memerlukan port 80 dan 443 dapat diakses dari internet publik untuk validasi HTTP-01. Jika server berada di belakang NAT atau firewall ketat, gunakan manual certificate dengan validasi DNS-01.
 

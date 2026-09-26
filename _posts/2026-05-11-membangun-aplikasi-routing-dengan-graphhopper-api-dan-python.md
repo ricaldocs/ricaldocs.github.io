@@ -31,7 +31,7 @@ Untuk mengotentikasi permintaan ke server GraphHopper, Anda memerlukan sebuah AP
 4.  Setelah berhasil login, navigasikan ke bagian **API Keys** pada halaman dasbor.
 5.  Klik **Add API Key**, masukkan deskripsi opsional, lalu konfirmasi dengan **Add Key**.
 6.  **Salin API Key** yang dihasilkan dan simpan di tempat yang aman. Kunci ini akan digunakan di seluruh tahapan lab.
-    ![alt text](<../assets/img/posts/2026-05-11-membangun-aplikasi-routing-dengan-graphhopper-api-dan-python/Screenshot From 2026-05-10 20-23-23.png>)
+    ![alt text](<../assets/img/posts/2026-05-11-membangun-aplikasi-routing-dengan-graphhopper-api-dan-python/Screenshot From 2026-05-10 20-23-23.webp>)
 
 ## 3. Implementasi Modul Geocoding
 

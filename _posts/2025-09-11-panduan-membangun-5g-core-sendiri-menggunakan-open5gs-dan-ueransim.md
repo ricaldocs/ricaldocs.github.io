@@ -6,7 +6,7 @@ tags: [telecommunications, open5gs]
 author: rical
 last_modified_at: 2026-08-13
 image:
-  path: /assets/img/posts/open5gs/thumbnail.jpg
+  path: /assets/img/posts/open5gs/thumbnail.webp
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
@@ -14,7 +14,7 @@ image:
 
 Open5GS adalah implementasi open source dari inti jaringan (core network) 4G EPC dan 5G NGC. Software ini terdiri dari komponen-komponen yang mengimplementasikan fungsi inti untuk 4G, 5G NSA, dan 5G SA.
 
-![Diagram Arsitektur Open5GS](../assets/img/posts/open5gs/open5gs-cups.jpg)
+![Diagram Arsitektur Open5GS](../assets/img/posts/open5gs/open5gs-cups.webp)
 _Open5GS CUPS. Sumber: Introduction to Open5GS_
 
 ### Core 4G / 5G NSA
@@ -40,7 +40,7 @@ Setiap komponen punya file konfigurasi sendiri yang berisi alamat IP lokal dan a
 
 Core 5G SA Open5GS mengimplementasikan arsitektur 3GPP:
 
-![The 5GS Architecture](../assets/img/posts/open5gs/5g-architecture.png)
+![The 5GS Architecture](../assets/img/posts/open5gs/5g-architecture.webp)
 *Arsitektur 5GS*
 
 Komponen core 5G SA:
@@ -399,7 +399,7 @@ Langkah 3: Tambahkan subscriber via WebUI
    - AMF: `8000`
    - Slice (SST): `1`
 
-![Antarmuka Edit Subscriber pada Open5GS WebUI](../assets/img/posts/open5gs/edit-subscriber.png)
+![Antarmuka Edit Subscriber pada Open5GS WebUI](../assets/img/posts/open5gs/edit-subscriber.webp)
 
 > Open5GS menggunakan database MongoDB untuk menyimpan data pelanggan. WebUI adalah cara termudah untuk memasukkan data. AMF/UDM akan membaca data ini dari MongoDB saat autentikasi.
 {: .prompt-info}
@@ -444,8 +444,8 @@ Verifikasi:
 - Terminal menunjukkan proses inisialisasi, attachment UE, dan PDU session
 - Cek WebUI untuk status subscriber aktif
 
-![alt text](../assets/img/posts/open5gs/start-5g.png)
-![alt text](../assets/img/posts/open5gs/ping.png)
+![alt text](../assets/img/posts/open5gs/start-5g.webp)
+![alt text](../assets/img/posts/open5gs/ping.webp)
 
 > Core (Open5GS) harus berjalan dulu sebelum gNB mencoba koneksi N2. gNB harus berjalan sebelum UE mencoba attach. Jika urutan salah, koneksi gagal.
 {: .prompt-tip}

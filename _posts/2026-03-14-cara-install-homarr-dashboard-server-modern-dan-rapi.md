@@ -186,7 +186,7 @@ Buka browser dan akses:
 http://localhost:7575
 ```
 
-![Homarr Dashboard](../assets/img/posts/2026-03-14-cara-install-homarr-di-docker-dashboard-server-modern-dan-rapi/dashboard.jpg)
+![Homarr Dashboard](../assets/img/posts/2026-03-14-cara-install-homarr-di-docker-dashboard-server-modern-dan-rapi/dashboard.webp)
 
 ## 6. Monitoring dan Maintenance
 

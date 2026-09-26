@@ -13,12 +13,12 @@ Android sebagai sistem operasi mobile berbasis AOSP (Android Open Source Project
 ### 1. Manajemen Izin Granular
 - **Kontrol Akurasi Lokasi** (Android 12+):  
   Batasi aplikasi ke akses lokasi perkiraan melalui izin `ACCESS_COARSE_LOCATION` sebagai alternatif `ACCESS_FINE_LOCATION`.
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/izin-lokasi.jpg)
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/permission-control.jpg)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/izin-lokasi.webp)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/permission-control.webp)
 
 - **Photo Picker Terisolasi** (Android 11+):  
   Gunakan intent sistem untuk membatasi akses penyimpanan hanya pada file yang dipilih pengguna.
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/permission.jpg)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/permission.webp)
 
 - **Pencabutan Izin Sistem via ADB**:  
   ```bash
@@ -30,13 +30,13 @@ Android sebagai sistem operasi mobile berbasis AOSP (Android Open Source Project
 ### 2. Kontrol Telemetri dan Layanan
 - **Deaktivasi Google Advertising ID**:  
   Pengaturan → Google → Iklan → Nonaktifkan Akses ke ID Iklan
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/personalization.png)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/personalization.webp)
 
 - **Manajemen Riwayat Aktivitas**:  
   - Nonaktifkan pelacakan aktivitas web dan aplikasi
   - Konfigurasi penghapusan data otomatis
   - Matikan koleksi data diagnostik
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/history-settings.png)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/history-settings.webp)
 
 ### 3. Isolasi Data dengan Profil
 - **Profil Kerja**:  
@@ -44,7 +44,7 @@ Android sebagai sistem operasi mobile berbasis AOSP (Android Open Source Project
 
 - **Profil Pengguna Ganda**:  
   Partisi data terpisah melalui Pengaturan → Sistem → Beberapa Pengguna
-  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/users.jpg)
+  ![](/assets/img/posts/2025-06-27-praktik-terbaik-menjaga-privasi-android/users.webp)
 
 ### 4. Hardening Jaringan
 - **DNS Terenkripsi**:  

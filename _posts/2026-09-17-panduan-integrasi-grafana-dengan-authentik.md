@@ -17,7 +17,7 @@ Integrasi Grafana dengan Authentik memungkinkan autentikasi terpusat menggunakan
 
 Navigasi ke Applications > Applications > New Application. Configure the Application:
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-05-37.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-05-37.webp>)
 
 | Parameter          | Nilai     | Keterangan                                                                                                                          |
 | ------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,11 +29,11 @@ Navigasi ke Applications > Applications > New Application. Configure the Applica
 
 Pilih OAuth/OpenID Provider.
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-06-32.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-06-32.webp>)
 
 ### 1.3 Konfigurasi OAuth2 Provider
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-10-13.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-10-13.webp>)
 
 | Parameter          | Nilai                                                                     | Keterangan                                                                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -43,7 +43,7 @@ Pilih OAuth/OpenID Provider.
 | Client ID          | Auto-generated                                                            | Di-generate otomatis oleh Authentik. Catat untuk konfigurasi Grafana.                                                                                        |
 | Client Secret      | Auto-generated                                                            | Di-generate otomatis oleh Authentik. Catat untuk konfigurasi Grafana.                                                                                        |
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-10-56.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-10-56.webp>)
 
 | Parameter            | Nilai                                                                           | Keterangan                                                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ Pilih OAuth/OpenID Provider.
 
 Pada Selected scopes, tambahkan `authentik default OAuth Mapping: Application Entitlements`. Scope ini memungkinkan Grafana menerima informasi entitlement dari Authentik, yang nantinya dipetakan ke role Grafana.
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-12-25.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-12-25.webp>)
 
 Klik Create Application.
 
@@ -67,11 +67,11 @@ Buat tiga entitlement berikut:
 - `Grafana Editors`
 - `Grafana Viewers`
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-16-21.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-16 23-16-21.webp>)
 
 Bind entitlement ke group atau user yang sesuai.
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-17 00-10-15.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-17 00-10-15.webp>)
 
 Entitlement berfungsi sebagai abstraksi role. Pengguna yang tergabung dalam group tertentu akan otomatis mendapatkan entitlement, yang kemudian dikirim ke Grafana melalui token OIDC.
 
@@ -114,7 +114,7 @@ Perintah ini me-restart stack monitoring dengan konfigurasi baru.
 
 Buka halaman login Grafana. Tombol Sign in with SSO akan muncul.
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-17 00-16-29.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-integrasi-grafana-dengan-authentik/Screenshot From 2026-09-17 00-16-29.webp>)
 
 ## Kesimpulan
 

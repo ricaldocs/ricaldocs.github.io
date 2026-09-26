@@ -81,7 +81,7 @@ Setelah file dashboard Anda siap, langkah selanjutnya adalah menghostingnya. Bag
 5. Jangan centang opsi "Add a README file" atau lainnya. Kita akan menginisialisasi repository dari lokal.
 6. Klik "Create repository".
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image.webp)
 
 > GitHub memiliki dua jenis situs Pages: **User Site** dan **Project Site**. Dengan menamai repositori `username.github.io`, Anda membuat User Site yang akan menjadi halaman utama Anda di `https://username.github.io`. Anda dapat memiliki banyak Project Site (dengan nama repo lain), tetapi hanya satu User Site per akun.
 {: .prompt-info}
@@ -90,15 +90,15 @@ Setelah file dashboard Anda siap, langkah selanjutnya adalah menghostingnya. Bag
 
 Setelah repository dibuat, GitHub akan menampilkan serangkaian perintah. Kita akan menggunakan Git Bash untuk menjalankannya.
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-1.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-1.webp)
 
 Buka terminal di VSCode (Terminal > New Terminal) atau buka Git Bash di folder proyek Anda.
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-2.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-2.webp)
 
 Pastikan terminal Anda sudah diatur untuk menggunakan Git Bash (pilih dari dropdown di sebelah kanan jika menggunakan VSCode).
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-3.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-3.webp)
 
 > Pastikan di bagian kanan sudah set git bash. Pada contoh ini menggunakan zsh karena terminal Linux.
 {: .prompt-info}
@@ -125,13 +125,13 @@ git push -u origin main
 
 Ganti `username` dengan nama akun GitHub Anda.
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-4.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-4.webp)
 
 ### 3. Verifikasi Web
 
 Setelah proses push selesai, tunggu sekitar 1-2 menit hingga GitHub Pages memproses dan mendeploy situs Anda. Buka browser Anda dan kunjungi URL: `https://username.github.io`.
 
-![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-5.png)
+![alt text](../assets/img/posts/2026-08-08-panduan-membuat-dashboard-iot-statis-dan-hosting-di-github-pages-untuk-pemula/image-5.webp)
 
 GitHub Pages memiliki proses build dan deployment otomatis di balik layar:
 

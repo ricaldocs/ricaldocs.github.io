@@ -19,17 +19,17 @@ Artikel ini memberikan panduan langkah demi langkah untuk meluncurkan sebuah ins
 
 Langkah pertama adalah membuka konsol manajemen AWS dan menavigasi ke layanan EC2. Dari dashboard EC2, pilih opsi **"Launch Instance"** untuk memulai proses pembuatan instance virtual machine baru.
 
-![Antarmuka Layanan EC2](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/ec2.png)
+![Antarmuka Layanan EC2](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/ec2.webp)
 *Gambar 1: Dashboard layanan Amazon EC2 di Konsol Manajemen AWS.*
 
-![Tombol Launch Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/launch-instance.png)
+![Tombol Launch Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/launch-instance.webp)
 *Gambar 2: Tombol 'Launch Instance' untuk memulai wizard pembuatan instance baru.*
 
 ### 2. Konfigurasi Dasar: Penamaan dan Sistem Operasi
 
 Pada langkah ini, berikan **Name and Tags** yang deskriptif untuk isntance guna memudahkan identifikasi dan manajemen. Selanjutnya, pilih **Amazon Machine Image (AMI)** yang diinginkan. Untuk panduan ini, AMI berbasis **Ubuntu Server** digunakan. Pemilihan AMI menentukan sistem operasi dan konfigurasi perangkat lunak awal untuk instance Anda.
 
-![Konfigurasi Nama dan OS](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/setup-name-and-os.png)
+![Konfigurasi Nama dan OS](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/setup-name-and-os.webp)
 *Gambar 3: Langkah konfigurasi untuk memberikan nama dan memilih Amazon Machine Image (AMI).*
 
 ### 3. Pembuatan dan Pengunduhan Key Pair
@@ -39,13 +39,13 @@ Akses aman ke instance EC2 yang terpapar internet publik bergantung pada **key p
 - `.pem`: Format yang digunakan dengan [klien SSH](https://docs.ricalnet.my.id/posts/panduan-lengkap-openssh-server-linux-untuk-remote-akses-aman/) pada sistem operasi Linux dan macOS.
 - `.ppk`: Format yang diperlukan oleh klien SSH seperti PuTTY pada sistem operasi Windows.
 
-![Membuat Key Pair Baru](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/create-new-key-pair.png)
+![Membuat Key Pair Baru](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/create-new-key-pair.webp)
 *Gambar 4: Menu untuk membuat atau memilih key pair yang akan digunakan untuk autentikasi.*
 
-![Pemberian Nama Key Pair](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/keypair-name.png)
+![Pemberian Nama Key Pair](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/keypair-name.webp)
 *Gambar 5: Pemberian nama dan pemilihan format file untuk key pair.*
 
-![Pengunduhan Key Pair](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/save-key-pair.png)
+![Pengunduhan Key Pair](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/save-key-pair.webp)
 *Gambar 6: Penting untuk mengunduh dan menyimpan file key pair secara aman setelah dibuat.*
 
 ### 4. Konfigurasi Jaringan (Network Settings)
@@ -55,14 +55,14 @@ Konfigurasi jaringan menentukan bagaimana instance berkomunikasi. Pastikan penga
 - **Subnet**: Pilih subnet untuk menempatkan instance.
 - **Firewall (Security Groups)**: Buat atau pilih security group yang mengizinkan lalu lintas. Untuk contoh server web ini, buka port **80 (HTTP)** untuk mengizinkan akses publik ke server web. Port **22 (SSH)** juga harus dibuka untuk mengelola server dari jarak jauh.
 
-![Pengaturan Jaringan](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/network-settings.png)
+![Pengaturan Jaringan](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/network-settings.webp)
 *Gambar 7: Konfigurasi pengaturan jaringan dan security group untuk instance.*
 
 ### 5. Konfigurasi Penyimpanan (Storage)
 
 AWS EC2 menyediakan penyimpanan elastis menggunakan **Amazon Elastic Block Store (EBS)**. Untuk kebanyakan kasus penggunaan, volume root default (biasanya 8 GiB tipe gp2/gp3) sudah memadai. Ukuran dan tipe volume dapat disesuaikan berdasarkan kebutuhan performa dan kapasitas aplikasi.
 
-![Konfigurasi Storage](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/storage-volumes.png)
+![Konfigurasi Storage](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/storage-volumes.webp)
 *Gambar 8: Konfigurasi volume penyimpanan EBS untuk instance.*
 
 ### 6. Konfigurasi User Data untuk Bootstrapping
@@ -96,38 +96,38 @@ echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
 systemctl restart nginx
 ```
 
-![Bidang Input User Data](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/user-data.png)
+![Bidang Input User Data](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/user-data.webp)
 *Gambar 9: Bidang input User Data pada bagian Advanced details untuk memasukkan skrip bootstrapping.*
 
 ### 7. Ringkasan dan Peluncuran
 
 Tinjau semua konfigurasi yang telah dipilih pada halaman ringkasan. Jika semua sudah benar, pilih **"Launch Instance"** untuk menerapkan dan meluncurkan instance virtual server.
 
-![Ringkasan Konfigurasi](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/summary.png)
+![Ringkasan Konfigurasi](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/summary.webp)
 *Gambar 10: Halaman ringkasan konfigurasi sebelum akhirnya meluncurkan instance.*
 
 ### 8. Memantau Status Instance
 
 Setelah diluncurkan, instance akan muncul di konsol EC2 dengan status **`pending`** sebelum berubah menjadi **`running`**. Tunggu hingga **Status Check** menunjukkan **"2/2 checks passed"**, yang menandakan bahwa instance telah menyelesaikan booting awal dan telah menjalankan skrip User Data.
 
-![Status Check Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/status-check.png)
+![Status Check Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/status-check.webp)
 *Gambar 11: Status instance dan status check di konsol EC2.*
 
 ### 9. Mengakses Server Web
 
 Setelah instance berjalan, salin **Alamat IP Publik**-nya dari konsol. Tempel alamat IP tersebut ke bilah alamat peramban web. Karena skrip User Data telah mengonfigurasi Nginx, peramban akan menampilkan halaman "Hello World" yang disertai hostname instance, mengonfirmasi bahwa otomatisasi berhasil.
 
-![Alamat IP Publik](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/public-ip-address.png)
+![Alamat IP Publik](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/public-ip-address.webp)
 *Gambar 12: Informasi alamat IP publik dari instance yang berjalan.*
 
-![Halaman Web Hello World](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/hello-world.png)
+![Halaman Web Hello World](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/hello-world.webp)
 *Gambar 13: Halaman web default yang dihasilkan oleh skrip User Data, yang dapat diakses via HTTP.*
 
 ### 10. Terminasi Instance (Pembersihan)
 
 Untuk menghindari biaya yang tidak direncanakan, **terminate** instance setelah selesai digunakan. Tindakan ini akan mematikan instance dan melepaskan semua sumber daya komputasi serta penyimpanan elastis yang terkait (kecuali volume EBS yang dikonfigurasi untuk dipertahankan).
 
-![Terminasi Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/terminate-instance.png)
+![Terminasi Instance](../assets/img/posts/cloud/membuat-instance-amazon-ec2-dengan-user-data-untuk-mengotomatisasi-penyiapan-server/terminate-instance.webp)
 *Gambar 14: Menu untuk menghentikan atau mengakhiri (terminate) instance.*
 
 ## Kesimpulan

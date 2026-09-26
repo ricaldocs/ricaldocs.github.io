@@ -28,7 +28,7 @@ Langkah:
 1. Buka Wazuh Dashboard → menu Agents management → Summary → Deploy new agent.
 2. Pilih sistem operasi target (Debian/Ubuntu, RHEL/CentOS, Windows, macOS).
 3. Isi konfigurasi yang diminta:
-   ![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 10-10-55.png>)
+   ![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 10-10-55.webp>)
    - Wazuh Server Address: `127.0.0.1` (atau IP manager Anda)
    - Agent Name: `my-wazuh-agent` (contoh: `ricalnet-os`)
    - Agent Group: `default` (atau grup kustom)
@@ -485,23 +485,23 @@ Filter query untuk SSH gagal:
 agent.name: "ricalnet-os" AND rule.groups: "authentication_failed"
 ```
 
-![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-16-33.png>)
+![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-16-33.webp>)
 
-![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 10-28-11.png>)
+![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 10-28-11.webp>)
 
 Filter query untuk test FIM:
 ```
 agent.name: "ricalnet-os" AND rule.groups: "syscheck"
 ```
 
-![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-17-29.png>)
+![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-17-29.webp>)
 
 Filter query untuk test sudo:
 ```
 agent.name: "ricalnet-os" AND data.command: "/usr/bin/ls /root"
 ```
 
-![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-17-37.png>)
+![alt text](<../assets/img/posts/2026-09-20-konfigurasi-wazuh-agent-untuk-keamanan-host-fim-rootcheck-dan-sca/Screenshot From 2026-09-20 11-17-37.webp>)
 
 Lalu ganti dengan filter berikut untuk melihat jenis event lain:
 

@@ -9,13 +9,13 @@ last_modified_at: 2026-06-01
 
 ## Fondasi Tak Terlihat Dunia Konektivitas Modern
 
-![alt text](../assets/img/posts/2025-10-31-gelombang-radio-dan-teknologi-radio/radio-wave.jpg)
+![alt text](../assets/img/posts/2025-10-31-gelombang-radio-dan-teknologi-radio/radio-wave.webp)
 
 Dunia telah didominasi oleh serat optik dan satelit, banyak yang menganggap teknologi radio sebagai relik masa lalu. Namun, kenyataannya justru sebaliknya. **Gelombang radio** dan **teknologi radio** yang memanfaatkannya adalah tulang punggung tak terlihat dari peradaban digital kita. Dari mendengarkan musik di mobil hingga streaming video melalui Wi-Fi, semuanya dimungkinkan oleh prinsip-prinsip fundamental yang telah ada selama lebih dari satu abad. Artikel ini akan mengupas secara mendalam tentang apa itu gelombang radio, bagaimana teknologi radio bekerja, dan mengapa ia tetap menjadi pilar kritis di masa kini dan masa depan.
 
 ### Bagian 1: Sang Pembawa Pesan Tak Kasat Mata
 
-![alt text](../assets/img/posts/2025-10-31-gelombang-radio-dan-teknologi-radio/radiowave-jpg.jpeg)
+![alt text](../assets/img/posts/2025-10-31-gelombang-radio-dan-teknologi-radio/radiowave-jpg.webp)
 _Image source: NASA Science_
 
 **Gelombang radio** merupakan salah satu bentuk **radiasi elektromagnetik**, yang bergerak pada kecepatan cahaya. Mereka berada pada spektrum frekuensi yang lebih rendah daripada cahaya tampak, sehingga tidak dapat dilihat oleh mata manusia, namun memiliki kemampuan untuk menembus ruang hampa udara, bangunan, dan awan.

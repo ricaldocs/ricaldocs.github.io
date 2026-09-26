@@ -9,7 +9,7 @@ last_modified_at: 2026-06-01
 
 Dokumentasi ini menunjukkan konfigurasi VPN menggunakan tiga *router* dalam Cisco Packet Tracer. Ini adalah contoh lab yang menunjukkan cara mengonfigurasi VPN *tunnel*.
 
-![VPN Configuration in Cisco Packet Tracer](/assets/img/posts/2024-12-24-konfigurasi-vpn-menggunakan-router-di-cisco-packet-tracer/vpn-configuration.png)
+![VPN Configuration in Cisco Packet Tracer](/assets/img/posts/2024-12-24-konfigurasi-vpn-menggunakan-router-di-cisco-packet-tracer/vpn-configuration.webp)
 
 ### Jaringan yang Digunakan
 > Total ada empat jaringan yang digunakan dalam konfigurasi ini:

@@ -118,7 +118,7 @@ Setelah VNC Viewer terbuka:
 2. Centang **Keep password for reconnect** jika diinginkan
 3. Klik **OK**
 
-![Tampilan Login VNC](assets/img/posts/2026-01-18-konfigurasi-vnc-dengan-ssh-tunnel-pada-raspberry-pi/contoh-tampilan-login-vnc.png)
+![Tampilan Login VNC](../assets/img/posts/2026-01-18-konfigurasi-vnc-dengan-ssh-tunnel-pada-raspberry-pi/contoh-tampilan-login-vnc.webp)
 _Contoh tampilan login VNC_
 
 ## 3. Troubleshooting

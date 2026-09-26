@@ -38,7 +38,7 @@ Alamat `192.0.2.1` termasuk dalam blok TEST-NET-1 sebagaimana ditetapkan dalam R
 2. Navigasikan ke menu **Domains** → **Overview** → **DNS** → **Records**.
 3. Klik tombol **Add record**.
 4. Pilih tipe A, isi kolom **Name** dengan `@` untuk root domain, dan kolom **IPv4 address** dengan `192.0.2.1`.
-   ![Tangkapan layar penambahan DNS record](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-10-41.png>)
+   ![Tangkapan layar penambahan DNS record](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-10-41.webp>)
 
 5. Verifikasi bahwa status proxy menampilkan ikon awan oranye (Proxied). Klik Save.
 6. Ulangi langkah yang sama untuk nama `www`.
@@ -53,10 +53,10 @@ Setelah DNS record berhasil dikonfigurasi, langkah selanjutnya adalah membuat at
 ### Konfigurasi Menggunakan Wildcard Pattern
 
 1. Pada dasbor Cloudflare, tetap berada di domain yang sama, navigasikan ke menu **Rules** → **Overview** → **Create Rule** → pilih **Redirect Rule** dengan tipe **Single Redirect**.
-   ![Tangkapan layar pembuatan Single Redirect rule](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-28-13.png>)
+   ![Tangkapan layar pembuatan Single Redirect rule](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-28-13.webp>)
 
 2. Tetapkan nama aturan, contoh: `Redirect ke ricalnet`.
-   ![Tangkapan layar penamaan aturan redirect](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-13-07.png>)
+   ![Tangkapan layar penamaan aturan redirect](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-13-07.webp>)
 
 3. Pada seksi **When incoming requests match**, lakukan konfigurasi sebagai berikut:
    - Pilih **Wildcard pattern**.
@@ -71,7 +71,7 @@ Setelah DNS record berhasil dikonfigurasi, langkah selanjutnya adalah membuat at
    - **Target URL**: `https://sokanak.ricalnet.my.id/`
    - **Status code**: `301` (Permanent Redirect). Kode status ini mengindikasikan kepada mesin pencari bahwa pengalihan bersifat permanen, sehingga otoritas halaman akan ditransfer ke URL tujuan.
    - **Preserve query string**: Aktifkan. Fitur ini memastikan parameter query (contoh: `?utm_source=twitter`) tetap diteruskan ke URL target.
-   ![Tangkapan layar konfigurasi aksi redirect](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-13-39.png>)
+   ![Tangkapan layar konfigurasi aksi redirect](<../assets/img/posts/2026-05-19-panduan-redirect-domain-cloudflare-ke-url-eksternal-tanpa-hosting/Screenshot From 2026-05-19 20-13-39.webp>)
 
 5. Klik **Deploy** untuk menyimpan dan mengaktivasi aturan.
 

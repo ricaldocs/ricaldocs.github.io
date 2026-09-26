@@ -204,7 +204,7 @@ Contoh: `http://192.168.0.50:8080/admin`
 
 Masukkan password yang sudah Anda atur di file `.env`.
 
-![Pi-Hole Login](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/pi-hole-login.png)
+![Pi-Hole Login](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/pi-hole-login.webp)
 
 ## 6. Konfigurasi Port Forwarding DNS
 
@@ -270,7 +270,7 @@ DHCP server di router memberikan alamat IP ke perangkat client. Salah satu infor
 
 **Langkah 1:** Login ke router (biasanya `http://192.168.0.1` atau `http://192.168.1.1`)
 
-![Login Router](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/login-router.png)
+![Login Router](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/login-router.webp)
 
 **Langkah 2:** Cari menu DHCP Server (biasanya di Network → DHCP atau LAN → DHCP Server)
 
@@ -284,7 +284,7 @@ DHCP server di router memberikan alamat IP ke perangkat client. Salah satu infor
 | Primary DNS        | `192.168.0.50`                    | IP Pi-Hole → ini yang paling penting           |
 | Secondary DNS      | `192.168.0.50`                    | Isi sama agar tetap pakai Pi-Hole              |
 
-![DHCP Server Configuration](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dhcp-server.png)
+![DHCP Server Configuration](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dhcp-server.webp)
 
 **Langkah 4:** Simpan pengaturan dan reboot router (jika diperlukan)
 
@@ -292,7 +292,7 @@ DHCP server di router memberikan alamat IP ke perangkat client. Salah satu infor
 
 Setelah router reboot, periksa pengaturan jaringan di perangkat (contoh: smartphone Android):
 
-![Android Network Settings](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/android-network.jpg)
+![Android Network Settings](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/android-network.webp)
 
 Pastikan kolom DNS menampilkan alamat IP Pi-Hole (`192.168.0.50`).
 
@@ -312,7 +312,7 @@ Pi-Hole secara default sudah memiliki daftar domain yang diblokir. Namun untuk p
 
 **Langkah 2:** Buka Lists → Add a new subscribed list
 
-![Subscribed List Management](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/subscribed-list-group-management.png)
+![Subscribed List Management](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/subscribed-list-group-management.webp)
 
 **Langkah 3:** Masukkan URL blocklist (satu baris, pisahkan dengan spasi atau koma):
 
@@ -333,7 +333,7 @@ https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts https://big.ois
 
 **Langkah 5:** Jalankan Update Gravity (tombol di bagian atas halaman) untuk mengunduh dan memproses daftar baru
 
-![Update Gravity](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/update-gravity.png)
+![Update Gravity](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/update-gravity.webp)
 
 Proses ini bisa memakan waktu beberapa menit tergantung kecepatan internet dan jumlah domain.
 
@@ -343,7 +343,7 @@ Tambahkan ke Allowlist:
 
 1. Buka Domains → Masukkan domain yang ingin diizinkan
 2. Klik Add to allowed domains
-   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/domain-management.png)
+   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/domain-management.webp)
 
 4. Update Gravity
 
@@ -360,7 +360,7 @@ Admin panel Pi-Hole menyediakan dasbor yang informatif:
 - Domain yang paling sering diakses
 - Riwayat request DNS real-time
 
-![Network Overview](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/network-overview.png)
+![Network Overview](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/network-overview.webp)
 
 ### Interpretasi Query Log
 

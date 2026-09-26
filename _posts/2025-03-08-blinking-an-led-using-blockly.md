@@ -24,7 +24,7 @@ Unduh berkas berikut dan buka di Cisco Packet Tracer:
 ## Bagian 1: Memeriksa Program Blockly yang Sudah Dibangun
 Pada bagian ini, Anda akan mengakses program Cisco Packet Tracer dan memeriksa pengendalian LED menggunakan pemrograman Blockly.
 
-![Bagian 1: Memeriksa Program Blockly yang sudah Dibangun](assets/img/posts/2025-03-08-blinking-led-using-blockly/part-1.png)
+![Bagian 1: Memeriksa Program Blockly yang sudah Dibangun](assets/img/posts/2025-03-08-blinking-led-using-blockly/part-1.webp)
 
 ### Langkah 1: Memeriksa Penggunaan LED
 - Klik **LED** untuk membuka jendela konfigurasi.
@@ -47,14 +47,14 @@ Spesifikasi LED menunjukkan bahwa fungsi analogWrite dapat digunakan untuk menga
 - Pilih **analogWrite** untuk menggantikan **digitalWrite** dalam program Blockly. Pertahankan semua nilai lainnya tetap sama.
 - Sekarang, ubah nilai pada blok **analogWrite** pertama dan kedua, dan amati berbagai tingkat kecerahan LED setelah memulai ulang program. Misalnya, ubah nilai menjadi 100 dan 1023 untuk melihat perbedaan tingkat kecerahan LED.
 
-![MCU > Programming](assets/img/posts/2025-03-08-blinking-led-using-blockly/mcu-programming.png)
+![MCU > Programming](assets/img/posts/2025-03-08-blinking-led-using-blockly/mcu-programming.webp)
 
 - Klik **Stop** untuk menghentikan program.
 
 ## Bagian 2: Mengendalikan LED RGB Menggunakan Blockly
 Pada bagian ini, Anda akan menggunakan Blockly untuk mengendalikan LED RGB. LED RGB dapat menampilkan berbagai warna dengan kombinasi merah, hijau, dan biru.
 
-![Bagian 2: Mengendalikan LED RGB Menggunakan Blockly](assets/img/posts/2025-03-08-blinking-led-using-blockly/part-2.png)
+![Bagian 2: Mengendalikan LED RGB Menggunakan Blockly](assets/img/posts/2025-03-08-blinking-led-using-blockly/part-2.webp)
 
 ### Langkah 1: Menambahkan Papan MCU dan LED RGB
 Pada langkah ini, Anda akan menambahkan papan MCU lain dan LED RGB ke dalam ruang kerja.
@@ -94,8 +94,8 @@ Pada langkah ini, Anda akan memprogram LED RGB dengan memodifikasi program yang 
 
 - Dalam loop pengulangan, tambahkan blok untuk mengontrol kapan dan berapa lama setiap warna dinyalakan. Berikut adalah contoh program:
 
-![Blinking LED](assets/img/posts/2025-03-08-blinking-led-using-blockly/blockly-program.png)
+![Blinking LED](assets/img/posts/2025-03-08-blinking-led-using-blockly/blockly-program.webp)
 
 - Klik **Run**. LED seharusnya menampilkan warna MERAH, HIJAU, dan BIRU secara berurutan. Jika program tidak berjalan, periksa kembali apakah kabel terhubung dengan benar.
 
-![Blinking LED](assets/img/posts/2025-03-08-blinking-led-using-blockly/blinking-led.png)
+![Blinking LED](assets/img/posts/2025-03-08-blinking-led-using-blockly/blinking-led.webp)

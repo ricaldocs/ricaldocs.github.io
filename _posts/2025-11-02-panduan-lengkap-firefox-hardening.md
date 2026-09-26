@@ -46,9 +46,9 @@ Path: Settings → General
 - **Recommend extensions as you browse**: Nonaktifkan
 - **Recommend features as you browse**: Nonaktifkan
 
-![General Settings Tab](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-22-47.png)
+![General Settings Tab](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-22-47.webp)
 
-![General Settings Browsing](<../assets/img/posts/2025-11-02-firefox-hardening/Screenshot From 2025-11-02 19-23-33.png>)
+![General Settings Browsing](<../assets/img/posts/2025-11-02-firefox-hardening/Screenshot From 2025-11-02 19-23-33.webp>)
 
 > Pengaturan ini mencegah Firefox mengirimkan data penggunaan ke server Mozilla untuk analisis rekomendasi, mengurangi jejak digital dan koneksi eksternal yang tidak diperlukan.
 {: .prompt-info}
@@ -68,7 +68,7 @@ Path: Settings → Home
 - **Shortcuts**: Nonaktifkan  
 - **Recent Activity**: Nonaktifkan
 
-![Homepage Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-23-46.png)
+![Homepage Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-23-46.webp)
 
 > Pengurangan elemen dinamis pada homepage menurunkan kompleksitas attack surface dan membatasi kemampuan third-party untuk memantau pola browsing.
 {: .prompt-info}
@@ -92,7 +92,7 @@ Path: Settings → Search
 - **Show search suggestions**: Nonaktifkan
 - **Show recent searches**: Nonaktifkan
 
-![Search Engine Selection](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-02.png)
+![Search Engine Selection](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-02.webp)
 
 > Menonaktifkan suggestions mencegah pengiriman partial query ke server pencarian, sementara menonaktifkan recent searches dari address bar mengurangi risiko eksfiltrasi data historis.
 {: .prompt-info}
@@ -111,7 +111,7 @@ Path: Settings → Privacy & Security
 - **Strict**: Memblokir semua tracker yang terdeteksi (mungkin mempengaruhi kompatibilitas situs)
 - **Standard**: Memblokir tracker sosial media, cross-site cookies, fingerprinters (balance optimal)
 
-![Tracking Protection Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-39.png)
+![Tracking Protection Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-39.webp)
 
 > Sistem ETP Firefox menggunakan daftar pemblokiran yang dikurasi untuk mengidentifikasi dan memblokir script pelacakan, cryptocurrency miners, dan fingerprinters.
 {: .prompt-info}
@@ -129,7 +129,7 @@ Path: Settings → Privacy & Security
 - **Delete cookies and site data when Firefox is closed**: Aktifkan
 - **Manage Exceptions**: Konfigurasi untuk domain tepercaya (banking, services essential)
 
-![Privacy Preferences](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-55.png)
+![Privacy Preferences](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-55.webp)
 
 > Pendekatan ini menerapkan model "whitelist-based persistence" di mana hanya situs yang secara eksplisit diizinkan yang dapat menyimpan data persisten.
 {: .prompt-info}
@@ -149,7 +149,7 @@ Path: Settings → Privacy & Security
 > Meskipun penyimpanan password native dinonaktifkan, fitur breach monitoring tetap dipertahankan untuk memberikan alert proaktif terhadap kebocoran data.
 {: .prompt-tip}
 
-![Password Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-59.png)
+![Password Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-24-59.webp)
 
 ### 5.4 Kebijakan Pembersihan Data Historis
 
@@ -164,7 +164,7 @@ Path: Settings → Privacy & Security
 - **Remember browsing and download history**: Nonaktifkan
 - **Clear history when Firefox closes**: Aktifkan
 
-![History Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-13.png)
+![History Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-13.webp)
 
 > Firefox akan secara otomatis menghapus cache, cookies, dan data sesi saat proses browser dihentikan, menerapkan prinsip "data minimization by default".
 {: .prompt-info}
@@ -188,7 +188,7 @@ Path: Settings → Privacy & Security
 - **Block pop-up windows**: Aktifkan
 - **Warn you when websites try to install add-ons**: Aktifkan
 
-![Permissions Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-26.png)
+![Permissions Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-26.webp)
 
 > Pembatasan izin hardware mencegah eksploitasi melalui drive-by attacks yang mencoba mengakses kamera atau mikrofon tanpa persetujuan.
 {: .prompt-info}
@@ -207,7 +207,7 @@ Path: Settings → Privacy & Security
 > Meskipun data telemetri membantu pengembangan Firefox, untuk pengguna yang memprioritaskan privasi, menonaktifkan fitur ini menghilangkan potensi kebocoran data penggunaan.
 {: .prompt-info}
 
-![Data Collection Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-37.png)
+![Data Collection Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-37.webp)
 
 ### 5.7 Pembatasan Profil Iklan
 
@@ -223,7 +223,7 @@ Path: Settings → Privacy & Security
 > Pengaturan ini membatasi kemampuan advertiser untuk membangun profil pengguna berdasarkan minat dan perilaku browsing.
 {: .prompt-info}
 
-![Advertising Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-44.png)
+![Advertising Settings](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-25-44.webp)
 
 ### 5.8 Implementasi DNS over HTTPS (DoH)
 
@@ -241,7 +241,7 @@ Path: Settings → Privacy & Security
 - [LibreDNS](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#1-libredns-rekomendasi): Tidak melakukan logging, memblokir domain malicious
 - [Quad9](https://docs.ricalnet.my.id/posts/dns-list-for-security-and-privacy/#2-quad9): Memiliki reputasi kuat dalam keamanan, memblokir malware/phishing
 
-![DoH Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-26-08.png)
+![DoH Configuration](../assets/img/posts/2025-11-02-firefox-hardening/Screenshot%20From%202025-11-02%2019-26-08.webp)
 
 > DoH mengenkripsi seluruh kueri DNS, mencegah ISP dan pihak ketiga memantau atau memanipulasi traffic DNS.
 {: .prompt-info}
@@ -274,7 +274,7 @@ Path: Extensions & Themes → Find more add-ons → Search "Firefox Multi-Accoun
 - **Shopping Container**: Mengandung tracker e-commerce
 - **Temporary Containers**: Untuk situs one-time visit
     
-    ![Firefox Multi-Account Containers](<../assets/img/posts/2025-11-02-firefox-hardening/Screenshot From 2025-11-02 20-33-59.png>)
+    ![Firefox Multi-Account Containers](<../assets/img/posts/2025-11-02-firefox-hardening/Screenshot From 2025-11-02 20-33-59.webp>)
 
 **Konfigurasi Otomasi:**
 - Atur situs tertentu untuk selalu membuka di container dedicated

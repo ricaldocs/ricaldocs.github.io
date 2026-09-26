@@ -16,7 +16,7 @@ last_modified_at: 2026-06-01
 ## Latar Belakang / Skenario
 Dalam kegiatan ini, Anda akan menambahkan sebuah Home Gateway dan beberapa perangkat Internet of Things (IoT) ke jaringan rumah yang sudah ada, serta memantau perangkat-perangkat tersebut melalui Home Gateway.
 
-![Connect_Devices_to_a_Home_Gateway_and_Monitor_Your_Network](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/Connect_Devices_to_a_Home_Gateway_and_Monitor_Your_Network_pka.png)
+![Connect_Devices_to_a_Home_Gateway_and_Monitor_Your_Network](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/Connect_Devices_to_a_Home_Gateway_and_Monitor_Your_Network_pka.webp)
 
 > Kegiatan ini akan dinilai. Pastikan Anda mengubah Nama Tampilan (Display Name) sesuai petunjuk yang diberikan, atau penilaian tidak akan akurat. Klik "Periksa Hasil" (Check Results) kapan saja untuk melihat kemajuan Anda.
 {: .prompt-info}
@@ -28,7 +28,7 @@ Unduh berkas berikut dan buka di Cisco Packet Tracer:
 ## Bagian 1: Menghubungkan Home Gateway ke Jaringan
 ### Langkah 1: Menambahkan Home Gateway.
 
-![Device-Type Selection](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/end-devices.png)
+![Device-Type Selection](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/end-devices.webp)
 _Device-Type Selection_
 
 - Dalam kotak **Device-Type Selection**, klik pada **Network Devices**, kemudian pilih **Wireless Devices**.
@@ -45,7 +45,7 @@ _Device-Type Selection_
 - Dalam kotak **Device-Type Selection**, klik pada **End Devices**, kemudian pilih **Tablet**. Tambahkan **Tablet** ke ruang kerja.
 - Klik pada **Tablet PC0**, kemudian pilih tab **Config**. Ubah Display Name menjadi **Tablet**.
 
-![langkah-1.png](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-1.png)
+![langkah-1](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-1.webp)
 
 ### Langkah 2: Menghubungkan Tablet ke Jaringan Home Gateway.
 Perhatikan bahwa **Tablet** sudah terhubung ke jaringan seluler. Sinyal nirkabel berwarna biru terhubung ke **Internet** cloud di mana penyedia seluler berada.
@@ -53,16 +53,16 @@ Perhatikan bahwa **Tablet** sudah terhubung ke jaringan seluler. Sinyal nirkabel
 - Ubah SSID dari **Default** menjadi **HomeGateway**. **Tablet** akan terhubung ke jaringan Wi-Fi rumah. Mungkin diperlukan satu atau dua menit untuk pengalamatan IP berubah menjadi alamat dari jaringan 192.168.25.x. Anda dapat mengklik **Fast Forward Time** (Alt+D) untuk mempercepat proses.
 
 
-![langkah-2.png](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-2.png)
+![langkah-2](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-2.webp)
 
 - Sekarang perhatikan bahwa **Tablet** memiliki dua koneksi nirkabel: seluler dan Wi-Fi. Hal ini umum terjadi pada tablet dan smartphone yang mendukung jaringan seluler.
 
-![langkah-2-connect.png](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-2-connect.png)
+![langkah-2-connect](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/langkah-2-connect.webp)
 
 ### Langkah 3: Mengakses Home Gateway dari Tablet.
 Dari Tablet, klik tab **Desktop** > **IoT Monitor**. Perhatikan bahwa Alamat Server IoT adalah alamat IP dari **Home Gateway**, dan "admin" digunakan sebagai nama pengguna dan kata sandi. Klik **Login**.
 
-![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/iot-monitor.png)
+![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/iot-monitor.webp)
 
 Ini memverifikasi bahwa Anda dapat mengakses Home Gateway IoT Server. Perhatikan bahwa belum ada perangkat yang muncul dalam daftar **Home Gateway IoT Server - Devices**.
 
@@ -76,13 +76,13 @@ Dalam langkah ini, Anda akan menghubungkan perangkat IoT baru ke jaringan berkab
 - Klik pada perangkat **Lampu**, kemudian klik pada tab **Advanced** untuk menampilkan lebih banyak tab.
 - Klik pada **I/O Config** untuk mengubah Network Adapter menjadi **PT-IOT-NM-1CFE**.
 
-![PT-IOT-NM-1CFE](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/lamp-io-config.png)
+![PT-IOT-NM-1CFE](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/lamp-io-config.webp)
 
 - Klik pada tab **Config** dan ubah nama perangkat menjadi **Lamp**.
 - Di panel kiri, klik **FastEthernet0**, kemudian pilih tombol radio **DHCP** agar lampu menerima alamat IPv4 dari Home Gateway.
 - Klik **Connections** > **Copper Straight-Through** dan sambungkan port **FastEthernet0** dari **Lamp** ke salah satu port Ethernet yang tersedia di **Home Gateway**.
 
-![Bagian 3 - Langkah 1](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bagian3-langkah1.png)
+![Bagian 3 - Langkah 1](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bagian3-langkah1.webp)
 
 ### Langkah 2: Menambahkan Perangkat IoT ke Jaringan Nirkabel HomeGateway.
 Dalam langkah ini, Anda akan menghubungkan dua perangkat IoT baru ke jaringan nirkabel.
@@ -92,17 +92,17 @@ Dalam langkah ini, Anda akan menghubungkan dua perangkat IoT baru ke jaringan ni
 - Ubah nama tampilan pintu menjadi **Door**.
 - Dalam konfigurasi **Wireless0** untuk masing-masing perangkat, perhatikan bahwa SSID sudah diatur ke **HomeGateway** dan bahwa setiap perangkat telah menerima alamat IP dari jaringan 192.168.25.x. Anda mungkin perlu mengklik **Fast Forward Time** untuk mempercepat proses.
 
-![Bagian 3 - Langkah 2](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bagian3-langkah2.png)
+![Bagian 3 - Langkah 2](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bagian3-langkah2.webp)
 
 ### Langkah 3: Mengonfigurasi Perangkat IoT untuk Mendaftar dengan Server Home Gateway.
 Untuk masing-masing dari tiga perangkat IoT, klik tab **Config**, kemudian **Settings** di panel kiri, jika perlu. Gulir ke bawah ke daftar opsi **IoT Server** dan klik pada **Home Gateway**.
 
-![IoT Server](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/iot-server.png)
+![IoT Server](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/iot-server.webp)
 
 ### Langkah 4: Memverifikasi bahwa perangkat sekarang terdaftar dengan server Home Gateway.
 Dari **Tablet**, klik tab **Desktop** > **IoT Monitor**, kemudian klik **Login**. Anda seharusnya melihat entri untuk ketiga perangkat IoT baru. Perluas entri untuk melihat detail perangkat. Cobalah mengontrol perangkat dan lihat hasilnya di ruang kerja.
 
-![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/desktop-iot-monitor.png)
+![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/desktop-iot-monitor.webp)
 
 > Mungkin diperlukan satu atau dua menit bagi ketiga perangkat untuk mendaftar dengan server dan terdaftar di **IoT Monitor**.
 {: .prompt-info}
@@ -126,7 +126,7 @@ Dalam bagian ini, Anda akan menambahkan sebuah speaker Bluetooth ke jaringan nir
 - Klik **Discover** di bawah Discoverable Devices, klik **Speaker**, klik **Pair**, dan kemudian klik **Yes**.
 - Tahan tombol Alt dan klik **Music Player**. 
 
-![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bluetooth-paired.png)
+![IoT Monitor](assets/img/posts/2025-03-08-connect-devices-to-a-home-gateway-and-monitor-your-network/bluetooth-paired.webp)
 
 > Pastikan speaker pada komputer fisik Anda dalam keadaan menyala.
 {: .prompt-tip} 

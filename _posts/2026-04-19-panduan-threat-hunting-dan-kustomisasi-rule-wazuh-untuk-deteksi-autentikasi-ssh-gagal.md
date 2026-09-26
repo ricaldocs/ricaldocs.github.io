@@ -28,7 +28,7 @@ Sebelum memulai, pastikan:
 1. Buka Wazuh dashboard melalui browser.
 2. Pada **panel navigasi kiri**, cari dan perluas menu **Threat Intelligence**.
 3. Di bagian **Threat Hunting**, klik sub-tab **Events** untuk melihat daftar semua event keamanan yang terkumpul.
-  ![alt text](<../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/Screenshot From 2026-04-19 14-28-45.png>)
+  ![alt text](<../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/Screenshot From 2026-04-19 14-28-45.webp>)
 
 > Threat Hunting memungkinkan pencarian dengan sintaksis **query filter** (contoh: `rule.id:502`, `data.ssh.destination.ip:<IP>`), time range picker, serta field selector untuk memfilter kolom yang relevan.
 {: .prompt-info}
@@ -45,7 +45,7 @@ Sebelum membuat simulasi serangan, pastikan event internal Wazuh terdeteksi deng
    {: .prompt-info}
 
 2. Tekan **Enter** atau klik ikon pencarian. Anda akan melihat event dengan deskripsi "Wazuh server started." Hal ini menandakan bahwa pipeline deteksi bekerja normal.
-  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/wazuh-server-started.png)
+  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/wazuh-server-started.webp)
 
 ## Langkah 3: Simulasi Autentikasi SSH Gagal
 
@@ -61,13 +61,13 @@ Setelah percobaan:
 
 1. Kembali ke halaman **Threat Hunting > Events** pada Wazuh dashboard.
 2. Hapus query sebelumnya, lalu cari dengan kata kunci: `authentication failure` atau filter dengan `rule.groups:authentication_failed`.
-  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/authentication-failure.png)
+  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/authentication-failure.webp)
 
 3. Gulir ke bawah daftar event, cari baris yang memiliki kolom **Description** berisi:
    ```
    sshd: authentication failed.
    ```
-   ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/authentication-failed.png)
+   ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/authentication-failed.webp)
 
 >  Wazuh agent membaca file log `/var/log/auth.log` (pada Debian/Ubuntu) atau `/var/log/secure` (pada RHEL/CentOS) milik syslog/sshd. Ketika ada percobaan login gagal, sshd menulis baris log yang kemudian diparsing oleh decoder Wazuh (decoder `sshd`) dan menghasilkan event dengan rule bawaan (biasanya 5760 – "sshd: authentication failed").
 {: .prompt-info}
@@ -80,7 +80,7 @@ Secara default, Wazuh menggunakan rule yang terpisah-pisah untuk berbagai jenis 
 
 1. Dari Wazuh dashboard, buka **Server management** (pada menu kiri).
 2. Pilih **Rules** → **local_rules.xml**.
-  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/rules.png)
+  ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/rules.webp)
 
 ### 4.2 Edit `local_rules.xml`
 
@@ -140,7 +140,7 @@ Setelah file `local_rules.xml` tersimpan:
    ```
    Wazuh server started./authentication failed
    ```
-   ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/100001.png)
+   ![alt text](../assets/img/posts/2026-04-19-panduan-threat-hunting-dan-kustomisasi-rule-wazuh-untuk-deteksi-autentikasi-ssh-gagal/100001.webp)
 
 **Indikator keberhasilan:**
 - Waktu event sesuai dengan percobaan terbaru.

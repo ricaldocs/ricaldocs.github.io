@@ -42,38 +42,38 @@ Setelah instalasi dependensi, aplikasi akan secara otomatis diinisialisasi dan m
 > Antarmuka nirkabel yang dipilih harus mendukung packet injection dan monitor mode. Jika chipset nirkabel bawaan sistem tidak memiliki kemampuan ini, pertimbangkan untuk menggunakan adapter eksternal yang kompatibel seperti [TP-Link Archer T2U Plus](https://docs.ricalnet.my.id/posts/memperbaiki-masalah-driver-adaptor-wifi-usb-archer-t2u-v3-pada-kali-linux/).
 {: .prompt-info}
 
-![Pemilihan Antarmuka Nirkabel](assets/img/posts/2025-03-11-fluxion/select-wireless-interface.png)
+![Pemilihan Antarmuka Nirkabel](assets/img/posts/2025-03-11-fluxion/select-wireless-interface.webp)
 
 ## Alur Operasional
 
 ### Penemuan Jaringan
 Inisiasi pemindaian jaringan nirkabel untuk mengidentifikasi access point yang tersedia:
 
-![Pemilihan Saluran](assets/img/posts/2025-03-11-fluxion/channel.png)
+![Pemilihan Saluran](assets/img/posts/2025-03-11-fluxion/channel.webp)
 
 Pengguna dapat mengonfigurasi parameter pemindaian untuk menargetkan sinyal dual-band atau saluran tertentu. Fluxion akan mendeteksi jaringan nirkabel di sekitarnya dan menampilkan informasi relevan termasuk kekuatan sinyal dan jenis enkripsi.
 
-![Antarmuka Pemindai Fluxion](assets/img/posts/2025-03-11-fluxion/fluxion-scanner.png)
+![Antarmuka Pemindai Fluxion](assets/img/posts/2025-03-11-fluxion/fluxion-scanner.webp)
 
 Hentikan proses pemindaian menggunakan `Ctrl + C` untuk melihat daftar jaringan yang ditemukan, lengkap dengan SSID, metrik sinyal, dan detail enkripsi.
 
-![Daftar Jaringan Nirkabel](assets/img/posts/2025-03-11-fluxion/wifi-list.png)
+![Daftar Jaringan Nirkabel](assets/img/posts/2025-03-11-fluxion/wifi-list.webp)
 
 ### Pemilihan Target dan Penangkapan Handshake
 Pilih antarmuka nirkabel yang sesuai untuk pelacakan target. Opsi 3 dapat dipilih untuk melewati langkah ini jika tidak yakin.
 
-![Konfigurasi Pelacakan Target](assets/img/posts/2025-03-11-fluxion/target-tracking.png)
+![Konfigurasi Pelacakan Target](assets/img/posts/2025-03-11-fluxion/target-tracking.webp)
 
 Pilih metodologi penangkapan handshake:
 
 > Utilitas MDK4 memungkinkan serangan de-authentication dengan mengirimkan paket de-auth ke perangkat yang terhubung, memaksa pemutusan koneksi dari jaringan. Ini memfasilitasi penangkapan kredensial otentikasi selama upaya koneksi ulang.
 {: .prompt-info}
 
-![Metode Pengambilan Handshake](assets/img/posts/2025-03-11-fluxion/handshake-retrieval.png)
+![Metode Pengambilan Handshake](assets/img/posts/2025-03-11-fluxion/handshake-retrieval.webp)
 
 Pilih antarmuka pemantauan untuk operasi jamming. Adapter Archer T2U Plus (diidentifikasi sebagai `wlan0` dalam contoh ini) direkomendasikan untuk kinerja optimal.
 
-![Pemilihan Antarmuka Jamming](assets/img/posts/2025-03-11-fluxion/interface-for-jamming.png)
+![Pemilihan Antarmuka Jamming](assets/img/posts/2025-03-11-fluxion/interface-for-jamming.webp)
 
 ### Verifikasi Handshake
 Fluxion menyediakan beberapa metode verifikasi hash:
@@ -84,15 +84,15 @@ Fluxion menyediakan beberapa metode verifikasi hash:
 > Cowpatty beroperasi dengan membandingkan hash jaringan yang ditangkap dengan hash yang dihasilkan dari entri wordlist. Kecocokan yang berhasil menunjukkan kata sandi yang berhasil dikompromikan, menjadikannya berharga untuk evaluasi kekuatan kata sandi nirkabel selama penetration testing.
 {: .prompt-info}
 
-![Pemilihan Metode Verifikasi](assets/img/posts/2025-03-11-fluxion/verification-method.png)
+![Pemilihan Metode Verifikasi](assets/img/posts/2025-03-11-fluxion/verification-method.webp)
 
 Setelah konfigurasi selesai, Fluxion memulai de-authentication semua perangkat yang terhubung ke jaringan target. Alat kemudian menangkap handshake WPA/WPA2 selama upaya koneksi ulang klien.
 
-![Proses Penangkapan Handshake](assets/img/posts/2025-03-11-fluxion/handshake-capturing.png)
+![Proses Penangkapan Handshake](assets/img/posts/2025-03-11-fluxion/handshake-capturing.webp)
 
 Meskipun serangan serupa dapat dilakukan menggunakan [aircrack-ng](https://www.aircrack-ng.org/), Fluxion menyediakan pendekatan yang lebih canggih dan ramah pengguna.
 
-![Antarmuka Handshake Snooper](assets/img/posts/2025-03-11-fluxion/handshake-snooper.png)
+![Antarmuka Handshake Snooper](assets/img/posts/2025-03-11-fluxion/handshake-snooper.webp)
 
 ## Vektor Serangan Lanjutan
 

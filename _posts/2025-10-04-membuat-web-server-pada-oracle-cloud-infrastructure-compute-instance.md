@@ -28,7 +28,7 @@ Oracle Cloud Infrastructure (OCI) menyediakan layanan komputasi elastis yang mem
 
 Navigasi ke layanan VCN di konsol OCI untuk memulai proses pembuatan jaringan virtual.
 
-![](../assets/img/posts/cloud/oracle/compute/vcn-dashboard.png)
+![](../assets/img/posts/cloud/oracle/compute/vcn-dashboard.webp)
 
 **Langkah Akses:**
 1. Login ke Oracle Cloud Console
@@ -40,7 +40,7 @@ Navigasi ke layanan VCN di konsol OCI untuk memulai proses pembuatan jaringan vi
 
 Pilih opsi "Create VCN with Internet Connectivity" untuk membuat VCN dengan konfigurasi jaringan yang sudah teroptimasi untuk konektivitas internet.
 
-![](../assets/img/posts/cloud/oracle/compute/start-vcn-wizard.png)
+![](../assets/img/posts/cloud/oracle/compute/start-vcn-wizard.webp)
 
 Opsi ini secara otomatis akan mengonfigurasi:
 - Internet Gateway (IGW) untuk konektivitas internet outbound
@@ -56,7 +56,7 @@ Isi informasi dasar VCN yang meliputi:
 - **Nama VCN**: Identifikasi unik untuk VCN Anda
 - **CIDR Block**: Rentang alamat IP untuk VCN (contoh: 10.0.0.0/16)
 
-![](../assets/img/posts/cloud/oracle/compute/basic-information.png)
+![](../assets/img/posts/cloud/oracle/compute/basic-information.webp)
 
 **Catatan:** 
 - **CIDR (Classless Inter-Domain Routing)** block menentukan rentang alamat IP privat yang akan digunakan dalam VCN
@@ -68,7 +68,7 @@ Isi informasi dasar VCN yang meliputi:
 
 Konfigurasikan subnet publik dan privat sesuai kebutuhan arsitektur jaringan Anda.
 
-![](../assets/img/posts/cloud/oracle/compute/configure-public-dan-private-subnet.png)
+![](../assets/img/posts/cloud/oracle/compute/configure-public-dan-private-subnet.webp)
 
 **Public Subnet:**
 - Memungkinkan instance untuk memiliki alamat IP publik yang dapat diakses dari internet
@@ -89,7 +89,7 @@ Konfigurasikan subnet publik dan privat sesuai kebutuhan arsitektur jaringan And
 
 Navigasi ke layanan Compute di konsol OCI untuk membuat instance virtual machine.
 
-![](../assets/img/posts/cloud/oracle/compute/compute.png)
+![](../assets/img/posts/cloud/oracle/compute/compute.webp)
 
 **Langkah Akses:**
 1. Dari menu navigation, pilih "Compute"
@@ -101,7 +101,7 @@ Navigasi ke layanan Compute di konsol OCI untuk membuat instance virtual machine
 
 Isi informasi dasar instance kompute termasuk nama instance dan availability domain.
 
-![](../assets/img/posts/cloud/oracle/compute/basic-information-compute.png)
+![](../assets/img/posts/cloud/oracle/compute/basic-information-compute.webp)
 
 **Keterangan:** 
 - **Availability Domain**: Pada akun free tier, biasanya hanya tersedia satu availability domain
@@ -113,7 +113,7 @@ Isi informasi dasar instance kompute termasuk nama instance dan availability dom
 
 Pada bagian advanced options, pilih opsi on-demand capacity untuk fleksibilitas alokasi resource.
 
-![](../assets/img/posts/cloud/oracle/compute/on-demand-capacity.png)
+![](../assets/img/posts/cloud/oracle/compute/on-demand-capacity.webp)
 
 **Keuntungan:**
 - Kapasitas on-demand memastikan ketersediaan resource tanpa perlu reservasi sebelumnya
@@ -126,7 +126,7 @@ Pada bagian advanced options, pilih opsi on-demand capacity untuk fleksibilitas 
 
 Pilih image Oracle Linux 10 yang berbasis RHEL (Red Hat Enterprise Linux).
 
-![](../assets/img/posts/cloud/oracle/compute/image.png)
+![](../assets/img/posts/cloud/oracle/compute/image.webp)
 
 **Alasan Pemilihan:**
 - Oracle Linux kompatibel dengan RHEL dan dioptimalkan untuk lingkungan OCI
@@ -139,7 +139,7 @@ Pilih image Oracle Linux 10 yang berbasis RHEL (Red Hat Enterprise Linux).
 
 Pilih shape default yang eligible untuk free tier.
 
-![](../assets/img/posts/cloud/oracle/compute/shape.png)
+![](../assets/img/posts/cloud/oracle/compute/shape.webp)
 
 **Informasi:**
 - Shape menentukan konfigurasi CPU dan memori instance
@@ -151,7 +151,7 @@ Pilih shape default yang eligible untuk free tier.
 
 Pertahankan pengaturan keamanan default dengan menonaktifkan shielded instance.
 
-![](../assets/img/posts/cloud/oracle/compute/security-instance.png)
+![](../assets/img/posts/cloud/oracle/compute/security-instance.webp)
 
 **Pertimbangan:**
 - **Shielded instance** menawarkan keamanan tambahan (UEFI secure boot, virtual TPM)
@@ -162,7 +162,7 @@ Pertahankan pengaturan keamanan default dengan menonaktifkan shielded instance.
 
 Pilih VCN yang telah dibuat sebelumnya dan pilih public subnet untuk instance.
 
-![](../assets/img/posts/cloud/oracle/compute/networking-instance.png)
+![](../assets/img/posts/cloud/oracle/compute/networking-instance.webp)
 
 **Strategi Jaringan:**
 - Pemilihan public subnet memungkinkan instance untuk memiliki alamat IP publik
@@ -173,7 +173,7 @@ Pilih VCN yang telah dibuat sebelumnya dan pilih public subnet untuk instance.
 
 Pastikan untuk memilih opsi "Automatically assign public IPv4 address".
 
-![](../assets/img/posts/cloud/oracle/compute/primary-vnic-ip-address.png)
+![](../assets/img/posts/cloud/oracle/compute/primary-vnic-ip-address.webp)
 
 **Penting:**
 - Alamat IP publik diperlukan untuk mengakses instance dari internet
@@ -184,7 +184,7 @@ Pastikan untuk memilih opsi "Automatically assign public IPv4 address".
 
 Unduh private dan public key untuk autentikasi SSH.
 
-![](../assets/img/posts/cloud/oracle/compute/add-ssh-keys.png)
+![](../assets/img/posts/cloud/oracle/compute/add-ssh-keys.webp)
 
 **Keamanan Akses:**
 - Key pair SSH digunakan untuk autentikasi yang aman ke instance
@@ -196,7 +196,7 @@ Unduh private dan public key untuk autentikasi SSH.
 
 Pertahankan pengaturan default untuk boot volume.
 
-![](../assets/img/posts/cloud/oracle/compute/boot-volume.png)
+![](../assets/img/posts/cloud/oracle/compute/boot-volume.webp)
 
 **Kustomisasi:** Untuk workload khusus, bisa menyesuaikan size dan performance (VPU)
 
@@ -204,7 +204,7 @@ Pertahankan pengaturan default untuk boot volume.
 
 Sebelum membuat instance, periksa estimated cost untuk memastikan biaya sesuai dengan anggaran.
 
-![](../assets/img/posts/cloud/oracle/compute/estimated-cost.png)
+![](../assets/img/posts/cloud/oracle/compute/estimated-cost.webp)
 
 **Best Practice:**
 - Selalu review estimasi biaya sebelum membuat resource cloud
@@ -216,7 +216,7 @@ Sebelum membuat instance, periksa estimated cost untuk memastikan biaya sesuai d
 
 Setelah semua konfigurasi selesai, buat instance dan pastikan status instance berubah menjadi "Running".
 
-![](../assets/img/posts/cloud/oracle/compute/instance-state.png)
+![](../assets/img/posts/cloud/oracle/compute/instance-state.webp)
 
 **Provisining Process:**
 - Instance akan melalui status "Provisioning" → "Starting" → "Running"
@@ -345,7 +345,7 @@ EOF
 
 Buka VCN yang telah dibuat dan navigasi ke tab security. Pilih "Default Security List for VCN".
 
-![](../assets/img/posts/cloud/oracle/compute/security-lists.png)
+![](../assets/img/posts/cloud/oracle/compute/security-lists.webp)
 
 **Konsep:**
 - Security List di OCI berfungsi sebagai firewall virtual
@@ -357,7 +357,7 @@ Buka VCN yang telah dibuat dan navigasi ke tab security. Pilih "Default Security
 
 Tambahkan aturan inbound untuk mengizinkan traffic HTTP.
 
-![](../assets/img/posts/cloud/oracle/compute/ingress-rules.png)
+![](../assets/img/posts/cloud/oracle/compute/ingress-rules.webp)
 
 **Default Rules:**
 - SSH (port 22) dari mana saja
@@ -374,7 +374,7 @@ Konfigurasikan aturan inbound dengan parameter berikut:
 - **Source Port Range**: All
 - **Destination Port Range**: 80
 
-![](../assets/img/posts/cloud/oracle/compute/add-ingress-rules.png)
+![](../assets/img/posts/cloud/oracle/compute/add-ingress-rules.webp)
 
 **Penjelasan:**
 - **CIDR 0.0.0.0/0** mengizinkan akses dari semua alamat IP di internet
@@ -391,7 +391,7 @@ Konfigurasikan aturan inbound dengan parameter berikut:
 
 Akses web server melalui browser dengan mengunjungi `http://Public-IPAddress` (ganti dengan alamat IP instance Anda).
 
-![](../assets/img/posts/cloud/oracle/compute/web-server-running.png)
+![](../assets/img/posts/cloud/oracle/compute/web-server-running.webp)
 
 **Testing Steps:**
 1. Buka web browser

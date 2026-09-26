@@ -393,9 +393,9 @@ http://localhost:8010/alertmanager
 
 Notifikasi "Ini alert uji coba" dan "Alert uji kedua" seharusnya muncul.
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-19 23-21-34.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-19 23-21-34.webp>)
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-19 23-23-23.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-19 23-23-23.webp>)
 
 > Catatan tentang deduplikasi Alertmanager:
 > - `curl` pertama dengan label A → notifikasi terkirim
@@ -418,13 +418,13 @@ Buka browser ke `http://localhost:3003` (perhatikan port 3003, bukan 3000). Logi
 ### Setup Data Source Prometheus
 
 1. Cari Data Sources
-   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-25-32.png>)
+   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-25-32.webp>)
 
 2. Klik Prometheus
-   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-25-59.png>)
+   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-25-59.webp>)
 
 4. Scroll ke bawah → klik Save & Test
-   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-26-17.png>)
+   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-26-17.webp>)
 
 Output yang diharapkan:
 
@@ -443,10 +443,10 @@ Download dashboard dari [cloud.ricalnet.my.id](https://cloud.ricalnet.my.id/s/TL
 Cara import:
 
 1. Klik Dashboard → New → Import
-   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-26-45.png>)
+   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-26-45.webp>)
 
 2. Klik Upload JSON file → pilih file
-   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 19-04-57.png>)
+   ![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 19-04-57.webp>)
 
 4. Pilih data source Prometheus
 5. Klik Import
@@ -460,7 +460,7 @@ Dashboard yang direkomendasikan:
 | Prometheus                | 19105 | Prometheus internal metrics            |
 | Podman Exporter Dashboard | 21559 | Container metrics (44 container)       |
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-29-01.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 18-29-01.webp>)
 
 Mengapa 4 dashboard ini:
 - `1860` — dashboard paling komprehensif untuk host metrics, mendukung Raspberry Pi
@@ -472,25 +472,25 @@ Mengapa 4 dashboard ini:
 
 Alertmanager:
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-35.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-35.webp>)
 
 Menampilkan status cluster, receiver, dan riwayat alert. Berguna untuk debugging mengapa notifikasi tidak terkirim.
 
 Node Exporter Full:
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-40.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-40.webp>)
 
 Dashboard paling kaya — CPU per core, memory breakdown, disk I/O, network traffic, uptime, dll. Cocok untuk monitoring host harian.
 
 Podman Exporter Dashboard:
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-46.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-46.webp>)
 
 Panel CPU, memory, network, block I/O per container. Dengan 44 container, dashboard ini memberikan visibility granular ke setiap service.
 
 Prometheus:
 
-![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-54.png>)
+![alt text](<../assets/img/posts/2026-09-16-panduan-lengkap-deploy-monitoring-stack-self-hosted-dengan-podman-prometheus-dan-grafana/Screenshot From 2026-09-16 12-15-54.webp>)
 
 Menampilkan Prometheus version, TSDB head series, discovered targets, config reload status. Berguna untuk memastikan Prometheus sendiri sehat.
 

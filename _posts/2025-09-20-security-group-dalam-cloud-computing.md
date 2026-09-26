@@ -17,7 +17,7 @@ Sebelum melakukan modifikasi aturan keamanan, pengguna harus terlebih dahulu mem
 
 Setelah instance berjalan, verifikasi akses ke web server menggunakan protokol HTTP. Konfigurasi security group awal biasanya hanya mengizinkan akses HTTP (port 80) dan SSH (port 22), sementara akses melalui HTTPS (port 443) dan protokol lainnya akan diblokir hingga ditambahkan aturan secara manual.
 
-![Web Server Berjalan](../assets/img/posts/cloud/security-group-dalam-cloud-computing/web-server.png)
+![Web Server Berjalan](../assets/img/posts/cloud/security-group-dalam-cloud-computing/web-server.webp)
 _Web Server Berjalan_
 
 ### Melihat dan Memodifikasi Security Group
@@ -25,13 +25,13 @@ _Web Server Berjalan_
 #### Melalui Tab Security Instance
 Pengguna dapat memeriksa security group yang terasosiasi dengan instance EC2 dengan memilih instance yang dimaksud, kemudian navigasi ke tab **Security**. Tab ini menampilkan detail security group dan aturan protokol yang aktif.
 
-![Tab Security Instance](../assets/img/posts/cloud/security-group-dalam-cloud-computing/security-tab.png)
+![Tab Security Instance](../assets/img/posts/cloud/security-group-dalam-cloud-computing/security-tab.webp)
 _Tab Security Instance_
 
 #### Melalui Menu Security Groups
 Alternatif lainnya adalah dengan mengakses layanan **EC2**, navigasi ke kategori **Network & Security**, dan pilih **Security Groups**. Menu ini memberikan gambaran menyeluruh tentang semua security group yang ada dalam region tersebut.
 
-![Menu Network & Security](../assets/img/posts/cloud/security-group-dalam-cloud-computing/network-and-security.png)
+![Menu Network & Security](../assets/img/posts/cloud/security-group-dalam-cloud-computing/network-and-security.webp)
 _Menu Network & Security_
 
 ### Menambahkan Aturan Inbound Baru
@@ -46,10 +46,10 @@ Untuk mengizinkan jenis lalu lintas baru, seperti protokol ICMP (Internet Contro
     -   **Source**: Tentukan rentang alamat IP yang diizinkan (contoh: `0.0.0.0/0` untuk semua host, atau IP spesifik untuk keamanan yang lebih ketat).
 5.  Simpan aturan.
 
-![Mengedit Inbound Rules](../assets/img/posts/cloud/security-group-dalam-cloud-computing/inbound-rules.png)
+![Mengedit Inbound Rules](../assets/img/posts/cloud/security-group-dalam-cloud-computing/inbound-rules.webp)
 *Antarmuka untuk mengedit aturan inbound traffic pada security group.*
 
-![Menambahkan Aturan ICMP](../assets/img/posts/cloud/security-group-dalam-cloud-computing/mengaktifkan-icmp.png)
+![Menambahkan Aturan ICMP](../assets/img/posts/cloud/security-group-dalam-cloud-computing/mengaktifkan-icmp.webp)
 *Menambahkan aturan untuk mengizinkan semua traffic ICMP IPv4.*
 
 ### Verifikasi Konfigurasi

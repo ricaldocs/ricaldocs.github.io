@@ -1,177 +1,251 @@
 ---
-title: Membangun Sistem Auto-Resize Gambar dengan AWS Lambda dan S3
-description: Pelajari cara membangun sistem resize gambar otomatis menggunakan AWS Lambda dan Amazon S3. Tutorial lengkap dengan konfigurasi IAM, environment variables, dan S3 triggers.
+title: Membangun Self-Managed Database Server di AWS EC2
+description: Panduan membangun database server mandiri di AWS EC2. Pelajari konfigurasi security group, instalasi LAMP Stack, setup MySQL/MariaDB, deployment aplikasi CRUD, dan best practices keamanan untuk environment production.
 categories: [Cloud & On-Premise, AWS]
-tags: [cloud computing, aws]
+tags: [cloud computing, aws, mysql / mariadb]
 author: rical
 last_modified_at: 2026-06-01
 ---
 
-## Pendahuluan
+## Pengantar
 
-Dalam pengembangan aplikasi modern, kebutuhan untuk memproses gambar secara otomatis menjadi semakin penting. AWS Lambda menyediakan solusi serverless yang efisien untuk menangani tugas-tugas pemrosesan gambar seperti resize, konversi format, dan optimisasi. Artikel ini akan memandu Anda dalam membangun sistem auto-resize gambar menggunakan AWS Lambda dan Amazon S3.
+Dokumen teknis ini menyajikan panduan untuk membangun dan mengonfigurasi self-managed database server menggunakan Amazon EC2. Implementasi ini mencakup provisioning instance, konfigurasi security group, instalasi LAMP stack, serta deployment aplikasi database-driven dengan arsitektur CRUD (Create, Read, Update, Delete).
 
-## Arsitektur Sistem
+## 1. Konfigurasi Security Group
 
-Sistem yang akan dibangun terdiri dari tiga komponen utama:
-1. **Amazon S3** sebagai penyimpanan gambar original dan thumbnail
-2. **AWS Lambda** sebagai engine pemrosesan gambar
-3. **IAM Roles** untuk mengatur hak akses dan keamanan
+### 1.1 Spesifikasi Aturan Jaringan
+Security group dikonfigurasi dengan aturan inbound yang memungkinkan akses ke layanan essential. Konfigurasi ini diperlukan untuk memastikan konektivitas yang tepat sambil mempertahankan aksesibilitas sistem.
 
-## Implementasi Langkah demi Langkah
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-41-00.webp>)
 
-### 1. Persiapan Amazon S3 Buckets
+**Spesifikasi Rules Inbound:**
+- **SSH (Port 22)**: 0.0.0.0/0 - Akses remote administration
+- **HTTP (Port 80)**: 0.0.0.0/0 - Layanan web server
+- **MySQL/Aurora (Port 3306)**: 0.0.0.0/0 - Koneksi database
 
-Pertama, buka konsol Amazon S3 dan buat dua bucket dengan konvensi penamaan yang jelas:
+## 2. Provisioning EC2 Instance
 
-![Antarmuka Amazon S3](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-14-24.png>)
+### 2.1 Spesifikasi Teknis Instance
+Instance EC2 diprovision dengan konfigurasi berikut untuk menunjang workload database:
 
-Buat dua bucket dengan nama berikut:
-- `amazn-s3-demo-user-images-bucket` (untuk gambar original)
-- `amazn-s3-demo-user-thumbnails-bucket` (untuk gambar hasil resize)
-  ![Pembuatan Bucket S3](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-17-49.png>)
-  
-  > Penamaan bucket yang deskriptif memudahkan identifikasi tujuan masing-masing bucket dalam arsitektur sistem.
-  {: .prompt-tip}
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-43-40.webp>)
 
-### 2. Upload Gambar Original
+**Parameter Konfigurasi:**
+- **Amazon Machine Image (AMI)**: Ubuntu Server
+- **Instance Type**: Disesuaikan dengan kebutuhan workload database
+- **Key Pair**: vockey (existing key pair untuk SSH access)
 
-Upload file gambar ke bucket `amazn-s3-demo-user-images-bucket` untuk testing:
+### 2.2 Manajemen Key Pair
+Key pair digunakan untuk autentikasi SSH yang aman ke instance EC2.
 
-![Upload Gambar ke S3](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-20-47.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-44-48.webp>)
 
-Verifikasi dengan membuka objek tersebut:
+### 2.3 Konfigurasi Jaringan
+Instance dikaitkan dengan security group yang telah dibuat sebelumnya untuk memastikan aturan firewall yang konsisten.
 
-![Gambar Original](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-22-00.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-46-11.webp>)
 
-### 3. Konfigurasi AWS Lambda Function
+## 3. Koneksi ke Instance
 
-Buka layanan AWS Lambda dan buat fungsi baru:
+### 3.1 Koneksi
+Akses instance EC2:
 
-![Buat Fungsi Lambda](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-23-57.png>)
+**AWS EC2 Instance Connect:**
 
-Isi informasi dasar fungsi dengan konfigurasi berikut:
-- **Runtime**: Node.js
-- **Architecture**: x86_64
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-49-15.webp>)
 
-![Konfigurasi Dasar Lambda](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-25-18.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-48-42.webp>)
 
-### 4. Konfigurasi IAM Role
+## 4. Instalasi dan Konfigurasi LAMP Stack
 
-Klik **View the `nama_role` role on the IAM console** untuk mengatur hak akses:
+### 4.1 Persiapan Sistem
+Update package manager dan sistem packages:
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 
-![Navigasi ke IAM Console](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-27-23.png>)
+### 4.2 Deployment Komponen LAMP
+Dua opsi instalasi tersedia berdasarkan kebutuhan:
 
-Atur kebijakan akses untuk mengizinkan akses ke layanan yang diperlukan:
-- **Amazon S3** (akses baca/tulis bucket)
-- **AWS Lambda** (eksekusi fungsi)
-- **CloudWatch Logs** (logging dan monitoring)
+**Opsi 1 (Installasi Lengkap):**
+```bash
+sudo apt install -y apache2 mariadb-server php libapache2-mod-php php-mysql php-cli php-common php-curl php-zip php-gd php-xml php-mbstring php-json
+```
 
-![Konfigurasi IAM Policies](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-29-16.png>)
+**Opsi 2 (Installasi Minimal):**
+```bash
+sudo apt install -y mariadb-server apache2 php libapache2-mod-php php-mysql php-curl php-json
+```
 
-> Prinsip least privilege harus diterapkan dengan hanya memberikan izin yang benar-benar diperlukan.
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-50-43.webp>)
+
+### 4.3 Validasi Instalasi
+Akses public IP instance melalui web browser untuk memverifikasi Apache berjalan dengan benar:
+
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-52-00.webp>)
+
+## 5. Konfigurasi Database Server
+
+### 5.1 Hardening Keamanan MySQL
+Jalankan script keamanan untuk mengamankan instalasi MySQL:
+```bash
+sudo mysql_secure_installation
+```
+
+**Output Eksekusi:**
+```
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password or using the unix_socket ensures that nobody
+can log into the MariaDB root user without the proper authorisation.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Switch to unix_socket authentication [Y/n] n
+ ... skipping.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Change the root password? [Y/n] n
+ ... skipping.
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+```
+
+### 5.2 Koneksi ke MySQL Server
+```bash
+sudo mysql -u root -p
+```
+
+> Untuk environment production, sangat disarankan menggunakan strong password dan tidak mengosongkan field password.
 {: .prompt-tip}
 
-### 5. Optimasi Konfigurasi Lambda
-
-Setelah fungsi dibuat, pergi ke tab Configuration dan atur memory menjadi 512 MB:
-
-![Konfigurasi Memory Lambda](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-37-56.png>)
-
-> Pemrosesan gambar membutuhkan memory yang cukup besar. Konfigurasi 512 MB memberikan keseimbangan antara performa dan biaya.
-{: .prompt-info}
-
-### 6. Environment Variables
-
-Pada bagian Environment Variables, atur variabel berikut:
-- **Key**: `DEST_BUCKET`
-- **Value**: `amazn-s3-demo-user-thumbnails-bucket`
-
-![Environment Variables](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-41-03.png>)
-
-> Environment variables memungkinkan konfigurasi dinamis tanpa mengubah kode, memudahkan deployment di berbagai environment.
-{: .prompt-info}
-
-### 7. Deployment Kode Fungsi
-
-Pergi ke tab Code dan pilih `Upload from .zip file`:
-
-![Upload Kode Lambda](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-43-15.png>)
-
-Upload file `functions.zip` yang tersedia di [repository GitHub](https://github.com/ricalnet/image-resizer-lambda):
-
-![Upload ZIP File](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-46-46.png>)
-
-### 8. Testing Fungsi Lambda
-
-Pergi ke tab Test dan atur event template menjadi `S3 Put`:
-
-![Konfigurasi Test Event](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-49-03.png>)
-
-Modifikasi test event dengan konfigurasi berikut:
-```json
-"name": "amazn-s3-demo-user-images-bucket"
-"arn": "arn:aws:s3:::amazn-s3-demo-user-images-bucket"
-"key": "HMDT.png"
+### 5.3 Konfigurasi Database dan User
+```sql
+CREATE DATABASE crud_app;
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON crud_app.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
 ```
 
-![Modifikasi Test Event](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-53-17.png>)
+### 5.4 Schema Design dan Table Creation
+```sql
+USE crud_app;
 
-Pastikan nilai `key` sesuai dengan nama gambar yang ada di bucket S3:
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    umur INT,
+    kota VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
-![Konfigurasi Key](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-55-48.png>)
+**Output yang Diharapkan:** `Query OK, 0 rows affected (0.019 sec)`
 
-Klik Test dan verifikasi output success:
+## 6. Deployment Aplikasi CRUD
 
-```json
-{
-  "statusCode": 200,
-  "body": "Successfully resized amazn-s3-demo-user-images-bucket/HMDT.png and uploaded to amazn-s3-demo-user-thumbnails-bucket/HMDT.png"
+### 6.1 Testing Koneksi Database
+Buat file test untuk memvalidasi koneksi database:
+```bash
+sudo nano /var/www/html/test_db.php
+```
+
+**Kode Testing Koneksi:**
+```php
+<?php
+$servername = "localhost";
+$username = "user";
+$password = "password";
+$dbname = "crud_app";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+echo "Database connected successfully";
+?>
 ```
 
-![Hasil Test Berhasil](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 21-58-26.png>)
+**URL Testing:** `http://your-ec2-public-ip/test_db.php`
 
-### 9. Verifikasi Hasil Resize
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 14-30-25.webp>)
 
-Gambar yang telah di-resize akan muncul di bucket `amazn-s3-demo-user-thumbnails-bucket`:
+### 6.2 Deployment Aplikasi Principal
+Buat file [aplikasi utama CRUD](https://git.ricalnet.my.id/rical/cloud_computing/src/branch/main/ujikom-2/index.php):
+```bash
+sudo nano /var/www/html/index.php
+```
 
-![Gambar Hasil Resize di S3](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-01-10.png>)
+## 7. Validasi Final Implementasi
 
-Buka gambar untuk memverifikasi ukuran yang telah berubah:
+**Akses Aplikasi:** `http://your-ec2-public-ip/index.php`
 
-![Verifikasi Gambar Resize](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-02-13.png>)
+## 8. Best Practices dan Pertimbangan Keamanan
 
-### 10. Konfigurasi Trigger Otomatis
+### 8.1 Rekomendasi untuk Environment Production
 
-Tambahkan trigger untuk mengotomasi proses resize:
+**Keamanan:**
+- Implementasi SSL/TLS untuk enkripsi koneksi database
+- Kebijakan password yang kuat dan kompleks
+- Restriksi port database (3306) ke specific IP addresses saja
+- Update dan patch security secara berkala
+- Implementasi automated backup database
+- Comprehensive monitoring dan logging
 
-![Tambah Trigger Lambda](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-05-05.png>)
-
-Atur trigger configuration dengan memilih bucket sumber. Centang acknowledgment untuk recursive invocation: 
-
-> Recursive invocation acknowledgment diperlukan untuk mencegah infinite loop ketika fungsi Lambda menulis kembali ke bucket yang sama.
-{: .prompt-warning}
-
-![Konfigurasi Trigger](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-06-43.png>)
-
-
-![](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-07-57.png>)
-
-### 11. Testing Sistem Lengkap
-
-Sekarang, setiap upload gambar ke `amazn-s3-demo-user-images-bucket` akan secara otomatis memicu proses resize dan menyimpan hasilnya ke `amazn-s3-demo-user-thumbnails-bucket`:
-
-![Sistem Auto-Resize Berjalan](<../assets/img/posts/cloud/amazon-lambda/Screenshot From 2025-11-30 22-10-36.png>)
+**Performance:**
+- Optimasi configuration parameter MySQL berdasarkan workload
+- Implementasi caching mechanisms (Redis, Memcached)
+- Pertimbangan penggunaan Amazon RDS untuk managed database service
+- Load balancing architecture untuk high availability
 
 ## Kesimpulan
 
-Sistem auto-resize gambar menggunakan AWS Lambda dan S3 yang telah dibangun memberikan solusi yang scalable dan cost-effective untuk pemrosesan gambar. Arsitektur serverless ini menghilangkan kebutuhan untuk mengelola server, secara otomatis menangani scaling, dan hanya membebankan biaya berdasarkan penggunaan aktual.
-
-Keuntungan implementasi ini:
-- **Otomasi penuh** proses resize gambar
-- **Scalability** tanpa batas
-- **Cost-effective** dengan model pembayaran per penggunaan
-- **Integrasi native** antara layanan AWS
-
-Sistem ini dapat dikembangkan lebih lanjut dengan menambahkan fitur seperti konversi format, optimisasi kualitas, atau integrasi dengan CDN untuk distribusi yang lebih efisien.
+Dokumentasi teknis ini memberikan panduan implementasi lengkap untuk self-managed database server pada AWS EC2. Arsitektur yang dijelaskan memungkinkan organisasi untuk memiliki kontrol penuh atas environment database mereka sambil memanfaatkan infrastruktur cloud AWS. Solusi ini cocok untuk scenario yang memerlukan kustomisasi tinggi, meskipun untuk workload production critical disarankan mempertimbangkan Amazon RDS untuk mengurangi overhead management.

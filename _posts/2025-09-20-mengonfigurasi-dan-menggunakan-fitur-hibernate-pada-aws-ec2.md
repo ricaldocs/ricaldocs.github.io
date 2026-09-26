@@ -23,19 +23,19 @@ Sebelum mengaktifkan hibernasi, beberapa persyaratan harus dipenuhi:
 ### 1. Meluncurkan Instance dengan Hibernasi Diaktifkan
 Pada konsol AWS Management Console, proses peluncuran instance EC2 (Launch Instance) dilakukan seperti biasa. Pada langkah **Configure Advanced Details**, pilihan **Stop - Hibernate behavior** harus diaktifkan (Enable).
 
-![Antarmuka Advanced Details dengan opsi Enable Stop-Hibernate](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/enable-hibernate.png)
+![Antarmuka Advanced Details dengan opsi Enable Stop-Hibernate](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/enable-hibernate.webp)
 _Antarmuka Advanced Details dengan opsi Enable Stop-Hibernate_
 
 ### 2. Konfigurasi Penyimpanan yang Dienkripsi
 Pada langkah **Storage (Volumes)**, volume root instance harus memiliki enkripsi yang diaktifkan. Pengguna dapat memilih enkripsi default dari EBS atau menentukan kunci KMS spesifik.
 
-![Antarmuka Storage (Volumes) dengan enkripsi diaktifkan](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/encrypted-storage.png)
+![Antarmuka Storage (Volumes) dengan enkripsi diaktifkan](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/encrypted-storage.webp)
 _Antarmuka Storage (Volumes) dengan enkripsi diaktifkan_
 
 ### 3. Meluncurkan Instance
 Setelah konfigurasi selesai, instance diluncurkan (Launch).
 
-![Antarmuka EC2 Instance Connect](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/connect-instance.png)
+![Antarmuka EC2 Instance Connect](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/connect-instance.webp)
 _Antarmuka EC2 Instance Connect_
 
 Setelah instance berjalan (`running`), dapat dilakukan pengujian konektivitas untuk memverifikasi statusnya.
@@ -49,16 +49,16 @@ ubuntu@ip-172-31-30-246:~$ uptime
 ### 4. Melakukan Hibernasi pada Instance
 Untuk melakukan hibernasi, pada bagian **Instance State** dengan memilih opsi **Hibernate instance** pada konsol AWS. Tindakan ini akan menyimpan keadaan memori ke volume root EBS yang terenkripsi sebelum instance dimatikan.
 
-![Instance State](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/hibernate-instance.png)
+![Instance State](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/hibernate-instance.webp)
 _Instance State_
 
-![Menu stop instance dengan pilihan hibernasi](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/hibernate-button.png)
+![Menu stop instance dengan pilihan hibernasi](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/hibernate-button.webp)
 _Menu stop instance dengan pilihan hibernasi_
 
 ### 5. Menghidupkan Kembali Instance
 Instance yang di-hibernate dapat dihidupkan kembali (**Start instance**) dari konsol AWS. Proses boot akan memulihkan keadaan sistem yang tersimpan secara persis seperti sebelum di-hibernate, termasuk semua aplikasi dan data yang reside di memori.
 
-![Memulai instance kembali](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/start-instance.png)
+![Memulai instance kembali](../assets/img/posts/cloud/mengonfigurasi-dan-menggunakan-fitur-hibernate-pada-aws-ec2/start-instance.webp)
 _Memulai instance kembali_
 
 Perintah `uptime` setelah dihidupkan kembali membuktikan kelanjutan keadaan sistem. Waktu aktif (uptime) yang ditampilkan adalah kelanjutan dari sebelum hibernasi, bukan direset.

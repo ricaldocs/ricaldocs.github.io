@@ -37,7 +37,7 @@ Mengapa AMF menjadi target utama DDoS? AMF adalah pintu gerbang semua UE (perang
 
 Sebelum simulasi beban tinggi, tambahkan 10 subscriber melalui WebUI Open5GS. Tanpa subscriber, UE tidak bisa autentikasi.
 
-![Antarmuka WebUI Open5GS untuk Management Subscriber](../assets/img/posts/open5gs/ddos/webui.png)
+![Antarmuka WebUI Open5GS untuk Management Subscriber](../assets/img/posts/open5gs/ddos/webui.webp)
 
 Mengapa harus 10 subscriber? Setiap UE butuh data autentikasi (IMSI, K, OPc) yang valid. Untuk simulasi 100 UE, Anda perlu 100 subscriber. Bisa di-generate massal melalui WebUI atau API.
 
@@ -76,7 +76,7 @@ Output yang diharapkan:
 [2025-11-29 17:50:06.027] [nas] [info] PDU Session establishment is successful PSI[1]
 ```
 
-![alt text](../assets/img/posts/open5gs/ddos/start-5g.png)
+![alt text](../assets/img/posts/open5gs/ddos/start-5g.webp)
 
 > Alur UE attach: PLMN-SEARCH → Authentication Request → Initial Registration → PDU Session Establishment. Ini adalah prosedur lengkap yang akan diulang ribuan kali saat serangan DDoS.
 {: .prompt-info}
@@ -96,7 +96,7 @@ Output yang diharapkan:
 11/29 17:50:06.062: [amf] INFO: [imsi-999700000000001:1:11] PDU Session modify
 ```
 
-![alt text](../assets/img/posts/open5gs/ddos/log.png)
+![alt text](../assets/img/posts/open5gs/ddos/log.webp)
 
 > Log menunjukkan setiap langkah autentikasi dan sesi. Saat serangan, log akan penuh dengan permintaan dari ratusan UE. Ini adalah data utama untuk analisis dampak.
 {: .prompt-info}
@@ -129,7 +129,7 @@ Output yang diharapkan:
 [2025-11-29 17:51:16.365] [999700000000001|nas] [info] Initial Registration is successful
 ```
 
-![alt text](../assets/img/posts/open5gs/ddos/10-ue.png)
+![alt text](../assets/img/posts/open5gs/ddos/10-ue.webp)
 
 ### Analisis Proses Autentikasi Massal
 
@@ -161,7 +161,7 @@ Tingkatkan ke 100 UE simultan:
 sudo ../build/nr-ue -c ue1.yaml -n 100
 ```
 
-![alt text](../assets/img/posts/open5gs/ddos/htop.png)
+![alt text](../assets/img/posts/open5gs/ddos/htop.webp)
 
 Pantau htop. CPU usage akan melonjak, memory terpakai meningkat. Jika AMF tidak cukup kuat, service mulai melambat atau crash.
 {: .prompt-tip}
@@ -311,7 +311,7 @@ Jalankan:
 sudo ../build/nr-ue -c ue2.yaml
 ```
 
-![alt text](../assets/img/posts/open5gs/ddos/ue2.png)
+![alt text](../assets/img/posts/open5gs/ddos/ue2.webp)
 
 > Penyerang bisa menggunakan banyak IMSI berbeda. Jika semua UE menggunakan IMSI yang sama, core mungkin mendeteksi anomali dan memblokir. Dengan banyak IMSI, serangan lebih sulit dideteksi.
 {: .prompt-info}

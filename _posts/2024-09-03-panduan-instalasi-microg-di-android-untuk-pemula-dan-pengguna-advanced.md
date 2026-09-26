@@ -88,7 +88,7 @@ A. Aktifkan Layanan Background
 - Di bagian "Google Cloud Messaging", aktifkan sakelarnya (ON)
 - Mengapa? Dua layanan ini memungkinkan aplikasi: (1) mengenali perangkat Anda untuk login Google, dan (2) menerima notifikasi push seperti WhatsApp
 
-![alt text](<../assets/img/posts/2024-09-03-microg/WhatsApp Image 2026-01-15 at 1.07.59 PM (1).jpeg>)
+![alt text](<../assets/img/posts/2024-09-03-microg/WhatsApp Image 2026-01-15 at 1.07.59 PM (1).webp>)
 
 B. Atur Layanan Lokasi (UnifiedNlp)
 Lokasi adalah fitur yang sering digunakan oleh aplikasi Gojek, Google Maps, atau cuaca.
@@ -98,7 +98,7 @@ Lokasi adalah fitur yang sering digunakan oleh aplikasi Gojek, Google Maps, atau
 3. Aktifkan salah satu backend yang tersedia (misalnya beaconDB atau Mozilla Location Service)
 4. Mengapa perlu backend? Tanpa Google, MicroG tidak punya cara menentukan lokasi Anda. Backend ini menggunakan database Wi-Fi dan menara seluler dari sumber independen untuk memperkirakan posisi Anda.
 
-![alt text](<../assets/img/posts/2024-09-03-microg/WhatsApp Image 2026-01-15 at 1.07.59 PM.jpeg>)
+![alt text](<../assets/img/posts/2024-09-03-microg/WhatsApp Image 2026-01-15 at 1.07.59 PM.webp>)
 
 ### Langkah 6: Restart Perangkat (Langkah Krusial!)
 Setelah semua konfigurasi selesai:

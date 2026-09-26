@@ -174,7 +174,7 @@ Apa yang terjadi di balik layar:
 
 **Langkah 3:** Cari aplikasi "External storage support"
 
-![Search External Storage App](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image.png)
+![Search External Storage App](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image.webp)
 
 **Langkah 4:** Klik Enable atau Download and Enable untuk mengaktifkan aplikasi.
 
@@ -184,7 +184,7 @@ Mengapa perlu aktivasi? External Storage bukan bagian dari core Nextcloud. Ini a
 
 **Langkah 1:** Buka Settings → Administration → External Storage
 
-![External Storage Settings](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image copy.png)
+![External Storage Settings](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image copy.webp)
 
 **Langkah 2:** Tambahkan External Storage
 
@@ -196,7 +196,7 @@ Klik Add external storage atau ikon `+` untuk menambahkan konfigurasi baru:
 | External storage | `Local`                        | Tipe storage yang digunakan (server local) |
 | Location         | `/var/www/html/data/external/` | Path absolut di dalam container            |
 
-![Add External Storage Form](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image copy 2.png)
+![Add External Storage Form](../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/image copy 2.webp)
 
 **Langkah 3:** Klik Create untuk menyimpan konfigurasi.
 
@@ -204,7 +204,7 @@ Klik Add external storage atau ikon `+` untuk menambahkan konfigurasi baru:
 
 1. Buka Files → All files atau Dashboard
 2. Seharusnya muncul folder baru bernama `External Storage`
-   ![alt text](<../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/Screenshot From 2026-09-04 22-24-14.png>)
+   ![alt text](<../assets/img/posts/2026-08-22-panduan-konfigurasi-external-storage-di-nextcloud/Screenshot From 2026-09-04 22-24-14.webp>)
 
 3. Klik folder tersebut untuk melihat isinya
 

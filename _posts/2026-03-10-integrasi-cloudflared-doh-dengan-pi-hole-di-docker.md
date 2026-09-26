@@ -203,9 +203,9 @@ Untuk memastikan tidak terjadi kebocoran DNS dan semua permintaan Anda benar-ben
    - Server dari LibreDNS
    - Server dari Quad9
 
-   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dnsleaktest.png)
+   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/dnsleaktest.webp)
 
-   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/ipleak.png)
+   ![alt text](../assets/img/posts/2026-03-08-instalasi-dan-konfigurasi-pi-hole-dengan-docker-untuk-blokir-jaringan-iklan-di-seluruh-jaringan/ipleak.webp)
    _Contoh hasil tes yang menunjukkan server DNS yang digunakan adalah dari LibreDNS (harus menunjukkan 1, artinya semua lalu lintas DNS terenkripsi dan sesuai dengan konfigurasi)_
 
 4. Anda juga dapat melihat statistik di dashboard Pi-hole (http://[IP-PI-HOLE]:8080) untuk memastikan bahwa semua query diteruskan ke cloudflared, bukan ke resolver lain.

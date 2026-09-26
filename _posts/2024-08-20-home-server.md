@@ -182,7 +182,7 @@ Sistem Nextcloud secara berkala melakukan pemeriksaan keamanan dan konfigurasi u
 > Untuk menyelesaikan permasalahan yang muncul, gunakan AI atau salin pesan kesalahan spesifik dan tempelkan ke mesin pencari browser untuk menemukan solusi terkini dari komunitas Nextcloud.
 {: .prompt-tip}
 
-![Panel Peringatan Keamanan Nextcloud](/assets/img/posts/2024-08-20-home-server/security-and-setup-warnings.png)
+![Panel Peringatan Keamanan Nextcloud](../assets/img/posts/2024-08-20-home-server/security-and-setup-warnings.webp)
 
 ### Pemecahan Masalah Konfigurasi Dasar
 Beberapa peringatan umum dapat diselesaikan dengan modifikasi file konfigurasi `config.php`{: .filepath}. Tambahkan atau perbarui parameter berikut sesuai kebutuhan:

@@ -21,7 +21,7 @@ Dengan menyelesaikan panduan ini, Anda akan memiliki:
 
 ### Arsitektur yang Dibangun
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/matrix.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/matrix.webp)
 
 Bayangkan Anda membangun rumah komunikasi digital:
 
@@ -58,13 +58,13 @@ Sebelum memulai, pastikan Anda memiliki:
 
 ### Konsep Kunci yang Perlu Dipahami
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/arsitektur-enkripsi.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/arsitektur-enkripsi.webp)
 
 **Matrix Protocol** - Protokol komunikasi open-source yang menggunakan arsitektur federated (seperti email). Setiap server (homeserver) dapat berkomunikasi dengan server lain secara terdesentralisasi.
 
 **Application Services (Bridges)** - Aplikasi yang bertindak sebagai "penerjemah" antara protocol Matrix dan platform lain (WhatsApp, Telegram). Mereka mengubah pesan dari satu format ke format lainnya secara real-time.
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/isolasi-jaringan.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/isolasi-jaringan.webp)
 
 **Containerization (Podman/Docker)** - Teknologi yang membungkus setiap layanan dalam lingkungan yang terisolasi (container). Ini memastikan:
 - Setiap layanan berjalan konsisten terlepas dari sistem host
@@ -82,16 +82,16 @@ Sebelum memulai, pastikan Anda memiliki:
 ~/digital-independence/synapse/
 ├── compose.yaml
 ├── mautrix/
-│   ├── compose.yaml
-│   ├── mautrix-telegram-data/                 # Konfigurasi Telegram bridge
-│   └── mautrix-whatsapp-data/                 # Konfigurasi WhatsApp bridge
+│   ├── compose.yaml
+│   ├── mautrix-telegram-data/                 # Konfigurasi Telegram bridge
+│   └── mautrix-whatsapp-data/                 # Konfigurasi WhatsApp bridge
 ├── synapse-data/                              # Data persisten Synapse
-│   ├── homeserver.yaml                        # Konfigurasi utama
-│   ├── matrix.ricalnet.my.id.log.config
-│   ├── matrix.ricalnet.my.id.signing.key
-│   ├── mautrix-telegram-registration.yaml     # File registrasi bridge
-│   ├── mautrix-whatsapp-registration.yaml     # File registrasi bridge
-│   └── media_store/                           # File yang diupload
+│   ├── homeserver.yaml                        # Konfigurasi utama
+│   ├── matrix.ricalnet.my.id.log.config
+│   ├── matrix.ricalnet.my.id.signing.key
+│   ├── mautrix-telegram-registration.yaml     # File registrasi bridge
+│   ├── mautrix-whatsapp-registration.yaml     # File registrasi bridge
+│   └── media_store/                           # File yang diupload
 ```
 
 ### Pertimbangan Keamanan Sebelum Memulai
@@ -266,7 +266,7 @@ Penjelasan:
 
 Buka `http://127.0.0.1:8008` untuk verifikasi homeserver berjalan.
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.webp)
 
 ## 3. Deployment Mautrix Bridges
 
@@ -412,7 +412,7 @@ dipen logs element-web
 
 Buka `http://127.0.0.1:8009` di browser.
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.webp)
 
 ## 5. Verifikasi dan Troubleshooting
 
@@ -435,10 +435,10 @@ dipen ps element-web synapse-mautrix synapse
 2. Start chat `@telegrambot:matrix.yourdomain.com` dan `@whatsappbot:matrix.yourdomain.com` 
 3. Kirim `help` untuk melihat perintah bridge
 4. Login ke WhatsApp dengan `login qr`
-   ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/wa-login.jpg)
+   ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/wa-login.webp)
 
 6. Login ke Telegram dengan `login qr`
-   ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/telegram-login.jpg)
+   ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/telegram-login.webp)
 
 ## Ringkasan Arsitektur
 
@@ -472,6 +472,6 @@ dipen ps element-web synapse-mautrix synapse
 
 ## Mind Map
 
-![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/mind-map.png)
+![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/mind-map.webp)
 
 Konfigurasi ini menggunakan `127.0.0.1` untuk jaringan lokal. Untuk deployment produksi, ganti dengan domain yang valid, aktifkan TLS/HTTPS (gunakan reverse proxy seperti Caddy atau Nginx), dan ubah password default dengan password yang kuat.

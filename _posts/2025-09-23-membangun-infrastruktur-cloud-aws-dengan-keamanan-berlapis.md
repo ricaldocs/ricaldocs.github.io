@@ -13,7 +13,7 @@ last_modified_at: 2026-06-01
 
 Proses konfigurasi dimulai dengan mengakses konsol layanan Amazon VPC melalui AWS Management Console. Pengguna dapat membuat VPC baru dengan menentukan parameter jaringan sesuai kebutuhan.
 
-![Dashboard VPC](../assets/img/posts/cloud/amazon-vpc/vpc-dashboard.png)
+![Dashboard VPC](../assets/img/posts/cloud/amazon-vpc/vpc-dashboard.webp)
 
 ### Konfigurasi Blok CIDR
 
@@ -21,25 +21,25 @@ Blok CIDR (Classless Inter-Domain Routing) menentukan rentang alamat IP privat y
 
 > [**IP Address Guide**](https://www.ipaddressguide.com/cidr)
 
-![Kalkulator CIDR](../assets/img/posts/cloud/amazon-vpc/cidr-web.png)
+![Kalkulator CIDR](../assets/img/posts/cloud/amazon-vpc/cidr-web.webp)
 
 ### Pengaturan VPC
 
 Pada tahap konfigurasi, pengguna menentukan nama VPC dan blok CIDR yang diinginkan. Opsi tambahan termasuk penyediaan alamat IPV6 CIDR dan penentuan tenancy - default untuk shared hardware atau dedicated untuk isolasi penuh.
 
-![Pengaturan VPC](../assets/img/posts/cloud/amazon-vpc/vpc-settings.png)
+![Pengaturan VPC](../assets/img/posts/cloud/amazon-vpc/vpc-settings.webp)
 
 ### Detail VPC yang Dibuat
 
 Setelah proses pembuatan selesai, sistem menampilkan detail VPC termasuk VPC ID, status, dan blok CIDR yang terkait. **VPC ini berfungsi sebagai container logis** untuk semua sumber daya jaringan.
 
-![Detail VPC](../assets/img/posts/cloud/amazon-vpc/vpc-details.png)
+![Detail VPC](../assets/img/posts/cloud/amazon-vpc/vpc-details.webp)
 
 ### Modifikasi Blok CIDR
 
 Fleksibilitas VPC memungkinkan penambahan blok CIDR tambahan setelah pembuatan melalui opsi edit CIDRs, memungkinkan perluasan ruang alamat IP jika diperlukan tanpa mengganggu operasi yang berjalan.
 
-![Edit CIDR](../assets/img/posts/cloud/amazon-vpc/edit-cidrs.png)
+![Edit CIDR](../assets/img/posts/cloud/amazon-vpc/edit-cidrs.webp)
 
 ## Konfigurasi Subnet
 
@@ -47,13 +47,13 @@ Fleksibilitas VPC memungkinkan penambahan blok CIDR tambahan setelah pembuatan m
 
 Subnet merupakan segmen jaringan dalam VPC yang mengelompokkan sumber daya berdasarkan kebutuhan keamanan dan fungsi. Untuk membuat subnet, akses menu Subnets dalam layanan VPC.
 
-![Dashboard Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/subnets-dashboard.png)
+![Dashboard Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/subnets-dashboard.webp)
 
 ### Membuat Subnet Baru
 
 Pilih VPC target yang telah dibuat sebelumnya, kemudian tentukan nama subnet, Availability Zone, dan blok CIDR yang merupakan subset dari blok CIDR VPC. **Setiap subnet harus berada dalam satu Availability Zone**.
 
-![Buat Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/create-subnet.png)
+![Buat Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/create-subnet.webp)
 
 ### Arsitektur Subnet yang Direkomendasikan
 
@@ -64,16 +64,16 @@ Desain jaringan yang optimal mengikuti prinsip **high availability** dengan mini
 - **Private Subnet A**: Untuk resources backend yang terisolasi di AZ A
 - **Private Subnet B**: Untuk resources backend yang terisolasi di AZ B
 
-![Public Subnet A](../assets/img/posts/cloud/amazon-vpc/subnet/public-subnet-a.png)
-![Public Subnet B](../assets/img/posts/cloud/amazon-vpc/subnet/public-subnet-b.png)
-![Private Subnet A](../assets/img/posts/cloud/amazon-vpc/subnet/private-subnet-a.png)
-![Private Subnet B](../assets/img/posts/cloud/amazon-vpc/subnet/private-subnet-b.png)
+![Public Subnet A](../assets/img/posts/cloud/amazon-vpc/subnet/public-subnet-a.webp)
+![Public Subnet B](../assets/img/posts/cloud/amazon-vpc/subnet/public-subnet-b.webp)
+![Private Subnet A](../assets/img/posts/cloud/amazon-vpc/subnet/private-subnet-a.webp)
+![Private Subnet B](../assets/img/posts/cloud/amazon-vpc/subnet/private-subnet-b.webp)
 
 ### Hasil Konfigurasi Subnet
 
 Setelah proses selesai, sistem menampilkan daftar semua subnet yang telah dibuat dalam VPC. **Infrastruktur multi-AZ ini memastikan ketahanan terhadap kegagalan satu availability zone**.
 
-![Semua Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/all-subnet.png)
+![Semua Subnet](../assets/img/posts/cloud/amazon-vpc/subnet/all-subnet.webp)
 
 ## Internet Gateway dan Tabel Rute
 
@@ -81,23 +81,23 @@ Setelah proses selesai, sistem menampilkan daftar semua subnet yang telah dibuat
 
 Untuk menguji konfigurasi jaringan, buat instance EC2 baru dengan memilih VPC dan subnet yang sesuai. **Security group harus dikonfigurasi dengan prinsip least privilege** - hanya mengizinkan akses inbound sesuai protokol yang diperlukan.
 
-![Buat Instance](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-instance.png)
-![Pengaturan Jaringan](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/network-settings.png)
-![Aturan Security Group](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/inbound-security-group-rules.png)
+![Buat Instance](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-instance.webp)
+![Pengaturan Jaringan](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/network-settings.webp)
+![Aturan Security Group](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/inbound-security-group-rules.webp)
 
 ### Mengaktifkan Auto-assign IP Publik
 
 Pada subnet publik, aktifkan opsi "Enable auto-assign public IPv4 address" untuk memberikan alamat IP publik secara otomatis kepada instance yang diluncurkan. **Fitur ini krusial untuk resources yang memerlukan akses inbound dari internet**.
 
-![Edit Subnet Public A](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/edit-subnet-settings-public-a.png)
-![Auto-assign IP Subnet Public A](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/auto-assign-ip-subnet-public-a.png)
+![Edit Subnet Public A](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/edit-subnet-settings-public-a.webp)
+![Auto-assign IP Subnet Public A](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/auto-assign-ip-subnet-public-a.webp)
 
 > Implementasikan prosedur serupa untuk PublicSubnetB untuk konsistensi konfigurasi.
 {: .prompt-tip}
 
 Pada keluaran yang dihasilkan, tampak bahwa instance telah diprovisi dengan alamat IP publik, namun konektivitas masih terhambat.
 
-![IP Public](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/ip-public.png)
+![IP Public](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/ip-public.webp)
 
 > **Troubleshooting Required**: Upaya koneksi ke server menggunakan layanan EC2 Instance Connect tidak berhasil. Investigasi mengungkapkan akar masalah - Internet Gateway belum terpasang pada VPC, mengisolasi jaringan dari internet.
 {: .prompt-info}
@@ -106,38 +106,38 @@ Pada keluaran yang dihasilkan, tampak bahwa instance telah diprovisi dengan alam
 
 Internet Gateway (IGW) merupakan komponen VPC horizontal yang scalable dan highly available, memungkinkan komunikasi antara instance dalam VPC dan internet. **Setiap VPC hanya mendukung satu IGW**.
 
-![Internet Gateways VPC](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/internat-gateways-vpc.png)
-![Buat IGW](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-igw.png)
-![Attach ke VPC](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/attach-to-vpc.png)
-![IGW Terattach](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/igw-attached.png)
+![Internet Gateways VPC](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/internat-gateways-vpc.webp)
+![Buat IGW](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-igw.webp)
+![Attach ke VPC](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/attach-to-vpc.webp)
+![IGW Terattach](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/igw-attached.webp)
 
 ### Konfigurasi Tabel Rute
 
 Tabel rute mengandung set rules (routes) yang menentukan kemana lalu lintas jaringan diarahkan. **Pisahkan tabel rute untuk subnet publik dan privat** untuk kontrol granuler atas routing traffic.
 
-![Tab Tabel Rute](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/route-tables-tab.png)
-![Buat Tabel Rute Publik](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-public-route-table.png)
-![Buat Tabel Rute Privat](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-private-route-table.png)
+![Tab Tabel Rute](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/route-tables-tab.webp)
+![Buat Tabel Rute Publik](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-public-route-table.webp)
+![Buat Tabel Rute Privat](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/create-private-route-table.webp)
 
 ### Asosiasi Subnet dengan Tabel Rute
 
 Asosiasikan subnet publik dengan tabel rute publik, dan subnet privat dengan tabel rute privat. **Setiap subnet hanya bisa terkait dengan satu route table**, namun satu route table bisa terkait multiple subnets.
 
-![Asosiasi Subnet Publik](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/add-public-subnet.png)
-![Asosiasi Subnet Privat](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/add-private-subnet.png)
-![Asosiasi Eksplisit Subnet](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/explicit-subnet-associations.png)
+![Asosiasi Subnet Publik](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/add-public-subnet.webp)
+![Asosiasi Subnet Privat](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/add-private-subnet.webp)
+![Asosiasi Eksplisit Subnet](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/explicit-subnet-associations.webp)
 
 ### Konfigurasi Rute ke Internet
 
 Pada tabel rute publik, tambahkan rute yang mengarahkan lalu lintas internet (0.0.0.0/0) ke Internet Gateway. **Route ini yang memberdayakan konektivitas outbound ke internet**.
 
-![Edit Rute](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/edit-routes.png)
+![Edit Rute](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/edit-routes.webp)
 
 ### Verifikasi Konektivitas
 
 Setelah konfigurasi lengkap, instance EC2 dalam subnet publik berhasil terhubung ke internet melalui EC2 Instance Connect. **Infrastruktur sekarang fully operational dengan konektivitas terkontrol**.
 
-![Hasil Konektivitas](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/hasil.png)
+![Hasil Konektivitas](../assets/img/posts/cloud/amazon-vpc/internet-gateway-and-route-tables/hasil.webp)
 
 > Dengan menyelesaikan langkah-langkah di atas, pengguna berhasil membangun infrastruktur jaringan AWS yang aman, terisolasi, dan highly available dengan konektivitas internet yang terkontrol melalui Amazon VPC, subnet, Internet Gateway, dan tabel rute. Arsitektur ini memberikan fondasi robust untuk deployment aplikasi production dengan resilience terhadap kegagalan zona availability.
 
@@ -147,7 +147,7 @@ Setelah konfigurasi lengkap, instance EC2 dalam subnet publik berhasil terhubung
 
 Instance EC2 yang sebelumnya bernama "MyServer" diubah menjadi "BastionHost" sebagai titik akses terkontrol yang menjadi satu-satunya gerbang menuju "PrivateInstance" dalam VPC.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/rename-myserver.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/rename-myserver.webp)
 
 ### Pembuatan Key Pair
 
@@ -156,37 +156,37 @@ Dibuat key pair khusus berformat `.pem` untuk otentikasi aman ke PrivateInstance
 > Format `.pem` khusus untuk sistem operasi Linux, sementara Windows menggunakan format `.ppk`
 {: .prompt-info}
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/create-key-pair.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/create-key-pair.webp)
 
 ### Pembuatan Private Instance
 
 PrivateInstance dibuat tanpa alamat IP publik, mengisolasi sepenuhnya dari internet. **Strategi zero-trust ini memastikan** tidak ada akses langsung dari luar VPC.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/create-private-instance.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/create-private-instance.webp)
 
 ### Penetapan Key Pair
 
 Key pair yang telah dibuat ditautkan ke PrivateInstance, menerapkan **model otentikasi berbasis kriptografi asimetris** yang lebih aman daripada password.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/use-key-pair.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/use-key-pair.webp)
 
 ### Konfigurasi Jaringan
 
 Instance dikonfigurasi berada dalam subnet privat dengan routing terbatas. **Arsitektur ini memastikan** semua traffic harus melalui BastionHost yang berfungsi sebagai jump server.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/network-settings.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/network-settings.webp)
 
 ### Verifikasi Konfigurasi
 
 PrivateInstance terbukti tidak memiliki IP publik, mengonfirmasi isolasi jaringan yang berhasil. **Hanya koneksi internal VPC** yang diperbolehkan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/instance-summary.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/instance-summary.webp)
 
 ### Inisiasi Koneksi
 
 Akses BastionHost dilakukan melalui EC2 Instance Connect, menyediakan **antarmuka berbasis browser** yang aman tanpa perlu software SSH tambahan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/instance-connect.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/instance-connect.webp)
 
 ### Proses Autentikasi
 
@@ -231,19 +231,19 @@ PrivateInstance dalam VPC Amazon Web Services (AWS) telah terisolasi dengan baik
 
 Dashboard layanan VPC diakses melalui konsol AWS, dengan navigasi ke menu NAT gateways untuk memulai konfigurasi.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/vpc-dashboard.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/vpc-dashboard.webp)
 
 #### Pembuatan NAT Gateway
 
 Tombol **Create NAT Gateway** diaktifkan untuk memulai proses deployment gateway baru. **NAT Gateway berfungsi sebagai translator** yang memungkinkan instance privat menginisiasi koneksi keluar.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/create-nate-gateways.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/create-nate-gateways.webp)
 
 #### Verifikasi Status
 
 Status **Available** mengonfirmasi NAT Gateway siap beroperasi. **Komponen highly available** ini di-deploy secara redundan dalam Availability Zone.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/nat-gateway-details.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/nat-gateway-details.webp)
 
 #### Konfigurasi Routing
 
@@ -253,13 +253,13 @@ Tabel rute privat diedit untuk mengintegrasikan NAT Gateway:
 - Pilih **PrivateRouteTable**
 - Klik **Edit routes**
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/private-route-table.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/private-route-table.webp)
 
 #### Penambahan Rute Internet
 
 Entri rute baru ditambahkan yang mengarahkan traffic internet (0.0.0.0/0) ke NAT Gateway. **Konfigurasi ini memberdayakan** PrivateInstance mengakses internet tanpa exposure langsung.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/edit-routes.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nat-gateways/edit-routes.webp)
 
 ### Hasil Verifikasi Konektivitas
 
@@ -287,13 +287,13 @@ Pastikan BastionHost terhubung ke internet sebelum memulai konfigurasi keamanan 
 
 Instance BastionHost diperiksa dan Security Group (SG) yang terkait diidentifikasi. **Security Group berfungsi sebagai firewall tingkat instance** yang stateful.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/security-details.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/security-details.webp)
 
 #### Penambahan Rule HTTP
 
 Security Group diperbarui dengan menambahkan protokol HTTP (port 80) pada inbound rules. **Port 80 diperlukan** untuk layanan web Apache2.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-inbound-rules.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-inbound-rules.webp)
 
 #### Deployment Apache2
 
@@ -321,16 +321,16 @@ echo "Welcome to Ricalnet" > /var/www/html/index.html
 
 Akses web berhasil diverifikasi melalui browser menggunakan alamat IP public BastionHost.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/browser.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/browser.webp)
 
 #### Konfigurasi Network ACL
 
 Network Access Control List (NACL) dikonfigurasi sebagai **firewall stateless tingkat subnet**:
 
 - Ubah nama NACL untuk identifikasi jelas  
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/rename%20nacl.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/rename%20nacl.webp)
 - Tambahkan aturan penolakan HTTP (port 80) pada DefaultNACL  
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-inbound-rules-deny.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-inbound-rules-deny.webp)
 
 #### Testing Blokir NACL
 
@@ -340,13 +340,13 @@ Akses web gagal akibat aturan NACL yang memblokir HTTP, **membuktikan efektivita
 
 Urutan aturan NACL disesuaikan dengan mengubah rule number ke nilai lebih tinggi, memanfaatkan **mekanisme evaluasi berurutan NACL**.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-rule-number.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/edit-rule-number.webp)
 
 #### Verifikasi Akhir
 
 Website kembali dapat diakses karena NACL mengevaluasi aturan berdasarkan nomor terkecil terlebih dahulu.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/browser.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/nacl-dan-security-group/browser.webp)
 
 > **Arsitektur Keamanan Berlapis**: Kombinasi Security Group (stateful, instance-level) dan NACL (stateless, subnet-level) menciptakan defense-in-depth. Security Group mengizinkan HTTP, sementara NACL dapat memblokirnya berdasarkan urutan rule number.
 {: .prompt-info}
@@ -359,21 +359,21 @@ Website kembali dapat diakses karena NACL mengevaluasi aturan berdasarkan nomor 
 
 Dashboard VPC diakses melalui konsol AWS. VPC default diubah namanya menjadi "DefaultVPC" untuk konsistensi penamaan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/rename-vpc.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/rename-vpc.webp)
 
 ### Deployment Instance Baru
 
 Instance baru diluncurkan dalam DefaultVPC dengan konfigurasi spesifik:
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/launch-an-instance.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/launch-an-instance.webp)
 
 - **Key Pair**: Dipilih key pair yang sesuai untuk otentikasi
 
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/key-pair.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/key-pair.webp)
 
 - **Network Settings**: Dipastikan memilih DefaultVPC untuk isolasi jaringan
 
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/network-settings.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/network-settings.webp)
 
 ### Verifikasi Konektivitas Awal
 
@@ -403,7 +403,7 @@ ubuntu@ip-172-31-18-213:~$ curl 10.0.0.183:80
 
 Layanan VPC → Peering Connections → Create Peering Connection diakses untuk memulai proses.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/vpc-dashboard.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/vpc-dashboard.webp)
 
 #### Konfigurasi Peering
 
@@ -412,13 +412,13 @@ Pengaturan koneksi dikonfigurasi:
 - **Requester VPC**: DemoVPC
 - **Accepter VPC**: DefaultVPC
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/peering-connection-settings.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/peering-connection-settings.webp)
 
 #### Penyelesaian Koneksi
 
 Request koneksi di-accept untuk menyelesaikan proses pembangunan jembatan jaringan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/accept-request.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/accept-request.webp)
 
 ### Konfigurasi Routing Terpadu
 
@@ -426,24 +426,24 @@ Request koneksi di-accept untuk menyelesaikan proses pembangunan jembatan jaring
 
 Nama tabel rute VPC default diubah untuk identifikasi yang lebih jelas.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/rename-route-tables.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/rename-route-tables.webp)
 
 > **Pentingnya Dokumentasi CIDR**: Informasi CIDR setiap VPC harus dicatat untuk perencanaan routing dan menghindari conflict alamat IP.
 {: .prompt-info}
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/cidr-info.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/cidr-info.webp)
 
 #### PublicRouteTable DemoVPC
 
 - Edit rute existing
 - Tambahkan rute ke CIDR DefaultVPC (172.31.0.0/16) melalui koneksi peering
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/public-route-table.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/public-route-table.webp)
 
 #### DefaultVPCMainRouteTable
 
 - Edit rute default
 - Tambahkan rute ke CIDR DemoVPC (10.0.0.0/16) melalui koneksi peering
-   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/DefaultVPCMainRouteTable.png)
+   ![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/vpc-peering/DefaultVPCMainRouteTable.webp)
 
 ### Verifikasi Keberhasilan Integrasi
 
@@ -464,25 +464,25 @@ ubuntu@ip-172-31-18-213:~$ curl 10.0.0.183:80
 
 Dashboard layanan VPC dibuka dan VPC target dipilih. Monitoring menunjukkan **IPv6 belum aktif**, mengindikasikan ketergantungan penuh pada IPv4.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/cidrs-tab.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/cidrs-tab.webp)
 
 #### Inisiasi Alokasi IPv6
 
 Opsi "Edit CIDRs" dipilih dari menu untuk memulai proses alokasi IPv6.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-cidrs.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-cidrs.webp)
 
 #### Penyediaan Blok IPv6
 
 "Add IPv6 CIDR" diaktifkan, dan AWS secara otomatis menyediakan blok alamat IPv6 /56 untuk VPC. **Blok /56 menyediakan 256 subnet IPv6**, kapasitas yang sangat besar untuk pertumbuhan masa depan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/add-ipv6-cidr.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/add-ipv6-cidr.webp)
 
 #### Konfirmasi Dual-Stack
 
 VPC kini memiliki kedua blok alamat, IPv4 dan IPv6, mengimplementasikan **arsitektur dual-stack** yang memungkinkan transisi seamless.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/ipv4-and-ipv6-cidrs.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/ipv4-and-ipv6-cidrs.webp)
 
 ### Distribusi IPv6 ke Subnet
 
@@ -490,17 +490,17 @@ VPC kini memiliki kedua blok alamat, IPv4 dan IPv6, mengimplementasikan **arsite
 
 Menu "Subnets" diakses dari layanan VPC untuk distribusi alamat IPv6 ke level subnet.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/subnets.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/subnets.webp)
 
 #### Alokasi CIDR IPv6 Subnet
 
 Subnet target dipilih dan "Edit IPv6 CIDRs" diaktifkan untuk alokasi blok IPv6 khusus subnet.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-ipv6-cidrs.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-ipv6-cidrs.webp)
 
 Blok CIDR IPv6 yang telah dialokasikan sebelumnya ditambahkan ke pengaturan subnet.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-subnet-settings.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-subnet-settings.webp)
 
 ### Aktivasi Auto-Assignment IPv6
 
@@ -508,7 +508,7 @@ Blok CIDR IPv6 yang telah dialokasikan sebelumnya ditambahkan ke pengaturan subn
 
 Opsi "Enable auto-assign IPv6 address" diaktifkan pada pengaturan subnet. **Fitur ini memastikan** instance baru secara otomatis mendapatkan alamat IPv6 saat diluncurkan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/enable-auto-assing-ipv6.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/enable-auto-assing-ipv6.webp)
 
 ### Aktualisasi IPv6 pada BastionHost
 
@@ -516,15 +516,15 @@ Opsi "Enable auto-assign IPv6 address" diaktifkan pada pengaturan subnet. **Fitu
 
 Instance "BastionHost" yang berjalan diperbarui melalui tab "Networking" dengan memilih "Manage IP addresses".
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/instance-networking-manage-ip-address.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/instance-networking-manage-ip-address.webp)
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/manage-ip--addresses.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/manage-ip--addresses.webp)
 
 #### Verifikasi Alamat IPv6
 
 Instance BastionHost berhasil mendapatkan alamat IPv6 publik baru, **melengkapi konektivitas dengan dual-stack capability**.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/ipv6-address.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/ipv6-address.webp)
 
 ### Penyempurnaan Keamanan IPv6
 
@@ -532,16 +532,16 @@ Instance BastionHost berhasil mendapatkan alamat IPv6 publik baru, **melengkapi 
 
 "Security Groups" yang terkait dengan instance BastionHost dibuka untuk penyesuaian aturan keamanan.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/security-groups.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/security-groups.webp)
 
 #### Ekstensi Aturan Keamanan
 
 Aturan masuk (inbound rules) diperbarui untuk mencerminkan izin yang sama yang sebelumnya hanya berlaku untuk IPv4, sekarang diperluas untuk protokol IPv6.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-inbound-rules.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/edit-inbound-rules.webp)
 
 Aturan masuk yang telah diperbarui menunjukkan koneksi SSH yang diizinkan baik dari IPv4 maupun IPv6.
 
-![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/inbound-rules.png)
+![](../assets/img/posts/cloud/amazon-vpc/bastion-hosts/ipv6-for-vpc/inbound-rules.webp)
 
 > **Transformasi Lengkap**: Dengan menyelesaikan seluruh langkah di atas, infrastruktur cloud telah bertransformasi menjadi arsitektur dual-stack (IPv4 dan IPv6) yang siap menghadapi masa depan internet dan memenuhi persyaratan compliance modern.

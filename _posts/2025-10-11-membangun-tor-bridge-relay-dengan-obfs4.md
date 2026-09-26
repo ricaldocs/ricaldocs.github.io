@@ -13,7 +13,7 @@ Dalam perlombaan senjata antara sensor dan kebebasan informasi, sebuah teknologi
 
 Bayangkan sebuah terowongan rahasia di bawah jalanan yang ramai. Meski penjaga berjaga di setiap persimpangan, mereka tak pernah menyadari keberadaannya. Di dunia digital, terowongan itu bernama Tor Bridge Relay, dan Obfs4 adalah teknologi yang membuatnya tak terlihat.
 
-![Invisible Tunnel](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/invisible-tunnel.png)
+![Invisible Tunnel](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/invisible-tunnel.webp)
 
 Tor (The Onion Router) telah lama menjadi benteng privasi dan penyelamat bagi aktivis, jurnalis, dan warga biasa di negara dengan sensor ketat. Namun, musuhnya semakin pintar. Deep Packet Inspection (DPI), teknologi canggih yang mampu menganalisis dan memfilter lalu lintas internet berdasarkan "sidik jari"-nya, semakin efektif mendeteksi dan memblokir koneksi ke jaringan Tor.
 
@@ -25,7 +25,7 @@ Obfs4, kependekan dari Obfuscation4, bukan sekadar enkripsi. Ia adalah ahli peny
 
 Ibaratnya, Obfs4 mengubah pesan rahasia yang jelas-jelas terbungkus onion routing menjadi sebuah kiriman paket biasa yang terlihat seperti koneksi HTTPS biasa atau bahkan lalu lintas video streaming.
 
-![obfs4](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/obfs4.png)
+![obfs4](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/obfs4.webp)
 
 Proses teknisnya disebut pluggable transport. Obfs4 tidak mengubah cara kerja Tor inti, melainkan menjadi "kemasan luarnya". Ia menambahkan lapisan obfuskasi yang:
 
@@ -647,7 +647,7 @@ Bridge obfs4 52.90.158.109:54444 7D2CA52769915D69EBF7E7D444EC83DEDBBF981E cert=X
 2. Navigasi ke halaman "Connection"
 3. Konfigurasikan bridge sesuai dengan informasi yang telah dikumpulkan
 
-  ![Tor Connection Setup](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/tor-connection-setup.png)
+  ![Tor Connection Setup](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/tor-connection-setup.webp)
 
 #### C. Metode 2: Multiple Bridges (Redundancy)
 
@@ -671,7 +671,7 @@ ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 
 ##### 1. Pemeriksaan Status Koneksi
 
-![obfs4 bridge: Connected](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/connected.png)
+![obfs4 bridge: Connected](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/connected.webp)
 
 ##### 2. Testing di check.torproject.org
 - Akses: [https://check.torproject.org](https://check.torproject.org/)
@@ -682,4 +682,4 @@ ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 - Gunakan fitur "Find in Settings"
 - Cari "Tor log" untuk analisis lebih lanjut
 
-  ![Tor log](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/tor-browser-log.png)
+  ![Tor log](../assets/img/posts/2025-10-11-membangun-bridge-relay-tor-dengan-obfs4/tor-browser-log.webp)

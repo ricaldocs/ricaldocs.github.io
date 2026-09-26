@@ -18,7 +18,7 @@ Akses [portal dashboard ngrok](https://dashboard.ngrok.com/) untuk memperoleh au
 > Autentikasi token diperlukan untuk mengotorisasi sesi tunneling antara server lokal dan layanan ngrok cloud.
 {: .prompt-info}
 
-![Halaman Authtoken Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-token.png)
+![Halaman Authtoken Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-token.webp)
 
 ### 2. Akses Remote ke Server Ubuntu
 Lakukan koneksi SSH ke server Ubuntu menggunakan protokol Secure Shell:
@@ -32,7 +32,7 @@ ssh username@hostname
 > Ganti placeholder `username` dan `hostname` dengan kredensial dan alamat server yang sesuai.
 {: .prompt-tip}
 
-![Antarmuka Login SSH](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ssh-login.png)
+![Antarmuka Login SSH](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ssh-login.webp)
 
 ### 3. Pembaruan Repositori Sistem
 Update indeks paket sistem untuk memastikan ketersediaan versi terbaru:
@@ -130,6 +130,6 @@ ngrok http http://localhost:4300
 ```
 
 > Tunnel ngrok menyediakan URL publik yang dapat diakses dari internet untuk keperluan testing dan demonstrasi.
-![Antarmuka Forwarding Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-forwarding.png)
-![Halaman Web Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-page.png)
+![Antarmuka Forwarding Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-forwarding.webp)
+![Halaman Web Ngrok](assets/img/posts/2025-03-27-video-conference-menggunakan-webrtc/ngrok-page.webp)
 {: .prompt-info}

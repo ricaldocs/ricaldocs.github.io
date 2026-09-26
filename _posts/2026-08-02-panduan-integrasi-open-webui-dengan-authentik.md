@@ -28,13 +28,13 @@ Open WebUI adalah platform AI self-hosted yang beroperasi secara offline. Menduk
 - Slug: Catat nilai ini (contoh: `openwebui`)
 - Group: Opsional
 - Policy Engine Mode: Sesuai kebutuhan
-  ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/1.png)
+  ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/1.webp)
 
 #### Konfigurasi Provider (OAuth2/OpenID Connect):
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/2.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/2.webp)
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/3.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/3.webp)
 
 - Name: `Provider for Open WebUI`
 - Authorization Flow: `default-provider-authorization-implicit-consent (Authorize Application)`
@@ -42,7 +42,7 @@ Open WebUI adalah platform AI self-hosted yang beroperasi secara offline. Menduk
 - Redirect URI: 
   - Tipe: `Strict` `Authorization`
   - URL: `https://openwebui.domain.com/oauth/oidc/callback`
-    ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/4.png)
+    ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/4.webp)
 
 - Signing Key: Pilih key yang tersedia
 - Encryption Key: Biarkan kosong
@@ -61,14 +61,14 @@ Open WebUI dapat menetapkan role `user` dan `admin` dari klaim OAuth.
    - `Open WebUI Users`
    - `Open WebUI Admins`
 4. Bind users/groups ke masing-masing entitlement
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/5.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/5.webp)
 
 #### Buat Scope Mapping:
 1. Navigasi ke Customization > Property Mappings → klik Create
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/6.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/6.webp)
 
 3. Pilih Scope Mapping dengan konfigurasi:
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/7.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/7.webp)
 
     | Field      | Value              |
     | ---------- | ------------------ |
@@ -100,7 +100,7 @@ Open WebUI dapat menetapkan role `user` dan `admin` dari klaim OAuth.
 #### Tambahkan ke Provider:
 1. Navigasi ke Applications > Providers → edit provider Open WebUI
 2. Pada Advanced protocol settings > Selected Scopes, tambahkan `Open WebUI roles`
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/8.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/8.webp)
 
 4. Klik Save Changes
 
@@ -165,7 +165,7 @@ Jika setelah restart Open WebUI masih gagal redirect (misalnya redirect ke URL y
 ### 3.1 Test Login SSO
 1. Buka Open WebUI di `https://openwebui.domain.com`
 2. Pastikan logout dari session sebelumnya
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/9.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-open-webui-dengan-authentik/9.webp)
 
 3. Klik Continue with SSO
 4. Login dengan kredensial authentik

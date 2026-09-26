@@ -12,12 +12,12 @@ last_modified_at: 2026-06-01
 ### 1. Persiapan Domain di Cloudflare
 Pastikan domain Anda telah terdaftar di Cloudflare dengan status **Active** dan menggunakan nameserver Cloudflare. Verifikasi di dashboard Cloudflare untuk memastikan domain aktif sepenuhnya.
 
-![Status Domain Cloudflare](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image.png)
+![Status Domain Cloudflare](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image.webp)
 
 ### 2. Kosongkan DNS Records
 Hapus semua record DNS yang ada atau pastikan zona DNS dalam keadaan kosong sebelum memulai konfigurasi tunnel. Hal ini mencegah konflik antara record konvensional dan routing tunnel.
 
-![Zona DNS Kosong](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image-1.png)
+![Zona DNS Kosong](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image-1.webp)
 
 ## Instalasi Cloudflared
 
@@ -62,7 +62,7 @@ Perintah ini akan:
 
 Jika browser tidak terbuka otomatis, salin URL yang ditampilkan ke browser manual.
 
-![Halaman Otorisasi Tunnel](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image-2.png)
+![Halaman Otorisasi Tunnel](assets/img/posts/2026-01-23-panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/image-2.webp)
 
 Setelah berhasil login, output akan menampilkan lokasi penyimpanan sertifikat:
 ```

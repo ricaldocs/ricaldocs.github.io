@@ -167,7 +167,7 @@ docker compose logs -f
 Untuk memverifikasi bahwa Synapse berjalan dengan benar:
 
 1. Akses `http://127.0.0.1:8008`. Seharusnya menampilkan pesan default Synapse
-   ![Synapse is running](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.png)
+   ![Synapse is running](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.webp)
    _Synapse is running_
 
 2. Periksa log container:
@@ -199,7 +199,7 @@ Untuk memverifikasi bahwa Synapse berjalan dengan benar:
 3. Klik "Edit" dan Masukkan URL homeserver: `http://127.0.0.1:8008`
 4. Masukkan kredensial dan klik "Register"
 
-![Log in to NoCOMINT](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.png)
+![Log in to NoCOMINT](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.webp)
 _Log in to NoCOMINT_
 
 > Pesan kesalahan `"Registration has been disabled on this homeserver"` muncul ketika pengguna mencoba mendaftar melalui klien Matrix (seperti Element) yang terhubung ke instans Synapse dengan pendaftaran dinonaktifkan. Konfigurasi ini diatur dalam file `homeserver.yaml`{: .filepath} melalui parameter `enable_registration` (Lihat [Modifikasi Konfigurasi Synapse](https://git.ricalnet.my.id/rical/digital-independence/src/branch/main/synapse/templates/homeserver.example.yaml)).

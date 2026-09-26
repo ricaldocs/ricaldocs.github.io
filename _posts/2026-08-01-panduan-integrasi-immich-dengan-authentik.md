@@ -40,7 +40,7 @@ Dokumen ini memandu langkah demi langkah integrasi kedua layanan, dengan penjela
 
 ### 1.2 Isi Detail Aplikasi
 
-![Konfigurasi Aplikasi Authentik](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/1.png)
+![Konfigurasi Aplikasi Authentik](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/1.webp)
 
 | Field              | Nilai    | Mengapa                                               |
 | ------------------ | -------- | ----------------------------------------------------- |
@@ -53,14 +53,14 @@ Dokumen ini memandu langkah demi langkah integrasi kedua layanan, dengan penjela
 
 ### 1.3 Konfigurasi Provider OAuth2/OIDC
 
-![Pilih Provider Type](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/2.png)
+![Pilih Provider Type](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/2.webp)
 
 1. Pilih OAuth2/OpenID Provider
 2. Klik Next untuk lanjut ke konfigurasi
 
 #### Parameter Provider
 
-![Konfigurasi Provider](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/3.png)
+![Konfigurasi Provider](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/3.webp)
 
 | Field              | Nilai                                             | Mengapa                                                                                  |
 | ------------------ | ------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -73,7 +73,7 @@ Dokumen ini memandu langkah demi langkah integrasi kedua layanan, dengan penjela
 
 ### 1.4 Redirect URIs
 
-![Daftar Redirect URIs](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/4.png)
+![Daftar Redirect URIs](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/4.webp)
 
 Untuk mendukung login dari web dan mobile, tambahkan ketiga URL berikut (ganti `immich.domainanda.com` dengan domain Immich Anda):
 
@@ -105,11 +105,11 @@ https://immich.domainanda.com/user-settings
 1. Buka Admin Interface Immich
 2. Navigasi ke Administration → Settings
 3. Pilih tab OAuth Authentication
-    ![Menu OAuth Immich](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/5.png)
+    ![Menu OAuth Immich](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/5.webp)
 
 ### 2.2 Parameter OAuth Wajib
 
-![Konfigurasi OAuth Immich](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/6.png)
+![Konfigurasi OAuth Immich](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/6.webp)
 
 Aktifkan OAuth dengan toggle Enabled ke posisi ON, lalu isi:
 
@@ -144,7 +144,7 @@ Klik Save di bagian bawah halaman untuk menyimpan semua pengaturan.
 1. Keluar dari akun administrator Immich
 2. Buka halaman login: `https://immich.domainanda.com/auth/login`
 3. Klik tombol "Login dengan OAuth"
-    ![Tombol Login OAuth](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/7.png)
+    ![Tombol Login OAuth](../assets/img/posts/2026-08-01-panduan-integrasi-immich-dengan-authentik/7.webp)
 
 4. Anda diarahkan ke halaman login Authentik
 5. Masukkan kredensial pengguna Authentik

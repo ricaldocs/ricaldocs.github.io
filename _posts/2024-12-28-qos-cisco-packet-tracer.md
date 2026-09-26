@@ -7,7 +7,7 @@ author: rical
 last_modified_at: 2026-06-01
 ---
 
-![QoS Configuration in Cisco Packet Tracer](/assets/img/posts/2024-12-28-qos-cisco-packet-tracer/qos-configuration.png)
+![QoS Configuration in Cisco Packet Tracer](/assets/img/posts/2024-12-28-qos-cisco-packet-tracer/qos-configuration.webp)
 
 ## Topologi Jaringan
 - **IP PC0**: 192.168.1.2, **Gateway**: 192.168.1.1

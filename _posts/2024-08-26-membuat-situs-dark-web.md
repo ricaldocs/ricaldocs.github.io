@@ -61,7 +61,7 @@ HiddenServiceDir /var/lib/tor/hidden_service/
 HiddenServicePort 80 127.0.0.1:8080
 ```
 
-![torrc Configuration](../assets/img/posts/2024-08-26-membuat-situs-dark-web/torrc-configuration.png)
+![torrc Configuration](../assets/img/posts/2024-08-26-membuat-situs-dark-web/torrc-configuration.webp)
 _torrc Configuration_
 
 Konfigurasi ini mengarahkan traffic port 80 onion address ke port 8080 localhost, memungkinkan hosting web tanpa konfigurasi DNS.
@@ -277,7 +277,7 @@ Buka terminal baru dan jalankan perintah berikut:
 sudo cat /var/lib/tor/hidden_service/hostname
 ```
 
-![Onion Address](../assets/img/posts/2024-08-26-membuat-situs-dark-web/onion-address.png)
+![Onion Address](../assets/img/posts/2024-08-26-membuat-situs-dark-web/onion-address.webp)
 _Onion Address_
 
 Perintah ini menampilkan onion address yang di-generate secara otomatis oleh sistem kriptografi Tor.
@@ -290,7 +290,7 @@ http://[onion_address].onion
 
 Success indicator berupa loading konten HTML yang telah disiapkan.
 
-![Tor Browser](../assets/img/posts/2024-08-26-membuat-situs-dark-web/tor-browser.png)
+![Tor Browser](../assets/img/posts/2024-08-26-membuat-situs-dark-web/tor-browser.webp)
 _Tor Browser_
 
 ## FASE 6: PROTOKOL KEAMANAN LANJUTAN

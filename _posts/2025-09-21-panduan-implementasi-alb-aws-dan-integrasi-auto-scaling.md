@@ -15,13 +15,13 @@ Application Load Balancer (ALB) merupakan layanan penyeimbang beban tingkat apli
 ### Pembuatan Instance Ganda
 Proses dimulai dengan membuat dua instance EC2 secara simultan melalui AWS Management Console. Konfigurasi ini memastikan ketersediaan tinggi dan mendukung arsitektur fault-tolerant.
 
-![Antarmuka Pembuatan instance EC2](../assets/img/posts/cloud/application-load-balancer/create-instance.png)
+![Antarmuka Pembuatan instance EC2](../assets/img/posts/cloud/application-load-balancer/create-instance.webp)
 _Antarmuka pembuatan instance EC2 pada AWS Management Console_
 
 ### Pengaturan Jaringan dan Key Pair
 Pada tahap konfigurasi jaringan, penting untuk memastikan instance terletak dalam Virtual Private Cloud (VPC) yang sesuai dengan pengaturan keamanan yang diperlukan. Pemilihan key pair yang tepat diperlukan untuk mengamankan akses SSH.
 
-![Pengaturan Jaringan dan Key Pair](../assets/img/posts/cloud/application-load-balancer/network-settings.png)
+![Pengaturan Jaringan dan Key Pair](../assets/img/posts/cloud/application-load-balancer/network-settings.webp)
 _Konfigurasi pengaturan jaringan dan pemilihan key pair_
 
 ### Konfigurasi Data Pengguna
@@ -46,13 +46,13 @@ systemctl restart apache2
 ### Penamaan dan Pengelompokan Instance
 Pemberian nama yang deskriptif pada setiap instance memudahkan identifikasi dan manajemen dalam lingkungan dengan banyak sumber daya.
 
-![Modifikasi Penamaan Instance](../assets/img/posts/cloud/application-load-balancer/edit-instance.png)
+![Modifikasi Penamaan Instance](../assets/img/posts/cloud/application-load-balancer/edit-instance.webp)
 _Proses pemberian nama pada instance EC2_
 
 ### Konfigurasi Security Group
 Security Group harus dikonfigurasi untuk mengizinkan lalu lintas HTTP pada port 80 guna memastikan akses web yang tepat.
 
-![Aturan Masuk Security Group](../assets/img/posts/cloud/application-load-balancer/inbound-rules.png)
+![Aturan Masuk Security Group](../assets/img/posts/cloud/application-load-balancer/inbound-rules.webp)
 _Konfigurasi aturan masuk untuk lalu lintas HTTP_
 
 ## Implementasi Application Load Balancer
@@ -60,53 +60,53 @@ _Konfigurasi aturan masuk untuk lalu lintas HTTP_
 ### Inisiasi Load Balancer
 ALB dibuat melalui konsol AWS dengan memilih layanan Load Balancer.
 
-![Antarmuka konsol Load Balancer](../assets/img/posts/cloud/application-load-balancer/create-load-balancer.png)
+![Antarmuka konsol Load Balancer](../assets/img/posts/cloud/application-load-balancer/create-load-balancer.webp)
 _Antarmuka konsol Load Balancer_
 
 ### Seleksi Tipe Load Balancer
 Application Load Balancer dipilih karena kemampuannya menangani lalu lintas HTTP/HTTPS dan mendukung fitur advanced routing.
 
-![Pemilihan Application Load Balancer](../assets/img/posts/cloud/application-load-balancer/select-alb.png)
+![Pemilihan Application Load Balancer](../assets/img/posts/cloud/application-load-balancer/select-alb.webp)
 _Antarmuka pemilihan jenis load balancer pada AWS_
 
 ### Penamaan dan Zona Ketersediaan
 ALB memerlukan penamaan yang unik dan harus diletakkan pada minimal dua Availability Zone (AZ) berbeda untuk memastikan redundansi dan ketersediaan tinggi.
 
-![Penamaan ALB](../assets/img/posts/cloud/application-load-balancer/load-balancer-name.png)
+![Penamaan ALB](../assets/img/posts/cloud/application-load-balancer/load-balancer-name.webp)
 _Proses penamaan ALB_
 
-![Pemilihan AZ](../assets/img/posts/cloud/application-load-balancer/select-az.png)
+![Pemilihan AZ](../assets/img/posts/cloud/application-load-balancer/select-az.webp)
 _Seleksi Availability Zone_
 
 
 ### Konfigurasi Security Group untuk ALB
 Security Group khusus dibuat untuk ALB guna mengontrol lalu lintas yang diizinkan mengakses load balancer.
 
-![Pembuatan Security Group Baru](../assets/img/posts/cloud/application-load-balancer/create-new-sg.png)
+![Pembuatan Security Group Baru](../assets/img/posts/cloud/application-load-balancer/create-new-sg.webp)
 _Pembuatan Security Group khusus untuk Application Load Balancer_
 
 ### Pembuatan Target Group
 Target Group berfungsi sebagai kelompok tujuan yang menerima lalu lintas dari ALB. Konfigurasi meliputi penentuan protokol, port, dan pemeriksaan kesehatan.
 
-![_Antarmuka konfigurasi Listeners and routing_](../assets/img/posts/cloud/application-load-balancer/create-tg.png)
+![_Antarmuka konfigurasi Listeners and routing_](../assets/img/posts/cloud/application-load-balancer/create-tg.webp)
 _Antarmuka konfigurasi Listeners and routing_
 
-![_Antarmuka konfigurasi Target Group_](../assets/img/posts/cloud/application-load-balancer/create-tg-name.png)
+![_Antarmuka konfigurasi Target Group_](../assets/img/posts/cloud/application-load-balancer/create-tg-name.webp)
 _Antarmuka konfigurasi Target Group_
 
 ### Registrasi Target
 Instance EC2 yang telah dibuat didaftarkan sebagai target dalam Target Group.
 
-![Pendaftaran Target](../assets/img/posts/cloud/application-load-balancer/include-as-pending-below.png)
+![Pendaftaran Target](../assets/img/posts/cloud/application-load-balancer/include-as-pending-below.webp)
 _Proses registrasi instance EC2 sebagai target dalam Target Group_
 
-![Create target group](../assets/img/posts/cloud/application-load-balancer/review-targets.png)
+![Create target group](../assets/img/posts/cloud/application-load-balancer/review-targets.webp)
 _Proses registrasi instance EC2 sebagai target dalam Target Group_
 
 ### Penyelesaian Konfigurasi ALB
 Setelah Target Group berhasil dibuat, ALB dikonfigurasi untuk mengarahkan lalu lintas ke target group tersebut.
 
-![Penghubungan ALB dengan Target Group](../assets/img/posts/cloud/application-load-balancer/select-alb-tg.png)
+![Penghubungan ALB dengan Target Group](../assets/img/posts/cloud/application-load-balancer/select-alb-tg.webp)
 _Penyelesaian konfigurasi dengan menghubungkan ALB ke Target Group_
 
 ## Validasi dan Pengujian
@@ -114,25 +114,25 @@ _Penyelesaian konfigurasi dengan menghubungkan ALB ke Target Group_
 ### DNS Endpoint ALB
 Setelah berhasil dibuat, ALB menyediakan endpoint DNS yang digunakan untuk mengakses aplikasi. Endpoint ini akan secara otomatis mendistribusikan lalu lintas ke instance yang sehat.
 
-![Endpoint DNS ALB](../assets/img/posts/cloud/application-load-balancer/dns-alb.png)
+![Endpoint DNS ALB](../assets/img/posts/cloud/application-load-balancer/dns-alb.webp)
 _Endpoint DNS yang dihasilkan untuk mengakses Application Load Balancer_
 
 ### Pengujian Load Balancing
 Akses berulang ke endpoint DNS akan menunjukkan respons dari instance, membuktikan bahwa lalu lintas didistribusikan secara acak (round-robin).
 
-![Respons dari Berbagai Instance](../assets/img/posts/cloud/application-load-balancer/ip-alb.png)
+![Respons dari Berbagai Instance](../assets/img/posts/cloud/application-load-balancer/ip-alb.webp)
 _Hasil akses yang menunjukkan respons dari hostname instance_
 
 ### Uji Ketersediaan Tinggi
 Untuk menguji kemampuan failover, salah satu instance dihentikan. ALB secara otomatis mendeteksi perubahan status kesehatan dan mengalihkan lalu lintas ke instance yang masih berjalan.
 
-![Penghentian Salah Satu Instance](../assets/img/posts/cloud/application-load-balancer/stop-instance.png)
+![Penghentian Salah Satu Instance](../assets/img/posts/cloud/application-load-balancer/stop-instance.webp)
 _Proses penghentian (stop) salah satu instance EC2_
 
 ### Monitoring Status Kesehatan
 Target Group secara kontinu memantau status kesehatan target. instance yang dihentikan akan menunjukkan status tidak digunakan (Unused), sementara instance lain tetap melayani lalu lintas.
 
-![Status Kesehatan Target](../assets/img/posts/cloud/application-load-balancer/health-status.png)
+![Status Kesehatan Target](../assets/img/posts/cloud/application-load-balancer/health-status.webp)
 _Tampilan status kesehatan target dalam Target Group_
 
 ## Pemulihan dan Kesimpulan
@@ -142,11 +142,11 @@ Setelah instance yang dihentikan diaktifkan kembali, ALB secara otomatis akan me
 
 ### Arsitektur awal
 
-![alt text](../assets/img/posts/cloud/application-load-balancer/aws-lab/starting-architecture.png)
+![alt text](../assets/img/posts/cloud/application-load-balancer/aws-lab/starting-architecture.webp)
 
 ### Arsitektur akhir
 
-![alt text](../assets/img/posts/cloud/application-load-balancer/aws-lab/final-architecture.png)
+![alt text](../assets/img/posts/cloud/application-load-balancer/aws-lab/final-architecture.webp)
 
 ### Tugas 1: Membuat AMI untuk Auto Scaling
 
@@ -163,13 +163,13 @@ Dalam tugas ini, Anda akan membuat AMI dari Web Server 1 yang sudah ada. Ini aka
 5.  Pada menu **Actions**, pilih **Image and templates** > **Create image**, lalu konfigurasikan:
     *   **Image name**: `WebServerAMI`
     *   **Image description**: `Lab AMI for Web Server`
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-51-54.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-51-54.webp>)
         
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-54-13.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-54-13.webp>)
 
 6.  Pilih **Create image**
 7.  Spanduk konfirmasi akan menampilkan ID AMI untuk AMI baru Anda.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-57-59.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-57-59.webp>)
 
 8.  Anda akan menggunakan AMI ini saat meluncurkan grup Auto Scaling nanti di lab.
 
@@ -186,10 +186,10 @@ Dalam tugas ini, Anda pertama akan membuat target group dan kemudian membuat loa
 3.  Konfigurasikan:
     *   **Target type**: **Instances**
     *   **Target group name**, masukkan: `LabGroup`
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-59-37.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 18-59-37.webp>)
 
     *   Pilih **Lab VPC** dari menu drop-down VPC.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-02-07.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-02-07.webp>)
 
 4.  Pilih **Next**. Layar **Register targets** akan muncul.
 
@@ -206,7 +206,7 @@ Dalam tugas ini, Anda pertama akan membuat target group dan kemudian membuat loa
     > Beberapa jenis load balancer ditampilkan. Anda akan menggunakan Application Load Balancer yang beroperasi pada tingkat permintaan (layer 7), mengarahkan lalu lintas ke target — instance EC2, container, alamat IP, dan fungsi Lambda — berdasarkan konten permintaan.
     {: .prompt-info}
 
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-04-24.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-04-24.webp>)
 
 8.  Di bawah **Application Load Balancer**, pilih **Create**
 9.  Di bawah **Load balancer name**, masukkan: `LabELB`
@@ -221,16 +221,16 @@ Dalam tugas ini, Anda pertama akan membuat target group dan kemudian membuat loa
 
     *   Anda sekarang seharusnya memiliki dua subnet yang dipilih: **Public Subnet 1** dan **Public Subnet 2**.
 
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-06-15.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-06-15.webp>)
 
 11. Di bagian **Security groups**:
     *   Pilih menu drop-down **Security groups** dan pilih **Web Security Group**.
     *   Di bawah menu drop-down, pilih **X** di sebelah security group default untuk menghapusnya.
     *   Security group **Web Security Group** sekarang seharusnya satu-satunya yang muncul.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-07-18.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-07-18.webp>)
   
 12. Untuk baris **Listener HTTP:80**, atur **Default action** menjadi **forward to LabGroup**.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-08-22.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-08-22.webp>)
 
 13. Gulir ke bawah dan pilih **Create load balancer**
     > Load balancer berhasil dibuat.
@@ -249,23 +249,23 @@ Dalam tugas ini, Anda akan membuat launch template untuk grup Auto Scaling Anda.
 3.  Konfigurasikan pengaturan launch template dan buat:
     *   **Launch template name**: `LabConfig`
     *   Di bawah **Auto Scaling guidance**, pilih **Provide guidance to help me set up a template that I can use with EC2 Auto Scaling**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-10-18.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-10-18.webp>)
   
     *   Di area **Application and OS Images (Amazon Machine Image)**, pilih **My AMIs**.
     *   **Amazon Machine Image (AMI)**: pilih **WebServerAMI**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-11-35.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-11-35.webp>)
 
     *   **Instance type**: pilih **t2.micro**.
     *   **Key pair name**: pilih **vockey**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-12-33.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-12-33.webp>)
 
     *   **Firewall (security groups)**: pilih **Select existing security group**.
     *   **Security groups**: pilih **Web Security Group**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-13-49.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-13-49.webp>)
   
     *   Gulir ke bawah ke area **Advanced details** dan perluas.
     *   Gulir ke bawah ke pengaturan **Detailed CloudWatch monitoring**. Pilih **Enable**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-15-18.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-15-18.webp>)
 
         > Ini akan memungkinkan Auto Scaling bereaksi cepat terhadap perubahan utilisasi.
         {: .prompt-info}
@@ -274,28 +274,28 @@ Dalam tugas ini, Anda akan membuat launch template untuk grup Auto Scaling Anda.
     *   Selanjutnya, Anda akan membuat grup Auto Scaling yang menggunakan launch template ini.
 4.  Dalam dialog **Success**, pilih launch template **LabConfig**.
 5.  Dari menu **Actions**, pilih **Create Auto Scaling group**
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-16-53.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-16-53.webp>)
 
 6.  Konfigurasikan detail di **Langkah 1 (Choose launch template)**:
     *   **Auto Scaling group name**: `Lab Auto Scaling Group`
     *   **Launch template**: konfirmasi bahwa template **LabConfig** yang baru saja Anda buat dipilih.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-18-17.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-18-17.webp>)
 
     *   Pilih **Next**
 7.  Konfigurasikan detail di **Langkah 2 (Choose instance launch options)**:
     *   **VPC**: pilih **Lab VPC**
     *   **Availability Zones and subnets**: Pilih **Private Subnet 1** dan kemudian **Private Subnet 2**.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-19-34.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-19-34.webp>)
 
     *   Pilih **Next**
 8.  Konfigurasikan detail di **Langkah 3 (Configure advanced options)**:
     *   Pilih **Attach to an existing load balancer**
         *   **Existing load balancer target groups**: pilih **LabGroup**.
-            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-21-51.png>)
+            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-21-51.webp>)
 
     *   Di panel **Additional settings**:
         *   Pilih **Enable group metrics collection within CloudWatch**
-            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-23-04.png>)
+            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-23-04.webp>)
 
             > Ini akan menangkap metrik pada interval 1-menit, yang memungkinkan Auto Scaling bereaksi cepat terhadap pola penggunaan yang berubah.
             {: .prompt-info}
@@ -306,7 +306,7 @@ Dalam tugas ini, Anda akan membuat launch template untuk grup Auto Scaling Anda.
         *   **Desired capacity**: `2`
         *   **Minimum capacity**: `2`
         *   **Maximum capacity**: `6`
-            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-24-25.png>)
+            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-24-25.webp>)
 
             > Ini akan memungkinkan Auto Scaling secara otomatis menambah/menghapus instance, selalu menjaga antara 2 hingga 6 instance yang berjalan.
             {: .prompt-info}
@@ -315,7 +315,7 @@ Dalam tugas ini, Anda akan membuat launch template untuk grup Auto Scaling Anda.
         *   **Scaling policy name**: `LabScalingPolicy`
         *   **Metric type**: **Average CPU Utilization**
         *   **Target value**: `60`
-            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-26-00.png>)
+            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-26-00.webp>)
 
             > Ini memberi tahu Auto Scaling untuk mempertahankan utilisasi CPU rata-rata di semua instance pada 60%. Auto Scaling akan secara otomatis menambah atau mengurangi kapasitas sesuai kebutuhan untuk menjaga metrik pada atau mendekati nilai target yang ditentukan. Ini menyesuaikan dengan fluktuasi dalam metrik karena pola beban yang berfluktuasi.
             {: .prompt-info}
@@ -335,7 +335,7 @@ Dalam tugas ini, Anda akan membuat launch template untuk grup Auto Scaling Anda.
     *   Pilih **Add tag** dan Konfigurasikan berikut:
         *   **Key**: `Name`
         *   **Value**: `Lab Instance`
-            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-27-14.png>)
+            ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-27-14.webp>)
 
     *   Pilih **Next**
 12. Konfigurasikan detail di **Langkah 6 (Review)**:
@@ -357,7 +357,7 @@ Dalam tugas ini, Anda akan memverifikasi bahwa Load Balancing berfungsi dengan b
     > Jika instance atau nama tidak ditampilkan, tunggu 30 detik dan pilih **refresh** di kanan atas.
     {: .prompt-tip}
 
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-32-35.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-32-35.webp>)
   
 2.  Selanjutnya, Anda akan memastikan bahwa instance baru telah lulus **Health Check** mereka.
 3.  Di panel navigasi kiri, pilih **Target Groups**.
@@ -370,7 +370,7 @@ Dalam tugas ini, Anda akan memverifikasi bahwa Load Balancing berfungsi dengan b
 6.  Tunggu hingga **Status** kedua instance berubah menjadi **healthy**.
     *   Pilih **Refresh** di kanan atas untuk memeriksa pembaruan jika perlu.
     *   **Healthy** menunjukkan bahwa instance telah lulus health check Load Balancer. Ini berarti Load Balancer akan mengirim lalu lintas ke instance.
-        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-34-50.png>)
+        ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-34-50.webp>)
 
 7.  Anda sekarang dapat mengakses grup Auto Scaling melalui Load Balancer.
 8.  Di panel navigasi kiri, pilih **Load Balancers**.
@@ -382,7 +382,7 @@ Dalam tugas ini, Anda akan memverifikasi bahwa Load Balancing berfungsi dengan b
     > Aplikasi akan muncul di browser Anda. Ini menunjukkan bahwa Load Balancer menerima permintaan, mengirimkannya ke salah satu instance EC2, lalu mengembalikan hasilnya.
     {: .prompt-info}
 
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-37-27.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-37-27.webp>)
 
 ### Tugas 5: Menguji Auto Scaling
 
@@ -394,14 +394,14 @@ Anda membuat grup Auto Scaling dengan minimum dua instance dan maksimum enam ins
     {: .prompt-tip}
 
 2.  Pada kotak pencarian di samping **Layanan**, cari dan pilih **CloudWatch**.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-39-44.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-39-44.webp>)
 
 1.  Di panel navigasi kiri, pilih **All alarms**.
     
     > Dua alarm akan ditampilkan. Ini dibuat secara otomatis oleh grup Auto Scaling. Mereka akan secara otomatis menjaga beban CPU rata-rata mendekati 60% sambil tetap berada dalam batasan memiliki dua hingga enam instance.
     {: .prompt-info}    
 
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-41-08.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-41-08.webp>)
 
     *   **Catatan**: Silakan ikuti langkah-langkah ini hanya jika Anda tidak melihat alarm dalam 60 detik.
         *   Pada menu **Layanan**, pilih **EC2**.
@@ -415,7 +415,7 @@ Anda membuat grup Auto Scaling dengan minimum dua instance dan maksimum enam ins
         *   Pada menu **Layanan**, pilih **CloudWatch**.
         *   Di panel navigasi kiri, pilih **All alarms** dan verifikasi Anda melihat dua alarm.
 2.  Pilih alarm **OK**, yang memiliki **AlarmHigh** dalam namanya.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-46-31.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-46-31.webp>)
 
     > Jika tidak ada alarm yang menunjukkan **OK**, tunggu satu menit lalu pilih **refresh** di kanan atas hingga status alarm berubah.
     {: .prompt-tip}
@@ -426,7 +426,7 @@ Anda membuat grup Auto Scaling dengan minimum dua instance dan maksimum enam ins
 3.  Anda sekarang akan memerintahkan aplikasi untuk melakukan kalkulasi yang seharusnya meningkatkan tingkat CPU.
 4.  Kembali ke tab browser dengan aplikasi web.
 5.  Pilih **Load Test** di samping logo AWS.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-48-06.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-48-06.webp>)
 
     > Ini akan menyebabkan aplikasi menghasilkan beban tinggi. Halaman browser akan secara otomatis menyegarkan sehingga semua instance dalam grup Auto Scaling akan menghasilkan beban.
     {: .prompt-info}
@@ -446,7 +446,7 @@ Anda membuat grup Auto Scaling dengan minimum dua instance dan maksimum enam ins
     {: .prompt-info}
 
 7.  Tunggu hingga alarm **AlarmHigh** memasuki status **In alarm**.
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-49-49.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-49-49.webp>)
 
 8.  Pada kotak pencarian di samping **Services**, cari dan pilih **EC2**.
 9.  Di panel navigasi kiri, pilih **Instances**.
@@ -461,4 +461,4 @@ Dalam tugas ini, Anda akan menghentikan Web Server 1. Instance ini digunakan unt
 1.  Pilih **Web Server 1** (dan pastikan itu adalah satu-satunya instance yang dipilih).
 2.  Pada menu **Instance state**, pilih **Instance State** > **Terminate Instance**.
 3.  Pilih **Terminate**
-    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-53-30.png>)
+    ![alt text](<../assets/img/posts/cloud/application-load-balancer/aws-lab/Screenshot From 2025-11-09 19-53-30.webp>)

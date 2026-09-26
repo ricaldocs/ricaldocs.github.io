@@ -35,7 +35,7 @@ Authentik berperan sebagai IdP — pihak yang memverifikasi identitas user.
 
 Navigasi: Applications → Applications → New Application
 
-![alt text](../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/image.png)
+![alt text](../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/image.webp)
 
 Isi konfigurasi:
 
@@ -52,16 +52,16 @@ Isi konfigurasi:
 
 Pilih: OAuth2/OpenID Provider
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-17-45.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-17-45.webp>)
 
 > OAuth2/OIDC Provider menghasilkan Client ID/Secret untuk aplikasi eksternal. Proxy Provider digunakan untuk aplikasi tanpa dukungan OAuth native.
 {: .prompt-info}
 
 ### Langkah 1.3 — Konfigurasi OAuth2 Provider
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-19-02.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-19-02.webp>)
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-20-48.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-20-48.webp>)
 
 | Field              | Nilai                                                       | Penjelasan                                                                     |
 | ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -91,13 +91,13 @@ Forgejo berperan sebagai SP/Relying Party — pihak yang mempercayai identitas d
 
 Navigasi: Site Administration → Identity & Access → Authentication Sources → Add Authentication Source
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-22-11.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-22-11.webp>)
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-22-55.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-22-55.webp>)
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-23-50.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-23-50.webp>)
 
-![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-24-55.png>)
+![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-24-55.webp>)
 
 | Field               | Nilai                                                                                 | Penjelasan Teknis                                                                  |
 | ------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -121,7 +121,7 @@ Klik Add Authentication Source.
 
 1. Logout dari Forgejo.
 2. Halaman login akan menampilkan tombol authentik.
-   ![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-26-32.png>)
+   ![alt text](<../assets/img/posts/2026-09-14-panduan-integrasi-forgejo-dengan-authentik/Screenshot From 2026-09-14 22-26-32.webp>)
 
 ## Ringkasan Arsitektur
 

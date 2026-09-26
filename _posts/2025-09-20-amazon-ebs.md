@@ -31,40 +31,40 @@ Amazon Elastic Block Store (EBS) menyediakan penyimpanan blok persisten untuk in
 1. Di panel navigasi kiri, pilih **Instances**
 2. Pilih instance **Demo-EBS**
 3. **Catat Availability Zone** instance tersebut (contoh: `us-east-1c`)
-  ![alt text](../assets/img/posts/cloud/elastic-block-store/image.png)
+  ![alt text](../assets/img/posts/cloud/elastic-block-store/image.webp)
 
 ### 3.3. Membuat Volume EBS
 1. Di panel navigasi kiri, pilih **Volumes**
 2. Perhatikan volume existing berukuran 8 GiB (volume root instance)
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-24-49.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-24-49.webp>)
 
 3. Pilih **Create volume** dan konfigurasikan parameter berikut:
    - **Volume Type**: General Purpose SSD (gp3)
    - **Size (GiB)**: 1
    - **Availability Zone**: Pilih availability zone yang sama dengan instance EC2
-    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-26-45.png>)
+    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-26-45.webp>)
 
 4. Pilih **Create Volume**
 5. Tunggu status volume berubah dari **Creating** menjadi **Available** (gunakan tombol refresh jika diperlukan)
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-28-15.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-28-15.webp>)
 
 ## 4. Melampirkan Volume ke Instance
 
 ### 4.1. Proses Pelampiran Volume
 1. Pilih volume baru (**My Volume**) dari daftar volumes
 2. Dari menu **Actions**, pilih **Attach volume**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-31-47.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-31-47.webp>)
 
 3. Konfigurasikan parameter pelampiran:
    - **Instance**: Pilih instance **Demo-EBS**
    - **Device name**: `/dev/sdf` (default)
 
     **Catatan Teknis**: Kernel Linux modern dapat mengubah nama perangkat secara internal menjadi `/dev/xvdf` hingga `/dev/xvdp`, meskipun yang ditampilkan adalah `/dev/sdf` hingga `/dev/sdp`.
-    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-32-32.png>)
+    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-32-32.webp>)
 
 4. Pilih **Attach volume**
 5. Verifikasi status volume berubah menjadi **In-use**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-34-26.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 19-34-26.webp>)
 
 ## 5. Menghubungkan ke Instance Amazon EC2
 
@@ -182,18 +182,18 @@ cat /mnt/data-store/file.txt
 ### 7.1. Proses Pembuatan Snapshot
 1. Di Konsol EC2, pilih **Volumes** dan pilih **My Volume**
 2. Dari menu **Actions**, pilih **Create snapshot**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-00-33.png>)
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-02-10.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-00-33.webp>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-02-10.webp>)
 
 3. Tambahkan tag identifikasi:
    - **Key**: `Name`
    - **Value**: `My Snapshot`
-    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-02-26.png>)
+    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-02-26.webp>)
 
 4. Pilih **Create snapshot**
 5. Di panel navigasi kiri, pilih **Snapshots**
 6. Tunggu status berubah dari **Pending** menjadi **Completed**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-04-57.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-04-57.webp>)
 
 ### 7.2. Hapus Data untuk Demonstrasi Pemulihan
 ```bash
@@ -209,16 +209,16 @@ ls /mnt/data-store/
 ### 8.1. Membuat Volume dari Snapshot
 1. Di konsol EC2, pilih **Snapshots**
 2. Dari menu **Actions**, pilih **Create volume from snapshot**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-10-16.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-10-16.webp>)
 
 3. Konfigurasikan parameter volume:
    - **Availability Zone**: Pilih availability zone yang sama dengan instance
-    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-11-40.png>)
+    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-11-40.webp>)
     
    - **Tags**: 
      - **Key**: `Name`
      - **Value**: `Restored Volume`
-      ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-12-07.png>)
+      ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-12-07.webp>)
 
 4. Pilih **Create volume**
 
@@ -226,16 +226,16 @@ ls /mnt/data-store/
 1. Di panel navigasi kiri, pilih **Volumes**
 2. Pilih **Restored Volume**
 3. Dari menu **Actions**, pilih **Attach volume**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-14-06.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-14-06.webp>)
 
 4. Konfigurasikan:
    - **Instance**: Pilih instance **Demo-EBS**
    - **Device**: `/dev/sdg` (default)
-    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-15-09.png>)
+    ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-15-09.webp>)
 
 5. Pilih **Attach volume**
 6. Verifikasi status **in-use**
-  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-16-25.png>)
+  ![alt text](<../assets/img/posts/cloud/elastic-block-store/Screenshot From 2025-10-25 20-16-25.webp>)
 
 ### 8.3. Mount dan Verifikasi Volume yang Dipulihkan
 ```bash

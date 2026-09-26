@@ -44,7 +44,7 @@ Dengan menggunakan Device-Type Selection Box, tambahkan kabel fisik antara peran
 - Router nirkabel akan memerlukan kabel copper cross-over untuk terhubung ke modem kabel. Pilih kabel copper cross-over di Device-Specific Selection Box dan sambungkan ke antarmuka internet dari router nirkabel dan antarmuka **Port 1** dari modem kabel.
 - Modem kabel akan memerlukan kabel koaksial untuk terhubung ke internet cloud. Pilih kabel koaksial di Device-Specific Selection Box dan sambungkan ke antarmuka **Port 0** dari modem kabel dan antarmuka **Coaxial 7** dari internet cloud.
 
-![Topologi](assets/img/posts/2025-03-10-create-a-simple-network/create-a-simple-network.png)
+![Topologi](assets/img/posts/2025-03-10-create-a-simple-network/create-a-simple-network.webp)
 _Topologi Jaringan_
 
 ## Bagian 2: Mengonfigurasi End Devices dan Memverifikasi Konektivitas
@@ -81,12 +81,12 @@ Dalam langkah ini, Anda akan mengonfigurasi Laptop untuk mengakses jaringan nirk
     3. Pasang modul nirkabel **WPC300N** dengan mengkliknya di panel **MODULES** dan menyeretnya ke port modul kosong di sisi Laptop.
     4. Nyalakan **Laptop** dengan mengklik tombol daya Laptop lagi.
 
-    ![WPC300N](assets/img/posts/2025-03-10-create-a-simple-network/wpc300n.png)
+    ![WPC300N](assets/img/posts/2025-03-10-create-a-simple-network/wpc300n.webp)
 
 - Dengan modul nirkabel terpasang, sambungkan Laptop ke jaringan nirkabel. Klik tab **Desktop** dan pilih **PC Wireless**.
 - Pilih tab **Connect**. Setelah sedikit penundaan, jaringan nirkabel **HomeNetwork** akan terlihat dalam daftar jaringan nirkabel. Klik **Refresh** jika perlu untuk melihat daftar jaringan yang tersedia. Pilih **HomeNetwork**. Klik **Connect**.
 
-![PC Wireless](assets/img/posts/2025-03-10-create-a-simple-network/pc-wireless.png)
+![PC Wireless](assets/img/posts/2025-03-10-create-a-simple-network/pc-wireless.webp)
 
 - Tutup **PC Wireless**. Pilih **Web Browser** di tab Desktop.
 - Di Web Browser, navigasikan ke **cisco.srv**.

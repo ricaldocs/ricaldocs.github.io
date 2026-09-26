@@ -103,7 +103,7 @@ mouse_click_effect: false
 cdn: ""
 
 # Avatar di bilah samping, mendukung sumber lokal atau CROS
-avatar: /avatar.png
+avatar: /avatar.webp
 
 # URL gambar pratinjau sosial situs-wide yang digunakan dalam tag meta SEO `og:image`.
 # Dapat diganti dengan `page.image` di Front Matter posting.

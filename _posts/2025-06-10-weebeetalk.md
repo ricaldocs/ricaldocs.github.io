@@ -28,7 +28,7 @@ Komponen utama:
 | [Jitsi Meet](https://jitsi.org/)        | Engine konferensi video WebRTC   | Apache 2.0 |
 | [Asterisk](https://www.asterisk.org/)   | Gateway teleponi berbasis IP-PBX | GPL        |
 
-![Arsitektur WeeBeeTalk](/assets/img/posts/2025-06-10-weebeetalk/weebeetalk.png)
+![Arsitektur WeeBeeTalk](../assets/img/posts/2025-06-10-weebeetalk/weebeetalk.webp)
 *Arsitektur WeeBeeTalk*
 
 Implementasi mengadopsi paradigma "privacy by design" dengan:
@@ -202,7 +202,7 @@ Mengapa HTTPS wajib? Browser modern memblokir akses media devices di konteks non
 
 Security Group Rules:
 
-![Inbound Rules](../assets/img/posts/2025-06-10-weebeetalk/inbound-rules.png)
+![Inbound Rules](../assets/img/posts/2025-06-10-weebeetalk/inbound-rules.webp)
 
 ## 5. Integrasi dengan Asterisk
 

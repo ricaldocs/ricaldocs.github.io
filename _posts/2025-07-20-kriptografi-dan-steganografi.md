@@ -30,7 +30,7 @@ Mekanisme:
 - Karakter non-alfabet tetap tidak berubah
 - Pergeseran >26 akan wrap-around (modulo 26)
 
-![alt text](../assets/img/posts/2025-07-20-kriptografi-dan-steganografi/shift-3.png)
+![alt text](../assets/img/posts/2025-07-20-kriptografi-dan-steganografi/shift-3.webp)
 
 Implementasi dengan `tr`:
 
@@ -80,7 +80,7 @@ Catatan Penting:
 
 ## 2. Hashing vs. Enkripsi
 
-![Diagram Perbandingan Hashing vs. Enkripsi](/assets/img/posts/2025-07-20-kriptografi-dan-steganografi/hashing_vs_encryption.png)
+![Diagram Perbandingan Hashing vs. Enkripsi](/assets/img/posts/2025-07-20-kriptografi-dan-steganografi/hashing_vs_encryption.webp)
 
 ### Hash Function - One-Way Transformation
 
@@ -248,7 +248,7 @@ Hasil Dekripsi:
 - Status: Successful tanpa error/exception
 - Validasi: Output berupa teks terbaca (semantically correct)
 
-![alt text](../assets/img/posts/2025-07-20-kriptografi-dan-steganografi/aes_decryption.png)
+![alt text](../assets/img/posts/2025-07-20-kriptografi-dan-steganografi/aes_decryption.webp)
 
 Analisis:
 - Ciphertext valid → key dan IV correct

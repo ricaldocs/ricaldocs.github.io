@@ -94,34 +94,34 @@ chmod +x zphisher.sh
 ./zphisher.sh
 ```
 
-![](/assets/img/posts/2025-08-22-social-engineering/zphisher/run-zphisher.png)
+![](/assets/img/posts/2025-08-22-social-engineering/zphisher/run-zphisher.webp)
 
 ### Arsitektur Serangan
 
 1. **Antarmuka Zphisher**
    - Menyediakan berbagai template phishing yang meniru platform populer
    - Desain antarmuka yang mengimitasi platform asli secara visual dan fungsional
-   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/select-template.png) 
+   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/select-template.webp) 
 
 2. **Infrastruktur Tunneling**
    - Memanfaatkan layanan Cloudflare untuk menyembunyikan infrastruktur serangan
    - Pembuatan URL phishing yang terlegitimasi
-   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/tunneling.png) 
+   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/tunneling.webp) 
 
 3. **Teknik Obfuskasi URL**
    - Implementasi masking domain untuk meningkatkan persuasivitas
    - Teknik penyembunyian tujuan sebenarnya dari tautan
-   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/url-mask.png) 
+   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/url-mask.webp) 
 
 4. **Replikasi Antarmuka**
    - Pembuatan halaman login palsu dengan elemen visual dan fungsional yang identik
    - Inklusi elemen interaktif seperti form input dan tombol aksi
-   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/fake-website.png) 
+   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/fake-website.webp) 
 
 5. **Mekanisme Pengumpulan Data**
    - Panel admin real-time untuk monitoring hasil serangan
    - Pencatatan metadata dan kredensial korban
-   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/tracking.png) 
+   ![](/assets/img/posts/2025-08-22-social-engineering/zphisher/tracking.webp) 
 
 ## Strategi Mitigasi dan Kontrol Keamanan
 

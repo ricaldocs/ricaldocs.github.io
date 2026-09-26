@@ -25,7 +25,7 @@ Tujuan: Mendaftarkan Homarr sebagai aplikasi yang terintegrasi dengan Authentik.
 1. Login sebagai administrator ke Authentik Admin Interface
 2. Navigasi ke Applications > Applications
 3. Klik New Application
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/1.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/1.webp)
 
    Parameter Konfigurasi:
 
@@ -41,10 +41,10 @@ Tujuan: Mendaftarkan Homarr sebagai aplikasi yang terintegrasi dengan Authentik.
 Tujuan: Membuat dan mengkonfigurasi provider OIDC dengan parameter keamanan yang tepat.
 
 1. Pilih tipe provider: OAuth2/OpenID Connect
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/2.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/2.webp)
 
 3. Isi konfigurasi:
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/3.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/3.webp)
 
    | Parameter          | Nilai                                                                     | Keterangan                           |
    | ------------------ | ------------------------------------------------------------------------- | ------------------------------------ |
@@ -102,7 +102,7 @@ Tujuan: Memastikan integrasi berfungsi dengan benar.
 
 1. Akses Homarr melalui browser
    
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/4.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-autentikasi-oidc-homarr-dengan-authentik/4.webp)
 
 3. Login menggunakan Authentik
 4. Harus terjadi redirect ke Authentik untuk autentikasi

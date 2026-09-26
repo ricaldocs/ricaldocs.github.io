@@ -48,7 +48,7 @@ Output mengkonfirmasi bahwa pesan "Hello Friend" berhasil terkirim dan diterima 
 ## Integrasi dengan Platform Wokwi
 [Wokwi](https://wokwi.com) merupakan platform simulasi perangkat keras yang memungkinkan pengembangan dan pengujian proyek mikrokontroler secara online. Platform ini menyediakan kemampuan simulasi komponen elektronik dan integrasi pustaka perangkat lunak untuk mendukung pengembangan solusi IoT.
 
-![Hasil Pengujian](assets/img/posts/2025-04-28-mosquitto-on-kali-linux/wokwi-mqtt-test.png)
+![Hasil Pengujian](../assets/img/posts/2025-04-28-mosquitto-on-kali-linux/wokwi-mqtt-test.webp)
 *Gambar 1. Hasil Pengujian Integrasi MQTT pada Platform Wokwi*
 
 ### Implementasi Kode Sumber

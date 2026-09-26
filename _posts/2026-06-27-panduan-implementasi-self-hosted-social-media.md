@@ -18,7 +18,7 @@ Media sosial telah menjadi infrastruktur penting dalam kehidupan sehari-hari. Na
 
 Mastodon hadir sebagai solusi revolusioner dengan pendekatan desentralisasi yang mengembalikan kontrol kepada pengguna dan komunitas. 
 
-![alt text](../assets/img/posts/2026-06-27-panduan-implementasi-self-hosted-social-media/mastodon-architecture.png)
+![alt text](../assets/img/posts/2026-06-27-panduan-implementasi-self-hosted-social-media/mastodon-architecture.webp)
 
 Berbeda dengan platform sentralisasi, Mastodon menggunakan arsitektur terdesentralisasi berbasis protokol ActivityPub yang memungkinkan:
 

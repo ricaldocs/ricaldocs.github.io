@@ -219,7 +219,7 @@ Langkah-langkah berikut mengasumsikan Anda telah memiliki direktori hasil klonin
 Untuk sistem operasi berbasis Linux, Wazuh menyediakan skrip instalasi otomatis melalui antarmuka manajemen agent.
 
 1. Buka Wazuh Dashboard dan akses menu Agents management > Deploy new agent.
-   ![alt text](<../assets/img/posts/2026-01-08-panduan-lengkap-instalasi-dan-konfigurasi wazuh/Screenshot From 2026-04-19 14-17-37.png>)
+   ![alt text](<../assets/img/posts/2026-01-08-panduan-lengkap-instalasi-dan-konfigurasi wazuh/Screenshot From 2026-04-19 14-17-37.webp>)
 
 2. Pilih sistem operasi target dan ikuti konfigurasi yang disediakan sistem, meliputi:
    - Alamat IP Wazuh Server

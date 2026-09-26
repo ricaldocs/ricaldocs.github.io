@@ -28,14 +28,14 @@ Sebelum memulai, pastikan Anda memiliki:
 2. Pilih **Launch Instance** dari dashboard
 3. Pada bagian **Application and OS Images**, pilih **Ubuntu Server** sebagai AMI
 
-![Pemilihan AMI Ubuntu](/assets/img/posts/cloud/2024-11-15-docker-on-aws/ami.png)
+![Pemilihan AMI Ubuntu](/assets/img/posts/cloud/2024-11-15-docker-on-aws/ami.webp)
 
 4. **Instance Type Selection**: Pilih **t3.small** (recommended) atau **t2.small** sebagai minimum requirement
    - 2 vCPU
    - 2 GiB RAM
    - Network performance yang memadai untuk workload container
 
-![Pemilihan Tipe Instans](/assets/img/posts/cloud/2024-11-15-docker-on-aws/instances-type.png)
+![Pemilihan Tipe Instans](/assets/img/posts/cloud/2024-11-15-docker-on-aws/instances-type.webp)
 
 ### Konfigurasi Security Group dan Network
 
@@ -44,7 +44,7 @@ Sebelum memulai, pastikan Anda memiliki:
 - Format `.pem` untuk OpenSSH clients
 - Format `.ppk` untuk PuTTY users
 
-![Pembuatan Key Pair](/assets/img/posts/cloud/2024-11-15-docker-on-aws/create-key-pair.png)
+![Pembuatan Key Pair](/assets/img/posts/cloud/2024-11-15-docker-on-aws/create-key-pair.webp)
 
 **Security Group Configuration**:
 Buka akses untuk port berikut:
@@ -52,7 +52,7 @@ Buka akses untuk port berikut:
 - **Port 80** (HTTP): Untuk web traffic
 - **Port 443** (HTTPS): Untuk secure web connections (opsional untuk testing)
 
-![Pengaturan Jaringan](/assets/img/posts/cloud/2024-11-15-docker-on-aws/network-settings.png)
+![Pengaturan Jaringan](/assets/img/posts/cloud/2024-11-15-docker-on-aws/network-settings.webp)
 
 > Untuk environment production, batasi source IP addresses yang dapat mengakses instance melalui security group rules.
 {: .prompt-tip}
@@ -189,7 +189,7 @@ Copy file ke running container:
 docker cp index.html nginx-container:/usr/share/nginx/html/
 ```
 
-![alt text](<../assets/img/posts/cloud/2024-11-15-docker-on-aws/Screenshot From 2025-11-23 22-11-29.png>)
+![alt text](<../assets/img/posts/cloud/2024-11-15-docker-on-aws/Screenshot From 2025-11-23 22-11-29.webp>)
 
 ## Implementasi Docker Volumes untuk Data Persistence
 
@@ -239,7 +239,7 @@ docker run -d --name nginx-volume \
   nginx:latest
 ```
 
-![alt text](<../assets/img/posts/cloud/2024-11-15-docker-on-aws/Screenshot From 2025-11-23 21-58-06.png>)
+![alt text](<../assets/img/posts/cloud/2024-11-15-docker-on-aws/Screenshot From 2025-11-23 21-58-06.webp>)
 
 > Perubahan pada host directory langsung terefleksi dalam container tanpa perlu rebuild atau restart container.
 {: .prompt-info}

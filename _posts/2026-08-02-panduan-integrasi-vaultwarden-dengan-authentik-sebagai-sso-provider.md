@@ -43,10 +43,10 @@ Analisis Kebutuhan:
 1. Buka dashboard admin Authentik
 2. Navigasi ke Customization > Property Mappings
 3. Klik "Create" dan pilih "Scope Mapping"
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/1.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/1.webp)
 
 4. Isi form dengan detail berikut:
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/2.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/2.webp)
 
    | Field      | Value                 | Penjelasan Teknis                                                                                    |
    | ---------- | --------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -84,7 +84,7 @@ Mode Policy Engine:
 1. Buka Applications > Applications
 2. Pilih "New Application"
 3. Isi form:
-   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/3.png)
+   ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/3.webp)
 
    | Field              | Value                          | Penjelasan                                                                                      |
    | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ Mode Policy Engine:
 
 ### Arsitektur Provider
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/4.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/4.webp)
 
 Provider adalah inti dari konfigurasi OIDC. Di sinilah kita mendefinisikan:
 - Endpoint autentikasi yang akan digunakan Vaultwarden
@@ -107,7 +107,7 @@ Provider adalah inti dari konfigurasi OIDC. Di sinilah kita mendefinisikan:
 
 ### Konfigurasi Dasar:
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/5.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/5.webp)
 
 | Field              | Value                                                   | Penjelasan                                                                                                         |
 | ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -125,7 +125,7 @@ Catatan Penting:
 
 ### Advanced Protocol Settings:
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/6.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/6.webp)
 
 | Field                  | Value        | Penjelasan                                                                                  |
 | ---------------------- | ------------ | ------------------------------------------------------------------------------------------- |
@@ -139,7 +139,7 @@ Mengapa 10 menit?
 
 ### Konfigurasi Scopes:
 
-![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/7.png)
+![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/7.webp)
 
 Scope yang dipilih menentukan data apa yang akan dikirimkan dari Authentik ke Vaultwarden:
 
@@ -226,7 +226,7 @@ SSO_SIGNUPS_ALLOWED=true
    - Buka `https://vault.domain.com`
    - Seharusnya muncul tombol "Use Single Sign-On"
    - Ini menandakan konfigurasi SSO aktif
-      ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/8.png)
+      ![alt text](../assets/img/posts/2026-08-02-panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/8.webp)
 
 ## Bagian 5: Proses Login dengan SSO
 

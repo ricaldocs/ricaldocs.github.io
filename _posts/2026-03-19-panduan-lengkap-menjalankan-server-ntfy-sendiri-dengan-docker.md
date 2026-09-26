@@ -68,7 +68,7 @@ Kunjungi [halaman resmi config generator ntfy](https://docs.ntfy.sh/config/) dan
 
 Pada bagian **General Configuration**, atur parameter berikut:
 
-![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/general-configuration.png)
+![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/general-configuration.webp)
 
 | Parameter                                                 | Nilai yang Dipilih         | Keterangan                                                                                                                     |
 | --------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -83,7 +83,7 @@ Pada bagian **General Configuration**, atur parameter berikut:
 
 Selanjutnya, pada bagian **User Configuration**, isikan detail berikut:
 
-![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/users-configuration.png)
+![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/users-configuration.webp)
 
 | Parameter                                             | Nilai yang Dipilih      | Keterangan                                                                 |
 | ----------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------- |
@@ -154,9 +154,9 @@ curl -u ntfyuser:byG0eInwguiLOHLC -d "Halo dunia" https://ntfy.example.com/topik
 
 Atau gunakan aplikasi ntfy di ponsel (tersedia di [F-Droid](https://f-droid.org/en/packages/io.heckel.ntfy/) dan [Play Store](https://play.google.com/store/apps/details?id=io.heckel.ntfy)) dengan menambahkan server khusus (custom server) ke URL `https://ntfy.example.com` dan mengatur protokol koneksi ke `WebSockets`.
 
-![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/default-server.png)
+![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/default-server.webp)
 
-![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/connection-protocol.png)
+![alt text](../assets/img/posts/2026-03-19-panduan-lengkap-menjalankan-server-ntfy-sendiri-dengan-docker/connection-protocol.webp)
 
 ## Kesimpulan
 

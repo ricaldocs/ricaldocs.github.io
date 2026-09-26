@@ -87,7 +87,7 @@ ollama serve
 
 Inisialisasi Sesi Terminal Baru
 
-![Sesi Termux](assets/img/posts/2025-04-02-implementasi-model-ai-berbasis-open-source-secara-offline-pada-perangkat-android/termux-session.jpg)
+![Sesi Termux](../assets/img/posts/2025-04-02-implementasi-model-ai-berbasis-open-source-secara-offline-pada-perangkat-android/termux-session.webp)
 *Gambar 1: Sesi Terminal Termux*
 
 > `ollama serve` berjalan di foreground. Jika Anda menggunakan satu sesi, Anda tidak bisa menjalankan perintah lain. Buka sesi kedua untuk menjalankan model.
@@ -150,7 +150,7 @@ Langkah-Langkah:
    ollama run deepseek-r1:1.5b
    ```
 
-    ![Proses Pengujian](assets/img/posts/2025-04-02-implementasi-model-ai-berbasis-open-source-secara-offline-pada-perangkat-android/model-run.jpg)
+    ![Proses Pengujian](../assets/img/posts/2025-04-02-implementasi-model-ai-berbasis-open-source-secara-offline-pada-perangkat-android/model-run.webp)
     *Gambar 2: Proses Pengujian Model*
 
 4. Pemantauan penggunaan sumber daya sistem:

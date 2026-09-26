@@ -140,11 +140,11 @@ Token diperlukan untuk autentikasi API Grafana saat membuat data source. Penggun
 2. Klik Add service account
    - Display name: `cli-admin`
    - Role: `Admin`
-     ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 21-47-25.png>)
+     ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 21-47-25.webp>)
 
 3. Klik Add service account token
    - Display name: `patch-uid`
-     ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 14-55-25.png>)
+     ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 14-55-25.webp>)
 
 4. Salin token yang muncul — hanya ditampilkan sekali
 
@@ -225,7 +225,7 @@ Meskipun data source sudah dibuat via API, verifikasi melalui UI memastikan semu
 
 Buka Connections → Data sources → Wazuh, lalu periksa:
 
-![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-16-46.png>)
+![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-16-46.webp>)
 
 | Field | Nilai |
 |---|---|
@@ -251,7 +251,7 @@ Plugin menyertakan lima dashboard siap pakai yang secara otomatis mereferensikan
 
 1. Buka Dashboards → New → Import
 2. Pilih semua dashboard dari folder plugin
-   ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-20-40.png>)
+   ![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-20-40.webp>)
 
 ### Dashboard yang Tersedia
 
@@ -281,7 +281,7 @@ Buka Explore → pilih Wazuh, lalu uji setiap data type:
 
 Buka Dashboards → Wazuh → Vulnerabilities. Panel harus terisi dengan data kerentanan (misalnya 139 Open vulnerabilities: 41 High, 85 Medium, 13 Low untuk agent `ricalnet-os`).
 
-![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-26-16.png>)
+![alt text](<../assets/img/posts/2026-09-21-integrasi-wazuh-ke-grafana-unified-security-and-operational-dashboard/Screenshot From 2026-09-21 15-26-16.webp>)
 
 ## 8. Hasil Akhir
 

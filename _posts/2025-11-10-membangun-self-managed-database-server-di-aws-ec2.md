@@ -16,7 +16,7 @@ Dokumen teknis ini menyajikan panduan untuk membangun dan mengonfigurasi self-ma
 ### 1.1 Spesifikasi Aturan Jaringan
 Security group dikonfigurasi dengan aturan inbound yang memungkinkan akses ke layanan essential. Konfigurasi ini diperlukan untuk memastikan konektivitas yang tepat sambil mempertahankan aksesibilitas sistem.
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-41-00.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-41-00.webp>)
 
 **Spesifikasi Rules Inbound:**
 - **SSH (Port 22)**: 0.0.0.0/0 - Akses remote administration
@@ -28,7 +28,7 @@ Security group dikonfigurasi dengan aturan inbound yang memungkinkan akses ke la
 ### 2.1 Spesifikasi Teknis Instance
 Instance EC2 diprovision dengan konfigurasi berikut untuk menunjang workload database:
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-43-40.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-43-40.webp>)
 
 **Parameter Konfigurasi:**
 - **Amazon Machine Image (AMI)**: Ubuntu Server
@@ -38,12 +38,12 @@ Instance EC2 diprovision dengan konfigurasi berikut untuk menunjang workload dat
 ### 2.2 Manajemen Key Pair
 Key pair digunakan untuk autentikasi SSH yang aman ke instance EC2.
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-44-48.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-44-48.webp>)
 
 ### 2.3 Konfigurasi Jaringan
 Instance dikaitkan dengan security group yang telah dibuat sebelumnya untuk memastikan aturan firewall yang konsisten.
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-46-11.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-46-11.webp>)
 
 ## 3. Koneksi ke Instance
 
@@ -52,9 +52,9 @@ Akses instance EC2:
 
 **AWS EC2 Instance Connect:**
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-49-15.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-49-15.webp>)
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-48-42.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-48-42.webp>)
 
 ## 4. Instalasi dan Konfigurasi LAMP Stack
 
@@ -77,12 +77,12 @@ sudo apt install -y apache2 mariadb-server php libapache2-mod-php php-mysql php-
 sudo apt install -y mariadb-server apache2 php libapache2-mod-php php-mysql php-curl php-json
 ```
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-50-43.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-50-43.webp>)
 
 ### 4.3 Validasi Instalasi
 Akses public IP instance melalui web browser untuk memverifikasi Apache berjalan dengan benar:
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-52-00.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 13-52-00.webp>)
 
 ## 5. Konfigurasi Database Server
 
@@ -216,7 +216,7 @@ echo "Database connected successfully";
 
 **URL Testing:** `http://your-ec2-public-ip/test_db.php`
 
-![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 14-30-25.png>)
+![alt text](<../assets/img/posts/cloud/db-server/Screenshot From 2025-11-10 14-30-25.webp>)
 
 ### 6.2 Deployment Aplikasi Principal
 Buat file [aplikasi utama CRUD](https://git.ricalnet.my.id/rical/cloud_computing/src/branch/main/ujikom-2/index.php):
