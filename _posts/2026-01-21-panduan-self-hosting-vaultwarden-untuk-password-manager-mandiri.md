@@ -2,7 +2,7 @@
 title: Panduan Self-Hosting Vaultwarden untuk Password Manager Mandiri
 description: Pelajari cara menginstal Vaultwarden secara mandiri dengan Podman. Tutorial ini memandu Anda langkah demi langkah menyiapkan password manager open-source yang aman dengan kontrol data penuh.
 categories: [Digital Independence, Password Manager]
-tags: [self-hosted, linux, vaultwarden, podman]
+tags: [linux, podman, bitwarden, vaultwarden, password-manager, 2fa, totp, self-hosted]
 author: rical
 last_modified_at: 2026-08-05
 ---

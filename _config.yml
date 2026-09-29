@@ -90,7 +90,7 @@ pageviews:
 theme_mode: # [light | dark]
 
 # Aktifkan efek animasi latar belakang
-backgroud_animation: true
+backgroud_animation: false
 
 # Aktifkan efek klik mouse
 mouse_click_effect: false
