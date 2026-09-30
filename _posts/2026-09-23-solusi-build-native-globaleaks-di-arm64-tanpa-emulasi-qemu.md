@@ -4,8 +4,13 @@ description: Mengatasi keterbatasan image resmi GlobaLeaks yang hanya tersedia u
 categories: [The Onion Router]
 tags: [onion, tor, privacy, globaleaks]
 author: rical
-last_modified_at: 2026-09-23
+last_modified_at: 2026-09-30
 ---
+
+> Artikel ini ditulis untuk keperluan pengembangan, riset, dan pembelajaran. Konfigurasi, perintah, dan skenario yang dijelaskan di sini belum melalui audit keamanan dan tidak dirancang untuk deployment produksi yang melindungi pelapor sungguhan.
+> 
+> Untuk pemakaian langsung di lingkungan nyata, gunakan image resmi dan panduan instalasi yang telah diverifikasi di [git.ricalnet.my.id/rical/leaks](https://git.ricalnet.my.id/rical/leaks). Repositori tersebut menyediakan konfigurasi yang siap pakai, teruji, dan diperbarui secara berkala.
+{: .prompt-danger }
 
 ## Apa itu GlobaLeaks?
 
@@ -105,7 +110,7 @@ Script installer dari repositori digital-independence mengonfigurasi Podman bese
 ```bash
 mkdir -p ./globaleaks-data
 
-podman build -t localhost/globaleaks-arm64:latest -f Containerfile .
+podman build -t git.ricalnet.my.id/globaleaks-arm64:latest -f Containerfile .
 podman compose up -d
 sleep 180
 podman-compose logs -f
