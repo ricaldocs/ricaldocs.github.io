@@ -18,7 +18,7 @@ Dokumentasi ini membahas proses deployment Wazuh Stack single-node menggunakan c
 ### 1. Persiapan Repository
 
 ```bash
-git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence/wazuh
 ```
 

@@ -24,7 +24,7 @@ Membangunnya dianggap rumit—wajar, selama Anda masih mengetik perintah seperti
 Cocok untuk siapa? Individu dan organisasi yang menempatkan privasi dan keamanan sebagai prioritas. Individu sadar privasi, aktivis dan jurnalis, profesional independen, tim remote skala kecil, serta organisasi yang membutuhkan kedaulatan data penuh atas infrastrukturnya sendiri.
 
 ## Prasyarat
-- [git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence)
+- [git.ricalnet.my.id/RICALNET/digital-independence](https://git.ricalnet.my.id/RICALNET/digital-independence)
 - Sistem operasi Debian-based Linux
 - Akses `sudo` untuk konfigurasi firewall
 
@@ -48,7 +48,7 @@ Cocok untuk siapa? Individu dan organisasi yang menempatkan privasi dan keamanan
 ### 1.1 Clone Repositori
 
 ```bash
-git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence
 ```
 
@@ -239,7 +239,7 @@ sudo ipc enable 9000   # Authentik
 sudo ipc status
 ```
 
-> Dokumentasi lengkap: [Iptables Port Controller — Firewall](https://git.ricalnet.my.id/rical/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)
+> Dokumentasi lengkap: [Iptables Port Controller — Firewall](https://git.ricalnet.my.id/RICALNET/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)
 {: .prompt-tip}
 
 Firewall membatasi siapa yang boleh masuk. Namun firewall tidak dapat memberi tahu Anda apa yang sudah terjadi — percobaan brute force SSH, modifikasi file konfigurasi kritis, atau eskalasi privilege yang tidak wajar.
@@ -396,7 +396,7 @@ chantik help              # Bantuan
 | Data at-rest | Chantik (ChaCha20) | Kebocoran backup, ransomware |
 | Host         | Wazuh              | Intrusi, rootkit, perubahan konfigurasi tidak sah |
 
-> Dokumentasi lengkap: [Chantik — ChaCha20-Authenticated Backup Protection](https://git.ricalnet.my.id/rical/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-)
+> Dokumentasi lengkap: [Chantik — ChaCha20-Authenticated Backup Protection](https://git.ricalnet.my.id/RICALNET/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-)
 {: .prompt-tip}
 
 Tiga lapisan ini saling melengkapi. IPC mencegah akses, Chantik melindungi data saat istirahat, dan Wazuh mendeteksi aktivitas mencurigakan yang berhasil melewati dua lapisan sebelumnya.

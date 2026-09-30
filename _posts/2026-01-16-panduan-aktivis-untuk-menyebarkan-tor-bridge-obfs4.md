@@ -21,7 +21,7 @@ Deployment obfs4 sangat mudah, hanya 4 langkah. Namun, sangat direkomendasikan m
 ### Langkah 1: Clone Repositori
 
 ```bash
-git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 ```
 
 Repositori ini berisi semua skrip dan konfigurasi yang diperlukan, termasuk `install-podman-on-debian.sh` dan `auto-install-obfs4.sh`.

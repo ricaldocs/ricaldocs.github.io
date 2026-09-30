@@ -32,7 +32,7 @@ Sebelum mulai, pastikan:
 ## Langkah 1: Clone Repository & Install Podman
 
 ```bash
-git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence
 ./install-podman-on-debian.sh
 ```

@@ -42,7 +42,7 @@ Sebelum memulai, pastikan:
 | Komponen                                                                                             | Spesifikasi                |
 | ---------------------------------------------------------------------------------------------------- | -------------------------- |
 | OS                                                                                                   | Debian 13+ / Ubuntu 26.04+ |
-| Aplikasi Web (seperti [Digital Independence](https://git.ricalnet.my.id/rical/digital-independence)) | Berjalan di localhost      |
+| Aplikasi Web (seperti [Digital Independence](https://git.ricalnet.my.id/RICALNET/digital-independence)) | Berjalan di localhost      |
 
 > Penting untuk dipahami bahwa Hidden service Tor bukan pengganti keamanan aplikasi web. Autentikasi, validasi input, dan praktik keamanan standar tetap harus diterapkan pada aplikasi yang berjalan di belakang Tor.
 {: .prompt-info}

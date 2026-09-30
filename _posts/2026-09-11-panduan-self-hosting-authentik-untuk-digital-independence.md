@@ -124,7 +124,7 @@ Sebelum memulai, pastikan sistem Anda memenuhi persyaratan berikut:
 Repositori Digital Independence menyediakan script instalasi otomatis:
 
 ```bash
-git clone https://git.ricalnet.my.id/rical/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence
 ./install-podman-on-debian.sh
 ```
@@ -469,9 +469,9 @@ Kedaulatan digital bukan tentang menolak teknologi — ini tentang memilih siapa
 
 | Sumber Daya                     | Tautan                                                                                                                                                 |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Repositori Digital Independence | [git.ricalnet.my.id/rical/digital-independence](https://git.ricalnet.my.id/rical/digital-independence)                                                 |
-| Wiki Resmi                      | [Digital Independence Wiki](https://git.ricalnet.my.id/rical/digital-independence/wiki)                                                                |
-| Dokumentasi IPC                 | [Iptables Port Controller](https://git.ricalnet.my.id/rical/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)                     |
-| Chantik Backup Tool             | [Encrypted Backup Protection](https://git.ricalnet.my.id/rical/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-) |
+| Repositori Digital Independence | [git.ricalnet.my.id/RICALNET/digital-independence](https://git.ricalnet.my.id/RICALNET/digital-independence)                                                 |
+| Wiki Resmi                      | [Digital Independence Wiki](https://git.ricalnet.my.id/RICALNET/digital-independence/wiki)                                                                |
+| Dokumentasi IPC                 | [Iptables Port Controller](https://git.ricalnet.my.id/RICALNET/digital-independence/wiki/Iptables-Port-Controller-%E2%80%94-Firewall)                     |
+| Chantik Backup Tool             | [Encrypted Backup Protection](https://git.ricalnet.my.id/RICALNET/digital-independence/wiki/Chantik+%E2%80%94+ChaCha20-Authenticated+Backup+Protection.-) |
 | Authentik Official              | [goauthentik.io](https://goauthentik.io/)                                                                                                              |
 | Podman Documentation            | [podman.io/docs](https://podman.io/docs)                                                                                                               |
