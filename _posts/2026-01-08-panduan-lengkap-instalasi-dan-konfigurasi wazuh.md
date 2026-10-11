@@ -4,7 +4,7 @@ description: Panduan teknis lengkap instalasi dan konfigurasi Wazuh single-node 
 categories: [Digital Independence, Monitoring]
 tags: [wazuh, soc, linux, forensics, incident response, podman]
 author: rical
-last_modified_at: 2026-09-19
+last_modified_at: 2026-10-11
 ---
 
 ## Pendahuluan
@@ -166,7 +166,7 @@ dipen logs wazuh
 ### 8. Verifikasi dan Akses
 
 ```bash
-https://<ip-address>:8443
+https://<ip-address>:9521
 ```
 
 Credential default:

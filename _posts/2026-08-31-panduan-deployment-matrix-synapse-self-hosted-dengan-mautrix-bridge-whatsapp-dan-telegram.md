@@ -4,7 +4,11 @@ description: Panduan lengkap deploy Matrix Synapse self-hosted dengan Mautrix br
 categories: [Digital Independence, Communications]
 tags: [self-hosted, matrix protocol, podman]
 author: rical
-last_modified_at: 2026-09-02
+pin: true
+last_modified_at: 2026-10-11
+image:
+  path: /assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/mind-map.webp
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
 ## Membangun Infrastruktur Komunikasi Terdesentralisasi dan Mengapa Ini Penting
@@ -100,7 +104,7 @@ Sebelum memulai, pastikan Anda memiliki:
 > 1. Semua password dalam panduan ini (`CHANGE_ME_POSTGRES_PASSWORD`, `changeme`, dll.) HARUS diganti dengan password yang kuat
 > 2. Panduan ini menggunakan `127.0.0.1` untuk pengujian lokal. Untuk produksi, gunakan domain dan aktifkan TLS
 > 3. Buat backup `synapse-data/` dan `postgres-data/` secara rutin
-> 4. Pastikan hanya port yang diperlukan yang terbuka (8008 untuk Synapse, 8009 untuk Element Web)
+> 4. Pastikan hanya port yang diperlukan yang terbuka (9518 untuk Synapse, 9502 untuk Element Web)
 {: .prompt-warning}
 
 ### Waktu yang Dibutuhkan
@@ -254,7 +258,7 @@ ls -la synapse-data/
 ```bash
 podman exec -it synapse register_new_matrix_user \
   -c /data/homeserver.yaml \
-  http://localhost:8008 \
+  http://localhost:9518 \
   -u admin -p changeme -a
 ```
 
@@ -264,7 +268,7 @@ Penjelasan:
 - `-a` flag: Memberikan privilege admin (hapus flag untuk user biasa)
 - Kredensial: username `admin` dengan password `passwordadmin`
 
-Buka `http://127.0.0.1:8008` untuk verifikasi homeserver berjalan.
+Buka `http://127.0.0.1:9518` untuk verifikasi homeserver berjalan.
 
 ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/synapse-running.webp)
 
@@ -400,7 +404,7 @@ nano config/element-web-config.json
 ```
 
 Konfigurasi yang perlu disesuaikan:
-- `default_server_config`: URL homeserver (biasanya `http://localhost:8008`)
+- `default_server_config`: URL homeserver (biasanya `http://localhost:9518`)
 - `branding`: Nama dan logo custom
 - `features`: Enable/disable fitur tertentu (contoh: `feature_pinning`)
 
@@ -410,7 +414,7 @@ sleep 10
 dipen logs element-web
 ```
 
-Buka `http://127.0.0.1:8009` di browser.
+Buka `http://127.0.0.1:9502` di browser.
 
 ![alt text](../assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/nocomint-sign-in.webp)
 
@@ -445,13 +449,13 @@ dipen ps element-web synapse-mautrix synapse
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                    Client (Element Web)                    │
-│                    http://127.0.0.1:8009                   │
+│                    http://127.0.0.1:9502                   │
 └─────────────────────────────┬──────────────────────────────┘
                               │
                               ▼
 ┌────────────────────────────────────────────────────────────┐
-│                Matrix Synapse (Port 8008)                  │
-│             http://synapse:8008 (internal)                 │
+│                Matrix Synapse (Port 9518)                  │
+│             http://synapse:9518 (internal)                 │
 │          homeserver.yaml, PostgreSQL (synapse)             │
 └─────────────┬──────────────────────┬───────────────────────┘
               │                      │

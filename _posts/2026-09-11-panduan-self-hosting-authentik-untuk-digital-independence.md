@@ -4,7 +4,7 @@ description: Pelajari cara deploy Authentik sebagai Identity Provider (IdP) self
 categories: [Digital Independence, SSO]
 tags: [self-hosted, sso, authentik]
 author: rical
-last_modified_at: 2026-09-11
+last_modified_at: 2026-10-11
 ---
 
 ## Mengapa Authentik? Mengembalikan Kendali atas Identitas Digital Anda
@@ -34,14 +34,14 @@ Komponen `server` adalah inti dari Authentik. Ini menangani:
 - API untuk integrasi eksternal
 - Sesi pengguna dan token
 
-Server berjalan sebagai aplikasi Python (Django) yang di-serve melalui port 9000 (HTTP) dan 9443 (HTTPS). Dalam konfigurasi `compose.yaml`, server di-deploy dengan:
+Server berjalan sebagai aplikasi Python (Django) yang di-serve melalui port 9500 (HTTP) dan 9443 (HTTPS). Dalam konfigurasi `compose.yaml`, server di-deploy dengan:
 
 ```yaml
 server:
   image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server:latest}
   command: server
   ports:
-    - "${COMPOSE_PORT_HTTP:-9000}:9000"
+    - "${COMPOSE_PORT_HTTP:-9500}:9000"
     - "${COMPOSE_PORT_HTTPS:-9443}:9443"
 ```
 
@@ -82,14 +82,14 @@ Konfigurasi Redis di sini menggunakan autentikasi password (`REDIS_PASSWORD`) da
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    FIREWALL (IPC)                           │
-│              Default-Deny, Port 9000/9443                   │
+│              Default-Deny, Port 9500/9443                   │
 └─────────────────────┬───────────────────────────────────────┘
                       │
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                   AUTHENTIK SERVER                          │
 │         (UI, OAuth2/OIDC, SAML, API Endpoint)               │
-│                    Port 9000/9443                           │
+│                    Port 9500/9443                           │
 └─────────┬───────────────────────────────┬───────────────────┘
           │                               │
           ▼                               ▼
@@ -161,7 +161,7 @@ Variabel kunci yang wajib dikonfigurasi:
 | `PG_PASS`              | Password PostgreSQL  | `openssl rand -base64 32` |
 | `REDIS_PASSWORD`       | Password Redis       | `openssl rand -base64 32` |
 | `AUTHENTIK_SECRET_KEY` | Secret key Authentik | `openssl rand -base64 60` |
-| `COMPOSE_PORT_HTTP`    | Port HTTP            | `9000`                    |
+| `COMPOSE_PORT_HTTP`    | Port HTTP            | `9500`                    |
 | `COMPOSE_PORT_HTTPS`   | Port HTTPS           | `9443`                    |
 
 Gunakan `openssl rand -base64 32` untuk menghasilkan password yang kuat dan unik. Jangan pernah menggunakan password default atau yang mudah ditebak.
@@ -212,7 +212,7 @@ Anda akan melihat output seperti:
 
 ```
 CONTAINER ID  IMAGE                                    COMMAND     CREATED         STATUS                   PORTS
-abc123def456  ghcr.io/goauthentik/server:latest        server      2 minutes ago   Up 2 minutes (healthy)   0.0.0.0:9000->9000/tcp
+abc123def456  ghcr.io/goauthentik/server:latest        server      2 minutes ago   Up 2 minutes (healthy)   0.0.0.0:9500->9000/tcp
 def456ghi789  ghcr.io/goauthentik/server:latest        worker      2 minutes ago   Up 2 minutes (healthy)
 ghi789jkl012  docker.io/postgres:18-alpine             postgres    2 minutes ago   Up 2 minutes (healthy)
 jkl012mno345  docker.io/redis:alpine                   redis       2 minutes ago   Up 2 minutes (healthy)
@@ -223,20 +223,20 @@ jkl012mno345  docker.io/redis:alpine                   redis       2 minutes ago
 Buka browser dan akses:
 
 ```
-http://localhost:9000
+http://localhost:9500
 ```
 
 Atau jika Anda mengakses dari mesin lain:
 
 ```
-http://<IP-SERVER>:9000
+http://<IP-SERVER>:9500
 ```
 
 Anda akan disambut dengan halaman setup awal Authentik. Ikuti wizard untuk membuat akun administrator pertama.
 
-> Jika Anda mengakses dari luar localhost, pastikan port 9000 sudah dibuka di firewall menggunakan IPC:
+> Jika Anda mengakses dari luar localhost, pastikan port 9500 sudah dibuka di firewall menggunakan IPC:
 > ```bash
-> sudo ipc enable 9000 both tcp
+> sudo ipc enable 9500 both tcp
 > ```
 {: .prompt-info}
 
@@ -261,7 +261,7 @@ sudo ipc init
 sudo ipc enable 22 both tcp
 
 # Buka port Authentik (jika perlu akses eksternal)
-sudo ipc enable 9000 both tcp
+sudo ipc enable 9500 both tcp
 sudo ipc enable 9443 both tcp
 ```
 

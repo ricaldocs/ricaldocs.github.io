@@ -4,7 +4,7 @@ description: Panduan lengkap instalasi Homarr menggunakan Podman. Homarr adalah 
 categories: [Digital Independence, Dashboard]
 tags: [self-hosted, podman, homarr]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-10-11
 ---
 
 ## Apa itu Homarr dan Mengapa Perlu?
@@ -52,7 +52,7 @@ Homarr adalah dashboard server modern yang menyediakan antarmuka terpusat untuk 
 │  │                    Container                        │   │
 │  │  ┌──────────────────────────────────────────────┐   │   │
 │  │  │           Homarr (Next.js App)               │   │   │
-│  │  │           Port: 7575                         │   │   │
+│  │  │           Port: 9505                         │   │   │
 │  │  └──────────────────────────────────────────────┘   │   │
 │  │                        │                            │   │
 │  │  ┌──────────────────────────────────────────────┐   │   │
@@ -68,7 +68,7 @@ Homarr adalah dashboard server modern yang menyediakan antarmuka terpusat untuk 
 │  └─────────────────────────────────────────────────────┘   │
 │                            │                               │
 │                    ┌───────▼───────┐                       │
-│                    │  Port 7575    │                       │
+│                    │  Port 9505    │                       │
 │                    │  (Web UI)     │                       │
 │                    └───────────────┘                       │
 └────────────────────────────────────────────────────────────┘
@@ -85,7 +85,7 @@ Homarr adalah dashboard server modern yang menyediakan antarmuka terpusat untuk 
 | RAM      | 512 MB                     | 1+ GB       |
 | Storage  | 500 MB                     | 2+ GB       |
 | Podman   | 5.4+                       | Latest      |
-| Port     | 7575 (Web UI)              | -           |
+| Port     | 9505 (Web UI)              | -           |
 
 ## 1. Clone Repository
 
@@ -152,7 +152,7 @@ Apa yang terjadi di balik layar:
 3. Membuat volume: `homarr_data`, `homarr_redis_data`, `homarr_nginx`, `homarr_nginx_conf`
 4. Membuat network: `homarr-network`
 5. Menjalankan Redis terlebih dahulu (dependency)
-6. Menjalankan Homarr dengan port mapping `127.0.0.1:7575:7575`
+6. Menjalankan Homarr dengan port mapping `127.0.0.1:9505:7575`
 
 ### Monitor Startup
 
@@ -166,7 +166,7 @@ Output yang diharapkan:
 ```
 CONTAINER ID  IMAGE                              COMMAND               CREATED      STATUS                PORTS                     NAMES
 56cdd3d09500  docker.io/library/redis:alpine     redis-server --ap...  7 hours ago  Up 7 hours (healthy)  6379/tcp                  homarr-redis
-c9cb260694da  ghcr.io/homarr-labs/homarr:latest  sh run.sh             7 hours ago  Up 7 hours (healthy)  127.0.0.1:7575->7575/tcp  homarr
+c9cb260694da  ghcr.io/homarr-labs/homarr:latest  sh run.sh             7 hours ago  Up 7 hours (healthy)  127.0.0.1:9505->7575/tcp  homarr
 ```
 
 ### Verifikasi Container Health
@@ -183,7 +183,7 @@ podman inspect homarr --format='{{.State.Health.Status}}'
 Buka browser dan akses:
 
 ```
-http://localhost:7575
+http://localhost:9505
 ```
 
 ![Homarr Dashboard](../assets/img/posts/2026-03-14-cara-install-homarr-di-docker-dashboard-server-modern-dan-rapi/dashboard.webp)

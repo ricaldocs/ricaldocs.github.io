@@ -4,7 +4,7 @@ description: Tingkatkan privasi online Anda dengan memandu sendiri mesin pencari
 categories: [Digital Independence, Search Engine]
 tags: [self-hosted, podman, searxng]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-10-11
 ---
 
 ## Apa itu SearXNG dan Mengapa Perlu?
@@ -61,7 +61,7 @@ SearXNG adalah metasearch engine open-source yang mengagregasi hasil pencarian d
 │  │              SearXNG Container                    │  │
 │  │  ┌────────────────────────────────────────────┐   │  │
 │  │  │  SearXNG Server (Python)                   │   │  │
-│  │  │  Port: 8888 (Web UI)                       │   │  │
+│  │  │  Port: 9516 (Web UI)                       │   │  │
 │  │  └────────────────────────────────────────────┘   │  │
 │  │                        │                          │  │
 │  │  ┌─────────────────────────────────────────────┐  │  │
@@ -75,7 +75,7 @@ SearXNG adalah metasearch engine open-source yang mengagregasi hasil pencarian d
 │  └───────────────────────────────────────────────────┘  │
 │                           │                             │
 │                   ┌───────▼───────┐                     │
-│                   │  Port 8888    │                     │
+│                   │  Port 9516    │                     │
 │                   │  (Web UI)     │                     │
 │                   └───────────────┘                     │
 └─────────────────────────────────────────────────────────┘
@@ -92,7 +92,7 @@ SearXNG adalah metasearch engine open-source yang mengagregasi hasil pencarian d
 | RAM      | 256 MB                     | 512+ MB                |
 | Storage  | 500 MB                     | 2+ GB                  |
 | Podman   | 5.4+                       | Latest                 |
-| Port     | 8888 (Web UI)              | -                      |
+| Port     | 9516 (Web UI)              | -                      |
 | Domain   | -                          | Untuk HTTPS (opsional) |
 
 ## 1. Clone Repository
@@ -151,7 +151,7 @@ Apa yang terjadi di balik layar:
 4. Membuat network: `searxng`
 5. Menjalankan Valkey/Redis terlebih dahulu (dependency)
 6. Menjalankan SearXNG dengan:
-   - Port mapping: `127.0.0.1:8888:8080`
+   - Port mapping: `127.0.0.1:9516:8080`
    - Volume untuk konfigurasi dan cache
 
 ### Monitor Startup
@@ -166,7 +166,7 @@ Output yang diharapkan:
 ```
 CONTAINER ID  IMAGE                             COMMAND               CREATED         STATUS                   PORTS                     NAMES
 fd9a5e7aa247  docker.io/valkey/valkey:alpine    valkey-server --s...  36 seconds ago  Up 36 seconds (healthy)  6379/tcp                  searxng-redis
-094ff67a4e1a  docker.io/searxng/searxng:latest                        35 seconds ago  Up 35 seconds (healthy)  127.0.0.1:8888->8080/tcp  searxng
+094ff67a4e1a  docker.io/searxng/searxng:latest                        35 seconds ago  Up 35 seconds (healthy)  127.0.0.1:9516->8080/tcp  searxng
 ```
 
 ## 5. Akses SearXNG
@@ -176,7 +176,7 @@ fd9a5e7aa247  docker.io/valkey/valkey:alpine    valkey-server --s...  36 seconds
 Buka browser dan akses:
 
 ```
-http://localhost:8888
+http://localhost:9516
 ```
 
 ## 6. Keamanan dan Privasi

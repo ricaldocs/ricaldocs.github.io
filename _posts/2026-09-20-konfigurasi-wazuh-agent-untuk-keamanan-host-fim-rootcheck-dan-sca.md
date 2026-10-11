@@ -4,7 +4,7 @@ description: Panduan lengkap konfigurasi Wazuh agent host untuk SOC, meliputi in
 categories: [Digital Independence, Monitoring]
 tags: [wazuh, soc, linux, forensics, incident response, podman]
 author: rical
-last_modified_at: 2026-09-20
+last_modified_at: 2026-10-11
 ---
 
 > Panduan ini mengasumsikan Anda telah memiliki Wazuh single-node (manager, indexer, dashboard) yang berjalan. Jika belum, ikuti terlebih dahulu [Panduan Lengkap Instalasi dan Konfigurasi Wazuh](https://docs.ricalnet.my.id/posts/panduan-lengkap-instalasi-dan-konfigurasi-wazuh/).
@@ -476,7 +476,7 @@ sudo ls /root
 
 ### 5.2 Cek di Dashboard
 
-Buka Wazuh Dashboard: `https://127.0.0.1:8443`
+Buka Wazuh Dashboard: `https://127.0.0.1:9521`
 
 Menu: Threat Intelligence → Threat Hunting → Events
 

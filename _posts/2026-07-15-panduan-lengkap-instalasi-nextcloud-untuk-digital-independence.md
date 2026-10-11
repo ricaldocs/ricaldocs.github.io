@@ -4,7 +4,7 @@ description: Tutorial teknis komprehensif instalasi Nextcloud self-hosted menggu
 categories: [Digital Independence, Cloud]
 tags: [self-hosted, nextcloud]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-10-11
 ---
 
 ## Pendahuluan
@@ -42,7 +42,7 @@ Nextcloud adalah platform kolaborasi file dan komunikasi open-source yang member
 │                    └───────┬───────┘                          │
 │                            │                                  │
 │                    ┌───────▼───────┐                          │
-│                    │  Port 5000    │                          │
+│                    │  Port 9511    │                          │
 │                    └───────────────┘                          │
 └───────────────────────────────────────────────────────────────┘
 ```
@@ -142,16 +142,18 @@ dipen ps nextcloud
 ### Output yang Diharapkan
 
 ```
-CONTAINER ID  IMAGE                                   COMMAND               CREATED      STATUS                PORTS                   NAMES
-b9b540bc8c60  docker.io/library/mariadb:11.8-ubi9     --transaction-iso...  4 hours ago  Up 4 hours (healthy)  3306/tcp                nextcloud_db
-a2a79bb3cce1  docker.io/library/redis:alpine          redis-server --re...  4 hours ago  Up 4 hours (healthy)  6379/tcp                nextcloud_redis
-37928146c8fd  docker.io/library/nextcloud:stable-fpm  php-fpm               4 hours ago  Up 4 hours (healthy)  9000/tcp                nextcloud_app
-4a2dd026b4bc  docker.io/library/nginx:alpine          nginx -g daemon o...  4 hours ago  Up 4 hours (healthy)  127.0.0.1:5000->80/tcp  nextcloud_web
+[1/1] Processing nextcloud...
+▶ nextcloud...
+CONTAINER ID  IMAGE                                   COMMAND               CREATED       STATUS                 PORTS                   NAMES
+384a4069e6b7  docker.io/library/mariadb:11.8-ubi9     --transaction-iso...  12 hours ago  Up 12 hours (healthy)  3306/tcp                nextcloud_db
+1eab6c060d23  docker.io/library/redis:alpine          redis-server --re...  12 hours ago  Up 12 hours (healthy)  6379/tcp                nextcloud_redis
+9805215f5a8d  docker.io/library/nextcloud:stable-fpm  php-fpm               12 hours ago  Up 12 hours (healthy)  9000/tcp                nextcloud_app
+25c70e9ed4a6  docker.io/library/nginx:alpine          nginx -g daemon o...  12 hours ago  Up 12 hours (healthy)  127.0.0.1:9511->80/tcp  nextcloud_web
 ```
 
 ### Setup Admin User Nextcloud
 
-Buka browser dan akses: `http://localhost:5000`
+Buka browser dan akses: `http://localhost:9511`
 
 Langkah setup:
 1. Buat akun admin dengan username dan password

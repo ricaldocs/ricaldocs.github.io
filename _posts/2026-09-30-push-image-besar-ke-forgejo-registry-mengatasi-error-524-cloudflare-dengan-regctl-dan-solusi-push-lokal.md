@@ -4,7 +4,7 @@ description: Panduan teknis mengatasi error 524 Cloudflare saat push image Docke
 categories: [Digital Independence]
 tags: [forgejo, cloudflare, regctl, podman, oci, self-hosted, raspberry pi]
 author: rical
-last_modified_at: 2026-09-30
+last_modified_at: 2026-10-11
 ---
 
 ## Latar Belakang Masalah
@@ -170,7 +170,7 @@ Solusi paling andal adalah melakukan push langsung ke registry Forgejo melalui k
 
 ### Prasyarat
 
-- Forgejo berjalan di container dan terikat di `127.0.0.1:3002` (port loopback lokal).
+- Forgejo berjalan di container dan terikat di `127.0.0.1:9503` (port loopback lokal).
 - Image sudah ada di Podman dengan tag yang menunjuk ke registry publik, misalnya `git.ricalnet.my.id/rical/globaleaks-arm64:latest`.
 
 ### Langkah 1: Verifikasi Image Lokal
@@ -189,10 +189,10 @@ Catat IMAGE ID (`375c277c1ee4`). Image ID ini akan tetap sama setelah di-tag ula
 
 ### Langkah 2: Tambahkan Tag untuk Alamat Lokal
 
-Podman mencocokkan nama image persis dengan argumen push. Tanpa tag `127.0.0.1:3002/...`, Podman akan mengembalikan error `image not known`.
+Podman mencocokkan nama image persis dengan argumen push. Tanpa tag `127.0.0.1:9503/...`, Podman akan mengembalikan error `image not known`.
 
 ```bash
-podman tag localhost/globaleaks-arm64:latest 127.0.0.1:3002/rical/globaleaks-arm64:latest
+podman tag localhost/globaleaks-arm64:latest 127.0.0.1:9503/rical/globaleaks-arm64:latest
 ```
 
 Verifikasi dengan `podman images | grep globaleaks`. Harusnya muncul tiga baris dengan IMAGE ID yang sama.
@@ -204,7 +204,7 @@ Registry lokal berjalan di HTTP, sedangkan Podman default menggunakan HTTPS. Ali
 ```bash
 sudo tee /etc/containers/registries.conf.d/forgejo-local.conf <<'EOF'
 [[registry]]
-location = "127.0.0.1:3002"
+location = "127.0.0.1:9503"
 insecure = true
 EOF
 ```
@@ -214,15 +214,15 @@ Aman karena registry hanya terikat di loopback interface. Tidak ada traffic yang
 ### Langkah 4: Login ke Registry Lokal
 
 ```bash
-podman login 127.0.0.1:3002
+podman login 127.0.0.1:9503
 ```
 
-Jika Langkah 3 belum dilakukan, gunakan `podman login --tls-verify=false 127.0.0.1:3002`. Masukkan username Forgejo dan Personal Access Token (PAT) sebagai password, bukan password akun. Jika 2FA aktif, PAT wajib digunakan.
+Jika Langkah 3 belum dilakukan, gunakan `podman login --tls-verify=false 127.0.0.1:9503`. Masukkan username Forgejo dan Personal Access Token (PAT) sebagai password, bukan password akun. Jika 2FA aktif, PAT wajib digunakan.
 
 ### Langkah 5: Push Image ke Registry Lokal
 
 ```bash
-podman push 127.0.0.1:3002/rical/globaleaks-arm64:latest
+podman push 127.0.0.1:9503/rical/globaleaks-arm64:latest
 ```
 
 Jika Langkah 3 belum dilakukan, tambahkan `--tls-verify=false`.
@@ -237,23 +237,23 @@ Copying config 375c277c1ee4 done
 Writing manifest to image destination
 ```
 
-Koneksi ke `127.0.0.1:3002` berjalan sepenuhnya di dalam loopback interface, tidak melewati `cloudflared`, tidak menyentuh edge Cloudflare. Semua batasan yang sebelumnya menghantui tidak berlaku. Estimasi waktu 30 detik hingga 3 menit untuk image 957 MB, tergantung kecepatan disk dan beban CPU.
+Koneksi ke `127.0.0.1:9503` berjalan sepenuhnya di dalam loopback interface, tidak melewati `cloudflared`, tidak menyentuh edge Cloudflare. Semua batasan yang sebelumnya menghantui tidak berlaku. Estimasi waktu 30 detik hingga 3 menit untuk image 957 MB, tergantung kecepatan disk dan beban CPU.
 
 ### Langkah 6: Verifikasi Push Berhasil
 
-Cek via web Forgejo di `http://127.0.0.1:3002` pada tab **Packages** di repo `rical/globaleaks-arm64`. Image harus muncul dengan tag `latest` dan ukuran yang sesuai.
+Cek via web Forgejo di `http://127.0.0.1:9503` pada tab **Packages** di repo `rical/globaleaks-arm64`. Image harus muncul dengan tag `latest` dan ukuran yang sesuai.
 
 Verifikasi via CLI:
 ```bash
-podman manifest inspect 127.0.0.1:3002/rical/globaleaks-arm64:latest
+podman manifest inspect 127.0.0.1:9503/rical/globaleaks-arm64:latest
 ```
 
 ### Langkah 7: Bersihkan Tag Sementara (Opsional)
 
-Jika tidak memerlukan tag `127.0.0.1:3002/...` untuk penggunaan rutin:
+Jika tidak memerlukan tag `127.0.0.1:9503/...` untuk penggunaan rutin:
 
 ```bash
-podman rmi 127.0.0.1:3002/rical/globaleaks-arm64:latest
+podman rmi 127.0.0.1:9503/rical/globaleaks-arm64:latest
 ```
 
 Perintah ini hanya menghapus tag, bukan image-nya, selama masih ada tag lain yang menunjuk ke IMAGE ID yang sama.
@@ -273,12 +273,12 @@ Pull tidak melibatkan upload blob besar. Cloudflare Tunnel hanya meneruskan perm
 | Langkah | Perintah | Tujuan |
 |---------|----------|--------|
 | 1 | `podman images \| grep globaleaks` | Verifikasi image ada |
-| 2 | `podman tag ... 127.0.0.1:3002/...` | Tambah tag lokal |
+| 2 | `podman tag ... 127.0.0.1:9503/...` | Tambah tag lokal |
 | 3 | `tee /etc/containers/registries.conf.d/...` | Konfigurasi insecure registry |
-| 4 | `podman login 127.0.0.1:3002` | Autentikasi ke registry |
-| 5 | `podman push 127.0.0.1:3002/...` | Push image |
+| 4 | `podman login 127.0.0.1:9503` | Autentikasi ke registry |
+| 5 | `podman push 127.0.0.1:9503/...` | Push image |
 | 6 | Buka web Forgejo | Verifikasi push |
-| 7 | `podman rmi 127.0.0.1:3002/...` | Bersihkan tag (opsional) |
+| 7 | `podman rmi 127.0.0.1:9503/...` | Bersihkan tag (opsional) |
 | 8 | `podman pull git.ricalnet.my.id/...` | Pull dari mesin lain |
 
 ### Catatan Teknis untuk Alur Lokal
@@ -287,4 +287,4 @@ Mengapa tidak menggunakan `git.ricalnet.my.id` langsung? Domain tersebut melewat
 
 Mengapa tidak menggunakan `regctl` untuk push lokal? Sebenarnya bisa, tetapi tidak perlu. `regctl` diperlukan hanya ketika upload harus melewati Cloudflare Tunnel yang memiliki timeout. Untuk koneksi lokal, Podman sudah cukup dan lebih sederhana.
 
-Mengapa registry Forgejo hanya terikat di `127.0.0.1`? Konfigurasi container Anda memetakan `127.0.0.1:3002->3000/tcp`, artinya registry hanya mendengarkan di loopback. Ini adalah praktik keamanan yang baik, karena registry tidak terekspos langsung ke jaringan dan hanya bisa diakses dari mesin itu sendiri atau melalui tunnel.
+Mengapa registry Forgejo hanya terikat di `127.0.0.1`? Konfigurasi container Anda memetakan `127.0.0.1:9503->3000/tcp`, artinya registry hanya mendengarkan di loopback. Ini adalah praktik keamanan yang baik, karena registry tidak terekspos langsung ke jaringan dan hanya bisa diakses dari mesin itu sendiri atau melalui tunnel.

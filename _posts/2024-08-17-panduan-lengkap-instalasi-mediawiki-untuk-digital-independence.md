@@ -4,7 +4,7 @@ description: Tutorial teknis instalasi MediaWiki menggunakan Podman di lingkunga
 categories: [Digital Independence, Wiki]
 tags: [mediawiki, podman]
 author: rical
-last_modified_at: 2026-09-11
+last_modified_at: 2026-10-11
 ---
 
 ## Mengapa MediaWiki? Membangun Basis Pengetahuan yang Anda Kendalikan
@@ -46,7 +46,7 @@ Dalam konfigurasi `compose.yaml`, MediaWiki di-deploy dengan:
 mediawiki:
   image: docker.io/mediawiki:latest
   ports:
-    - "127.0.0.1:8002:80"
+    - "127.0.0.1:9522:80"
   environment:
     - MEDIAWIKI_DB_HOST=db
     - MEDIAWIKI_DB_USER=mediawiki
@@ -89,13 +89,13 @@ Mengapa file ini penting? Tanpa `LocalSettings.php`, MediaWiki akan selalu masuk
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    FIREWALL (IPC)                           │
-│                  Default-Deny, Port 8002                    │
+│                  Default-Deny, Port 9522                    │
 └─────────────────────┬───────────────────────────────────────┘
                       │
                       ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    MEDIAWIKI (Apache/PHP)                   │
-│              Port 8002 → 80 (localhost binding)             │
+│              Port 9522 → 80 (localhost binding)             │
 │         /var/www/html/images (volume persisten)             │
 │         /var/www/html/LocalSettings.php (bind mount)        │
 └─────────────────────┬───────────────────────────────────────┘
@@ -204,7 +204,7 @@ Anda akan melihat output seperti:
 
 ```
 CONTAINER ID  IMAGE                      COMMAND     CREATED         STATUS                   PORTS
-abc123def456  docker.io/mediawiki:latest  apache2     2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:8002->80/tcp
+abc123def456  docker.io/mediawiki:latest  apache2     2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:9522->80/tcp
 def456ghi789  mariadb:10.11               mariadbd    2 minutes ago   Up 2 minutes (healthy)
 ```
 
@@ -213,7 +213,7 @@ def456ghi789  mariadb:10.11               mariadbd    2 minutes ago   Up 2 minut
 Buka browser dan akses:
 
 ```
-http://localhost:8002
+http://localhost:9522
 ```
 
 Anda akan disambut dengan halaman setup awal MediaWiki. Ikuti wizard instalasi dengan mengisi informasi berikut:
@@ -280,7 +280,7 @@ dipen ps mediawiki
 dipen logs mediawiki
 ```
 
-Sekarang akses kembali `http://localhost:8002` — Anda akan melihat halaman utama wiki, bukan wizard instalasi.
+Sekarang akses kembali `http://localhost:9522` — Anda akan melihat halaman utama wiki, bukan wizard instalasi.
 
 ## Konfigurasi Firewall dengan IPC: Keamanan Berlapis
 
@@ -303,7 +303,7 @@ sudo ipc init
 sudo ipc enable 22 both tcp
 
 # Buka port MediaWiki (jika perlu akses eksternal)
-sudo ipc enable 8002 both tcp
+sudo ipc enable 9522 both tcp
 ```
 
 ### Verifikasi Aturan Firewall

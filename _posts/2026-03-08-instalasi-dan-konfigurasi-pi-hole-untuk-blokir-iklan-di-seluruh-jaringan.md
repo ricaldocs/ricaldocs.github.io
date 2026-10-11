@@ -4,7 +4,7 @@ description: Panduan lengkap instalasi Pi-Hole menggunakan Podman di Debian. Pel
 categories: [Digital Independence, Communications]
 tags: [self-hosted, podman, pi-hole, dns, privacy]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-10-11
 ---
 
 ## Apa itu Pi-Hole dan Mengapa Perlu?
@@ -57,7 +57,7 @@ Pi-Hole adalah DNS server yang bertindak sebagai penyaring konten di tingkat jar
 │  └──────────────────────────────────────────────────────┘   │
 │                            │                                │
 │                    ┌───────▼───────┐                        │
-│                    │  Port 8080    │                        │
+│                    │  Port 9514    │                        │
 │                    │  (Web Admin)  │                        │
 │                    └───────────────┘                        │
 └─────────────────────────────────────────────────────────────┘
@@ -75,7 +75,7 @@ Pi-Hole adalah DNS server yang bertindak sebagai penyaring konten di tingkat jar
 | Storage   | 2 GB                       | 5+ GB                   |
 | Podman    | 5.4+                       | Latest                  |
 | IP Server | Statis                     | `192.168.0.50` (contoh) |
-| Port      | 53 (DNS), 8080 (Web)       | -                       |
+| Port      | 53 (DNS), 9514 (Web)       | -                       |
 
 > Gunakan IP statis agar konfigurasi router tidak berubah saat server di-restart. Lihat [Cara Mengatur IP Statis di Raspberry Pi OS (Trixie) dengan NetworkManager](https://docs.ricalnet.my.id/posts/cara-mengatur-ip-statis-di-raspberry-pi-os-dengan-networkmanager/) jika belum tahu caranya.
 {: .prompt-tip}
@@ -161,7 +161,7 @@ Apa yang terjadi di balik layar:
 3. Membuat network: `pihole_network`
 4. Menjalankan container dengan port mapping:
    - DNS (TCP/UDP): `5353:53` → diteruskan dari port 53 dengan iptables
-   - Web Admin: `8080:80`
+   - Web Admin: `9514:80`
 
 ### Verifikasi Log
 
@@ -189,7 +189,7 @@ Output yang diharapkan:
 ```
 CONTAINER ID  IMAGE                                      COMMAND               CREATED      STATUS                PORTS                                                                                         NAMES
 5e16a9bb2c40  docker.io/klutchell/dnscrypt-proxy:latest  -config /config/d...  7 hours ago  Up 7 hours            0.0.0.0:5053->5053/tcp, 0.0.0.0:5053->5053/udp                                                dnscrypt-proxy
-ca75c45bf6fe  docker.io/pihole/pihole:latest                                   7 hours ago  Up 7 hours (healthy)  0.0.0.0:5353->53/tcp, 0.0.0.0:5353->53/udp, 127.0.0.1:8080->80/tcp, 443/tcp, 67/udp, 123/udp  pihole
+ca75c45bf6fe  docker.io/pihole/pihole:latest                                   7 hours ago  Up 7 hours (healthy)  0.0.0.0:5353->53/tcp, 0.0.0.0:5353->53/udp, 127.0.0.1:9514->80/tcp, 443/tcp, 67/udp, 123/udp  pihole
 ```
 
 ### Akses Admin Panel
@@ -197,10 +197,10 @@ ca75c45bf6fe  docker.io/pihole/pihole:latest                                   7
 Buka browser dan akses:
 
 ```
-http://<IP-Server>:8080/admin
+http://<IP-Server>:9514/admin
 ```
 
-Contoh: `http://192.168.0.50:8080/admin`
+Contoh: `http://192.168.0.50:9514/admin`
 
 Masukkan password yang sudah Anda atur di file `.env`.
 
@@ -308,7 +308,7 @@ Pi-Hole secara default sudah memiliki daftar domain yang diblokir. Namun untuk p
 
 ### Cara Menambahkan Blocklist
 
-**Langkah 1:** Login ke admin panel Pi-Hole (`http://<IP-Server>:8080/admin`)
+**Langkah 1:** Login ke admin panel Pi-Hole (`http://<IP-Server>:9514/admin`)
 
 **Langkah 2:** Buka Lists → Add a new subscribed list
 

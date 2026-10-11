@@ -4,7 +4,7 @@ description: Pelajari implementasi hidden service Tor untuk melindungi privasi a
 categories: [The Onion Router, Dark Web]
 tags: [onion, tor, privacy]
 author: rical
-last_modified_at: 2026-08-21
+last_modified_at: 2026-10-11
 pin: true
 image:
   path: /assets/img/posts/2026-06-04-panduan-implementasi-hidden-service-tor.md/thumbnail.webp
@@ -104,7 +104,7 @@ File `/etc/tor/torrc`{: .filepath} dimiliki oleh root dan memerlukan hak akses a
 | Parameter           | Fungsi                                          | Contoh Nilai             |
 | ------------------- | ----------------------------------------------- | ------------------------ |
 | `HiddenServiceDir`  | Direktori penyimpanan kunci privat dan hostname | `/var/lib/tor/layanan1/` |
-| `HiddenServicePort` | Pemetaan port virtual (.onion) ke port lokal    | `80 127.0.0.1:8009`      |
+| `HiddenServicePort` | Pemetaan port virtual (.onion) ke port lokal    | `80 127.0.0.1:9502`      |
 
 ### Tambahkan Konfigurasi
 
@@ -113,14 +113,14 @@ Gulir ke bagian `############### This section is just for location-hidden servic
 ```bash
 # Layanan pertama - Aplikasi utama
 HiddenServiceDir /var/lib/tor/aplikasi_utama/
-HiddenServicePort 80 127.0.0.1:8009
+HiddenServicePort 80 127.0.0.1:9502
 
 # Layanan kedua - Nextcloud (contoh layanan tambahan)
 HiddenServiceDir /var/lib/tor/nextcloud/
-HiddenServicePort 80 127.0.0.1:5000
+HiddenServicePort 80 127.0.0.1:9511
 ```
 
-`HiddenServicePort 80` adalah port standar HTTP. Client Tor akan terhubung ke alamat `.onion` menggunakan port 80, lalu Tor akan meneruskan ke `127.0.0.1:8009` di server.
+`HiddenServicePort 80` adalah port standar HTTP. Client Tor akan terhubung ke alamat `.onion` menggunakan port 80, lalu Tor akan meneruskan ke `127.0.0.1:9502` di server.
 
 Anda bisa menggunakan port lain (misal `HiddenServicePort 443` untuk HTTPS), tetapi client harus menentukan port secara eksplisit (contoh: `http://xxxx.onion:443/`).
 

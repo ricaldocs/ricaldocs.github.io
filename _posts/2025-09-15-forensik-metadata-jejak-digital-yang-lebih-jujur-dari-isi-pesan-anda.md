@@ -5,6 +5,7 @@ categories: [Cybersecurity, Privacy]
 tags: [privacy, metadata, forensics, cybersecurity]
 author: rical
 last_modified_at: 2026-10-05
+pin: true
 image:
   path: assets/img/posts/2025-09-15-forensik-metadata-jejak-digital-yang-lebih-jujur-dari-isi-pesan-anda/thumbnail.webp
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
@@ -136,3 +137,40 @@ Peserta yang berhasil menjawab dengan benar dan lengkap, termasuk membedakan AI 
 Kalau Anda berhasil menemukan jejak digitalnya, selamat, Anda baru saja melakukan forensik metadata sederhana.
 
 Silakan submit hasil temuan Anda. Karena pada akhirnya, satu-satunya cara agar tidak menjadi pameran di museum digital adalah dengan belajar membaca labelnya sendiri.
+
+### Selamat kepada Para Pemenang! 🎉
+
+Selamat dan sukses kepada kedua pemenang **Challenge: Ekstrak Metadata Gambar Ini**:
+
+#### 🥇 Pemenang 1
+**Antoine**
+- 📅 Tanggal submit: **7 Oktober**
+- ⏰ Waktu submit: **02:38 PM**
+
+#### 🥈 Pemenang 2
+**Muhammad Rizky**
+- 📅 Tanggal submit: **9 Oktober**
+- ⏰ Waktu submit: **04:26 AM**
+
+Kepada **Antoine** dan **Muhammad Rizky**, selamat atas keberhasilan kalian menyelesaikan tantangan forensik metadata ini! 🕵️‍♂️🔍
+
+Kalian telah membuktikan kemampuan dalam:
+- Mengunduh dan mengekstrak metadata dari kedua gambar
+- Menganalisis pembuat/generator gambar
+- Mendeteksi apakah gambar hasil AI generatif atau asli
+- Memeriksa keberadaan watermark tersembunyi (seperti SynthID)
+- Menganalisis dimensi dan ukuran file
+- Memeriksa ID unik, hash, dan signature
+- Membedakan antara **AI asli**, **gambar nyata**, dan **manipulasi metadata**
+
+Hadiah untuk masing-masing pemenang:
+- 🎁 **15GB encrypted cloud storage selama 1 tahun** dari RICALNET
+- 🎁 **1 VPS selama 1 bulan** untuk AI agent (spesifikasi: 2 vCPU, 4GB RAM, 64GB NVMe SSD, 1TB bandwidth, Debian 12, lokasi Jakarta)
+
+Semoga hadiah ini bermanfaat untuk eksplorasi dan pengembangan proyek AI kalian ke depannya! 🚀
+
+**Untuk peserta lain yang belum berhasil,** jangan berkecil hati! Tantangan ini adalah latihan forensik metadata yang sangat baik. Teruslah belajar membaca "label digital" dari setiap gambar, karena di era AI generatif ini, kemampuan tersebut semakin krusial.
+
+*"Satu-satunya cara agar tidak menjadi pameran di museum digital adalah dengan belajar membaca labelnya sendiri."*
+
+Sampai jumpa di tantangan berikutnya! 👋

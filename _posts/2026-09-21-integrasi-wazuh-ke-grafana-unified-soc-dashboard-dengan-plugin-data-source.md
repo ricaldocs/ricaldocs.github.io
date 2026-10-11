@@ -4,7 +4,7 @@ description: Panduan teknis mengintegrasikan Wazuh ke Grafana via plugin armanfe
 categories: [Digital Independence, Monitoring]
 tags: [wazuh, grafana, soc, linux, forensics, incident response, podman, siem]
 author: rical
-last_modified_at: 2026-09-21
+last_modified_at: 2026-10-11
 ---
 
 > Pastikan Anda memiliki stack monitoring dan Wazuh agent yang berjalan:
@@ -22,7 +22,7 @@ Integrasi ini menyatukan kedua dunia tersebut. Data keamanan Wazuh (alert, keren
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    GRAFANA (Port 3003)                      │
+│                    GRAFANA (Port 9503)                      │
 │                  Single Pane of Glass                       │
 │                                                             │
 │  ┌────────────────┐  ┌────────────────┐  ┌──────────────┐   │
@@ -152,7 +152,7 @@ Simpan token di variabel shell untuk memudahkan langkah berikutnya:
 
 ```bash
 export GRAFANA_TOKEN="GANTI_DENGAN_TOKEN"
-export GRAFANA_URL="http://127.0.0.1:3003"
+export GRAFANA_URL="http://127.0.0.1:9503"
 ```
 
 ## 4. Buat Data Source dengan UID `wazuh`

@@ -4,7 +4,7 @@ description: Pelajari cara menginstal Vaultwarden secara mandiri dengan Podman. 
 categories: [Digital Independence, Password Manager]
 tags: [linux, podman, bitwarden, vaultwarden, password-manager, 2fa, totp, self-hosted]
 author: rical
-last_modified_at: 2026-08-05
+last_modified_at: 2026-10-11
 ---
 
 ## Apa itu Vaultwarden dan Mengapa Perlu?
@@ -58,7 +58,7 @@ Vaultwarden adalah implementasi open-source dari server Bitwarden yang ditulis d
 │  │              Vaultwarden Container               │   │
 │  │  ┌─────────────────────────────────────────────┐ │   │
 │  │  │  Vaultwarden Server (Rust)                  │ │   │
-│  │  │  Port: 8000 (HTTP API)                      │ │   │
+│  │  │  Port: 9520 (HTTP API)                      │ │   │
 │  │  └─────────────────────────────────────────────┘ │   │
 │  │                        │                         │   │
 │  │  ┌─────────────────────────────────────────────┐ │   │
@@ -72,7 +72,7 @@ Vaultwarden adalah implementasi open-source dari server Bitwarden yang ditulis d
 │  └──────────────────────────────────────────────────┘   │
 │                            │                            │
 │                    ┌───────▼───────┐                    │
-│                    │  Port 8000    │                    │
+│                    │  Port 9520    │                    │
 │                    │  (API Web)    │                    │
 │                    └───────────────┘                    │
 └─────────────────────────────────────────────────────────┘
@@ -89,7 +89,7 @@ Vaultwarden adalah implementasi open-source dari server Bitwarden yang ditulis d
 | RAM      | 256 MB                     | 512+ MB                |
 | Storage  | 500 MB                     | 2+ GB                  |
 | Podman   | 5.4+                       | Latest                 |
-| Port     | 8000 (HTTP API)            | -                      |
+| Port     | 9520 (HTTP API)            | -                      |
 | Domain   | -                          | Untuk HTTPS (opsional) |
 
 ## 1. Clone Repository
@@ -149,7 +149,7 @@ Apa yang terjadi di balik layar:
 4. Membuat network: `vaultwarden_network`
 5. Menjalankan Redis terlebih dahulu (dependency)
 6. Menjalankan Vaultwarden dengan:
-   - Port mapping: `127.0.0.1:8000:80`
+   - Port mapping: `127.0.0.1:9520:80`
    - Redis untuk session storage
    - Read-only filesystem untuk keamanan
 
@@ -165,7 +165,7 @@ Output yang diharapkan:
 ```
 CONTAINER ID  IMAGE                                COMMAND               CREATED      STATUS                PORTS                   NAMES
 e10fe884bed5  docker.io/library/redis:alpine       redis-server --sa...  8 hours ago  Up 8 hours (healthy)  6379/tcp                vaultwarden_redis
-8ec9e8716630  docker.io/vaultwarden/server:alpine  /start.sh             8 hours ago  Up 8 hours (healthy)  127.0.0.1:8000->80/tcp  vaultwarden
+8ec9e8716630  docker.io/vaultwarden/server:alpine  /start.sh             8 hours ago  Up 8 hours (healthy)  127.0.0.1:9520->80/tcp  vaultwarden
 ```
 
 ## 5. Monitoring dan Maintenance

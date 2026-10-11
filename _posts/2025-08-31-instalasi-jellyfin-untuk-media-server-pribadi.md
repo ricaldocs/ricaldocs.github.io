@@ -4,7 +4,7 @@ description: Panduan lengkap instalasi Jellyfin media server menggunakan Podman.
 categories: [Digital Independence, Multimedia]
 tags: [self-hosted, podman, jellyfin]
 author: rical
-last_modified_at: 2026-09-05
+last_modified_at: 2026-10-11
 ---
 
 ## Apa itu Jellyfin dan Mengapa Perlu?
@@ -54,7 +54,7 @@ Jellyfin adalah media server open-source yang memungkinkan Anda mengorganisir, m
 │  │              Jellyfin Container                      │   │
 │  │  ┌──────────────────────────────────────────────┐    │   │
 │  │  │  Jellyfin Server (dotnet)                    │    │   │
-│  │  │  Port: 8096 (HTTP) / 8920 (HTTPS)            │    │   │
+│  │  │  Port: 9507 (HTTP) / 8920 (HTTPS)            │    │   │
 │  │  └──────────────────────────────────────────────┘    │   │
 │  │                                                      │   │
 │  │  Volumes:                                            │   │
@@ -65,7 +65,7 @@ Jellyfin adalah media server open-source yang memungkinkan Anda mengorganisir, m
 │  └──────────────────────────────────────────────────────┘   │
 │                            │                                │
 │                    ┌───────▼───────┐                        │
-│                    │  Port 8096    │                        │
+│                    │  Port 9507    │                        │
 │                    │  (Web UI)     │                        │
 │                    └───────────────┘                        │
 └─────────────────────────────────────────────────────────────┘
@@ -82,7 +82,7 @@ Jellyfin adalah media server open-source yang memungkinkan Anda mengorganisir, m
 | RAM      | 1 GB                       | 4+ GB          |
 | Storage  | 10 GB + Media              | 50+ GB + Media |
 | Podman   | 5.4+                       | Latest         |
-| Port     | 8096 (HTTP), 8920 (HTTPS)  | -              |
+| Port     | 9507 (HTTP), 8920 (HTTPS)  | -              |
 
 ## 1. Clone Repository
 
@@ -154,7 +154,7 @@ Apa yang terjadi di balik layar:
 1. Podman menarik image `jellyfin/jellyfin:latest`
 2. Membuat volume bind mount untuk config, cache, media
 3. Me-mount device `/dev/dri` untuk hardware transcoding
-4. Menjalankan container dengan port mapping `8096:8096` dan `8920:8920`
+4. Menjalankan container dengan port mapping `9507:8096` dan `8920:8920`
 5. Container berjalan sebagai user `1000:1000`
 
 ### Monitor Startup
@@ -168,7 +168,7 @@ Output yang diharapkan:
 
 ```
 CONTAINER ID  IMAGE                                 COMMAND     CREATED         STATUS                   PORTS                                           NAMES
-d4a6e8e6481f  docker.io/jellyfin/jellyfin:10.11.11              36 seconds ago  Up 36 seconds (healthy)  0.0.0.0:8096->8096/tcp, 0.0.0.0:8920->8920/tcp  jellyfin
+d4a6e8e6481f  docker.io/jellyfin/jellyfin:10.11.11              36 seconds ago  Up 36 seconds (healthy)  0.0.0.0:9507->8096/tcp, 0.0.0.0:8920->8920/tcp  jellyfin
 ```
 
 ## 5. Akses dan Setup Awal Jellyfin
@@ -178,10 +178,10 @@ d4a6e8e6481f  docker.io/jellyfin/jellyfin:10.11.11              36 seconds ago  
 Buka browser dan akses:
 
 ```
-http://<IP-Server>:8096
+http://<IP-Server>:9507
 ```
 
-Contoh: `http://192.168.0.50:8096`
+Contoh: `http://192.168.0.50:9507`
 
 ## 6. Monitoring dan Maintenance
 
