@@ -4,7 +4,7 @@ description: Panduan teknis langkah demi langkah membangun monitoring stack self
 categories: [Digital Independence, Monitoring]
 tags: [self-hosted, grafana, prometheus]
 author: rical
-last_modified_at: 2026-09-19
+last_modified_at: 2026-10-12
 ---
 
 ## Pendahuluan
@@ -75,40 +75,39 @@ dipen ps monitoring
 Output yang diharapkan:
 
 ```
-▶ 1 services: monitoring
-
 [1/1] Processing monitoring...
 ▶ monitoring...
-CONTAINER ID  IMAGE                                              COMMAND               CREATED         STATUS                   PORTS                     NAMES
-4a1b365f9c9e  docker.io/prom/prometheus:latest                   --config.file=/et...  28 minutes ago  Up 28 minutes (healthy)  127.0.0.1:9090->9090/tcp  prometheus
-cf9ac57bb219  docker.io/prom/node-exporter:latest                --path.procfs=/ho...  28 minutes ago  Up 28 minutes (healthy)  127.0.0.1:9100->9100/tcp  node-exporter
-347dbfb930a9  quay.io/navidys/prometheus-podman-exporter:latest  --collector.enabl...  28 minutes ago  Up 28 minutes (healthy)  127.0.0.1:9882->9882/tcp  podman-exporter
-26a63ec570ef  docker.io/prom/alertmanager:latest                 --config.file=/et...  28 minutes ago  Up 28 minutes (healthy)  127.0.0.1:9093->9093/tcp  alertmanager
-88ad72aed27a  docker.io/grafana/grafana-oss:latest                                     28 minutes ago  Up 28 minutes (healthy)  127.0.0.1:3003->3000/tcp  grafana
+CONTAINER ID  IMAGE                                                       COMMAND               CREATED       STATUS                 PORTS                     NAMES
+59c5ed2099e0  git.ricalnet.my.id/rical/prometheus:stable                  --config.file=/et...  31 hours ago  Up 31 hours (healthy)  127.0.0.1:8500->9090/tcp  prometheus
+0876b38b5c40  git.ricalnet.my.id/rical/node-exporter:stable               --path.procfs=/ho...  31 hours ago  Up 31 hours (healthy)  127.0.0.1:8502->9100/tcp  node-exporter
+44cc17cab2b0  git.ricalnet.my.id/rical/prometheus-podman-exporter:stable  --collector.enabl...  31 hours ago  Up 31 hours (healthy)  127.0.0.1:8503->9882/tcp  podman-exporter
+dcd830635938  git.ricalnet.my.id/rical/alertmanager:stable                --config.file=/et...  31 hours ago  Up 31 hours (healthy)  127.0.0.1:8504->9093/tcp  alertmanager
+7eefae1c82c6  git.ricalnet.my.id/rical/grafana-oss:stable                                       31 hours ago  Up 31 hours (healthy)  127.0.0.1:8501->3000/tcp  grafana
+bb633ff7ceb6  docker.io/xenrox/ntfy-alertmanager:latest                                         31 hours ago  Up 31 hours (healthy)                            ntfy-alertmanager
 ```
 
 Mengapa `sleep 30`? Prometheus butuh ~15-30 detik untuk memuat config, membuka TSDB, dan mulai scrape target. Grafana butuh ~60 detik untuk migrasi database internal. Tanpa jeda, `dipen ps` akan menampilkan status `starting` (belum `healthy`).
 
-> Grafana listen di port 3003 (bukan default 3000) karena port 3000 sudah dipakai Open WebUI. Ini contoh port collision avoidance di host dengan banyak service.
+> Grafana listen di port 8501 (bukan default 3000) karena port 3000 sudah dipakai Open WebUI. Ini contoh port collision avoidance di host dengan banyak service.
 {: .prompt-info}
 
 ## Langkah 5: Verifikasi Health Endpoints
 
 ```bash
 echo "=== Prometheus ==="
-curl -s http://localhost:9090/-/healthy
+curl -s http://localhost:8500/-/healthy
 
 echo "=== Grafana ==="
-curl -s http://localhost:3003/api/health
+curl -s http://localhost:8501/api/health
 
 echo "=== Node Exporter ==="
-curl -s http://localhost:9100/metrics | head -1
+curl -s http://localhost:8502/metrics | head -1
 
 echo "=== Podman Exporter ==="
-curl -s http://localhost:9882/health
+curl -s http://localhost:8503/health
 
 echo "=== Alertmanager ==="
-curl -s http://localhost:9093/-/healthy
+curl -s http://localhost:8504/-/healthy
 ```
 
 Output yang diharapkan:
@@ -145,7 +144,7 @@ Mengapa health endpoint penting? Health endpoint adalah kontrak antara service d
 ## Langkah 6: Verifikasi Prometheus Targets
 
 ```bash
-curl -s http://localhost:9090/api/v1/targets | \
+curl -s http://localhost:8500/api/v1/targets | \
   python3 -c "
 import sys, json
 d = json.load(sys.stdin)
@@ -173,10 +172,10 @@ Mengapa verifikasi target? Prometheus tidak otomatis tahu service mana yang haru
 
 ```bash
 # Cek jumlah container terdeteksi
-curl -s http://localhost:9882/metrics | grep -c "^podman_container_info"
+curl -s http://localhost:8503/metrics | grep -c "^podman_container_info"
 
 # Cek apakah metric punya label name
-curl -s http://localhost:9882/metrics | grep "^podman_container_cpu_seconds_total" | \
+curl -s http://localhost:8503/metrics | grep "^podman_container_cpu_seconds_total" | \
   head -1 | grep -oP 'name="[^"]*"'
 ```
 
@@ -202,7 +201,7 @@ command:
 ## Langkah 8: Verifikasi Prometheus Rules
 
 ```bash
-curl -s http://localhost:9090/api/v1/rules | \
+curl -s http://localhost:8500/api/v1/rules | \
   python3 -c "
 import sys, json
 d = json.load(sys.stdin)
@@ -228,8 +227,8 @@ Mengapa rule grouping? Alert rules dikelompokkan berdasarkan kategori (`host`, `
 ## Langkah 9: Verifikasi Alertmanager
 
 ```bash
-curl -s http://localhost:9093/api/v2/status | python3 -m json.tool
-curl -s http://localhost:9093/api/v2/alerts | python3 -m json.tool
+curl -s http://localhost:8504/api/v2/status | python3 -m json.tool
+curl -s http://localhost:8504/api/v2/alerts | python3 -m json.tool
 ```
 
 Mengapa cek Alertmanager? Alertmanager menerima alert dari Prometheus, melakukan deduplication, grouping, inhibition, dan routing ke receiver (Ntfy). Verifikasi status memastikan cluster ready dan config valid. Output `[]` untuk alerts berarti tidak ada alert aktif — sistem sehat.
@@ -255,7 +254,7 @@ Warning `/var/run` tidak berbahaya — hanya Podman memberi tahu bahwa ada volum
 
 ```bash
 # Top 5 CPU
-curl -s -G "http://localhost:9090/api/v1/query" \
+curl -s -G "http://localhost:8500/api/v1/query" \
   --data-urlencode "query=topk(5, rate(podman_container_cpu_seconds_total[5m]))" | \
   python3 -c "
 import sys, json
@@ -344,7 +343,7 @@ Sekarang uji seluruh pipeline: Alertmanager → bridge → Ntfy.
 ### Alert Uji Pertama
 
 ```bash
-curl -X POST http://localhost:9093/api/v2/alerts \
+curl -X POST http://localhost:8504/api/v2/alerts \
   -H "Content-Type: application/json" \
   -d '[{
     "labels": {
@@ -366,7 +365,7 @@ curl -X POST http://localhost:9093/api/v2/alerts \
 Alertmanager melakukan deduplikasi berdasarkan fingerprint (kombinasi label). Jika Anda mengirim alert dengan label identik, alert kedua tidak akan memicu notifikasi baru — ini fitur anti-spam. Untuk memicu notifikasi baru, gunakan label yang berbeda:
 
 ```bash
-curl -X POST http://localhost:9093/api/v2/alerts \
+curl -X POST http://localhost:8504/api/v2/alerts \
   -H "Content-Type: application/json" \
   -d '[{
     "labels": {
@@ -388,7 +387,7 @@ curl -X POST http://localhost:9093/api/v2/alerts \
 Buka topik Ntfy di browser:
 
 ```
-http://localhost:8010/alertmanager
+http://localhost:9512/alertmanager
 ```
 
 Notifikasi "Ini alert uji coba" dan "Alert uji kedua" seharusnya muncul.
@@ -410,7 +409,7 @@ Notifikasi "Ini alert uji coba" dan "Alert uji kedua" seharusnya muncul.
 
 ### Login ke Grafana
 
-Buka browser ke `http://localhost:3003` (perhatikan port 3003, bukan 3000). Login dengan:
+Buka browser ke `http://localhost:8501` (perhatikan port 8501, bukan 3000). Login dengan:
 
 - Username: `admin`
 - Password: nilai `GRAFANA_ADMIN_PASSWORD` dari `.env`
@@ -432,7 +431,7 @@ Output yang diharapkan:
 Successfully queried the Prometheus API.
 ```
 
-Mengapa perlu Save & Test? Grafana tidak otomatis tahu apakah URL `http://prometheus:9090` bisa diakses dari dalam container Grafana. Test ini melakukan HTTP request aktual ke Prometheus API dan memvalidasi response. Jika gagal, cek: 
+Mengapa perlu Save & Test? Grafana tidak otomatis tahu apakah URL `http://prometheus:8500` bisa diakses dari dalam container Grafana. Test ini melakukan HTTP request aktual ke Prometheus API dan memvalidasi response. Jika gagal, cek: 
 1. Apakah kedua container di network yang sama 
 2. Apakah URL benar (bukan `localhost`)
 
@@ -506,7 +505,7 @@ Anda telah berhasil membangun monitoring stack lengkap untuk infrastruktur self-
 - Ntfy-Alertmanager bridge untuk notifikasi push end-to-end
 
 Yang perlu diingat:
-- Grafana di port 3003 (bukan 3000)
+- Grafana di port 8501 (bukan 3000)
 - Ntfy di dua network (`monitoring_network` + `ntfy_network`)
 - Password di `.env`
 - Bridge `ntfy-alertmanager` listen di `:8080` (bukan `127.0.0.1:8080`)
