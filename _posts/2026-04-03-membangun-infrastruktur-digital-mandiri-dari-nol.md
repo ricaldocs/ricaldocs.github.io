@@ -4,7 +4,7 @@ description: Ingin lepas dari raksasa teknologi? Pelajari cara membangun infrast
 categories: [Digital Independence]
 tags: [self-hosted, docker, podman, privacy, firewall, chantik, chacha20]
 author: rical
-last_modified_at: 2026-09-21
+last_modified_at: 2026-10-21
 pin: true
 image:
   path: /assets/img/posts/2026-04-03-membangun-infrastruktur-digital-mandiri-dari-nol/thumbnail.webp
@@ -417,6 +417,7 @@ Untuk membangun lapisan ketiga, mulai dari [Integrasi Wazuh ke Grafana — Unifi
 - [Panduan Konfigurasi External Storage di Nextcloud](https://docs.ricalnet.my.id/posts/panduan-konfigurasi-external-storage-di-nextcloud/)
 
 ### Communications
+- [Deploy Technitium DNS Server sebagai DoH Privat di Debian dengan Podman Caddy dan Cloudflare Tunnel](https://docs.ricalnet.my.id/posts/deploy-technitium-dns-server-sebagai-doh-privat-di-debian-dengan-podman-caddy-dan-cloudflare-tunnel/)
 - [Instalasi dan Konfigurasi Pi-hole untuk Blokir Iklan di Seluruh Jaringan](https://docs.ricalnet.my.id/posts/instalasi-dan-konfigurasi-pi-hole-untuk-blokir-iklan-di-seluruh-jaringan/)
 - [Panduan Aktivis untuk Menyebarkan Tor Bridge Obfs4](https://docs.ricalnet.my.id/posts/panduan-aktivis-untuk-menyebarkan-tor-bridge-obfs4/)
 - [Panduan Deployment Matrix Synapse Self-Hosted dengan Mautrix Bridge WhatsApp dan Telegram](https://docs.ricalnet.my.id/posts/panduan-deployment-matrix-synapse-self-hosted-dengan-mautrix-bridge-whatsapp-dan-telegram/)
