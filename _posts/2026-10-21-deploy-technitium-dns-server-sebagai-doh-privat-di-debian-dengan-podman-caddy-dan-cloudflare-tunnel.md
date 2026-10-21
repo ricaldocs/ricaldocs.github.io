@@ -4,7 +4,7 @@ description: Panduan lengkap men-deploy Technitium DNS Server sebagai layanan DN
 categories: [Digital Independence, Communications]
 tags: [self-hosted, podman, technitium, dns, privacy]
 author: rical
-last_modified_at: 2026-10-21
+last_modified_at: 2026-10-22
 ---
 
 Dokumen ini menjelaskan cara men-deploy Technitium DNS Server sebagai layanan DNS-over-HTTPS (DoH) privat di Debian 13. Stack terdiri dari tiga komponen:
@@ -268,6 +268,54 @@ https://technitium.yourdomain.com/dns-query
 
 > DoH di browser hanya berlaku untuk resolusi di dalam browser tersebut, bukan seluruh sistem. Untuk cakupan sistem penuh di Android, gunakan Intra/Rethink DNS yang membuat VPN lokal (loopback) untuk mengintersepsi semua query DNS.
 {: .prompt-info}
+
+## 11. Proteksi Endpoint DoH via Cloudflare WAF
+
+Jika endpoint DoH Anda terekspos ke publik (meskipun URL-nya hanya dibagikan secara terbatas), sangat disarankan untuk menambahkan lapisan keamanan di sisi Cloudflare. Tujuannya adalah memfilter bot atau alat pemindai otomatis yang mencoba menyalahgunakan server DNS Anda untuk serangan DDoS atau amplifikasi.
+
+Kita akan menggunakan fitur Custom Rules dari Cloudflare WAF (tersedia gratis hingga 5 aturan per zona).
+
+1. Buka Dashboard Cloudflare Anda.
+2. Masuk ke menu Security > Security rules.
+3. Pilih tab Custom rules dan klik Create rule.
+   ![alt text](<../assets/img/posts/2026-10-20-deploy-technitium-dns-server-sebagai-doh-privat-di-debian-dengan-podman-caddy-dan-cloudflare-tunnel/Screenshot From 2026-10-22 01-15-14.webp>)
+
+4. Isi Rule name dengan `Protect DoH Endpoint`.
+5. Pada bagian When incoming requests match, klik Edit expression dan masukkan kode berikut:
+
+   ```text
+   (http.request.uri.path eq "/dns-query" and (http.user_agent eq "" or http.user_agent contains "curl" or http.user_agent contains "python" or http.user_agent contains "scanner"))
+   ```
+
+   ![alt text](<../assets/img/posts/2026-10-20-deploy-technitium-dns-server-sebagai-doh-privat-di-debian-dengan-podman-caddy-dan-cloudflare-tunnel/Screenshot From 2026-10-22 01-15-42.webp>)
+
+6. Pada bagian Then take action, pilih Managed Challenge.
+7. Pastikan Status disetel ke Active, lalu klik Deploy.
+   ![alt text](<../assets/img/posts/2026-10-20-deploy-technitium-dns-server-sebagai-doh-privat-di-debian-dengan-podman-caddy-dan-cloudflare-tunnel/Screenshot From 2026-10-22 01-16-10.webp>)
+
+Mengapa aturan ini penting? Aturan ini bertindak sebagai "satpam" yang memeriksa identitas klien. Jika ada klien yang mengakses `/dns-query` tetapi tidak membawa User-Agent (sering dilakukan bot) atau menggunakan alat seperti `curl`, `python`, maupun scanner jaringan, Cloudflare akan menahan mereka dengan Managed Challenge (seperti verifikasi browser/captcha). Aplikasi DoH yang sah (seperti Intra di Android atau browser modern) memiliki User-Agent yang valid sehingga tidak akan terganggu.
+
+### Verifikasi Pengujian WAF
+
+Setelah aturan di-Deploy, Anda dapat menguji apakah WAF bekerja dengan dua skenario `curl` berikut:
+
+#### Skenario 1: Mensimulasikan Bot (Harus Diblokir)
+Jalankan perintah `curl` standar tanpa menyertakan User-Agent khusus. 
+
+```bash
+curl -i 'https://technitium.yourdomain.com/dns-query?dns=AAABAAABAAAAAAAABmdvb2dsZQNjb20AAAEAAQ'
+```
+
+Output yang diharapkan: Anda akan menerima respons `HTTP/2 403` dengan header `cf-mitigated: challenge` dan respons HTML berisi `<title>Just a moment...</title>`. Ini membuktikan Cloudflare berhasil menahan bot di gerbang depan.
+
+#### Skenario 2: Mensimulasikan Klien Sah (Harus Berhasil)
+Jalankan perintah `curl` dengan menyertakan parameter `-A` (User-Agent) yang menyerupai browser atau aplikasi sah.
+
+```bash
+curl -i -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" 'https://technitium.yourdomain.com/dns-query?dns=AAABAAABAAAAAAAABmdvb2dsZQNjb20AAAEAAQ'
+```
+
+Output yang diharapkan: Anda akan menerima respons `HTTP/2 200` dengan header `content-type: application/dns-message` dan `via: 1.1 Caddy`. Jika muncul peringatan Binary output can mess up your terminal di bagian bawah, itu artinya Technitium berhasil mengirimkan jawaban DNS biner yang valid.
 
 ## Pertimbangan Keamanan dan Produksi
 
