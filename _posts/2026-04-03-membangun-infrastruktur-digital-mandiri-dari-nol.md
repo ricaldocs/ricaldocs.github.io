@@ -1,10 +1,10 @@
 ---
 title: Membangun Infrastruktur Digital Mandiri dari Nol
-description: Ingin lepas dari raksasa teknologi? Pelajari cara membangun infrastruktur digital mandiri dari nol dengan Podman—orkestrasi 25+ layanan self-hosted dalam 15 menit, pengamanan firewall dengan IPC (Iptables Port Controller), dan backup terenkripsi ChaCha20 menggunakan Chantik.
+description: Ingin lepas dari raksasa teknologi? Pelajari cara membangun infrastruktur digital mandiri dari nol dengan Podman—orkestrasi 30+ layanan self-hosted dalam 15 menit, pengamanan firewall dengan IPC (Iptables Port Controller), dan backup terenkripsi ChaCha20 menggunakan Chantik.
 categories: [Digital Independence]
 tags: [self-hosted, docker, podman, privacy, firewall, chantik, chacha20]
 author: rical
-last_modified_at: 2026-10-21
+last_modified_at: 2026-10-24
 pin: true
 image:
   path: /assets/img/posts/2026-04-03-membangun-infrastruktur-digital-mandiri-dari-nol/thumbnail.webp
@@ -19,7 +19,7 @@ Di Indonesia, ini bukan teori. Data warga disimpan di yurisdiksi asing, akun bis
 
 Self-hosted membalik logika itu. Data di perangkat Anda, tidak ada yang memonetisasi, konfigurasi milik Anda. Privasi bukan fitur yang bisa dicabut, keamanan bukan celah yang menunggu, kemandirian bukan utopia. Modalnya? Komputer bekas atau Raspberry Pi sekecil dompet, listrik, dan internet. Itu saja.
 
-Membangunnya dianggap rumit—wajar, selama Anda masih mengetik perintah seperti tahun 2015 sambil berharap firewall tidak salah konfigurasi. Dipen mematahkan itu dengan 25+ layanan, satu CLI, 15 menit. Panduan ini memandu dari nol hingga layanan pertama berjalan.
+Membangunnya dianggap rumit—wajar, selama Anda masih mengetik perintah seperti tahun 2015 sambil berharap firewall tidak salah konfigurasi. Dipen mematahkan itu dengan 30+ layanan, satu CLI, 15 menit. Panduan ini memandu dari nol hingga layanan pertama berjalan.
 
 Cocok untuk siapa? Individu dan organisasi yang menempatkan privasi dan keamanan sebagai prioritas. Individu sadar privasi, aktivis dan jurnalis, profesional independen, tim remote skala kecil, serta organisasi yang membutuhkan kedaulatan data penuh atas infrastrukturnya sendiri.
 
@@ -81,12 +81,13 @@ dipen version
 dipen list
 ```
 
-Menampilkan seluruh layanan yang tersedia beserta direktori dan port default. Total tersedia 27 layanan, mencakup:
+Menampilkan seluruh layanan yang tersedia beserta direktori dan port default. Total tersedia 30 layanan, mencakup:
 
 ```bash
 Available Services:
 
   authentik            → authentik
+  caddy                → caddy
   dashdot              → dashdot
   element-web          → element-web
   forgejo              → forgejo
@@ -107,14 +108,16 @@ Available Services:
   pi-hole              → pi-hole
   portainer            → portainer
   searxng              → searxng
+  slink                → slink
   synapse              → synapse
   synapse-mautrix      → synapse/mautrix
+  technitium           → technitium
   uptime-kuma          → uptime-kuma
   vaultwarden          → vaultwarden
   wazuh                → wazuh
   yourls               → yourls
 
-Total: 27 services
+Total: 30 services
 ```
 
 > Gunakan wildcard untuk mencocokkan beberapa layanan sekaligus, misalnya `dipen env n*` untuk semua layanan berawalan huruf **n**.
