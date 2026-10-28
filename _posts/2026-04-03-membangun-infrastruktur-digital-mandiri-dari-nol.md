@@ -4,7 +4,7 @@ description: Ingin lepas dari raksasa teknologi? Pelajari cara membangun infrast
 categories: [Digital Independence]
 tags: [self-hosted, docker, podman, privacy, firewall, chantik, chacha20]
 author: rical
-last_modified_at: 2026-10-24
+last_modified_at: 2026-10-28
 pin: true
 image:
   path: /assets/img/posts/2026-04-03-membangun-infrastruktur-digital-mandiri-dari-nol/thumbnail.webp
@@ -454,6 +454,7 @@ Untuk membangun lapisan ketiga, mulai dari [Integrasi Wazuh ke Grafana — Unifi
 - [Panduan Integrasi Nextcloud dengan Authentik via OIDC](https://docs.ricalnet.my.id/posts/panduan-integrasi-nextcloud-dengan-authentik-via-oidc/)
 - [Panduan Integrasi Open WebUI dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-open-webui-dengan-authentik/)
 - [Panduan Integrasi Synapse dengan Authentik untuk Autentikasi SSO](https://docs.ricalnet.my.id/posts/panduan-integrasi-synapse-dengan-authentik-untuk-autentikasi-sso/)
+- [Panduan Integrasi Technitium DNS dengan Authentik](https://docs.ricalnet.my.id/posts/panduan-integrasi-technitium-dns-dengan-authentik/)
 - [Panduan Integrasi Vaultwarden dengan Authentik sebagai SSO Provider](https://docs.ricalnet.my.id/posts/panduan-integrasi-vaultwarden-dengan-authentik-sebagai-sso-provider/)
 
 ### Search Engine
