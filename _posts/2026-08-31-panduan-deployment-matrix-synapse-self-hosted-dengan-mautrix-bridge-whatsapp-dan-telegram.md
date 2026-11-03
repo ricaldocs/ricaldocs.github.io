@@ -4,7 +4,6 @@ description: Panduan lengkap deploy Matrix Synapse self-hosted dengan Mautrix br
 categories: [Digital Independence, Communications]
 tags: [self-hosted, matrix protocol, podman]
 author: rical
-pin: true
 last_modified_at: 2026-10-11
 image:
   path: /assets/img/posts/2025-09-14-cara-instal-matrix-synapse-dengan-docker-untuk-komunikasi-yang-aman-dan-privat/mind-map.webp
