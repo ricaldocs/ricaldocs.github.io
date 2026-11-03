@@ -55,7 +55,7 @@ cd ~/digital-independence
 ### 1.2 Instal Podman dan Dependensi
 
 ```bash
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Script instalasi menyediakan komponen berikut:

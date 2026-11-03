@@ -27,7 +27,7 @@ Repositori ini menyediakan manifest deployment yang telah dikurasi, mencakup `co
 ### 2. Instalasi dipen
 
 ```bash
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Skrip ini mengotomatisasi instalasi Podman pada sistem Debian, termasuk konfigurasi rootless container dan aktivasi socket API. Podman dipilih alih-alih Docker karena berjalan tanpa daemon privileged, sehingga mengurangi permukaan serangan pada host.

@@ -40,7 +40,7 @@ Repository ini berisi skrip instalasi Podman untuk Caddy serta Technitium. Semua
 ## 2. Instalasi Podman
 
 ```bash
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Skrip ini memasang Podman beserta dependensi yang diperlukan dan mengaktifkan konfigurasi rootless. Setelah selesai, verifikasi dengan `podman --version`.

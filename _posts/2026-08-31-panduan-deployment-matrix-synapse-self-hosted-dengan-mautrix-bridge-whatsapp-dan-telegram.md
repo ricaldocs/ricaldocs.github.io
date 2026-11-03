@@ -151,7 +151,7 @@ Clone repository dari GitHub yang berisi konfigurasi lengkap untuk deployment.
 ```bash
 git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Repository ini menyediakan struktur direktori yang telah diorganisir, termasuk `compose.yaml` untuk setiap layanan, file `.env.example`, dan konfigurasi default. Pendekatan ini memastikan konsistensi dan mengurangi kesalahan manual.

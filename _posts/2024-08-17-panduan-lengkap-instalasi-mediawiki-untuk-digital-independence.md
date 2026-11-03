@@ -128,7 +128,7 @@ Repositori Digital Independence menyediakan script instalasi otomatis:
 ```bash
 git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git
 cd digital-independence/wiki
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Script ini akan:

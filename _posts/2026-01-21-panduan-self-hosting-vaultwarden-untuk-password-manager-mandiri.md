@@ -106,7 +106,7 @@ Repository ini berisi semua konfigurasi `podman-compose` yang sudah teruji untuk
 ### Instalasi Otomatis
 
 ```bash
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Apa yang dilakukan script ini?

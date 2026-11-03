@@ -24,7 +24,7 @@ Deployment obfs4 sangat mudah, hanya 4 langkah. Namun, sangat direkomendasikan m
 git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 ```
 
-Repositori ini berisi semua skrip dan konfigurasi yang diperlukan, termasuk `install-podman-on-debian.sh` dan `auto-install-obfs4.sh`.
+Repositori ini berisi semua skrip dan konfigurasi yang diperlukan, termasuk `install-podman.sh` dan `auto-install-obfs4.sh`.
 
 ### Langkah 2: Masuk ke Direktori
 
@@ -35,7 +35,7 @@ cd ~/digital-independence
 ### Langkah 3: Install Podman
 
 ```bash
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
 Podman adalah container engine yang menjalankan obfs4 bridge dalam lingkungan terisolasi. Podman dipilih karena:

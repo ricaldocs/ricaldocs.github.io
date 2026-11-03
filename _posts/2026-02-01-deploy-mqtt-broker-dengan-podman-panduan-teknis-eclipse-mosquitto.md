@@ -30,13 +30,13 @@ Mengapa perlu `sudo`? Operasi `ipc enable` memodifikasi aturan firewall kernel-l
 
 ```bash
 git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
-./install-podman-on-debian.sh
+./install-podman.sh
 dipen cd mqtt
 ```
 
 Penjelasan:
 - `git clone` — mengambil repositori ke direktori home pengguna.
-- `install-podman-on-debian.sh` — skrip instalasi Podman untuk Debian; memastikan dependensi terpasang sebelum deployment.
+- `install-podman.sh` — skrip instalasi Podman untuk Debian; memastikan dependensi terpasang sebelum deployment.
 - `dipen cd mqtt` — berpindah ke direktori kerja yang berisi `compose.yaml` dan folder `config/`.
 
 ## 3. Membuka Port yang Dibutuhkan

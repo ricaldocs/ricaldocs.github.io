@@ -34,10 +34,10 @@ Sebelum mulai, pastikan:
 ```bash
 git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
 cd ~/digital-independence
-./install-podman-on-debian.sh
+./install-podman.sh
 ```
 
-Repository `digital-independence` adalah single source of truth untuk seluruh stack self-hosted Anda. Script `install-podman-on-debian.sh` mengotomasi instalasi Podman, Podman Compose, dan konfigurasi awal (termasuk enable `podman.socket` untuk rootless mode). Rootless Podman dipilih karena berjalan sebagai user biasa — tanpa daemon root — sehingga mengurangi attack surface secara signifikan.
+Repository `digital-independence` adalah single source of truth untuk seluruh stack self-hosted Anda. Script `install-podman.sh` mengotomasi instalasi Podman, Podman Compose, dan konfigurasi awal (termasuk enable `podman.socket` untuk rootless mode). Rootless Podman dipilih karena berjalan sebagai user biasa — tanpa daemon root — sehingga mengurangi attack surface secara signifikan.
 
 ## Langkah 2: Buat Network Monitoring
 

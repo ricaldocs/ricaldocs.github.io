@@ -98,9 +98,9 @@ Repositori ini menyediakan `Containerfile` yang telah dikonfigurasi untuk build 
 ### Langkah 2: Instal Podman
 
 ```bash
-curl -fLO https://git.ricalnet.my.id/RICALNET/digital-independence/raw/branch/main/install-podman-on-debian.sh
-chmod +x install-podman-on-debian.sh
-./install-podman-on-debian.sh
+curl -fLO https://git.ricalnet.my.id/RICALNET/digital-independence/raw/branch/main/install-podman.sh
+chmod +x install-podman.sh
+./install-podman.sh
 ```
 
 Script installer dari repositori digital-independence mengonfigurasi Podman beserta dependensi (crun, slirp4netns, fuse-overlayfs) yang dioptimalkan untuk ARM64. Flag `-fLO` memastikan curl mengikuti redirect, gagal pada HTTP error, dan menyimpan dengan nama file asli.
