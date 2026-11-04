@@ -13,15 +13,15 @@ image:
 
 ## Mengapa Infrastruktur Digital Mandiri Itu Penting
 
-Anda membaca ini dari ponsel atau komputer yang sistem operasinya milik perusahaan asing, terhubung ke jaringan yang dipantau, dan menyimpan data di server yang tak bisa Anda jangkau. Lalu Anda merasa punya privasi. Lucu.
+Data Anda tersimpan di perangkat dengan sistem operasi milik perusahaan asing, terhubung ke jaringan yang dipantau, dan berada di server yang tidak bisa Anda jangkau. Lalu, di mana letak privasi Anda?
 
-Di Indonesia, ini bukan teori. Data warga disimpan di yurisdiksi asing, akun bisa diblokir sepihak, harga naik tanpa negosiasi—dan kita hanya bisa mengeluh di media sosial yang juga bukan milik kita. Kedaulatan digital bukan slogan; ini soal siapa yang memegang kunci data Anda.
+Di Indonesia, ini bukan sekadar teori. Data warga berada di yurisdiksi asing, akun bisa diblokir sepihak, dan harga naik tanpa negosiasi—sementara kita hanya bisa mengeluh di media sosial yang juga bukan milik kita. Kedaulatan digital bukan slogan; ini soal siapa yang memegang kunci data Anda.
 
-Self-hosted membalik logika itu. Data di perangkat Anda, tidak ada yang memonetisasi, konfigurasi milik Anda. Privasi bukan fitur yang bisa dicabut, keamanan bukan celah yang menunggu, kemandirian bukan utopia. Modalnya? Komputer bekas atau Raspberry Pi sekecil dompet, listrik, dan internet. Itu saja.
+Self-hosted membalik logika itu. Data ada di perangkat Anda, tidak ada yang memonetisasi, dan konfigurasi sepenuhnya milik Anda. Privasi bukan fitur yang bisa dicabut, keamanan bukan celah yang menunggu, dan kemandirian bukan utopia. Modalnya? Komputer bekas atau Raspberry Pi sekecil dompet, listrik, dan internet. Itu saja.
 
-Membangunnya dianggap rumit—wajar, selama Anda masih mengetik perintah seperti tahun 2015 sambil berharap firewall tidak salah konfigurasi. Dipen mematahkan itu dengan 30+ layanan, satu CLI, 15 menit. Panduan ini memandu dari nol hingga layanan pertama berjalan.
+Membangunnya memang sering dianggap rumit—wajar, selama Anda masih mengetik perintah seperti tahun 2015 sambil berharap firewall tidak salah konfigurasi. Dipen mematahkan itu dengan 30+ layanan, satu CLI, dan 15 menit. Panduan ini memandu dari nol hingga layanan pertama berjalan.
 
-Cocok untuk siapa? Individu dan organisasi yang menempatkan privasi dan keamanan sebagai prioritas. Individu sadar privasi, aktivis dan jurnalis, profesional independen, tim remote skala kecil, serta organisasi yang membutuhkan kedaulatan data penuh atas infrastrukturnya sendiri.
+Cocok untuk siapa? Individu dan organisasi yang menempatkan privasi dan keamanan sebagai prioritas—individu sadar privasi, aktivis dan jurnalis, profesional independen, tim remote skala kecil, serta organisasi yang membutuhkan kedaulatan data penuh atas infrastrukturnya sendiri.
 
 ## Prasyarat
 - [git.ricalnet.my.id/RICALNET/digital-independence](https://git.ricalnet.my.id/RICALNET/digital-independence)

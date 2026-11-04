@@ -6,9 +6,6 @@ tags: [no categories]
 author: rical
 last_modified_at: 2026-10-03
 pin: true
-image:
-  path: /assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/01-digital-sovereignty-intro.webp
-  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
 ## Bagian 1: Memahami Apa Itu Kedaulatan Digital
@@ -16,8 +13,6 @@ image:
 ### 1.1 Definisi Sederhana
 
 Saya sering menjelaskan kedaulatan digital sebagai kemampuan untuk **membangun, mengelola, dan melindungi** infrastruktur digital serta sistem AI sesuai dengan nilai, kebutuhan, dan prioritas kita sendiri.
-
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/02-build-manage-protect.webp)
 
 Ada tiga kata kunci yang menurut saya penting untuk kita cermati bersama.
 
@@ -37,8 +32,6 @@ Bagi perusahaan besar, ini mungkin masalah biaya dan kepatuhan. Tapi bagi usaha 
 
 Saya rasa penting bagi kita untuk memahami apa yang **bukan** kedaulatan digital, karena istilah ini sering disalahpahami.
 
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/03-what-it-is-not.webp)
-
 **Kedaulatan digital bukan isolasi.** Kita tidak perlu menutup diri dari dunia. Justru sebaliknya, kedaulatan yang sehat adalah prasyarat untuk kerja sama yang setara. Pihak yang tidak punya kendali atas infrastrukturnya tidak punya posisi tawar dalam negosiasi apa pun.
 
 **Kedaulatan digital bukan self-hosting semua hal.** Kita tidak perlu menjalankan setiap layanan di server sendiri. Yang penting adalah kita punya kendali atas layanan yang kritis bagi kita, dan kita memahami trade-off dari setiap keputusan.
@@ -50,8 +43,6 @@ Saya rasa penting bagi kita untuk memahami apa yang **bukan** kedaulatan digital
 Kesalahan paling umum yang saya lihat—dan kadang masih saya lakukan sendiri—adalah langsung melompat ke solusi teknis. Beli server, ganti sistem operasi, pasang firewall. Semua itu penting, tapi tanpa fondasi tata kelola, hasilnya hanya menambah biaya tanpa mengurangi kerentanan.
 
 Fondasi yang benar dimulai dari tiga hal.
-
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/04-three-foundations.webp)
 
 ### 2.1 Menuliskan Kedaulatan Digital Secara Eksplisit
 
@@ -88,8 +79,6 @@ Ini bagian yang paling sering kita abaikan. Kedaulatan bukan berarti kita tidak 
 ## Bagian 3: Urutan Membangun Infrastruktur
 
 Setelah fondasi tata kelola selesai, barulah kita masuk ke teknis. Urutannya penting, karena setiap lapisan bergantung pada lapisan sebelumnya.
-
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/05-infrastructure-order.webp)
 
 ### 3.1 Komputasi
 
@@ -137,8 +126,6 @@ Ini langkah yang tampak sederhana, tapi dampaknya besar. Saya sudah terlalu seri
 
 Setelah infrastruktur berdiri, barulah kita bicara tentang teknologi inti dan data.
 
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/06-core-tech-and-data.webp)
-
 ### 4.1 Strategi Sumber Terbuka
 
 **Mengapa ini penting?** Tidak semua organisasi bisa membangun semuanya sendiri. Tapi setiap organisasi bisa memilih untuk tidak menyerahkan seluruh tumpukan teknologinya pada satu pemasok asing.
@@ -164,8 +151,6 @@ Prinsipnya sederhana, batasi penggunaan AI generatif publik untuk data sensitif.
 ## Bagian 5: Jalur Waktu yang Realistis
 
 Saya selalu menolak pertanyaan "berapa lama?" karena jawabannya sangat bergantung pada titik awal dan sumber daya yang tersedia. Tapi secara umum, perjalanan ini bisa kita bagi ke dalam tiga fase.
-
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/07-realistic-timeline.webp)
 
 ### Fase 1: 0 sampai 6 Bulan, Mengurangi Risiko dan Memperoleh Opsi
 
@@ -193,8 +178,6 @@ Ini fase di mana kedaulatan digital menjadi bagian dari budaya, bukan sekadar pr
 
 Ada beberapa pelajaran yang saya pegang teguh.
 
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/08-principles.webp)
-
 **Strategi harus mendahului teknologi.** Keputusan tata kelola yang salah tidak bisa diperbaiki oleh alat teknis yang canggih.
 
 **Kedaulatan bukan isolasi.** Justru sebaliknya, kedaulatan yang sehat adalah fondasi untuk kerja sama yang setara. Pihak yang tidak punya kendali atas infrastrukturnya tidak punya posisi tawar dalam negosiasi apa pun.
@@ -208,8 +191,6 @@ Ada beberapa pelajaran yang saya pegang teguh.
 **Dokumentasikan dengan jujur.** Termasuk kegagalan, termasuk keterbatasan, termasuk hal-hal yang belum selesai. Dokumentasi yang jujur adalah bentuk kontribusi yang paling berharga di bidang yang masih muda.
 
 ## Bagian 7: Kesalahan Umum yang Perlu Dihindari
-
-![alt text](../assets/img/posts/2026-10-03-catatan-seorang-praktisi-kedaulatan-digital/09-common-mistakes.webp)
 
 ### 7.1 Terlalu Fokus pada Alat
 
