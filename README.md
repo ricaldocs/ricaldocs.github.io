@@ -1,77 +1,55 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center">
+# Ricaldocs: Uncensored Tech Library
 
-  <!-- markdownlint-disable-next-line -->
-  # Chirpy Jekyll Theme
+[![Ricaldocs](https://img.shields.io/badge/link-Ricaldocs-red.svg)](https://docs.ricalnet.my.id)
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+This is an open-source blog and documentation platform focused on digital independence, digital privacy, and giving you full control over your data and devices.
 
-  [![CI][badge-ci]][ci]&nbsp;
-  [![Codacy Badge][badge-codacy]][codacy]&nbsp;
-  [![GitHub license][badge-license]][license]&nbsp;
-  [![Gem Version][badge-gem]][gem]&nbsp;
-  [![Open in Dev Containers][badge-open-container]][open-container]
+It’s built with [Jekyll](https://jekyllrb.com/) and the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) theme.
 
-  [**Live Demo** →][demo]
+## Access & Usage
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+- **Site**: [https://docs.ricalnet.my.id/](https://docs.ricalnet.my.id/)
+- **Basic guide**: [Chirpy Tutorial](https://chirpy.cotes.page/posts/getting-started/)
 
-</div>
+## Getting Started
 
-## Features
+### Installation (Local Development)
 
-- **Design & UX** - Responsive layout, Dark/Light modes, Localized UI language,
-  and Dark mode images.
-- **Content Management** - Pinned posts, Hierarchical categories, Trending tags,
-  Auto-generated Table of Contents, and Last modified dates.
-- **Rich Text Support** - Syntax highlighting, Mathematical expressions, Mermaid
-  diagrams & flowcharts, and Embedded media.
-- **Interactivity & Outreach** - Built-in search, Multiple comment systems, and
-  Atom feeds.
-- **System & Optimization** - PWA support, integrated Web analytics, and
-  advanced SEO performance.
+#### 1. Install Dependencies
 
-## Documentation
+```bash
+sudo apt-get install -y ruby-full build-essential
+```
 
-To learn how to use, develop, and upgrade the project, please refer to the
-[Wiki][wiki].
+#### 2. Configure Ruby Gems Environment
 
-## Contributing
+Add the following configuration to `~/.zshrc` (or `~/.bashrc` if you use bash):
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the
-open-source community such an amazing place to learn, inspire, and create. Any
-contributions you make are greatly appreciated.
-For details, please refer to our [Contributing Guidelines][contribute-guide].
+```bash
+echo '# Install Ruby Gems to ~/gems' >> ~/.zshrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.zshrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
 
-## Credits
+#### 3. Install Jekyll & Bundler
 
-This project is built on the [Jekyll][jekyllrb] ecosystem and integrates a
-collection of [excellent libraries][lib]. Its avatar and favicon are sourced
-from [ClipartMAX][clipartmax].
+```bash
+gem install jekyll bundler
+```
 
-Furthermore, thanks to everyone who contributed to the development of this project!
+#### 4. Clone the Repository
 
-[![all-contributors][contributors-avatar]][contributors]
+```bash
+git clone https://git.ricalnet.my.id/rical/ricaldocs.git
+cd ricaldocs
+```
 
-## License
+#### 5. Install Dependencies & Run the Server
 
-This project is licensed under the [MIT License][license].
+```bash
+bundle install
+bundle exec jekyll s
+```
 
-[badge-ci]: https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github
-[badge-codacy]: https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy
-[badge-license]: https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod
-[badge-gem]: https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange
-[badge-open-container]: https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[contributors-avatar]: https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16&max=112
-[lib]: https://github.com/cotes2020/chirpy-static-assets
+Open your browser and go to `http://localhost:4000`.
