@@ -5,9 +5,6 @@ categories: [Cybersecurity, Privacy]
 tags: [privacy, globaleaks]
 author: rical
 last_modified_at: 2026-11-03
-image:
-  path: /assets/img/posts/2026-11-03-panduan-teknis-aman-jadi-whistleblower-dan-hindari-risiko/thumbnail.webp
-  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
 Whistleblower adalah individu yang melaporkan pelanggaran, kecurangan, atau tindak pidana yang terjadi di dalam suatu organisasi kepada pihak yang berwenang. Menjadi whistleblower bukan sekadar tindakan moral, melainkan operasi manajemen risiko. Risiko yang dihadapi tidak berhenti pada kehilangan pekerjaan, tetapi mencakup serangan balik administratif—mutasi, demosi, Surat Peringatan yang tidak wajar—hingga kriminalisasi balik melalui pasal pencemaran nama baik dan serangan siber.

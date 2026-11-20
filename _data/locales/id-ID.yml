@@ -58,13 +58,13 @@ theme:
 
 post:
   written_by: Penulis
-  posted: Dipublikasikan
-  updated: Diperbarui
+  posted: Terbit
+  updated: Revisi
   words: kata
   pageview_measure: kali dibaca
   read_time:
     unit: menit
-    prompt: waktu baca
+    prompt: baca
   edit: Sunting dokumen ini
   relate_posts: Dokumentasi Terkait
   share: Bagikan
