@@ -4,8 +4,15 @@ description: Mengapa MFA saja tidak cukup untuk Zero Trust? Pelajari isolasi ker
 categories: [Cybersecurity, Privacy]
 tags: [privacy, globaleaks]
 author: rical
-last_modified_at: 2026-11-20
+last_modified_at: 2026-11-21
+pin: true
+image:
+  path: /assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/thumbnail.webp
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
+
+> Perlu dicatat bahwa Zero Trust adalah ekosistem keamanan yang jauh lebih luas daripada yang dibahas di sini. Artikel ini berfokus pada aspek isolasi teknis dalam konteks self-hosting, bukan merupakan panduan lengkap untuk mengimplementasikan Zero Trust secara menyeluruh di organisasi besar.
+{: .prompt-info}
 
 Dalam ekosistem self-hosting, ada kesalahpahaman yang persisten: menempatkan Reverse Proxy (seperti Caddy atau Nginx) yang dilindungi oleh Multi-Factor Authentication (MFA) di depan sebuah layanan dianggap sudah cukup untuk mengklaim arsitektur tersebut sebagai "Zero Trust".
 
@@ -19,6 +26,9 @@ MFA memvalidasi siapa yang masuk, tetapi tidak memvalidasi apa yang dilakukan ko
 
 Pertimbangkan skenario berikut: sebuah aplikasi web di dalam kontainer memiliki kerentanan Remote Code Execution (RCE) atau Server-Side Request Forgery (SSRF). Penyerang tidak perlu melewati MFA sama sekali. Mereka memanfaatkan celah pada aplikasi untuk mengeksekusi perintah langsung di dalam lingkungan kontainer.
 
+![Gambar 1. Bypass MFA dan Lateral Movement pada Arsitektur Flat Network.](<../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/Bypass-MFA-dan-Lateral-Movement-pada-Arsitektur-Flat-Network.webp>)
+_Gambar 1. Bypass MFA dan Lateral Movement pada Arsitektur Flat Network._
+
 Pada arsitektur jaringan tradisional yang datar (flat network), begitu penyerang berhasil masuk ke satu kontainer, mereka bebas melakukan lateral movement (pergerakan lateral):
 - Memindai jaringan internal untuk menemukan database kontainer lain.
 - Mengakses port administrasi yang tidak diproteksi.
@@ -31,14 +41,26 @@ Pada titik ini, MFA menjadi sepenuhnya tidak relevan. Autentikasi yang kuat di p
 Untuk mencapai Zero Trust yang sebenarnya, kita harus membatasi hak istimewa (privilege) dan pergerakan (movement) secara default. Berikut adalah tiga pilar implementasinya, beserta alasan teknis di balik masing-masing keputusan.
 
 ### A. Eksekusi Rootless (Tanpa Hak Root)
+
+![Gambar 2. Perbandingan Isolasi User Namespace: Root vs. Rootless.](<../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/Perbandingan-Isolasi-User-Namespace-Root-vs-Rootless.webp>)
+_Gambar 2. Perbandingan Isolasi User Namespace: Root vs. Rootless._
+
 - **Bagaimana:** Menjalankan kontainer menggunakan mesin tanpa daemon (seperti Podman) di bawah pengguna non-root (unprivileged user), bukan sebagai root atau dengan sudo.
 - **Mengapa:** Dalam konfigurasi kontainer tradisional, proses di dalam sering berjalan sebagai root. Jika terjadi container breakout (misalnya melalui eksploitasi kernel), penyerang mendapatkan akses root penuh ke mesin host. Dengan rootless, user namespace di Linux memetakan UID 0 (root) di dalam kontainer menjadi UID pengguna biasa (misalnya 1000) di host. Kegagalan isolasi hanya akan memberikan hak akses yang sangat terbatas, bukan kendali penuh atas server.
 
 ### B. Binding Jaringan Ketat (127.0.0.1)
+
+![Gambar 3. Eliminasi Attack Surface melalui Binding Localhost (127.0.0.1).](<../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/Eliminasi-Attack-Surface-melalui-Binding-Localhost-127.0.0.1.webp>)
+_Gambar 3. Eliminasi Attack Surface melalui Binding Localhost (127.0.0.1)._
+
 - **Bagaimana:** Mengonfigurasi semua layanan internal (database, cache, aplikasi backend) untuk hanya mendengarkan (listen) pada antarmuka 127.0.0.1 (localhost), bukan 0.0.0.0 (semua antarmuka). Hanya Reverse Proxy yang diizinkan menangani trafik dari luar.
 - **Mengapa:** Ini menghilangkan attack surface jaringan secara drastis. Meskipun penyerang berhasil mengeksploitasi satu kontainer, mereka tidak dapat secara langsung mengakses port database atau layanan administrasi dari jaringan eksternal, atau bahkan dari kontainer tetangga yang tidak berada dalam jaringan yang sama.
 
 ### C. Pembatasan Sumber Daya dan Capabilities
+
+![Gambar 4. Tiga Lapis Pertahanan Runtime: Cgroups, Capabilities, dan Read-Only FS.](<../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/Tiga-Lapis-Pertahanan-Runtime-Cgroups-Capabilities-dan-Read-Only-FS.webp>)
+_Gambar 4. Tiga Lapis Pertahanan Runtime: Cgroups, Capabilities, dan Read-Only FS._
+
 - **Bagaimana:** 
   1. Menetapkan batas memori dan CPU via cgroups.
   2. Menjatuhkan (drop) Linux capabilities yang tidak diperlukan, seperti `CAP_NET_RAW` (mencegah packet sniffing) dan `CAP_SYS_ADMIN` (mencegah mounting filesystem).
@@ -49,7 +71,8 @@ Untuk mencapai Zero Trust yang sebenarnya, kita harus membatasi hak istimewa (pr
 
 Diagram berikut membandingkan arsitektur "Zero Trust Palsu" (hanya mengandalkan MFA) dengan "Zero Trust Nyata" (berbasis isolasi kernel dan jaringan).
 
-![alt text](../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/realita-zero-trust.png)
+![Gambar 5. Perbandingan Arsitektur: "Zero Trust Nyata" vs. "Zero Trust Palsu".](<../assets/img/posts/2026-11-20-mitos-zero-trust-di-self-hosting-mengapa-mfa-tidak-cukup-dan-isolasi-kernel-yang-sebenarnya/Perbandingan-Arsitektur-Zero-Trust-Nyata-vs-Zero-Trust-Palsu.webp>)
+_Gambar 5. Perbandingan Arsitektur: "Zero Trust Nyata" vs. "Zero Trust Palsu"._
 
 ## 4. Implementasi Praktis: Konfigurasi Nyata
 
@@ -97,41 +120,6 @@ networks:
   authentik:
     driver: bridge
     internal: true # 4. ISOLASI JARINGAN: Kontainer tidak bisa akses internet outbound
-```
-
-```yaml
-# Contoh: Vaultwarden (Password Manager)
-services:
-  vaultwarden:
-    image: ghcr.io/dani-garcia/vaultwarden:latest
-    ports:
-      - "127.0.0.1:9520:80" # Hanya localhost
-    
-    mem_limit: 384m
-    cpus: 0.4
-    pids_limit: 200
-    
-    security_opt:
-      - no-new-privileges=true
-    cap_drop:
-      - ALL
-    cap_add:
-      - NET_BIND_SERVICE
-      - CHOWN
-      - DAC_OVERRIDE
-      - FOWNER
-      - SETGID
-      - SETUID
-      - KILL
-    read_only: true
-    tmpfs:
-      - /tmp:rw,noexec,nosuid,size=128M
-      - /run:rw,noexec,nosuid,size=64M
-
-networks:
-  vaultwarden_network:
-    driver: bridge
-    internal: true # Penting: Mencegah kontainer melakukan callback ke C2 server
 ```
 
 Poin Kunci dari Konfigurasi di Atas:
