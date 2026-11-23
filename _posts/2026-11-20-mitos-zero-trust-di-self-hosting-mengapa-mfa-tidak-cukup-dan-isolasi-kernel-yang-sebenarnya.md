@@ -18,7 +18,7 @@ Dalam ekosistem self-hosting, ada kesalahpahaman yang persisten: menempatkan Rev
 
 Ini adalah sebuah mitos. MFA hanyalah pengamanan pintu depan (front door). Zero Trust yang sesungguhnya berlandaskan pada satu asumsi arsitektural: pintu depan pada akhirnya akan ditembus, dan sistem harus dirancang untuk membatasi radius kerusakan (blast radius) ketika hal itu terjadi.
 
-Artikel ini menguraikan mengapa MFA saja gagal melindungi infrastruktur modern, dan bagaimana menerapkan isolasi nyata di level kernel Linux dan runtime kontainer — berdasarkan arsitektur yang saya operasikan sehari-hari di RICALNET.
+Artikel ini menguraikan mengapa MFA saja gagal melindungi infrastruktur modern, dan bagaimana menerapkan isolasi nyata di level kernel Linux dan runtime kontainer — berdasarkan arsitektur yang saya operasikan sehari-hari di Privoss.
 
 ## 1. Mengapa MFA Tidak Cukup?
 
@@ -76,7 +76,7 @@ _Gambar 5. Perbandingan Arsitektur: "Zero Trust Nyata" vs. "Zero Trust Palsu"._
 
 ## 4. Implementasi Praktis: Konfigurasi Nyata
 
-Teori tanpa implementasi hanyalah opini. Berikut adalah contoh konfigurasi nyata dari RICALNET (Authentik dan Vaultwarden) yang menerapkan ketiga pilar di atas. Perhatikan bagaimana setiap layanan di-bind ke 127.0.0.1, menggunakan isolasi ketat, dan memiliki batasan sumber daya.
+Teori tanpa implementasi hanyalah opini. Berikut adalah contoh konfigurasi nyata dari Privoss (Authentik dan Vaultwarden) yang menerapkan ketiga pilar di atas. Perhatikan bagaimana setiap layanan di-bind ke 127.0.0.1, menggunakan isolasi ketat, dan memiliki batasan sumber daya.
 
 ```yaml
 # Contoh: Authentik Server (Identity Provider)

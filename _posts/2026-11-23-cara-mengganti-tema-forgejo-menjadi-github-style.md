@@ -17,7 +17,7 @@ Dokumentasi ini menjelaskan prosedur teknis untuk mengganti tema default Forgejo
 
 Sebelum memulai, pastikan hal berikut telah terpenuhi:
 1. Instans Forgejo telah terinstal dan berjalan dengan stabil.
-2. Instalasi berasal dari repositori resmi [digital-independence](https://git.ricalnet.my.id/RICALNET/digital-independence) untuk menjamin kompatibilitas struktur direktori.
+2. Instalasi berasal dari repositori resmi [digital-independence](https://git.ricalnet.my.id/Privoss/digital-independence) untuk menjamin kompatibilitas struktur direktori.
 3. Anda memiliki akses shell ke server dengan hak istimewa yang cukup untuk memodifikasi direktori data Forgejo.
 
 ## Langkah-langkah Implementasi

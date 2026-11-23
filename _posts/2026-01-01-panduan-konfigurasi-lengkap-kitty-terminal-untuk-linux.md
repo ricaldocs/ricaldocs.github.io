@@ -41,7 +41,7 @@ Alternatifnya, unduh biner langsung dari [halaman rilis GitHub Kitty](https://gi
 
 ## Konfigurasi Dasar
 
-Konfigurasi Kitty dilakukan sepenuhnya melalui file `kitty.conf` yang berada di direktori `~/.config/kitty`{: .filepath}. Disarankan untuk memulai dengan konfigurasi default dan memodifikasinya.
+Konfigurasi Kitty dilakukan sepenuhnya melalui file `kitty.conf` yang berada di direktori `~/.config/kitty`. Disarankan untuk memulai dengan konfigurasi default dan memodifikasinya.
 
 1.  Buka atau buat file konfigurasi:
     ```bash

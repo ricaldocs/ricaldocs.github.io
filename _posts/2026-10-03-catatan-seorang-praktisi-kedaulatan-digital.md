@@ -223,6 +223,6 @@ Dan itu, pada akhirnya, adalah inti dari kedaulatan digital. Bukan menutup diri 
 
 Catatan ini adalah titik awal, bukan titik akhir. Ia akan terus diperbarui seiring pembelajaran. Jika Anda menemukan kesalahan, atau punya pengalaman yang bisa memperkaya catatan ini, kontribusi Anda sangat berharga.
 
-*Disusun oleh RICALNET, sebuah inisiatif yang baru berdiri dan sedang membangun fondasi kedaulatan digital secara bertahap, dengan fokus pada dokumentasi dan pembelajaran terbuka.*
+*Disusun oleh Privoss, sebuah inisiatif yang baru berdiri dan sedang membangun fondasi kedaulatan digital secara bertahap, dengan fokus pada dokumentasi dan pembelajaran terbuka.*
 
-> File: [Community Meetup - Digital Sovereignty - RICALNET.pdf](https://cloud.ricalnet.my.id/s/cEdbQGArbMb6qnB)
+> File: [Community Meetup - Digital Sovereignty - Privoss.pdf](https://cloud.ricalnet.my.id/s/cEdbQGArbMb6qnB)

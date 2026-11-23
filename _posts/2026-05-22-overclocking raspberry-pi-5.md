@@ -79,7 +79,7 @@ Pada Raspberry Pi OS versi Trixie (2026 ke atas), file konfigurasi boot berada d
 /boot/firmware/config.txt
 ```
 
-> Versi sebelumnya menggunakan `/boot/config.txt`{: .filepath}. Pastikan menggunakan path yang benar sesuai versi OS Anda.
+> Versi sebelumnya menggunakan `/boot/config.txt`. Pastikan menggunakan path yang benar sesuai versi OS Anda.
 {: .prompt-info}
 
 ### 4.2 Membuka File Konfigurasi

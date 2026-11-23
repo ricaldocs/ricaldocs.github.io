@@ -178,7 +178,7 @@ NVIDIA Optimus adalah teknologi yang memungkinkan sistem beralih secara dinamis 
 
 ##### Konfigurasi Manual Xorg
 
-[Unduh](https://cloud.ricalnet.my.id/s/943Q4NCHL3KWyt8) atau buat file konfigurasi Xorg di `/etc/X11/xorg.conf`{: .filepath}:
+[Unduh](https://cloud.ricalnet.my.id/s/943Q4NCHL3KWyt8) atau buat file konfigurasi Xorg di `/etc/X11/xorg.conf`:
 
 ```
 Section "ServerLayout"
@@ -209,7 +209,7 @@ Identifier "intel"
 Device "intel"
 EndSection
 ```
-[Unduh](https://cloud.ricalnet.my.id/s/ENYP99pxYRfcefq) atau buat file desktop autostart di `/etc/xdg/autostart/optimus.desktop`{: .filepath} dan `/usr/share/gdm/greeter/autostart/optimus.desktop`{: .filepath}:
+[Unduh](https://cloud.ricalnet.my.id/s/ENYP99pxYRfcefq) atau buat file desktop autostart di `/etc/xdg/autostart/optimus.desktop` dan `/usr/share/gdm/greeter/autostart/optimus.desktop`:
 
 ```bash
 [Desktop Entry]

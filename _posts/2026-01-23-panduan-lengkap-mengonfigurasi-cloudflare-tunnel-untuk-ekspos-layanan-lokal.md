@@ -58,7 +58,7 @@ cloudflared tunnel login
 Perintah ini akan:
 - Membuka browser otomatis ke halaman login Cloudflare
 - Meminta izin untuk mengakses akun Anda
-- Membuat file sertifikat `cert.pem` di `~/.cloudflared/`{: .filepath}
+- Membuat file sertifikat `cert.pem` di `~/.cloudflared/`
 
 Jika browser tidak terbuka otomatis, salin URL yang ditampilkan ke browser manual.
 
@@ -102,7 +102,7 @@ cloudflared tunnel list
 ## Konfigurasi Routing Tunnel
 
 ### 1. Buat File Konfigurasi
-Buat atau edit file konfigurasi di `~/.cloudflared/config.yml`{: .filepath}:
+Buat atau edit file konfigurasi di `~/.cloudflared/config.yml`:
 
 ```bash
 nano ~/.cloudflared/config.yml

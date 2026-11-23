@@ -32,7 +32,7 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt aut
 Selama berselancar di internet dengan mesin Kali Linux, pengguna dapat menggunakan alat [NipeX](https://git.ricalnet.my.id/rical/nipex) untuk menjelajah dengan aman dan anonim.
 
 ## Monitoring Log
-Menganalisis program logcheck dapat menjadi penyelamat nyata, karena dapat mengirim pesan yang dicatat langsung ke email admin. File log disimpan secara lokal di dalam `/var/log`{: .filepath} secara default.
+Menganalisis program logcheck dapat menjadi penyelamat nyata, karena dapat mengirim pesan yang dicatat langsung ke email admin. File log disimpan secara lokal di dalam `/var/log` secara default.
 
 Untuk memantau aktivitas secara real-time, pengguna dapat menggunakan alat `htop`:
 ```bash
@@ -59,7 +59,7 @@ sudo chkrootkit
 ```
 
 ## Mengganti Kunci SSH Bawaan
-Masuk ke direktori `/etc/ssh`{: .filepath} dengan perintah:
+Masuk ke direktori `/etc/ssh` dengan perintah:
 ```bash
 cd /etc/ssh
 ```
@@ -67,7 +67,7 @@ Buat direktori baru bernama `old_keys` dengan perintah:
 ```bash
 sudo mkdir old_keys
 ```
-Pindahkan semua kunci SSH lama ke dalam direktori `old_keys`{: .filepath} dengan perintah:
+Pindahkan semua kunci SSH lama ke dalam direktori `old_keys` dengan perintah:
 ```bash
 sudo mv ssh_host_* old_keys
 ```

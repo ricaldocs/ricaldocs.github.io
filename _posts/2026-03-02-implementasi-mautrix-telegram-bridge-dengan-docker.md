@@ -73,7 +73,7 @@ Kedua kontainer harus dapat berkomunikasi. Kita akan menempatkannya pada jaringa
 Clone repositori dan buat struktur direktori untuk data jembatan:
 
 ```bash
-git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git
+git clone https://git.ricalnet.my.id/Privoss/digital-independence.git
 cd digital-independence
 cd synapse/mautrix-telegram
 ```
@@ -241,7 +241,7 @@ Setelah login, bridge akan secara otomatis menyinkronkan obrolan Telegram Anda, 
 
 **Solusi:**  
 - Pastikan `registration.yaml` telah disalin ke direktori data Synapse.  
-- Pastikan jalur di `homeserver.yaml` benar (misalnya `/data/mautrix-telegram-registration.yaml`{: .filepath}).  
+- Pastikan jalur di `homeserver.yaml` benar (misalnya `/data/mautrix-telegram-registration.yaml`).  
 - Restart kedua kontainer:
 
 ```bash

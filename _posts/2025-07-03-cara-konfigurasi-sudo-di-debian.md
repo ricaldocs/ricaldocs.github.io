@@ -31,7 +31,7 @@ Dalam ekosistem Linux, `sudo` (superuser do) telah menjadi standar emas untuk ma
 
 ## Struktur File Konfigurasi Sudo
 
-File konfigurasi utama `/etc/sudoers`{: .filepath} memiliki anatomi khusus:
+File konfigurasi utama `/etc/sudoers` memiliki anatomi khusus:
 
 ```bash
 # Alias Jaringan
@@ -106,7 +106,7 @@ sudo -v                   # Validate credentials
 sudo whoami               # Expected output: "root"
 ```
 
-> Jika mengalami error, periksa log di `/var/log/auth.log`{: .filepath} untuk diagnosa detail.
+> Jika mengalami error, periksa log di `/var/log/auth.log` untuk diagnosa detail.
 {: .prompt-tip}
 
 ## Konfigurasi Lanjutan untuk Skenario Khusus
@@ -157,7 +157,7 @@ exec su -l $USER  # Refresh session
 ## Best Practices Keamanan
 
 ### 1. Monitoring Proaktif
-- Review `/var/log/auth.log`{: .filepath} secara berkala
+- Review `/var/log/auth.log` secara berkala
 - Implementasi alert untuk sudo failures
 - Gunakan `sudo -l` untuk audit regular
 

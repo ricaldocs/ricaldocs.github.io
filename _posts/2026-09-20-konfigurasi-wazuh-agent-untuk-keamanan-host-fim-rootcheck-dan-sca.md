@@ -117,7 +117,7 @@ Hapus semua isi (Ctrl+K berulang), lalu paste konfigurasi berikut:
 ```xml
 <!--
   Wazuh Agent - Host Security Focused Configuration
-  Host: RICALNET OS (ARM64, Debian 13)
+  Host: Privoss OS (ARM64, Debian 13)
   Scope: FIM, Rootcheck, SCA, Syscollector, Host Logs, Active Response
 -->
 

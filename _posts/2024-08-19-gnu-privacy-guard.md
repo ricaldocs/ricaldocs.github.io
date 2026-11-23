@@ -148,7 +148,7 @@ gpg --delete-key <key_id>
 Metode ini umum digunakan untuk mengenkripsi file dan data, di mana keamanan informasi bergantung pada kerahasiaan kunci yang digunakan. Dalam kriptografi simetris, pengirim dan penerima harus memiliki kunci yang sama untuk mengamankan dan mengakses informasi terenkripsi.
 
 ### Enkripsi
-Untuk mengenkripsi file menggunakan metode simetris, misalnya file `data.tar`{: .filepath}, gunakan perintah:
+Untuk mengenkripsi file menggunakan metode simetris, misalnya file `data.tar`, gunakan perintah:
 
 ```bash
 gpg -c data.tar

@@ -30,7 +30,7 @@ Unduh Nextcloud menggunakan `wget`:
 wget https://download.nextcloud.com/server/releases/latest.zip
 ```
 
-Ekstrak file yang telah diunduh dan pindahkan ke direktori `/var/www/html`{: .filepath}:
+Ekstrak file yang telah diunduh dan pindahkan ke direktori `/var/www/html`:
 ```bash
 sudo unzip latest.zip -d /var/www/html
 ```
@@ -137,7 +137,7 @@ Tambahkan konfigurasi berikut ke file crontab:
 Simpan dan keluar dari file setelah selesai.
 
 ## Mengganti Alamat IP
-Ubah `trusted domain` di berkas `config.php`{: .filepath}:
+Ubah `trusted domain` di berkas `config.php`:
 ```bash
 sudo nano /var/www/html/nextcloud/config/config.php
 ```
@@ -185,7 +185,7 @@ Sistem Nextcloud secara berkala melakukan pemeriksaan keamanan dan konfigurasi u
 ![Panel Peringatan Keamanan Nextcloud](../assets/img/posts/2024-08-20-home-server/security-and-setup-warnings.webp)
 
 ### Pemecahan Masalah Konfigurasi Dasar
-Beberapa peringatan umum dapat diselesaikan dengan modifikasi file konfigurasi `config.php`{: .filepath}. Tambahkan atau perbarui parameter berikut sesuai kebutuhan:
+Beberapa peringatan umum dapat diselesaikan dengan modifikasi file konfigurasi `config.php`. Tambahkan atau perbarui parameter berikut sesuai kebutuhan:
 
 ```php
 'maintenance' => false,
@@ -197,12 +197,12 @@ Beberapa peringatan umum dapat diselesaikan dengan modifikasi file konfigurasi `
 ```
 
 ### Konfigurasi Header HSTS pada File .htaccess
-Peringatan HSTS (HTTP Strict Transport Security) dapat diatasi dengan modifikasi file `.htaccess`{: .filepath} di direktori root Nextcloud. Lokasi file umumnya berada di:
-- `/var/www/html/nextcloud/.htaccess`{: .filepath} (Apache pada Ubuntu/Debian)
-- `/usr/share/nginx/nextcloud/.htaccess`{: .filepath} (Nginx)
+Peringatan HSTS (HTTP Strict Transport Security) dapat diatasi dengan modifikasi file `.htaccess` di direktori root Nextcloud. Lokasi file umumnya berada di:
+- `/var/www/html/nextcloud/.htaccess` (Apache pada Ubuntu/Debian)
+- `/usr/share/nginx/nextcloud/.htaccess` (Nginx)
 
 #### Langkah Implementasi
-1. Akses file `.htaccess`{: .filepath} menggunakan editor teks dengan hak akses `sudo`:
+1. Akses file `.htaccess` menggunakan editor teks dengan hak akses `sudo`:
    ```bash
    sudo nano /var/www/nextcloud/.htaccess
    ```
@@ -223,7 +223,7 @@ Peringatan HSTS (HTTP Strict Transport Security) dapat diatasi dengan modifikasi
      sudo systemctl restart nginx
      ```
 
-#### Contoh Struktur File `.htaccess`{: .filepath} yang Diperbarui
+#### Contoh Struktur File `.htaccess` yang Diperbarui
 ```apache
 <IfModule mod_headers.c>
   <IfModule mod_env.c>

@@ -63,7 +63,7 @@ make
 sudo make install
 ```
 
-> Perintah `make install` akan menyalin modul PAM ke direktori yang sesuai dan membuat file konfigurasi di `/etc/security/pam_usb.conf`{: .filepath}.
+> Perintah `make install` akan menyalin modul PAM ke direktori yang sesuai dan membuat file konfigurasi di `/etc/security/pam_usb.conf`.
 {: .prompt-info}
 
 ## Konfigurasi Dasar
@@ -161,7 +161,7 @@ Ada tiga pendekatan utama yang bisa dipilih sesuai kebutuhan keamanan:
 
 Mewajibkan kedua faktor: flash drive dan password. Ini adalah konfigurasi paling aman.
 
-Edit `/etc/pam.d/common-auth`{: .filepath} dan letakkan konfigurasi ini di awal:
+Edit `/etc/pam.d/common-auth` dan letakkan konfigurasi ini di awal:
 
 ```
 auth required pam_usb.so
@@ -192,7 +192,7 @@ auth required pam_unix.so nullok_secure
 
 ### Hasil Akhir Konfigurasi
 
-Setelah diedit, file `/etc/pam.d/common-auth`{: .filepath} Anda akan terlihat seperti ini:
+Setelah diedit, file `/etc/pam.d/common-auth` Anda akan terlihat seperti ini:
 
 ```
 # /etc/pam.d/common-auth
@@ -225,7 +225,7 @@ sudo chmod -R g+rwx .pamusb
 
 ### 2. Aplikasi Tertentu Tidak Menggunakan `pam_usb`
 
-Beberapa aplikasi (seperti `su`) mungkin memiliki file konfigurasi PAM terpisah. Jika Anda ingin `pam_usb` berlaku untuk aplikasi tersebut, tambahkan baris yang sama ke `/etc/pam.d/su`{: .filepath}.
+Beberapa aplikasi (seperti `su`) mungkin memiliki file konfigurasi PAM terpisah. Jika Anda ingin `pam_usb` berlaku untuk aplikasi tersebut, tambahkan baris yang sama ke `/etc/pam.d/su`.
 
 ### 3. Remote Desktop (RDP) Tidak Bekerja
 
@@ -236,7 +236,7 @@ Beberapa aplikasi (seperti `su`) mungkin memiliki file konfigurasi PAM terpisah.
 1. Untuk lingkungan produksi atau sistem yang menyimpan data sensitif, wajib menggunakan mode yang mewajibkan password dan token.
 2. Kerentanan serius seperti [CVE-2026-44712](https://nvd.nist.gov/vuln/detail/CVE-2026-44712) (Command Injection) dan [CVE-2026-47274](https://nvd.nist.gov/vuln/detail/CVE-2026-47274) (PATH Manipulation) telah ditemukan pada versi sebelumnya. Selalu periksa dan gunakan versi terbaru.
 3. Perlakukan flash drive ini seperti kunci fisik. Simpan di tempat aman dan pertimbangkan untuk memiliki backup token.
-4. Selalu simpan backup file `/etc/pam.d/common-auth`{: .filepath} dan `/etc/security/pam_usb.conf`{: .filepath} di lokasi yang aman.
+4. Selalu simpan backup file `/etc/pam.d/common-auth` dan `/etc/security/pam_usb.conf` di lokasi yang aman.
 
 Dengan implementasi yang tepat, `pam_usb` memberikan peningkatan keamanan yang signifikan untuk sistem Linux Anda, menambah lapisan pertahanan yang sulit ditembus oleh penyerang jarak jauh maupun lokal.
 

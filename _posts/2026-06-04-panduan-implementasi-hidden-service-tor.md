@@ -41,7 +41,7 @@ Sebelum memulai, pastikan:
 | Komponen                                                                                             | Spesifikasi                |
 | ---------------------------------------------------------------------------------------------------- | -------------------------- |
 | OS                                                                                                   | Debian 13+ / Ubuntu 26.04+ |
-| Aplikasi Web (seperti [Digital Independence](https://git.ricalnet.my.id/RICALNET/digital-independence)) | Berjalan di localhost      |
+| Aplikasi Web (seperti [Digital Independence](https://git.ricalnet.my.id/Privoss/digital-independence)) | Berjalan di localhost      |
 
 > Penting untuk dipahami bahwa Hidden service Tor bukan pengganti keamanan aplikasi web. Autentikasi, validasi input, dan praktik keamanan standar tetap harus diterapkan pada aplikasi yang berjalan di belakang Tor.
 {: .prompt-info}
@@ -96,7 +96,7 @@ Buka file konfigurasi utama Tor:
 sudo nano /etc/tor/torrc
 ```
 
-File `/etc/tor/torrc`{: .filepath} dimiliki oleh root dan memerlukan hak akses administratif untuk dimodifikasi.
+File `/etc/tor/torrc` dimiliki oleh root dan memerlukan hak akses administratif untuk dimodifikasi.
 
 ### Parameter Konfigurasi yang Perlu Dipahami
 

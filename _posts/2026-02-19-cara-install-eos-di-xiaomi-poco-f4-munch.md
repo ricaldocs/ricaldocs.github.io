@@ -54,7 +54,7 @@ Gunakan alat `payload-dumper-go` untuk mengekstrak partisi firmware dari berkas 
     ```
     Perintah ini akan mengekstrak berkas-berkas `*.img` (seperti `abl.img`, `xbl.img`, dll.) ke direktori yang sama.
     
-    > Direktori `/tmp`{: .filepath} kehabisan ruang saat menjalankan `payload-dumper-go`. Alihkan direktori temporary ke lokasi lain yang memiliki ruang cukup:
+    > Direktori `/tmp` kehabisan ruang saat menjalankan `payload-dumper-go`. Alihkan direktori temporary ke lokasi lain yang memiliki ruang cukup:
     ```bash
     export TMPDIR=$(pwd)
     ./payload-dumper-go -o . miui_*.zip

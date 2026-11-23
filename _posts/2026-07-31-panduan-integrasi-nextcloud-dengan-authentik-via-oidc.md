@@ -227,7 +227,7 @@ Pada pengaturan default, Nextcloud memakai nilai `sub` (UUID dari Authentik) seb
 
 ### Konfigurasi Dasar
 
-Buka `/var/www/html/config/config.php`{: .filepath}:
+Buka `/var/www/html/config/config.php`:
 
 ```bash
 sudo nano ~/.local/share/containers/storage/volumes/nextcloud_nextcloud_data/_data/config/config.php

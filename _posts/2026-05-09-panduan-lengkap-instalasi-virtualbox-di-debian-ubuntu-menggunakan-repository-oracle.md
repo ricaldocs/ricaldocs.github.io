@@ -37,7 +37,7 @@ echo "blacklist kvm_intel" | sudo tee -a /etc/modprobe.d/blacklist.conf
 {: .prompt-info}
 
 ## 3. Menambahkan Repository Oracle
-Oracle menyediakan repository resmi untuk distribusi berbasis Debian. Identifikasi nama kode rilis Anda dan tambahkan baris ke `/etc/apt/sources.list`{: .filepath} atau buat file `.list` baru di `/etc/apt/sources.list.d/`{: .filepath}.
+Oracle menyediakan repository resmi untuk distribusi berbasis Debian. Identifikasi nama kode rilis Anda dan tambahkan baris ke `/etc/apt/sources.list` atau buat file `.list` baru di `/etc/apt/sources.list.d/`.
 
 - Tentukan `<mydist>` sesuai sistem Anda.**
   - Debian 13: `trixie`
@@ -105,5 +105,5 @@ Extension Pack menyediakan dukungan untuk perangkat USB 2.0/3.0, enkripsi disk, 
 ## Penutup
 VirtualBox kini telah terpasang lengkap dengan Extension Pack. Anda dapat mulai membuat dan menjalankan mesin virtual, baik melalui antarmuka grafis (`virtualbox`) maupun baris perintah (`VBoxManage`). Untuk memastikan modul kernel berfungsi, luncurkan VirtualBox dan periksa apakah tidak ada pesan kesalahan.
 
-> Jika Anda sebelumnya menonaktifkan KVM dan ingin mengaktifkannya kembali, hapus baris `blacklist kvm_intel`{: .filepath} dari `/etc/modprobe.d/blacklist.conf`{: .filepath} lalu muat modul dengan `sudo modprobe kvm_intel`.
+> Jika Anda sebelumnya menonaktifkan KVM dan ingin mengaktifkannya kembali, hapus baris `blacklist kvm_intel` dari `/etc/modprobe.d/blacklist.conf` lalu muat modul dengan `sudo modprobe kvm_intel`.
 {: .prompt-tip}

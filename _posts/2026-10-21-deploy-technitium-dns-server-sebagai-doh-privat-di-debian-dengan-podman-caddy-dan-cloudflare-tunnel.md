@@ -26,12 +26,12 @@ Pendekatan ini dipilih karena beberapa alasan teknis:
 
 - Debian 13 (minimal install)
 - [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel untuk Ekspos Layanan Lokal](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)
-- Akses ke [repository Digital Independence](https://git.ricalnet.my.id/RICALNET/digital-independence.git) milik RICALNET
+- Akses ke [repository Digital Independence](https://git.ricalnet.my.id/Privoss/digital-independence.git) milik Privoss
 
 ## 1. Clone Repository
 
 ```bash
-git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/Privoss/digital-independence.git ~/digital-independence
 cd ~/digital-independence
 ```
 

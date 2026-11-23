@@ -13,7 +13,7 @@ Sistem operasi Linux memperlakukan perangkat penyimpanan (hard disk, SSD, USB) s
 
 Mount secara manual dengan perintah `mount /dev/sda1 /media/data` memang efektif, tetapi hanya bertahan hingga sistem di-reboot. Untuk kebutuhan server, Raspberry Pi, atau PC yang selalu menggunakan partisi data tertentu, kita memerlukan automount agar partisi terpasang secara otomatis saat boot.
 
-File `/etc/fstab`{: .filepath} (File System Table) adalah konfigurasi inti yang mengatur mount otomatis. Artikel ini akan membahas secara teknis langkah demi langkah, disertai penjelasan "mengapa" setiap perintah dilakukan.
+File `/etc/fstab` (File System Table) adalah konfigurasi inti yang mengatur mount otomatis. Artikel ini akan membahas secara teknis langkah demi langkah, disertai penjelasan "mengapa" setiap perintah dilakukan.
 
 ## Prasyarat dan Pemahaman Dasar
 
@@ -58,7 +58,7 @@ Mengapa harus dibuat sebelumnya? fstab hanya melakukan mount, tidak membuat dire
 
 ## Langkah 3: Mengedit /etc/fstab
 
-Berkas `/etc/fstab`{: .filepath} berisi daftar entri mount. Buka dengan editor teks (nano, vim, dll):
+Berkas `/etc/fstab` berisi daftar entri mount. Buka dengan editor teks (nano, vim, dll):
 
 ```bash
 sudo nano /etc/fstab

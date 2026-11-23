@@ -62,7 +62,7 @@ Kenyataannya? Definisi "perlu" sering kali diperluas hingga nyaris tak berbatas.
 Tidak ada yang akan menyelamatkan Anda kecuali diri sendiri. Berikut langkah yang bisa dilakukan warga digital yang masih memiliki harga diri:
 
 - **Pahami metadata apa yang mungkin terbawa.** Sebelum membagikan file, ingatlah bahwa ia mungkin mengandung informasi seperti lokasi, waktu, dan perangkat yang Anda gunakan. Perlakukan file seperti pakaian dalam, tidak semua perlu dipamerkan.
-- **Gunakan alat penghapus metadata.** Untuk gambar, ada tool penghapus EXIF dari RICALNET. Untuk dokumen, gunakan fitur "inspect document" sebelum mengirim. Ini seperti menghapus sidik jari dari gelas kaca—setidaknya menyusahkan mereka yang ingin tahu Anda sedang minum apa.
+- **Gunakan alat penghapus metadata.** Untuk gambar, ada tool penghapus EXIF dari Privoss. Untuk dokumen, gunakan fitur "inspect document" sebelum mengirim. Ini seperti menghapus sidik jari dari gelas kaca—setidaknya menyusahkan mereka yang ingin tahu Anda sedang minum apa.
 - **Manfaatkan enkripsi end-to-end.** Aplikasi pesan yang mengenkripsi bukan hanya isi, tetapi juga meminimalkan metadata (seperti Signal dan Session) adalah teman Anda. Pesan Anda mungkin tetap dibaca oleh penerima, tapi setidaknya tidak oleh segerombolan pialang data di antaranya.
 
 Tentu saja, semua langkah ini tidak akan menyelamatkan Anda sepenuhnya, sebab infrastruktur digital kita dibangun di atas asumsi bahwa Anda rela diawasi. Setidaknya, Anda bisa membuat mereka sedikit lebih berkeringat.
@@ -114,7 +114,7 @@ Sertakan juga **tool apa yang Anda gunakan**, **langkah-langkahnya**, dan **kesi
 
 **Hadiah:**
 
-Peserta yang berhasil menjawab dengan benar dan lengkap, termasuk membedakan AI asli, gambar nyata, dan manipulasi metadata akan mendapatkan **15GB encrypted cloud storage selama 1 tahun** dari RICALNET serta **1 VPS selama 1 bulan** untuk AI agent.
+Peserta yang berhasil menjawab dengan benar dan lengkap, termasuk membedakan AI asli, gambar nyata, dan manipulasi metadata akan mendapatkan **15GB encrypted cloud storage selama 1 tahun** dari Privoss serta **1 VPS selama 1 bulan** untuk AI agent.
 
 **Spesifikasi VPS:**
 
@@ -164,7 +164,7 @@ Kalian telah membuktikan kemampuan dalam:
 - Membedakan antara **AI asli**, **gambar nyata**, dan **manipulasi metadata**
 
 Hadiah untuk masing-masing pemenang:
-- 🎁 **15GB encrypted cloud storage selama 1 tahun** dari RICALNET
+- 🎁 **15GB encrypted cloud storage selama 1 tahun** dari Privoss
 - 🎁 **1 VPS selama 1 bulan** untuk AI agent (spesifikasi: 2 vCPU, 4GB RAM, 64GB NVMe SSD, 1TB bandwidth, Debian 12, lokasi Jakarta)
 
 Semoga hadiah ini bermanfaat untuk eksplorasi dan pengembangan proyek AI kalian ke depannya! 🚀

@@ -50,7 +50,7 @@ Daftar terlebih dahulu melalui aplikasi/extension Bitwarden.
 
    ![Pilihan Self-hosted](<../assets/img/posts/2026-09-29-panduan-hardening-akun-menggunakan-bitwarden-dan-2fa/Screenshot From 2026-09-29 18-49-04.webp>)
 
-   > Untuk pengguna RICALNET, login dapat dilakukan melalui SSO atau self-hosted. Untuk pengguna umum, disarankan menggunakan server Bitwarden resmi di bitwarden.com.
+   > Untuk pengguna Privoss, login dapat dilakukan melalui SSO atau self-hosted. Untuk pengguna umum, disarankan menggunakan server Bitwarden resmi di bitwarden.com.
    {: .prompt-tip}
 
 2. Masukkan Server URL. Contoh:

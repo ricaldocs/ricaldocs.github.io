@@ -48,7 +48,7 @@ Struktur akhir akan tampak seperti ini:
 
 ## 4. Konfigurasi Cloudflared (config.yml)
 
-Cloudflared membutuhkan konfigurasi minimal untuk mode `proxy-dns`. Buka file `cloudflared/config.yml`{: .filepath} dengan editor favorit Anda (misal `nano`).
+Cloudflared membutuhkan konfigurasi minimal untuk mode `proxy-dns`. Buka file `cloudflared/config.yml` dengan editor favorit Anda (misal `nano`).
 
 ```bash
 nano cloudflared/config.yml
@@ -222,7 +222,7 @@ Jika semua berjalan lancar, Anda sekarang memiliki sistem DNS yang:
 ## 7. Catatan Keamanan dan Pemeliharaan
 
 - Secara berkala, jalankan `docker compose pull` untuk mendapatkan versi terbaru dari image Cloudflared dan Pi-hole.
-- Direktori `./etc-pihole`{: .filepath} dan `./etc-dnsmasq.d`{: .filepath} menyimpan data konfigurasi dan database Pi-hole. Cadangkan secara rutin.
+- Direktori `./etc-pihole` dan `./etc-dnsmasq.d` menyimpan data konfigurasi dan database Pi-hole. Cadangkan secara rutin.
 - Karena container Cloudflared tidak memiliki akses ke jaringan host secara langsung, pastikan container lain yang membutuhkan DNS menggunakan Pi-hole sebagai nameserver (misal dengan mengatur `dns: pihole` di `docker-compose` mereka).
 - Lakukan pengujian DNS leak test secara berkala untuk memastikan konfigurasi tetap aman dan tidak ada kebocoran.
 

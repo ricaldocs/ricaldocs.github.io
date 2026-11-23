@@ -98,7 +98,7 @@ Repositori ini menyediakan `Containerfile` yang telah dikonfigurasi untuk build 
 ### Langkah 2: Instal Podman
 
 ```bash
-curl -fLO https://git.ricalnet.my.id/RICALNET/digital-independence/raw/branch/main/install-podman.sh
+curl -fLO https://git.ricalnet.my.id/Privoss/digital-independence/raw/branch/main/install-podman.sh
 chmod +x install-podman.sh
 ./install-podman.sh
 ```

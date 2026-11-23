@@ -38,14 +38,14 @@ Panduan ini bertujuan untuk membangun server VoIP dengan memanfaatkan [Asterisk]
 sudo mv /etc/asterisk/sip.conf /etc/asterisk/extensions.conf /etc/asterisk/voicemail.conf ~/Documents
 ```
 Selanjutnya, buka dan hapus isi konfigurasi yang ada di:
-- `/etc/asterisk/sip.conf`{: .filepath}
-- `/etc/asterisk/extensions.conf`{: .filepath}
-- `/etc/asterisk/voicemail.conf`{: .filepath}
+- `/etc/asterisk/sip.conf`
+- `/etc/asterisk/extensions.conf`
+- `/etc/asterisk/voicemail.conf`
 {: .prompt-tip}
 
-File konfigurasi utama terletak di `/etc/asterisk`{: .filepath}. Ubah konfigurasi pada file berikut:
-- **`/etc/asterisk/asterisk.conf`{: .filepath}**: Ini adalah konfigurasi utama. Biarkan dalam pengaturan *default* untuk saat ini.
-- Masukkan konfigurasi berikut ke dalam **`/etc/asterisk/sip.conf`{: .filepath}**:
+File konfigurasi utama terletak di `/etc/asterisk`. Ubah konfigurasi pada file berikut:
+- **`/etc/asterisk/asterisk.conf`**: Ini adalah konfigurasi utama. Biarkan dalam pengaturan *default* untuk saat ini.
+- Masukkan konfigurasi berikut ke dalam **`/etc/asterisk/sip.conf`**:
 
 > SIP (*Session Initiation Protocol*) adalah protokol komunikasi yang digunakan untuk mengelola dan mengatur sesi komunikasi, seperti panggilan suara dan video, di jaringan IP. Dalam konteks Asterisk, sebuah sistem telekomunikasi *open-source* yang sering digunakan sebagai PBX (*Private Branch Exchange*) dan sistem VoIP (*Voice over IP*), SIP memainkan peran penting. Beberapa fitur utama SIP yang ada di Asterisk meliputi:
  - [x] Pendaftaran dan Autentikasi
@@ -84,7 +84,7 @@ secret=7002
 context=internal
 ```
 
-- Selanjutnya, masukkan konfigurasi ini ke dalam **`/etc/asterisk/extensions.conf`{: .filepath}**:
+- Selanjutnya, masukkan konfigurasi ini ke dalam **`/etc/asterisk/extensions.conf`**:
 
 ```ini
 [internal]
@@ -107,7 +107,7 @@ exten => 8002,1,VoicemailMain(7002@main)
 exten => 8002,2,Hangup()
 ```
 
-- Terakhir, masukkan konfigurasi berikut ke dalam **`/etc/asterisk/voicemail.conf`{: .filepath}**:
+- Terakhir, masukkan konfigurasi berikut ke dalam **`/etc/asterisk/voicemail.conf`**:
 
 ```ini
 [main]
@@ -254,11 +254,11 @@ Setelah proses kompilasi selesai, lanjutkan dengan langkah-langkah berikut untuk
    ```
 
 > - **make install**: Perintah ini digunakan untuk menginstal biner dan pustaka Asterisk yang telah dikompilasi.
-- **make samples**: Perintah ini akan membuat file konfigurasi contoh yang disimpan di direktori `/etc/asterisk`{: .filepath}.
+- **make samples**: Perintah ini akan membuat file konfigurasi contoh yang disimpan di direktori `/etc/asterisk`.
 - **make config**: Perintah ini mengatur skrip inisialisasi untuk memfasilitasi *startup* otomatis Asterisk.
 {: .prompt-info}
 
-File konfigurasi contoh, terutama `sip.conf`{: .filepath} dan `extensions.conf`{: .filepath}, memberikan titik awal untuk pengaturan Asterisk. Meskipun file-file ini tidak cocok untuk digunakan dalam lingkungan produksi tanpa modifikasi, mereka menawarkan contoh dan template yang berharga untuk konfigurasi.
+File konfigurasi contoh, terutama `sip.conf` dan `extensions.conf`, memberikan titik awal untuk pengaturan Asterisk. Meskipun file-file ini tidak cocok untuk digunakan dalam lingkungan produksi tanpa modifikasi, mereka menawarkan contoh dan template yang berharga untuk konfigurasi.
 
 ### Konfigurasi Asterisk
 Keamanan dan integrasi sistem yang tepat sangat penting untuk setiap instalasi Asterisk. Konfigurasi yang benar memastikan bahwa Asterisk dapat beroperasi dengan efisien dan aman. Berikut adalah langkah-langkah untuk mengatur pengguna dan grup khusus untuk menjalankan Asterisk.
@@ -281,7 +281,7 @@ Ubah kepemilikan direktori yang terkait dengan Asterisk agar dimiliki oleh pengg
 sudo chown -R asterisk:asterisk /etc/asterisk /var/{lib,log,spool}/asterisk /usr/lib/asterisk
 ```
 
-Setelah mengubah kepemilikan, konfigurasikan Asterisk untuk berjalan sebagai pengguna baru dengan mengedit file `/etc/default/asterisk`{: .filepath}:
+Setelah mengubah kepemilikan, konfigurasikan Asterisk untuk berjalan sebagai pengguna baru dengan mengedit file `/etc/default/asterisk`:
 ```bash
 sudo nano /etc/default/asterisk
 ```
@@ -294,9 +294,9 @@ AST_GROUP="asterisk"
 
 ### Konfigurasi SIP
 Selanjutnya, atur konfigurasi SIP dengan mengedit file berikut:
-- `/etc/asterisk/sip.conf`{: .filepath}
-- `/etc/asterisk/extensions.conf`{: .filepath}
-- `/etc/asterisk/voicemail.conf`{: .filepath}
+- `/etc/asterisk/sip.conf`
+- `/etc/asterisk/extensions.conf`
+- `/etc/asterisk/voicemail.conf`
 
 Untuk melanjutkan konfigurasi, silakan merujuk pada [panduan ini](https://docs.ricalnet.my.id/posts/membangun-voip-server/#konfigurasi). 
 

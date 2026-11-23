@@ -31,7 +31,7 @@ Setelah pengunduhan, file akan disimpan dalam format zip. Jalankan perintah beri
 cd ~/Downloads && unzip Noto_Sans.zip
 ```
 
-Selanjutnya, arahkan ke direktori `/usr/share/fonts/X11`{: .filepath} dan pindahkan file tersebut ke lokasi tersebut.
+Selanjutnya, arahkan ke direktori `/usr/share/fonts/X11` dan pindahkan file tersebut ke lokasi tersebut.
 
 ```bash
 sudo mv static/* /usr/share/fonts/X11
@@ -50,13 +50,13 @@ Bagian selanjutnya adalah mengonfigurasi tema untuk menyerupai macOS. Tema yang 
 
 ![Pling](assets/img/posts/2025-05-12-mentransformasikan-kali-linux-menjadi-macos/pling.webp)
 
-Setelah itu, navigasikan ke folder `Downloads`{:.filepath} dan temukan file tema yang terkompresi dalam format tar.xz. Selanjutnya, ekstrak file tersebut dengan perintah berikut:
+Setelah itu, navigasikan ke folder `Downloads` dan temukan file tema yang terkompresi dalam format tar.xz. Selanjutnya, ekstrak file tersebut dengan perintah berikut:
 
 ```bash
 cd ~/Downloads && tar -xvf WhiteSur-Dark.tar.xz
 ```
 
-Setelah diekstrak, salin folder tema tersebut ke direktori `/usr/share/themes`{:.filepath} dengan perintah:
+Setelah diekstrak, salin folder tema tersebut ke direktori `/usr/share/themes` dengan perintah:
 
 ```bash
 sudo mv WhiteSur-Dark /usr/share/themes
@@ -91,7 +91,7 @@ Proses selanjutnya adalah menginstal tema ikon di sistem Kali Linux. Tema ikon i
 
 Setelah mengunduh tema ikon, gunakan metode yang sama untuk mengekstraknya. Setelah diekstrak, akan ditemukan dua folder di dalamnya: satu untuk tema ikon terang (light) dan satu lagi untuk tema ikon gelap (dark).
 
-Selanjutnya, tempelkan folder tema ikon ke dalam direktori `/usr/share/icons`{:.filepath} dengan perintah berikut:
+Selanjutnya, tempelkan folder tema ikon ke dalam direktori `/usr/share/icons` dengan perintah berikut:
 
 ```bash 
 cd ~/Downloads && tar -xvf 01-WhiteSur.tar.xz 
@@ -107,7 +107,7 @@ Setelah menyalin folder tema ikon, perubahan ikon dapat dilakukan melalui tab "I
 
 Selain ikon, macOS juga memiliki jenis kursor yang khas. Untuk mengubah kursor di sistem, unduh tema kursor dan konfigurasikan.
 
-Tema kursor McMojave dapat diunduh dari [tautan berikut](https://www.pling.com/p/1355701). Setelah mengunduh dan mengekstraknya, salin folder kursor tersebut ke dalam direktori ikon, yaitu `/usr/share/icons`{:.filepath}.
+Tema kursor McMojave dapat diunduh dari [tautan berikut](https://www.pling.com/p/1355701). Setelah mengunduh dan mengekstraknya, salin folder kursor tersebut ke dalam direktori ikon, yaitu `/usr/share/icons`.
 
 ```bash
 cd ~/Downloads && tar -xvf McMojave-cursors.tar.xz
@@ -173,13 +173,13 @@ Dock ini akan menciptakan tampilan yang menarik di sistem, seperti yang dapat di
 
 Meskipun dock telah terpasang, tampilannya belum menyerupai macOS. Konfigurasi dock perlu dilakukan dengan menambahkan tema pada Plank. Tema yang diperlukan sudah diunduh di dalam folder tema WhiteSur-Light dan WhiteSur-Dark.
 
-Pertama, buka pengelola file Thunar dengan izin root menggunakan perintah `sudo thunar`. Kemudian, navigasikan ke direktori `Downloads`{:.filepath} dan cari folder bernama "plank" di dalam folder WhiteSur. Salin folder tersebut ke dalam folder tema Plank.
+Pertama, buka pengelola file Thunar dengan izin root menggunakan perintah `sudo thunar`. Kemudian, navigasikan ke direktori `Downloads` dan cari folder bernama "plank" di dalam folder WhiteSur. Salin folder tersebut ke dalam folder tema Plank.
 
 Sebelum melakukannya, ganti nama folder tersebut karena tema terang (light) dan gelap (dark) untuk Plank keduanya dinamai "plank", sehingga tidak dapat disalin ke dalam direktori yang sama. Ubah nama folder Plank menjadi "WhiteSur-light-Plank" dan "WhiteSur-dark-Plank".
 
 ![Plank: Folder](assets/img/posts/2025-05-12-mentransformasikan-kali-linux-menjadi-macos/plank-folder.webp)
 
-Setelah mengganti nama folder, salin dan tempel folder tersebut ke dalam direktori `/usr/share/plank/themes`{:.filepath}, seperti yang ditunjukkan pada tangkapan layar berikut.
+Setelah mengganti nama folder, salin dan tempel folder tersebut ke dalam direktori `/usr/share/plank/themes`, seperti yang ditunjukkan pada tangkapan layar berikut.
 
 ![Plank: Themes](assets/img/posts/2025-05-12-mentransformasikan-kali-linux-menjadi-macos/plank-themes.webp)
 

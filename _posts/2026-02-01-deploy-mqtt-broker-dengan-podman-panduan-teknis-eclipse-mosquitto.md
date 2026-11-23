@@ -29,7 +29,7 @@ Mengapa perlu `sudo`? Operasi `ipc enable` memodifikasi aturan firewall kernel-l
 ## 2. Kloning Repositori
 
 ```bash
-git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git ~/digital-independence
+git clone https://git.ricalnet.my.id/Privoss/digital-independence.git ~/digital-independence
 ./install-podman.sh
 dipen cd mqtt
 ```

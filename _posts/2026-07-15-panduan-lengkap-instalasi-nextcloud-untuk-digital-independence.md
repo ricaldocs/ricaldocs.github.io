@@ -1,6 +1,6 @@
 ---
 title: Panduan Lengkap Instalasi Nextcloud untuk Digital Independence 
-description: Tutorial teknis komprehensif instalasi Nextcloud self-hosted menggunakan Podman dan Redis cache. Panduan langkah demi langkah untuk membangun cloud pribadi yang aman, scalable, dan terintegrasi dengan ekosistem Digital Independence dari RICALNET.
+description: Tutorial teknis komprehensif instalasi Nextcloud self-hosted menggunakan Podman dan Redis cache. Panduan langkah demi langkah untuk membangun cloud pribadi yang aman, scalable, dan terintegrasi dengan ekosistem Digital Independence dari Privoss.
 categories: [Digital Independence, Cloud]
 tags: [self-hosted, nextcloud]
 author: rical
@@ -63,7 +63,7 @@ Nextcloud adalah platform kolaborasi file dan komunikasi open-source yang member
 ### Clone Repository
 
 ```bash
-git clone https://git.ricalnet.my.id/RICALNET/digital-independence.git
+git clone https://git.ricalnet.my.id/Privoss/digital-independence.git
 cd digital-independence
 ```
 
@@ -334,6 +334,6 @@ Dengan menyelesaikan panduan ini, Anda telah membangun fondasi Digital Independe
 
 ### Dokumentasi Resmi
 - [Panduan Konfigurasi External Storage di Nextcloud](https://docs.ricalnet.my.id/posts/panduan-konfigurasi-external-storage-di-nextcloud/)
-- [Repository: Digital Independence](https://git.ricalnet.my.id/RICALNET/digital-independence)
+- [Repository: Digital Independence](https://git.ricalnet.my.id/Privoss/digital-independence)
 - [Panduan Implementasi Hidden Service Tor](https://docs.ricalnet.my.id/posts/panduan-implementasi-hidden-service-tor/)
 - [Panduan Lengkap Mengonfigurasi Cloudflare Tunnel untuk Ekspos Layanan Lokal](https://docs.ricalnet.my.id/posts/panduan-lengkap-mengonfigurasi-cloudflare-tunnel-untuk-ekspos-layanan-lokal/)

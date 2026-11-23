@@ -114,21 +114,21 @@ $ cat /home/$USER/.ftp_history
 
 ### Persistence areas
 #### Direktori
-- `/etc/cron*/`{: .filepath}
-- `/etc/incron.d/*`{: .filepath}
-- `/etc/init.d/*`{: .filepath}
-- `/etc/rc*.d/*`{: .filepath}
-- `/etc/systemd/system/*`{: .filepath}
-- `/etc/update.d/*`{: .filepath}
-- `/var/spool/cron/*`{: .filepath}
-- `/var/spool/incron/*`{: .filepath}
-- `/var/run/motd.d/*`{: .filepath}
+- `/etc/cron*/`
+- `/etc/incron.d/*`
+- `/etc/init.d/*`
+- `/etc/rc*.d/*`
+- `/etc/systemd/system/*`
+- `/etc/update.d/*`
+- `/var/spool/cron/*`
+- `/var/spool/incron/*`
+- `/var/run/motd.d/*`
 
 #### File
-- `/etc/passwd`{: .filepath}
-- `/etc/sudoers`{: .filepath}
-- `/home/<user>/.ssh/authorized_keys`{: .filepath}
-- `/home/<user>/.bashrc`{: .filepath}
+- `/etc/passwd`
+- `/etc/sudoers`
+- `/home/<user>/.ssh/authorized_keys`
+- `/home/<user>/.bashrc`
 
 ## Alat untuk Incident Response dan Forensik Linux
 - **Pemantauan Jaringan**: [tcpdump](https://www.tcpdump.org/), [Wireshark](https://www.wireshark.org/), [Zeek](https://zeek.org/)

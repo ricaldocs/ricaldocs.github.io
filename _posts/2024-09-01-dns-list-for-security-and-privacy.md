@@ -136,7 +136,7 @@ Setelah Pi-hole aktif, cukup atur setiap perangkat atau router Anda untuk menggu
 | Platform        | Metode Utama                 | Catatan                                                                   |
 | --------------- | ---------------------------- | ------------------------------------------------------------------------- |
 | **Windows**     | Pengaturan jaringan → DNS    | Gunakan IPv4/IPv6 statis, atau konfigurasi DoH via registry               |
-| **Linux**       | systemd-resolved atau stubby | Konfigurasi DoT/DoH dengan file `/etc/systemd/resolved.conf`{: .filepath} |
+| **Linux**       | systemd-resolved atau stubby | Konfigurasi DoT/DoH dengan file `/etc/systemd/resolved.conf` |
 | **macOS**       | Preferensi Sistem → Jaringan | Set DNS server manual untuk antarmuka aktif                               |
 | **Android**     | Private DNS (DoT)            | Paling mudah, gunakan hostname dari penyedia                              |
 | **Router**      | DHCP / DNS forwarder         | Seluruh perangkat di rumah otomatis menggunakan DNS terpilih              |

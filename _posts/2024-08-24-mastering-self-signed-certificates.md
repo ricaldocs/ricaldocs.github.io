@@ -37,7 +37,7 @@ Gunakan perintah berikut untuk menghasilkan sertifikat dan kunci privat:
 ```bash
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/nextcloud/nextcloud.key -out /etc/ssl/nextcloud/nextcloud.crt
 ```
-Perintah di atas akan membuat file `nextcloud.key`{: .filepath} dan `nextcloud.crt`{: .filepath} di dalam direktori `/etc/ssl/nextcloud`{: .filepath}.
+Perintah di atas akan membuat file `nextcloud.key` dan `nextcloud.crt` di dalam direktori `/etc/ssl/nextcloud`.
 
 Penjelasan parameter:
 - `-x509` menunjukkan bahwa kita ingin membuat sertifikat self-signed, bukan Certificate Signing Request (CSR).
@@ -45,7 +45,7 @@ Penjelasan parameter:
 - `-days 365` menentukan masa berlaku sertifikat selama 365 hari.
 - `-newkey rsa:4096` membuat pasangan kunci baru dengan algoritma RSA dan panjang kunci 4096-bit.
 
-Kemudian, buat file konfigurasi baru di `/etc/apache2/sites-available/nextcloud-ssl.conf`{: .filepath}:
+Kemudian, buat file konfigurasi baru di `/etc/apache2/sites-available/nextcloud-ssl.conf`:
 ```bash
 sudo nano /etc/apache2/sites-available/nextcloud-ssl.conf
 ```

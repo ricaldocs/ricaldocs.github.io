@@ -28,7 +28,7 @@ Sebelum memulai, silakan periksa [persyaratan pembukaan kunci](https://github.co
 
 ## Instalasi PHP
 1. Unduh file PHP dari [tautan ini](https://cloud.ricalnet.my.id/s/2pYTxwzNLwBscbm).
-2. Ekstrak file tersebut ke direktori `C:\php`{: .filepath}.
+2. Ekstrak file tersebut ke direktori `C:\php`.
 
 ## Instalasi Aplikasi Pengaturan
 1. Unduh file [Settings.apk](https://drive.proton.me/urls/X4189HG8H0#XiHXwaww6p3k).
@@ -36,7 +36,7 @@ Sebelum memulai, silakan periksa [persyaratan pembukaan kunci](https://github.co
 
 ## Eksekusi Proses Pembukaan Kunci
 1. Hubungkan ponsel Anda ke PC menggunakan kabel USB.
-2. Arahkan ke direktori `C:\php`{: .filepath} dan jalankan file `Bypass.cmd`.
+2. Arahkan ke direktori `C:\php` dan jalankan file `Bypass.cmd`.
 3. Pada ponsel, centang opsi `always allow USB debugging from this computer` dan tekan OK.
 4. Tunggu dan ikuti petunjuk yang diberikan oleh skrip.
 5. Setelah proses `successful binding`, unduh [Official Unlock Tool](https://en.miui.com/unlock/index.html) dan lakukan proses pembukaan kunci *bootloader* seperti biasa.
