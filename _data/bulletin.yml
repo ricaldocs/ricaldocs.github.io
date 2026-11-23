@@ -1,0 +1,44 @@
+# ----------------------------------------------------
+# Konfigurasi Bulletin / Banner Pengumuman di Home
+# ----------------------------------------------------
+
+# Aktifkan (true) atau sembunyikan (false) banner
+enabled: true
+
+# ID unik pengumuman. Ganti ID ini jika membuat pengumuman baru
+# agar banner muncul kembali bagi pengunjung yang sebelumnya telah menutup (dismiss) banner.
+id: "privoss-onboarding-status"
+
+# Tipe tema tonal (Material You):
+# - info    (ungu / violet)
+# - warning (amber / oranye lembut)
+# - danger  (merah rose / peringatan penting)
+# - success (hijau emerald / tips)
+# - neutral (monochrome minimalis)
+type: "info"
+
+# Label pill badge di samping judul (opsional, contoh: "Update", "Pemberitahuan", "Penting")
+badge: "Early Access"
+
+# Ikon FontAwesome (opsional)
+# Contoh ikon: "fas fa-bullhorn", "fas fa-bell", "fas fa-circle-info", "fas fa-sparkles"
+icon: "fas fa-server"
+
+# Judul pengumuman
+title: "Onboarding Early Adopter Sedang Berjalan"
+
+# Isi pesan pengumuman (mendukung Markdown seperti teks tebal, link, code inline, dll.)
+content: "Infrastruktur terkelola Privoss saat ini membuka akses bertahap. Bergabung dalam daftar tunggu untuk mengamankan slot dan mendapatkan prioritas akses ke layanan *managed cybersecurity*."
+
+# Tautan / tombol aksi (opsional, kosongkan 'url' jika tidak diperlukan)
+link:
+  text: "Gabung Daftar Tunggu"
+  url: "https://ricalnet.my.id/#pricing"
+  external: true
+
+# Tombol 'x' bulat minimalis agar pengunjung bisa menutup pengumuman (true / false)
+# Status penutupan akan disimpan di browser pengunjung berdasarkan 'id' pengumuman.
+dismissible: false
+
+# Hanya tampilkan di halaman utama / beranda pertama jika pagination aktif (true / false)
+only_first_page: true

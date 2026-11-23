@@ -1,0 +1,267 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+
+.home-bulletin {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  border-radius: 16px;
+  padding: 1rem 1.15rem;
+  box-shadow: none;
+  background-color: var(--bulletin-bg);
+  border: 1px solid var(--bulletin-border);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  @include bp.lg {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 1.15rem 1.35rem;
+  }
+
+  .bulletin-inner {
+    gap: 0.85rem;
+  }
+
+  .bulletin-icon-chip {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bulletin-chip-bg);
+    color: var(--bulletin-accent);
+    font-size: 0.95rem;
+    margin-top: 0.1rem;
+  }
+
+  .bulletin-main {
+    min-width: 0;
+
+    .bulletin-header {
+      line-height: 1.3;
+    }
+
+    .bulletin-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background-color: var(--bulletin-chip-bg);
+      color: var(--bulletin-accent);
+    }
+
+    .bulletin-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--bulletin-title);
+      letter-spacing: -0.01em;
+    }
+
+    .bulletin-body {
+      font-size: 0.885rem;
+      line-height: 1.55;
+      color: var(--bulletin-text);
+
+      > p {
+        margin-bottom: 0.4rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      a {
+        color: var(--bulletin-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 600;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      code {
+        padding: 0.15rem 0.35rem;
+        border-radius: 4px;
+        font-size: 0.825em;
+        background-color: var(--bulletin-chip-bg);
+        color: var(--bulletin-accent);
+      }
+    }
+
+    .bulletin-footer {
+      .bulletin-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        background-color: var(--bulletin-btn-bg);
+        color: var(--bulletin-btn-text) !important;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          opacity: 0.88;
+          transform: translateY(-1px);
+          text-decoration: none;
+        }
+
+        i {
+          transition: transform 0.2s ease;
+        }
+
+        &:hover i {
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+
+  .bulletin-close-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 0;
+    background: transparent;
+    color: var(--bulletin-text);
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--bulletin-chip-bg);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--bulletin-accent);
+    }
+  }
+
+  &.bulletin-info {
+    --bulletin-bg: #f5f2fe;
+    --bulletin-border: #e4ddfb;
+    --bulletin-chip-bg: #ebe3fc;
+    --bulletin-accent: #7c3aed;
+    --bulletin-title: #1a142e;
+    --bulletin-text: #423b5c;
+    --bulletin-btn-bg: #7c3aed;
+    --bulletin-btn-text: #ffffff;
+  }
+
+  &.bulletin-warning {
+    --bulletin-bg: #fef8ee;
+    --bulletin-border: #f8e5c8;
+    --bulletin-chip-bg: #fcebd0;
+    --bulletin-accent: #b45309;
+    --bulletin-title: #2a1b07;
+    --bulletin-text: #4c3c26;
+    --bulletin-btn-bg: #b45309;
+    --bulletin-btn-text: #ffffff;
+  }
+
+  &.bulletin-danger {
+    --bulletin-bg: #fff1f2;
+    --bulletin-border: #fecdd3;
+    --bulletin-chip-bg: #ffe4e6;
+    --bulletin-accent: #e11d48;
+    --bulletin-title: #2d0e14;
+    --bulletin-text: #4f262e;
+    --bulletin-btn-bg: #e11d48;
+    --bulletin-btn-text: #ffffff;
+  }
+
+  &.bulletin-tip,
+  &.bulletin-success {
+    --bulletin-bg: #f0fdf4;
+    --bulletin-border: #bbf7d0;
+    --bulletin-chip-bg: #dcfce7;
+    --bulletin-accent: #059669;
+    --bulletin-title: #072e1c;
+    --bulletin-text: #1d4630;
+    --bulletin-btn-bg: #059669;
+    --bulletin-btn-text: #ffffff;
+  }
+
+  &.bulletin-neutral {
+    --bulletin-bg: #f6f5fa;
+    --bulletin-border: #e5e3ed;
+    --bulletin-chip-bg: #ebe9f3;
+    --bulletin-accent: #5a576b;
+    --bulletin-title: #16151f;
+    --bulletin-text: #444254;
+    --bulletin-btn-bg: #2d2b38;
+    --bulletin-btn-text: #ffffff;
+  }
+}
+
+[data-bs-theme='dark'] .home-bulletin {
+  &.bulletin-info {
+    --bulletin-bg: #151324;
+    --bulletin-border: #2c2748;
+    --bulletin-chip-bg: #25203e;
+    --bulletin-accent: #a78bfa;
+    --bulletin-title: #f5f3ff;
+    --bulletin-text: #c5c1de;
+    --bulletin-btn-bg: #a78bfa;
+    --bulletin-btn-text: #120e24;
+  }
+
+  &.bulletin-warning {
+    --bulletin-bg: #1e1810;
+    --bulletin-border: #3b2e1a;
+    --bulletin-chip-bg: #2d2212;
+    --bulletin-accent: #fbbf24;
+    --bulletin-title: #fef3c7;
+    --bulletin-text: #ded4bf;
+    --bulletin-btn-bg: #fbbf24;
+    --bulletin-btn-text: #211604;
+  }
+
+  &.bulletin-danger {
+    --bulletin-bg: #221216;
+    --bulletin-border: #421e25;
+    --bulletin-chip-bg: #35151c;
+    --bulletin-accent: #fb7185;
+    --bulletin-title: #ffe4e6;
+    --bulletin-text: #dec7cb;
+    --bulletin-btn-bg: #fb7185;
+    --bulletin-btn-text: #23080e;
+  }
+
+  &.bulletin-tip,
+  &.bulletin-success {
+    --bulletin-bg: #101c15;
+    --bulletin-border: #1d3b2b;
+    --bulletin-chip-bg: #162c20;
+    --bulletin-accent: #34d399;
+    --bulletin-title: #d1fae5;
+    --bulletin-text: #beddcd;
+    --bulletin-btn-bg: #34d399;
+    --bulletin-btn-text: #052014;
+  }
+
+  &.bulletin-neutral {
+    --bulletin-bg: #161522;
+    --bulletin-border: #282638;
+    --bulletin-chip-bg: #201f2f;
+    --bulletin-accent: #b0aec2;
+    --bulletin-title: #ffffff;
+    --bulletin-text: #c8c6d7;
+    --bulletin-btn-bg: #e8e5ef;
+    --bulletin-btn-text: #12111c;
+  }
+}

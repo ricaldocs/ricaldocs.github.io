@@ -1,0 +1,110 @@
+{% assign bulletin = site.data.bulletin | default: site.bulletin %}
+
+{% if bulletin.enabled %}
+  {% assign show_bulletin = true %}
+  {% if bulletin.only_first_page and paginator.page > 1 %}
+    {% assign show_bulletin = false %}
+  {% endif %}
+
+  {% if show_bulletin %}
+    {% assign b_type = bulletin.type | default: 'info' %}
+    {% assign b_id = bulletin.id | default: 'home-bulletin-default' %}
+    <aside
+      id="home-bulletin"
+      class="home-bulletin bulletin-{{ b_type }}"
+      data-bulletin-id="{{ b_id }}"
+      role="region"
+      aria-label="{{ bulletin.title | default: 'Pengumuman' }}"
+    >
+      <div class="bulletin-inner d-flex align-items-start">
+        <div class="bulletin-icon-chip flex-shrink-0">
+          {% if bulletin.icon and bulletin.icon != '' %}
+            <i class="{{ bulletin.icon }} fa-fw"></i>
+          {% else %}
+            {% case b_type %}
+              {% when 'danger' %}
+                <i class="fas fa-triangle-exclamation fa-fw"></i>
+              {% when 'warning' %}
+                <i class="fas fa-bell fa-fw"></i>
+              {% when 'tip' or 'success' %}
+                <i class="fas fa-circle-check fa-fw"></i>
+              {% else %}
+                <i class="fas fa-bullhorn fa-fw"></i>
+            {% endcase %}
+          {% endif %}
+        </div>
+
+        <div class="bulletin-main flex-grow-1">
+          <div class="bulletin-header d-flex align-items-center flex-wrap gap-2 mb-1">
+            {% if bulletin.badge and bulletin.badge != '' %}
+              <span class="bulletin-badge">{{ bulletin.badge }}</span>
+            {% endif %}
+            {% if bulletin.title and bulletin.title != '' %}
+              <span class="bulletin-title">{{ bulletin.title }}</span>
+            {% endif %}
+          </div>
+
+          <div class="bulletin-body">
+            {{ bulletin.content | markdownify }}
+          </div>
+
+          {% if bulletin.link and bulletin.link.url and bulletin.link.url != '' %}
+            <div class="bulletin-footer mt-2">
+              <a
+                href="{{ bulletin.link.url | relative_url }}"
+                class="bulletin-action-btn"
+                {% if bulletin.link.external %}
+                  target="_blank" rel="noopener noreferrer"
+                {% endif %}
+              >
+                <span>{{ bulletin.link.text | default: 'Selengkapnya' }}</span>
+                <i class="fas fa-arrow-right fa-xs"></i>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if bulletin.dismissible %}
+          <button
+            type="button"
+            class="bulletin-close-btn flex-shrink-0"
+            aria-label="Tutup Pengumuman"
+            id="bulletin-close-btn"
+          >
+            <i class="fas fa-xmark"></i>
+          </button>
+        {% endif %}
+      </div>
+    </aside>
+
+    {% if bulletin.dismissible %}
+      <script>
+        (function() {
+          var bulletin = document.getElementById('home-bulletin');
+          if (!bulletin) return;
+          var bulletinId = bulletin.getAttribute('data-bulletin-id');
+          var storageKey = 'dismissed_bulletin_' + bulletinId;
+          try {
+            if (localStorage.getItem(storageKey) === 'true') {
+              bulletin.style.display = 'none';
+            } else {
+              var closeBtn = document.getElementById('bulletin-close-btn');
+              if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                  bulletin.style.opacity = '0';
+                  bulletin.style.transform = 'translateY(-6px)';
+                  setTimeout(function() {
+                    bulletin.style.display = 'none';
+                  }, 250);
+                  try {
+                    localStorage.setItem(storageKey, 'true');
+                  } catch (e) {}
+                });
+              }
+            }
+          } catch (e) {}
+        })();
+      </script>
+    {% endif %}
+  {% endif %}
+{% endif %}
