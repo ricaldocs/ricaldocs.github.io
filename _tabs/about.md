@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-**Penulis: Risnanda Pascal** | **Update terakhir: September 2026**
+**Penulis: Risnanda Pascal** | **Update terakhir: November 2026**
 
 Ricaldocs adalah **Uncensored Tech Library** — catatan perjalanan dari error tengah malam menuju pemahaman. Setiap postingan adalah jejak ekspedisi kolektif memahami teknologi, tanpa sensor editorial, tanpa jargon yang tidak perlu.
 
@@ -49,7 +49,7 @@ Mengapa filosofi ini penting? Karena pengetahuan yang terkunci di balik tembok b
 
 | Kontak                                                                 | Tujuan                                     |
 | ---------------------------------------------------------------------- | ------------------------------------------ |
-| Email: ricalnet@duck.com                                               | Pertanyaan umum, saran, kritik             |
+| Email: contact@ricalnet.my.id                                               | Pertanyaan umum, saran, kritik             |
 | Forgejo: [rical/ricaldocs](https://git.ricalnet.my.id/rical/ricaldocs) | Kontribusi kode, laporan bug, pull request |
 
 Dibangun dengan [Chirpy](https://git.ricalnet.my.id/rical/ricaldocs/src/branch/main/README.md) | Terima kasih untuk seluruh kontributor dan komunitas sumber terbuka.
